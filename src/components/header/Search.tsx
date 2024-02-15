@@ -9,6 +9,7 @@ const SearchForm = styled.div`
 `
 const SearchBar = styled.input`
 	background-color:#030303;
+	display:flex;
 `
 function Search(){
 	
