@@ -15,13 +15,18 @@ const HeaderForm = styled.div`
 `
 
 const LeftContent = styled.div`
-	padding:20px;
+	padding-left:16px;
+	align-items:center;
 	display:flex;
 	order:1;
+	width:224px;
 `
 const CenterContent = styled.div`
 	display:flex;
 	order:2;
+	align-items:center;
+	margin-right:auto;
+	padding-left:56px;
 `
 const RightContent = styled.div`
 	padding:20px;
