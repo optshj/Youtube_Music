@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 import { GoSearch } from "react-icons/go";
 
-const SearchForm = styled.div< {isFocused:boolean}>`
+const SearchForm = styled.div<{isFocused:boolean}>`
 	display:flex;
 	width:480px;
-	height:42px;
+	height:40px;
 	border-radius:8px;
 	background-color: ${props => props.isFocused ? '#030303':'#292929'};
 	border:1px solid #4a5056;
@@ -31,8 +31,8 @@ const SearchBar = styled.input`
 	}
 
 `
-const SearchIconForm = styled.div`
-	color:#9a9e9b;
+const SearchIconForm = styled.div<{isFocused:boolean}>`
+	color:${props => props.isFocused ? '#fff' : '#9a9e9b'};
 	font-size:20px;
 	padding:8px 16px;
 	cursor:pointer;
@@ -49,7 +49,7 @@ function Search(){
 	return(
 		<>
 			<SearchForm isFocused={isSearchFocused} >
-				<SearchIconForm>
+				<SearchIconForm isFocused={isSearchFocused}>
 					<GoSearch />
 				</SearchIconForm>
 
