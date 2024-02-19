@@ -26,7 +26,10 @@ const CenterContent = styled.div`
 	order:2;
 	align-items:center;
 	margin-right:auto;
-	padding-left:56px;
+	padding-left:100px;
+	@media (max-width:1149px) {
+		padding-left:56px;
+	}
 `
 const RightContent = styled.div`
 	padding:20px;

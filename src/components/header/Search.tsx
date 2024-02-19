@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { GoSearch } from "react-icons/go";
 
-const SearchForm = styled.div<{isFocused:boolean}>`
+const WebSearchForm = styled.div<{isFocused:boolean,isSmall:boolean}>`
 	display:flex;
 	width:480px;
 	height:40px;
@@ -13,7 +13,18 @@ const SearchForm = styled.div<{isFocused:boolean}>`
 	&:foucs{
 		backgorund-color:black;
 	}
+	@media (max-width:956px) {
+		display: ${props => (props.isSmall || props.isFocused ? 'flex' : 'none')};
+		width:calc(100vw - 12px - 32px);
+		position:absolute;
+	}
 `
+const MobileSearchForm = styled.div<{isSmall:boolean}>`
+	@media (min-width:956px) {
+		display: ${props => (props.isSmall? 'block' :'none')};
+	}
+`
+
 const SearchBar = styled.input`
 	width:366px;
 	height:40px;
@@ -31,11 +42,14 @@ const SearchBar = styled.input`
 	}
 
 `
-const SearchIconForm = styled.div<{isFocused:boolean}>`
+const WebSearchIconForm = styled.div<{isFocused:boolean}>`
 	color:${props => props.isFocused ? '#fff' : '#9a9e9b'};
 	font-size:20px;
 	padding:8px 16px;
 	cursor:pointer;
+`
+const MobileSearchIconForm = styled.div`
+	color:#fff;
 `
 function Search(){
 	const [isSearchFocused,setIsSearchFocused] = useState(false);
@@ -48,13 +62,19 @@ function Search(){
 	}
 	return(
 		<>
-			<SearchForm isFocused={isSearchFocused} >
-				<SearchIconForm isFocused={isSearchFocused}>
+			<WebSearchForm isFocused={isSearchFocused} isSmall={false} >
+				<WebSearchIconForm isFocused={isSearchFocused}>
 					<GoSearch />
-				</SearchIconForm>
+				</WebSearchIconForm>
 
 				<SearchBar type="text" placeholder="노래, 앨범, 아티스트, 팟캐스트 검색" onFocus={handleFocus} onBlur={handleBlur}></SearchBar>
-			</SearchForm>
+			</WebSearchForm>
+			<MobileSearchForm isSmall={true}>
+				<MobileSearchIconForm>
+					<GoSearch/>
+				</MobileSearchIconForm>
+			</MobileSearchForm>
+			
 		</>
 	)
 }
