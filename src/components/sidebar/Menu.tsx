@@ -11,6 +11,7 @@ import MenuIcon from './MenuIcon';
 const MenuForm = styled.div`
     padding:8px 8px;
     width:100%; 
+    box-sizing: border-box;
 `
 function Menu(){
 

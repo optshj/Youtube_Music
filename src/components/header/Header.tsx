@@ -18,24 +18,27 @@ const LeftContent = styled.div`
 	padding-left:16px;
 	align-items:center;
 	display:flex;
-	order:1;
 	width:224px;
 `
 const CenterContent = styled.div`
 	display:flex;
-	order:2;
+	position:relative;
+	flex-grow:1;
 	align-items:center;
-	margin-right:auto;
+	justify-content:flex-start;
 	padding-left:100px;
 	@media (max-width:1149px) {
 		padding-left:56px;
+	}
+	@media (max-width:936px) {
+		justify-content:flex-end;
+		padding-left:0;
 	}
 `
 const RightContent = styled.div`
 	padding:20px;
 	padding-right:100px;
 	display:flex;
-	order:3;
 `
 function Header() {
 	return(

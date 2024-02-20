@@ -17,7 +17,7 @@ const MenuIconForm = styled.div`
     cursor:pointer;
     border-radius:8px;
     &:hover{
-        background-color:#606060;
+        background-color:#343434;
     }
 `
 const MenuIconIcon = styled.div`
