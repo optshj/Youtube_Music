@@ -7,7 +7,7 @@ const SidebarForm = styled.div`
     position:fixed;
     border-right:1px solid rgba(255,255,255,.15);
     height:100%;
-    @media (min-width:937px){
+    @media (min-width:937px) or (max-width:616px){
         visibility:hidden;
     }
 `
