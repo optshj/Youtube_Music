@@ -9,9 +9,15 @@ import { ImFilePlay } from "react-icons/im";
 import MenuIcon from './MenuIcon';
 
 const MenuForm = styled.div`
-    padding:8px 8px;
+    padding:0 8px;
+    padding-top:8px;
     width:100%; 
     box-sizing: border-box;
+`
+const MenuUnderLine = styled.div`
+    border-top:1px solid rgba(255,255,255,.15);
+    margin:24px auto;
+    width:192px;
 `
 function Menu(){
 
@@ -22,6 +28,7 @@ function Menu(){
                 <MenuIcon icon ={FaRegCompass} descript='둘러보기'></MenuIcon>
                 <MenuIcon icon={ImFilePlay} descript='보관함'></MenuIcon>
             </MenuForm>
+            <MenuUnderLine></MenuUnderLine>
         </>
 
     )

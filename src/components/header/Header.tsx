@@ -19,6 +19,7 @@ const LeftContent = styled.div`
 	align-items:center;
 	display:flex;
 	width:224px;
+	z-index:2;
 `
 const CenterContent = styled.div`
 	display:flex;

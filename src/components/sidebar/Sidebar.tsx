@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import Menu from "./Menu";
+import Menu from "./Menu/Menu";
 import Bumper from "./Bumper";
+import PlayListMenu from "./PlayList/PlayListMenu";
 
 const SidebarForm = styled.div`
     width:240px;
@@ -19,6 +20,7 @@ function Sidebar() {
             <SidebarForm>
                 <Bumper></Bumper>
                 <Menu></Menu>
+                <PlayListMenu></PlayListMenu>
             </SidebarForm>
         </>
     )
