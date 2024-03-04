@@ -4,9 +4,7 @@ import styled from "styled-components";
 import MainHeader from "./header/MainHeader";
 
 const MainForm = styled.div`
-    padding-top:64px;
-    position:absolute;
-    width:100%;
+    box-sizing:border-box;
     @media (min-width:936px){
         margin-left:240px;
     }
@@ -14,15 +12,19 @@ const MainForm = styled.div`
         margin-left:72px;
     }
 `
+const MainPadding = styled.div`
+`
 
 function Main(){
 
 
     return(
         <>
-            <MainForm>
-                <MainHeader></MainHeader>
-            </MainForm>
+            <MainPadding>
+                <MainForm>
+                    <MainHeader></MainHeader>
+                </MainForm>
+            </MainPadding>
         </>
     )
 }

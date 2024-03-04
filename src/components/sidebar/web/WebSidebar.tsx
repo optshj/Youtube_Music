@@ -1,9 +1,9 @@
 import React from "react";
 import styled,{keyframes} from "styled-components";
 
-import Menu from "./Menu/Menu";
+import Menu from "./menu/Menu";
 import Bumper from "./Bumper";
-import PlayListMenu from "./PlayList/PlayListMenu";
+import PlayListMenu from "./playlist/PlayListMenu";
 
 const hideSidebar = keyframes`
     from {

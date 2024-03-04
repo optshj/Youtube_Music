@@ -7,7 +7,7 @@ const MainHeaderForm = styled.div`
     margin:0 auto;
     overflow-x:auto;
     white-space:nowrap;
-    max-width:min(calc(100vw - 112px -72px - 12px),1478px);
+    width:min(calc(100vw - 200px - 240px - 12px ),1478px);
     ::-webkit-scrollbar {
         display: none;
       }

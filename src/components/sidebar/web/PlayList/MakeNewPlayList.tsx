@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import { IoAddSharp } from "react-icons/io5";
 
+import MakePlayList from "../../../modal/MakePlayList";
 
 const MakePlayListForm = styled.div`
     display:flex;
@@ -28,10 +29,14 @@ const AddNameForm = styled.div`
     line-height:36px;
 `
 function MakeNewPlayList() {
+    const [modalOpen,setModalOpen] = useState(false);
+    const onModalOpen = () => {
+        setModalOpen(true);
+    }
 
     return(
         <>
-            <MakePlayListForm>
+            <MakePlayListForm onClick={onModalOpen}>
                 <AddIconForm>
                     <IoAddSharp size={24} />
                 </AddIconForm>
@@ -40,6 +45,7 @@ function MakeNewPlayList() {
                     새 재생목록
                 </AddNameForm>
             </MakePlayListForm>
+            {modalOpen && <MakePlayList></MakePlayList>}
         </>
     )
 }

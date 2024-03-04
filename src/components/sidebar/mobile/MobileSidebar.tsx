@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Menu from "./Menu/Menu";
+import Menu from "./menu/Menu";
 
 const SidebarForm = styled.div`
     width:72px;

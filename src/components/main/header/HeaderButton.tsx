@@ -5,7 +5,7 @@ interface HeaderButtonProps {
     name:string
 }
 const HeaderButtonForm = styled.div`
-    padding:32px 0 16px;
+    padding:40px 0 8px;
     margin:6px;
 `
 const LinkButton = styled.div`
