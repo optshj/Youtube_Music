@@ -39,6 +39,14 @@ const UnderScore = styled.div`
     width:100%;
     height:1px;
 `
+const UnderScoreActive = styled.div`
+    visibility:hidden;
+    position:relative;
+    border-bottom:1px solid #606060;
+    padding:0;
+    width:100%;
+    height:1px;
+`
 function Custom(){
 
     return(
