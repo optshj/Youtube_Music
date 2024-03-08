@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { useModal } from "../context/ModalContext";
+
 const ActionForm = styled.div`
     display:flex;
     justify-content:flex-end;
@@ -36,11 +38,12 @@ const MakeButton = styled.button`
     }
 `
 function Action(){
+    const {close} = useModal();
 
     return(
         <>
             <ActionForm>
-                <CancelButton>취소</CancelButton>
+                <CancelButton onClick={close}>취소</CancelButton>
                 <MakeButton>만들기</MakeButton>
             </ActionForm>
         </>

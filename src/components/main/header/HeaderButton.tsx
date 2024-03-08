@@ -16,6 +16,10 @@ const LinkButton = styled.div`
     color:white;
     align-items:center;
     font-size:14px;
+    cursor:pointer;
+    &:hover{
+        background-color:#403f42;
+    }
 `
 const FontForm = styled.div`
     margin:0 12px;

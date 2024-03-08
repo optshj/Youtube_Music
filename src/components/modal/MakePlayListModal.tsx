@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import Modal from 'react-modal';
+
+import { IsModalOpen } from "../context/ModalContext";
 
 import Title from "./Title";
 import Content from "./Content";
@@ -15,16 +18,18 @@ const ModalForm = styled.div`
     background-color:#212121;
     border-radius:3px;
 `
-function MakePlayList(){
-
+function MakePlayListModal(){
+    const isOpen = IsModalOpen();
     return(
         <>
-            <ModalForm>
-                <Title></Title>
-                <Content></Content>
-            </ModalForm>
+            <Modal isOpen={isOpen}>
+                <ModalForm>
+                    <Title></Title>
+                    <Content></Content>
+                </ModalForm>
+            </Modal>
         </>
     )
 }
 
-export default MakePlayList;
+export default MakePlayListModal;
