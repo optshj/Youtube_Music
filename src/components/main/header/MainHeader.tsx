@@ -7,15 +7,24 @@ const Wrapper = styled.div`
     margin:0 auto;
     overflow-x:auto;
     white-space:nowrap;
-    width:min(calc(100vw - 200px - 240px - 12px ),1478px);
+    max-width:min(calc(100vw - 452px),1478px);
+    @media (max-width:1150px) and (min-width:936px){
+        max-width:min(calc(100vw - 112px - 240px - 12px ),1478px);
+    }
+    @media (max-width:936px) and (min-width:615px){
+        max-width:min(calc(100vw - 112px - 72px - 12px ),1478px);
+    }
+    @media (max-width:615px){
+        max-width:calc(100vw - 32px)
+    }
     ::-webkit-scrollbar {
         display: none;
-      }
-      &:hover {
+    }
+    &:hover {
         ::-webkit-scrollbar {
-          display: block;
+        display: block;
         }
-      }
+    }
     & > *:first-child {
         margin-left: 0;
     }

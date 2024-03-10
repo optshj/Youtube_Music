@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import ReactModal from "react-modal";
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
 
 import { IsModalOpen } from "../context/ModalContext";
 import { useModal } from "../context/ModalContext";
@@ -36,7 +36,16 @@ const ModalStyles:ReactModal.Styles = {
         outline:'none'
     }
 };
+const FadeIn = keyframes`
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+`
 const ResponsiveModal = styled(Modal)`
+    animation: ${FadeIn} .15s linear;
     @media (min-width: 1364px){
         width:640px;
     }

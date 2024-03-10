@@ -12,19 +12,15 @@ const Wrapper = styled.div`
         margin-left:72px;
     }
 `
-const MainPadding = styled.div`
-`
 
 function Main(){
 
 
     return(
         <>
-            <MainPadding>
-                <Wrapper>
-                    <MainHeader></MainHeader>
-                </Wrapper>
-            </MainPadding>
+            <Wrapper>
+                <MainHeader></MainHeader>
+            </Wrapper>
         </>
     )
 }

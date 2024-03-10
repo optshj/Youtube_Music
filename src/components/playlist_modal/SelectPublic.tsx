@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { IoEarthOutline } from "react-icons/io5";
 import { IoChevronDownSharp } from "react-icons/io5";
 
-import PublicDropDown from "./PublicDropDown";
+import PublicDropDown from "./dropdown/PublicDropDown";
 
 const Wrapper = styled.div`
     display:flex;
