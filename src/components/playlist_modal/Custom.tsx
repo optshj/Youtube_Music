@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import SelectPublic from "./SelectPublic";
 
 const Wrapper = styled.div`
     padding:32px 24px;
@@ -30,9 +31,9 @@ const Input = styled.input`
 const Space = styled.div`
 `
 const ExplainForm = styled.div`
-    margin:32px 0 40px;
+    margin:32px 0 34px;
 `
-const UnderScore = styled.div`
+const UnderLine = styled.div`
     position:relative;
     border-bottom:1px solid #606060;
     padding:0;
@@ -56,15 +57,16 @@ function Custom(){
                     <Space>&nbsp;</Space>
                     <Label htmlFor="input-title">제목</Label>
                     <Input type='text' id="input-title"></Input>
-                    <UnderScore></UnderScore>
+                    <UnderLine></UnderLine>
                 </TilteForm>
 
                 <ExplainForm>
                     <Space>&nbsp;</Space>
                     <Label htmlFor="input-explain">설명</Label>
                     <Input type='text' id="input-explain"></Input>
-                    <UnderScore></UnderScore>
+                    <UnderLine></UnderLine>
                 </ExplainForm>
+                <SelectPublic></SelectPublic>
             </Wrapper>
         </>
     )

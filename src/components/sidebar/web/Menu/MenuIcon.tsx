@@ -20,7 +20,7 @@ const MenuIconForm = styled.div`
         background-color:#343434;
     }
 `
-const MenuIconIcon = styled.div`
+const IconMargin = styled.div`
     margin-right:20px;
 `
 const MenuIconFont = styled.div`
@@ -31,9 +31,9 @@ function MenuIcon({icon:Icon,descript}:MenuIconProps){
     return(
         <>
             <MenuIconForm>
-                <MenuIconIcon>
+                <IconMargin>
                 <Icon/>
-                </MenuIconIcon>
+                </IconMargin>
 
                 <MenuIconFont>
                     {descript}

@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
 import Main from './components/main/Main';
-import MakePlayListModal from './components/modal/MakePlayListModal';
+import MakePlayListModal from './components/playlist_modal/MakePlayListModal';
 
 function App() {
 

@@ -33,6 +33,7 @@ const ModalStyles:ReactModal.Styles = {
         transform:"translate(-50%,-50%)",
         top:"50%",
         left:"50%",
+        outline:'none'
     }
 };
 const ResponsiveModal = styled(Modal)`

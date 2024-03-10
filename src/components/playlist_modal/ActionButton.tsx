@@ -3,8 +3,6 @@ import styled from "styled-components";
 
 import { useModal } from "../context/ModalContext";
 
-import SelectPublic from "./SelectPublic";
-
 const ActionForm = styled.div`
     display:flex;
     justify-content:flex-end;
@@ -43,7 +41,6 @@ function ActionButton(){
             <ActionForm>
                 <CancelButton onClick={close}>취소</CancelButton>
                 <MakeButton>만들기</MakeButton>
-                <SelectPublic></SelectPublic>
             </ActionForm>
         </>
     )   
