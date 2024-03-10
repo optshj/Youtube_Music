@@ -4,11 +4,12 @@ import styled from "styled-components";
 import Action from "./Action";
 import Custom from "./Custom";
 
+
 function Content() {
     return(
-        <>
+        <>  
             <Custom></Custom>
-            <Action></Action>
+            <Action></Action>   
         </>
     )
 }
