@@ -8,7 +8,7 @@ import { ImFilePlay } from "react-icons/im";
 
 import MenuIcon from './MenuIcon';
 
-const MenuForm = styled.div`
+const Wrapper = styled.div`
     padding:0 8px;
     padding-top:8px;
     width:100%; 
@@ -23,11 +23,11 @@ function Menu(){
 
     return(
         <>
-            <MenuForm>
+            <Wrapper>
                 <MenuIcon icon ={MdHomeFilled} descript='홈'></MenuIcon>
                 <MenuIcon icon ={FaRegCompass} descript='둘러보기'></MenuIcon>
                 <MenuIcon icon={ImFilePlay} descript='보관함'></MenuIcon>
-            </MenuForm>
+            </Wrapper>
             <MenuUnderLine></MenuUnderLine>
         </>
 

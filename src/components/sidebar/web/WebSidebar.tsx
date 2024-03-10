@@ -13,7 +13,7 @@ const hideSidebar = keyframes`
         transform:translate3d(-100%,0,0);
     }
     `
-    const SidebarForm = styled.div`
+    const Wrapper = styled.div`
     width:240px;
     position:fixed;
     top:0;
@@ -28,11 +28,11 @@ function WebSidebar() {
 
     return(
         <> 
-            <SidebarForm>
+            <Wrapper>
                 <Bumper></Bumper>
                 <Menu></Menu>
                 <PlayListMenu></PlayListMenu>
-            </SidebarForm>
+            </Wrapper>
         </>
     )
 }

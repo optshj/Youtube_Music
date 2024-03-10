@@ -9,7 +9,7 @@ import UserIcon from './UserIcon';
 
 
 
-const HeaderForm = styled.div`
+const Wrapper = styled.div`
 	display: flex;
   	justify-content: space-between;
 `
@@ -44,7 +44,7 @@ const RightContent = styled.div`
 function Header() {
 	return(
 		<>
-			<HeaderForm>
+			<Wrapper>
 				<LeftContent>
 					<Menu/>
 					<Logo/>
@@ -59,7 +59,7 @@ function Header() {
 				<RightContent>
 					<UserIcon/>
 				</RightContent>
-			</HeaderForm>
+			</Wrapper>
 		</>
 	)
 }

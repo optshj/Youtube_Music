@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import MainHeader from "./header/MainHeader";
 
-const MainForm = styled.div`
+const Wrapper = styled.div`
     box-sizing:border-box;
     @media (min-width:936px){
         margin-left:240px;
@@ -21,9 +21,9 @@ function Main(){
     return(
         <>
             <MainPadding>
-                <MainForm>
+                <Wrapper>
                     <MainHeader></MainHeader>
-                </MainForm>
+                </Wrapper>
             </MainPadding>
         </>
     )

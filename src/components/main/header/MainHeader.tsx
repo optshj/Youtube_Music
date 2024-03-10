@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import HeaderButton from "./HeaderButton";
 
-const MainHeaderForm = styled.div`
+const Wrapper = styled.div`
     display:flex;
     margin:0 auto;
     overflow-x:auto;
@@ -29,7 +29,7 @@ const MainHeaderForm = styled.div`
 function MainHeader(){
     return(
         <>
-            <MainHeaderForm>
+            <Wrapper>
                 <HeaderButton name="운동"></HeaderButton>
                 <HeaderButton name="에너지 충전"></HeaderButton>
                 <HeaderButton name="휴식"></HeaderButton>
@@ -40,7 +40,7 @@ function MainHeader(){
                 <HeaderButton name="파티"></HeaderButton>
                 <HeaderButton name="슬픔"></HeaderButton>
                 <HeaderButton name="잠잘 때"></HeaderButton>
-            </MainHeaderForm>
+            </Wrapper>
         </>
     )
 }

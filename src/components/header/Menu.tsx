@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { RxHamburgerMenu } from "react-icons/rx";
 
-const MenuForm = styled.div`
+const Wrapper = styled.div`
 	padding: 6px;
 	color:white;
 	font-size:22px;
@@ -21,9 +21,9 @@ function Menu(){
 	
 	return(
 		<>
-			<MenuForm>
+			<Wrapper>
 				<RxHamburgerMenu />
-			</MenuForm>
+			</Wrapper>
 		</>
 	)
 }

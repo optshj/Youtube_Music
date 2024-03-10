@@ -4,7 +4,7 @@ import styled from "styled-components";
 interface HeaderButtonProps {
     name:string
 }
-const HeaderButtonForm = styled.div`
+const Wrapper = styled.div`
     padding:40px 0 8px;
     margin:6px;
 `
@@ -28,13 +28,13 @@ function HeaderButton({name}:HeaderButtonProps){
 
     return(
         <>
-            <HeaderButtonForm>
+            <Wrapper>
                 <LinkButton>
                     <FontForm>
                         {name}
                     </FontForm>
                 </LinkButton>
-            </HeaderButtonForm>
+            </Wrapper>
         </>
     )
 }

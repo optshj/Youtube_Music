@@ -1,5 +1,5 @@
 import styled from "styled-components";
-const TitleForm = styled.h2`
+const Wrapper = styled.h2`
     font-family:YouTube Sans, Roboto,Noto Naskh Arabic UI,Arial,sans-serif;
     padding:24px 24px 0;
     font-size:20px;
@@ -10,9 +10,9 @@ const TitleForm = styled.h2`
 function Title(){
     return(
         <>
-            <TitleForm>
+            <Wrapper>
                 새 재생목록
-            </TitleForm>
+            </Wrapper>
         </>
     )
 }

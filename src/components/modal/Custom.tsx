@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const CustomForm = styled.div`
+const Wrapper = styled.div`
     padding:32px 24px;
 `
 const TilteForm = styled.div`
@@ -51,7 +51,7 @@ function Custom(){
 
     return(
         <>
-            <CustomForm>
+            <Wrapper>
                 <TilteForm>
                     <Space>&nbsp;</Space>
                     <Label htmlFor="input-title">제목</Label>
@@ -65,7 +65,7 @@ function Custom(){
                     <Input type='text' id="input-explain"></Input>
                     <UnderScore></UnderScore>
                 </ExplainForm>
-            </CustomForm>
+            </Wrapper>
         </>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LogoForm = styled.div`
+const Wrapper = styled.div`
 	font-size:20px;
 	font-weight:bold;
 	color:white;
@@ -14,9 +14,9 @@ function Logo(){
 	
 	return(
 		<>
-			<LogoForm>
+			<Wrapper>
 				Music
-			</LogoForm>
+			</Wrapper>
 		</>
 	)
 }

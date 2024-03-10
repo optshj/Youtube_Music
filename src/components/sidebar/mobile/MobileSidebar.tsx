@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Menu from "./menu/Menu";
 
-const SidebarForm = styled.div`
+const Wrapper = styled.div`
     width:72px;
     position:fixed;
     height:100%;
@@ -13,9 +13,9 @@ const SidebarForm = styled.div`
 function MobileSidebar(){
     return(
         <>
-            <SidebarForm>
+            <Wrapper>
                 <Menu></Menu>
-            </SidebarForm>
+            </Wrapper>
         </>
     )
 }
