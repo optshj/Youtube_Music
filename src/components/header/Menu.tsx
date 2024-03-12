@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useSidebar } from '../context/SidebarContext';
+
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const Wrapper = styled.div`
@@ -17,11 +19,11 @@ const Wrapper = styled.div`
 `
 
 function Menu(){
-	
+	const click = useSidebar();
 	
 	return(
 		<>
-			<Wrapper>
+			<Wrapper onClick={click}>
 				<RxHamburgerMenu />
 			</Wrapper>
 		</>

@@ -1,10 +1,9 @@
 import React, { useContext, createContext, useState, useMemo } from "react";
 
-
 const ModalValueContext = createContext<any>(null);
 const ModalActionContext = createContext<any>(null);
 
-export function ModalProvider({children} : {children:React.ReactNode}) {
+export default function ModalProvider({children} : {children:React.ReactNode}) {
     const [isOpen,setIsOpen] = useState(false);
     const actions = useMemo(
         () => ({
@@ -23,7 +22,6 @@ export function ModalProvider({children} : {children:React.ReactNode}) {
                 {children}
             </ModalActionContext.Provider>
         </ModalValueContext.Provider>
-
     )
 }
 
