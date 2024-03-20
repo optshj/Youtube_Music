@@ -5,7 +5,25 @@ import { IoEarthOutline } from "react-icons/io5";
 import { IoChevronDownSharp } from "react-icons/io5";
 
 import PublicDropDown from "./dropdown/PublicDropDown";
-
+const UnderLine = styled.div`
+    position:absolute;
+    border-bottom:1px solid #606060;
+    padding:0;
+    height:1px;
+    width:100%;
+`
+const UnderLineActive = styled.div`
+    position:absolute;
+    border-bottom:2px solid #3ea6ff;
+    padding:0;
+    width:100%;
+    transform:scaleX(0);
+    height:1px;
+    transition:all 0.25s ease-in-out;
+`
+const UnderLineWrapper = styled.div`
+    position:relative;
+`
 const Wrapper = styled.div`
     display:flex;
     flex-direction:column;
@@ -24,16 +42,16 @@ const DropDownBox = styled.div`
     display:flex;
     flex-direction:row;
     align-itmes:center;
+    &:active{
+        & + ${UnderLineWrapper} ${UnderLineActive}{
+            transform:scaleX(1);
+        }
+    }
 `
 const IconFont = styled.div`
     color:#aaa;
     font-size:24px;
     padding-left:4px;
-`
-const UnderLine = styled.div`
-    border-bottom:1px solid #606060;
-    padding:0;
-    width:100%;
 `
 const ArrowFont = styled.div`
     color:#919191;
@@ -66,7 +84,10 @@ function SelectPublic(){
                         <IoChevronDownSharp />
                     </ArrowFont>
                 </DropDownBox>
-                <UnderLine></UnderLine>
+                <UnderLineWrapper>
+                    <UnderLine></UnderLine>
+                    <UnderLineActive></UnderLineActive>
+                </UnderLineWrapper>
                 {
                     openDropDown && <PublicDropDown></PublicDropDown>
                 }

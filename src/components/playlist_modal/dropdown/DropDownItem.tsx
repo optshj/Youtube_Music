@@ -8,7 +8,6 @@ import { GrConnect } from "react-icons/gr";
 const DropDownItemWrapper = styled.li`
     display:flex;
     align-items:center;
-    list-styled:none;
     cursor:pointer;
     &:hover{
         background-color:#212121;
