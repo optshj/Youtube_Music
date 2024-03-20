@@ -8,7 +8,7 @@ export default function SidebarProvider({children}: {children:React.ReactNode}){
     const actions = useMemo(
         () => ({
             click() {
-                setISWebSidebarOpen(!isWebSidebarOpen);
+                setISWebSidebarOpen(preState => !preState);
             }
         }),
         []

@@ -23,8 +23,8 @@ function Menu(){
 	
 	return(
 		<>
-			<Wrapper onClick={click}>
-				<RxHamburgerMenu />
+			<Wrapper >
+				<RxHamburgerMenu onClick={click}/>
 			</Wrapper>
 		</>
 	)
