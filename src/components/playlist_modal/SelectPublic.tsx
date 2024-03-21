@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 
 import { IoEarthOutline } from "react-icons/io5";
@@ -68,9 +68,23 @@ const StateForm = styled.div`
 `
 function SelectPublic(){
     const [openDropDown,setOpenDropDown] = useState(false);
+    const componentRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const onClickOutside = (e:MouseEvent) => {
+            if (componentRef.current && !componentRef.current.contains(e.target as Node)){
+                setOpenDropDown(false);
+            }
+        }
+        document.addEventListener('mousedown',onClickOutside);
+        return () => {
+            document.removeEventListener('mousedown',onClickOutside);
+        }
+    })
+
     return(
         <>
-            <Wrapper>
+            <Wrapper ref={componentRef}>
                 <Text>공개 범위 설정</Text>
                 <DropDownBox onClick={() => setOpenDropDown(true)}>
                     <IconFont>
