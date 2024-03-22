@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.h2`
     padding:24px 24px 0;
-    font-size:20px;
+    font-size:22px;
     line-height:1.3;
     color:#fff;
     margin:0;

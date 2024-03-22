@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { IoEarthOutline } from "react-icons/io5";
 import { CiLock } from "react-icons/ci";
 import { GrConnect } from "react-icons/gr";
+import { useDropdown } from "../../context/SelecPublicContext";
 
 
 const DropDownItemWrapper = styled.li`
@@ -33,9 +34,11 @@ const Desrcipt = styled.div`
 `
 
 function DropDownItem() {
+    const {selectPublic,selectPartial,selectPrivate} = useDropdown();
+    
     return(
         <>
-            <DropDownItemWrapper>
+            <DropDownItemWrapper onClick={selectPublic}>
                 <Icon>
                     <IoEarthOutline/>
                 </Icon>
@@ -45,7 +48,7 @@ function DropDownItem() {
                 </ExplainWrapper>
             </DropDownItemWrapper>
 
-            <DropDownItemWrapper>
+            <DropDownItemWrapper onClick={selectPartial}>
                 <Icon>
                     <GrConnect />
                 </Icon>
@@ -55,7 +58,7 @@ function DropDownItem() {
                 </ExplainWrapper>
             </DropDownItemWrapper>
 
-            <DropDownItemWrapper>
+            <DropDownItemWrapper onClick={selectPrivate}>
                 <Icon>
                     <CiLock />
                 </Icon>

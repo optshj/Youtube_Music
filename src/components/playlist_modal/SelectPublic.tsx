@@ -1,10 +1,10 @@
 import React,{useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 
-import { IoEarthOutline } from "react-icons/io5";
 import { IoChevronDownSharp } from "react-icons/io5";
 
 import PublicDropDown from "./dropdown/PublicDropDown";
+import PublicStatus from "./PublicStatus";
 const UnderLine = styled.div`
     position:absolute;
     border-bottom:1px solid #606060;
@@ -48,23 +48,10 @@ const DropDownBox = styled.div`
         }
     }
 `
-const IconFont = styled.div`
-    color:#aaa;
-    font-size:24px;
-    padding-left:4px;
-`
 const ArrowFont = styled.div`
     color:#919191;
     position:relative;
     top:6px;
-`
-const StateForm = styled.div`
-    width:100%;
-    left:10px;
-    color:white;
-    font-size:14px;
-    top:4px;
-    position:relative;
 `
 function SelectPublic(){
     const [openDropDown,setOpenDropDown] = useState(false);
@@ -87,23 +74,24 @@ function SelectPublic(){
             <Wrapper ref={componentRef}>
                 <Text>공개 범위 설정</Text>
                 <DropDownBox onClick={() => setOpenDropDown(true)}>
-                    <IconFont>
-                        <IoEarthOutline />
-                    </IconFont>
-                    <StateForm>
-                        공개
-                    </StateForm>
+
+                    <PublicStatus></PublicStatus>
 
                     <ArrowFont>
                         <IoChevronDownSharp />
                     </ArrowFont>
                 </DropDownBox>
+                
                 <UnderLineWrapper>
                     <UnderLine></UnderLine>
                     <UnderLineActive></UnderLineActive>
                 </UnderLineWrapper>
+
                 {
-                    openDropDown && <PublicDropDown></PublicDropDown>
+                    openDropDown && 
+                    <div onClick={()=> setOpenDropDown(false)}>
+                        <PublicDropDown></PublicDropDown>
+                    </div>
                 }
             </Wrapper>
         
