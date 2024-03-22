@@ -13,13 +13,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ModalProvider>
-      <SidebarProvider>
-        <SelectPublicProvider>
+    <SelectPublicProvider>
+      <ModalProvider>
+        <SidebarProvider>
           <App />
-        </SelectPublicProvider>
-      </SidebarProvider>
-    </ModalProvider>
+        </SidebarProvider>
+      </ModalProvider>
+    </SelectPublicProvider>
   </React.StrictMode>
 );
 

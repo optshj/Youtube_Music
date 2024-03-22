@@ -1,10 +1,12 @@
 import React, { useContext, createContext, useState, useMemo } from "react";
+import { useDropdown } from "./SelecPublicContext";
 
 const ModalValueContext = createContext<any>(null);
 const ModalActionContext = createContext<any>(null);
 
 export default function ModalProvider({children} : {children:React.ReactNode}) {
     const [isOpen,setIsOpen] = useState(false);
+    const {initDropDown} = useDropdown();
     const actions = useMemo(
         () => ({
             open() {
@@ -12,9 +14,10 @@ export default function ModalProvider({children} : {children:React.ReactNode}) {
             },
             close() {
                 setIsOpen(false);
+                initDropDown();
             }
         }),
-        []
+        [initDropDown]
     )
     return(
         <ModalValueContext.Provider value={isOpen}>

@@ -16,7 +16,7 @@ export default function SelectPublicProvider({children} : {children:React.ReactN
             selectPrivate(){
                 setSelectStatus(2);
             },
-            init(){
+            initDropDown(){
                 setSelectStatus(0);
             }
         }),[]
@@ -30,8 +30,8 @@ export default function SelectPublicProvider({children} : {children:React.ReactN
     )
 }
 export function useDropdown() {
-    const {selectPublic,selectPartial,selectPrivate,init} = useContext(SelectPublicActionContext);
-    return {selectPublic,selectPartial,selectPrivate,init};
+    const {selectPublic,selectPartial,selectPrivate,initDropDown} = useContext(SelectPublicActionContext);
+    return {selectPublic,selectPartial,selectPrivate,initDropDown};
 }
 export function SelectStatus(){
     const selectStatus = useContext(SelectPublicValueContext);
