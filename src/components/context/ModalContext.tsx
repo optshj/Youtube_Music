@@ -14,7 +14,7 @@ export default function ModalProvider({children} : {children:React.ReactNode}) {
             },
             close() {
                 setIsOpen(false);
-                initDropDown();
+                initDropDown(); // 모달이 닫히면서 공개여부 선택을 초기화함.
             }
         }),
         [initDropDown]

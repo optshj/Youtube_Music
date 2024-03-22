@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
+import { SelectStatus, useDropdown } from "../../context/SelecPublicContext";
+
 import { IoEarthOutline } from "react-icons/io5";
 import { CiLock } from "react-icons/ci";
 import { GrConnect } from "react-icons/gr";
-import { useDropdown } from "../../context/SelecPublicContext";
 
 
 const DropDownItemWrapper = styled.li`
@@ -35,10 +36,12 @@ const Desrcipt = styled.div`
 
 function DropDownItem() {
     const {selectPublic,selectPartial,selectPrivate} = useDropdown();
-    
+    const selectStatus = SelectStatus();
+
     return(
         <>
-            <DropDownItemWrapper onClick={selectPublic}>
+            <DropDownItemWrapper onClick={selectPublic} 
+            style={{backgroundColor:selectStatus === 0 ? '#484848': ''}}>
                 <Icon>
                     <IoEarthOutline/>
                 </Icon>
@@ -48,7 +51,8 @@ function DropDownItem() {
                 </ExplainWrapper>
             </DropDownItemWrapper>
 
-            <DropDownItemWrapper onClick={selectPartial}>
+            <DropDownItemWrapper onClick={selectPartial}
+            style={{backgroundColor:selectStatus === 1 ? '#484848': ''}}>
                 <Icon>
                     <GrConnect />
                 </Icon>
@@ -58,7 +62,8 @@ function DropDownItem() {
                 </ExplainWrapper>
             </DropDownItemWrapper>
 
-            <DropDownItemWrapper onClick={selectPrivate}>
+            <DropDownItemWrapper onClick={selectPrivate}
+            style={{backgroundColor:selectStatus === 2 ? '#484848': ''}}>
                 <Icon>
                     <CiLock />
                 </Icon>
