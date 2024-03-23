@@ -47,11 +47,15 @@ const ArrowIconForm = styled.div`
     border:solid 1px rgba(255,255,255,.2);
     color:#fff;
 `
-function ContentHeader(){
+interface ContentHeaderProps{
+    hasScrollbar:boolean;
+}
+function ContentHeader({hasScrollbar}:ContentHeaderProps){
     return(
         <>
             <Wrapper>
                 <Title>Lorem ipsum dolor sit amet</Title>
+                {hasScrollbar &&
                 <ButtonGroup>
                     <ArrowIconForm>
                         <MdOutlineArrowBackIosNew style={{'transform':'translate(50%,50%)'}}/>
@@ -60,6 +64,7 @@ function ContentHeader(){
                         <MdOutlineArrowForwardIos style={{'transform':'translate(70%,50%)'}}/>
                     </ArrowIconForm>
                 </ButtonGroup>
+                }
             </Wrapper>
         </>
     )

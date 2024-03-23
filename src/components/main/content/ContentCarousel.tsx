@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useRef} from "react";
 import styled from "styled-components";
 import Item from "./Item";
 
@@ -38,10 +38,33 @@ const ItemsWrapper = styled.ul`
         }
     }
 `
+
 function MakeRandomNumber(min:number,max:number){
     return Math.floor(Math.random() *(max - min + 1)) + min;
 }
-function ContentCarousel(){
+
+interface ContentCarouselProps {
+    setHasScollbar: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function ContentCarousel({setHasScollbar}:ContentCarouselProps){
+    const componentRef = useRef<any>(null);
+
+    useEffect(()=> {
+        checkScrollbar();
+        window.addEventListener('resize',checkScrollbar);
+        return () => window.removeEventListener('resize',checkScrollbar);
+    },[]);
+    const checkScrollbar = () => {
+        const componentElement = componentRef.current;
+        if (!componentElement || componentElement.scrollWidth <= componentElement.clientWidth){
+            setHasScollbar(false);
+        }
+        else {
+            setHasScollbar(true);
+        }
+    }
+
     // 스켈레톤용으로 4~8개의 똑같은 아이템으로 만들게 구현하였음.
     // 추후에 변경필요함. 작성일시: 2024-03-23
     const randomNumber = MakeRandomNumber(4,8);
@@ -54,7 +77,7 @@ function ContentCarousel(){
     return(
         <>
             <Wrapper>
-                <ItemsWrapper>
+                <ItemsWrapper ref={componentRef}>
                     {ItemArray}
                 </ItemsWrapper>
             </Wrapper>

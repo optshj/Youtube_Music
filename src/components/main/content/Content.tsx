@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 import ContentHeader from "./ContentHeader";
@@ -9,11 +9,12 @@ const Wrapper = styled.div`
 `
 
 function Content() {
+    const [hasScrollbar,setHasScollbar] = useState(false);
     return(
         <>
             <Wrapper>
-                <ContentHeader></ContentHeader>
-                <ContentCarousel></ContentCarousel>
+                <ContentHeader hasScrollbar={hasScrollbar}></ContentHeader>
+                <ContentCarousel setHasScollbar={setHasScollbar}></ContentCarousel>
             </Wrapper>
         </>
     )
