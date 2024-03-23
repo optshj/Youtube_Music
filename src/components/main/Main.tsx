@@ -1,14 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 
-import Content from "../playlist_modal/Content";
-import Header from "../header/Header";
+import Header from "./header/Header";
+import Content from "./content/Content";
+
+const Wrapper = styled.div`
+    box-sizing:border-box;
+    @media (min-width:936px){
+        margin-left:240px;
+    }
+    @media (min-width:616px) and (max-width:936px){
+        margin-left:72px;
+    }
+`
 
 function Main(){
     return(
         <>
-            <Header></Header>
-            <Content></Content>
+            <Wrapper>
+                <Header></Header>
+                <Content></Content>
+                <Content></Content>
+                <Content></Content>
+            </Wrapper>
         </>
     )
 }

@@ -27,7 +27,7 @@ function PlayListMenu(){
                 </MaekForm>
 
                 <PlayListsForm>
-                    <PlayList listName={"POP"} ownerName={"이성빈"}></PlayList>
+                    <PlayList listName={"My PlayList"} ownerName={"이성빈"}></PlayList>
                 </PlayListsForm>
             </PlayListMenuForm>
         </>
