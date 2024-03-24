@@ -11,7 +11,10 @@ import UserIcon from './UserIcon';
 
 const Wrapper = styled.div`
 	display: flex;
-  	justify-content: space-between;
+	background-color:#030303;
+	justify-content:flex-start;
+	position:fixed;
+	width:calc(100vw - 12px);
 `
 
 const LeftContent = styled.div`
@@ -44,6 +47,7 @@ const RightContent = styled.div`
 function Header() {
 	return(
 		<>
+
 			<Wrapper>
 				<LeftContent>
 					<Menu/>

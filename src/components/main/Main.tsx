@@ -6,6 +6,7 @@ import Content from "./content/Content";
 
 const Wrapper = styled.div`
     box-sizing:border-box;
+    padding:64px;
     @media (min-width:936px){
         margin-left:240px;
     }
