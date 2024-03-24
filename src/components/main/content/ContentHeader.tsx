@@ -46,6 +46,9 @@ const ArrowIconForm = styled.div`
     border-radius:50%;
     border:solid 1px rgba(255,255,255,.2);
     color:#fff;
+    &:hover{
+        background-color:rgba(255,255,255,.1);
+    }
 `
 interface ContentHeaderProps{
     hasScrollbar:boolean;
@@ -56,12 +59,15 @@ function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderPr
     const LeftButtonStyles = {
         'transform':'translate(50%,50%)',
         'color': isScrollLeft ? '#333' :'#c0c0c0',
-        'transition' : 'color 0.2s linear'
+        'transition' : 'color 0.2s linear',
+        'cursor': isScrollLeft ? 'none' : 'pointer'
+
     }
     const RightButtonStyles = {
         'transform':'translate(70%,50%)',
         'color': isScrollRight ? '#333' : '#c0c0c0',
-        'transition' : 'color 0.2s linear'
+        'transition' : 'color 0.2s linear',
+        'cursor': isScrollRight ? 'none' : 'pointer'
     }
     return(
         <>

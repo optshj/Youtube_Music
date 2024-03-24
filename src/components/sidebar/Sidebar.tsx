@@ -14,7 +14,6 @@ function Sidebar(){
                 <WebSidebar></WebSidebar>
             }
             {
-                !isOpen &&
                 <MobileSidebar></MobileSidebar>
             }
         </>

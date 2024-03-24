@@ -2,7 +2,6 @@ import React from "react";
 import styled,{keyframes} from "styled-components";
 
 import Menu from "./menu/Menu";
-import Bumper from "./Bumper";
 import PlayListMenu from "./playlist/PlayListMenu";
 
 const hideSidebar = keyframes`
@@ -13,7 +12,8 @@ const hideSidebar = keyframes`
         transform:translate3d(-100%,0,0);
     }
     `
-    const Wrapper = styled.div`
+const Wrapper = styled.div`
+    margin-top:64px;
     width:240px;
     position:fixed;
     top:0;
@@ -29,7 +29,6 @@ function WebSidebar() {
     return(
         <> 
             <Wrapper>
-                <Bumper></Bumper>
                 <Menu></Menu>
                 <PlayListMenu></PlayListMenu>
             </Wrapper>

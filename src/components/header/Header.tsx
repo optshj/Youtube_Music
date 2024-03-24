@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 	justify-content:flex-start;
 	position:fixed;
 	width:calc(100vw - 12px);
+	z-index:2;
 `
 
 const LeftContent = styled.div`
