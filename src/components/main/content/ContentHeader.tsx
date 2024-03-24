@@ -49,8 +49,18 @@ const ArrowIconForm = styled.div`
 `
 interface ContentHeaderProps{
     hasScrollbar:boolean;
+    isScrollLeft:boolean;
+    isScrollRight:boolean;
 }
-function ContentHeader({hasScrollbar}:ContentHeaderProps){
+function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderProps){
+    const LeftButtonStyles = {
+        'transform':'translate(50%,50%)',
+        'color': isScrollLeft ? '#333' :'#fff'
+    }
+    const RightButtonStyles = {
+        'transform':'translate(70%,50%)',
+        'color': isScrollRight ? '#333' : '#fff'
+    }
     return(
         <>
             <Wrapper>
@@ -58,10 +68,10 @@ function ContentHeader({hasScrollbar}:ContentHeaderProps){
                 {hasScrollbar &&
                 <ButtonGroup>
                     <ArrowIconForm>
-                        <MdOutlineArrowBackIosNew style={{'transform':'translate(50%,50%)'}}/>
+                        <MdOutlineArrowBackIosNew style={LeftButtonStyles}/>
                     </ArrowIconForm>
                     <ArrowIconForm>
-                        <MdOutlineArrowForwardIos style={{'transform':'translate(70%,50%)'}}/>
+                        <MdOutlineArrowForwardIos style={RightButtonStyles}/>
                     </ArrowIconForm>
                 </ButtonGroup>
                 }

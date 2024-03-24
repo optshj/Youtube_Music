@@ -1,5 +1,7 @@
 import React,{useEffect,useRef} from "react";
 import styled from "styled-components";
+import throttle from 'lodash/throttle'
+
 import Item from "./Item";
 
 const Wrapper = styled.div`
@@ -45,17 +47,36 @@ function MakeRandomNumber(min:number,max:number){
 
 interface ContentCarouselProps {
     setHasScollbar: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsScrollLeft: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsScrollRight : React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function ContentCarousel({setHasScollbar}:ContentCarouselProps){
+function ContentCarousel({setHasScollbar,setIsScrollLeft,setIsScrollRight}:ContentCarouselProps){
+
     const componentRef = useRef<any>(null);
 
     useEffect(()=> {
         checkScrollbar();
+        scrollMove();
+        
+        componentRef.current.addEventListener('scroll',scrollMove);
         window.addEventListener('resize',checkScrollbar);
-        return () => window.removeEventListener('resize',checkScrollbar);
+
+        return () =>{
+            componentRef.current.removeEventListener('scroll',scrollMove);
+            window.removeEventListener('resize',checkScrollbar)
+        };
     },[]);
-    const checkScrollbar = () => {
+
+    const scrollMove = throttle(() => {
+        const componentElement = componentRef.current;
+        const IsScrollRight = componentElement.scrollLeft + componentElement.clientWidth === componentElement.scrollWidth;
+        const IsScrollLeft = componentElement.scrollLeft === 0;
+        setIsScrollRight(IsScrollRight);
+        setIsScrollLeft(IsScrollLeft);
+    },500);
+
+    const checkScrollbar = throttle(() => {
         const componentElement = componentRef.current;
         if (!componentElement || componentElement.scrollWidth <= componentElement.clientWidth){
             setHasScollbar(false);
@@ -63,7 +84,7 @@ function ContentCarousel({setHasScollbar}:ContentCarouselProps){
         else {
             setHasScollbar(true);
         }
-    }
+    },200);
 
     // 스켈레톤용으로 4~8개의 똑같은 아이템으로 만들게 구현하였음.
     // 추후에 변경필요함. 작성일시: 2024-03-23
@@ -84,4 +105,4 @@ function ContentCarousel({setHasScollbar}:ContentCarouselProps){
         </>
     )
 }
-export default ContentCarousel;
+export default React.memo(ContentCarousel);

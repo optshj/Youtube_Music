@@ -10,11 +10,21 @@ const Wrapper = styled.div`
 
 function Content() {
     const [hasScrollbar,setHasScollbar] = useState(false);
+    const [isScrollLeft,setIsScrollLeft] = useState(false);
+    const [isScrollRight,setIsScrollRight] = useState(false);
+
     return(
         <>
             <Wrapper>
-                <ContentHeader hasScrollbar={hasScrollbar}></ContentHeader>
-                <ContentCarousel setHasScollbar={setHasScollbar}></ContentCarousel>
+                <ContentHeader 
+                hasScrollbar={hasScrollbar}
+                isScrollLeft={isScrollLeft}
+                isScrollRight={isScrollRight}></ContentHeader>
+
+                <ContentCarousel 
+                setHasScollbar={setHasScollbar} 
+                setIsScrollLeft={setIsScrollLeft} 
+                setIsScrollRight={setIsScrollRight}></ContentCarousel>
             </Wrapper>
         </>
     )
