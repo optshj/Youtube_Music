@@ -55,11 +55,13 @@ interface ContentHeaderProps{
 function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderProps){
     const LeftButtonStyles = {
         'transform':'translate(50%,50%)',
-        'color': isScrollLeft ? '#333' :'#fff'
+        'color': isScrollLeft ? '#333' :'#c0c0c0',
+        'transition' : 'color 0.2s linear'
     }
     const RightButtonStyles = {
         'transform':'translate(70%,50%)',
-        'color': isScrollRight ? '#333' : '#fff'
+        'color': isScrollRight ? '#333' : '#c0c0c0',
+        'transition' : 'color 0.2s linear'
     }
     return(
         <>

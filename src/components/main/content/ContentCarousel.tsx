@@ -1,6 +1,6 @@
 import React,{useEffect,useRef} from "react";
 import styled from "styled-components";
-import throttle from 'lodash/throttle'
+import throttle from 'lodash/throttle';
 
 import Item from "./Item";
 
