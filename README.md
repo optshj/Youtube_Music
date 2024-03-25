@@ -17,4 +17,3 @@
 ## 2.적용 기술 스택
 * React
 * Type-Script
-* Styled-components
