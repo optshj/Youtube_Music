@@ -60,14 +60,20 @@ function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderPr
         'transform':'translate(50%,50%)',
         'color': isScrollLeft ? '#333' :'#c0c0c0',
         'transition' : 'color 0.2s linear',
-        'cursor': isScrollLeft ? 'none' : 'pointer'
 
     }
     const RightButtonStyles = {
         'transform':'translate(70%,50%)',
         'color': isScrollRight ? '#333' : '#c0c0c0',
         'transition' : 'color 0.2s linear',
-        'cursor': isScrollRight ? 'none' : 'pointer'
+    }
+    const LeftButtonFormStyles = {
+        'cursor': isScrollLeft ? '' : 'pointer',
+        'background-color' : isScrollLeft ? '#030303' : ''
+    }
+    const RightButtonFormStyles = {
+        'cursor': isScrollRight ? '' : 'pointer',
+        'background-color' : isScrollRight ? '#030303' : ''
     }
     return(
         <>
@@ -75,10 +81,10 @@ function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderPr
                 <Title>Lorem ipsum dolor sit amet</Title>
                 {hasScrollbar &&
                 <ButtonGroup>
-                    <ArrowIconForm>
+                    <ArrowIconForm style={LeftButtonFormStyles}>
                         <MdOutlineArrowBackIosNew style={LeftButtonStyles}/>
                     </ArrowIconForm>
-                    <ArrowIconForm>
+                    <ArrowIconForm style={RightButtonFormStyles}>
                         <MdOutlineArrowForwardIos style={RightButtonStyles}/>
                     </ArrowIconForm>
                 </ButtonGroup>
