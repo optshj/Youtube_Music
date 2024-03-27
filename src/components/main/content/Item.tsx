@@ -6,6 +6,7 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 
 const Wrapper = styled.div`
     width:160px;
+    cursor:pointer;
 `
 const Details = styled.div`
     display:flex;
@@ -39,7 +40,6 @@ const ItemPlayButton = styled(FaCirclePlay)`
     right:40px;
     bottom:40px;
     font-size:32px;
-    cursor:pointer;
     visibility:hidden;
     opacity:0.8;
     transform:translate(50%,50%);
@@ -64,7 +64,6 @@ const ItemMenuButton = styled(HiOutlineDotsVertical)`
     transform:translate(50%,50%);
     color:#fff;
     font-size:20px;
-    cursor:pointer;
     opacitiy:0.2;
     visibility:hidden;
 `

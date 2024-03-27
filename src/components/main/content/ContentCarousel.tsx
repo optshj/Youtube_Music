@@ -8,8 +8,8 @@ const Wrapper = styled.div`
     margin:16px 0 24px;
 `
 const ItemsWrapper = styled.ul`
-    display:grid;
-    grid-auto-flow:column;
+    display:flex;
+    flex-direction:row;
     gap:16px;
     overflow-x:auto;
     max-width:min(calc(100vw - 452px),1478px);

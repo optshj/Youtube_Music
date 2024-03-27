@@ -17,6 +17,9 @@ const Wrapper = styled.div`
         background-color:#343434;
     }
 `
+const MenuIcon = styled(RxHamburgerMenu)`
+	transform:translate(0,-10%);
+`
 
 function Menu(){
 	const click = useSidebar();
@@ -24,7 +27,7 @@ function Menu(){
 	return(
 		<>
 			<Wrapper >
-				<RxHamburgerMenu onClick={click}/>
+				<MenuIcon onClick={click}></MenuIcon>
 			</Wrapper>
 		</>
 	)

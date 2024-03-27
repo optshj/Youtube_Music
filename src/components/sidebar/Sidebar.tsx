@@ -1,21 +1,13 @@
 import React from "react";
 
-import { IsWebSidebarOpen } from "../context/SidebarContext";
-
 import MobileSidebar from "./mobile/MobileSidebar";
 import WebSidebar from "./web/WebSidebar";
 
 function Sidebar(){
-    const isOpen = IsWebSidebarOpen();
     return(
         <>  
-            {
-                isOpen &&
-                <WebSidebar></WebSidebar>
-            }
-            {
-                <MobileSidebar></MobileSidebar>
-            }
+            <WebSidebar></WebSidebar>
+            <MobileSidebar></MobileSidebar>
         </>
     )
 

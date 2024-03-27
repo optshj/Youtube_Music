@@ -6,8 +6,7 @@ import Menu from './Menu';
 import Logo from './Logo';
 import Search from './Search';
 import UserIcon from './UserIcon';
-
-
+import { IsWebSidebarOpen } from '../context/SidebarContext';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -18,13 +17,16 @@ const Wrapper = styled.div`
 	z-index:2;
 `
 
-const LeftContent = styled.div`
+const LeftContent = styled.div<{isOpen:boolean}>`
 	padding-left:16px;
 	align-items:center;
 	display:flex;
 	width:224px;
 	z-index:2;
-	border-right:1px solid rgba(255,255,255,.15);
+	border-right:${(props) => (props.isOpen ? '1px solid rgba(255,255,255,.15)' : 'none')};
+	@media(max-width:936px){
+		border:none;
+	}
 `
 const CenterContent = styled.div`
 	display:flex;
@@ -47,11 +49,12 @@ const RightContent = styled.div`
 	display:flex;
 `
 function Header() {
+	const isOpen = IsWebSidebarOpen();
+
 	return(
 		<>
-
 			<Wrapper>
-				<LeftContent>
+				<LeftContent isOpen={isOpen}>
 					<Menu/>
 					<Logo/>
 				</LeftContent>
