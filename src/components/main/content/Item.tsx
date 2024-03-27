@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
+import { FaCirclePlay } from "react-icons/fa6";
+import { HiOutlineDotsVertical } from "react-icons/hi";
+
 const Wrapper = styled.div`
     width:160px;
 `
@@ -17,7 +20,7 @@ const Title = styled.div`
     font-size:14px;
     cursor:pointer;
     font-weight:500;
-    line-heigth:1.3;
+    line-height:1.3;
     &:hover{
         text-decoration:underline;
     }
@@ -31,11 +34,73 @@ const SubTitle = styled.div`
     color:rgba(255,255,255,0.7);
     font-size:14px;
 `
+const ItemPlayButton = styled(FaCirclePlay)`
+    position:absolute;
+    right:40px;
+    bottom:40px;
+    font-size:32px;
+    cursor:pointer;
+    visibility:hidden;
+    opacity:0.8;
+    transform:translate(50%,50%);
+    &:hover{
+        font-size:40px;
+        transition:font-size 0.2s linear;
+        opacity:1;
+    }
+`
+const ItemMenuWrapper = styled.div`
+    position:absolute;
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    top:8px;
+    right:4px;
+    &:hover{
+        background-color:rgba(255,255,255,0.2);
+    }
+`
+const ItemMenuButton = styled(HiOutlineDotsVertical)`
+    transform:translate(50%,50%);
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    opacitiy:0.2;
+    visibility:hidden;
+`
+const ImageWrapper = styled.div`
+    position:relative;
+    top:0;
+    &:hover {
+        ${ItemPlayButton}{
+            visibility:visible;
+        }
+        ${ItemMenuButton}{
+            visibility:visible;
+        }
+    }
+`
+const ItemBackGround = styled.div`
+    &:hover {
+        background: linear-gradient(rgba(0, 0, 0, 0.502), rgba(0, 0, 0, 0.000), rgba(0, 0, 0, 0.000));
+    }
+    width: 160px;
+    height: 160px;
+    position: absolute;
+`;
+
 function Item(){
     return(
         <>
             <Wrapper>
-                <img src="https://via.placeholder.com/160x160/333.png"/>
+                <ImageWrapper>
+                    <ItemBackGround></ItemBackGround>
+                    <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>
+                    <ItemPlayButton></ItemPlayButton>
+                    <ItemMenuWrapper>
+                        <ItemMenuButton></ItemMenuButton>
+                    </ItemMenuWrapper>
+                </ImageWrapper>
                 <Details>
                     <TitleWrapper>
                         <Title>

@@ -1,9 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import styled,{css} from "styled-components";
 
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
-
 
 const Wrapper = styled.div`
     display:flex;
@@ -35,10 +34,11 @@ const Title = styled.h2`
         font-size:28px;
     }
 `
-const ButtonGroup = styled.div`
+const ButtonGroup = styled.div<{ hasScrollbar :boolean}>`
     display:flex;
     align-items:flex-end;
     gap:16px;
+    display: ${(props) => (props.hasScrollbar ? 'flex' : 'none')};
 `
 const ArrowIconForm = styled.div`
     width:36px;
@@ -50,6 +50,16 @@ const ArrowIconForm = styled.div`
         background-color:rgba(255,255,255,.1);
     }
 `
+const LeftIcon = styled(MdOutlineArrowBackIosNew)<{isScrollLeft:boolean}>`
+    transform:translate(50%,50%);
+    color: ${(props) => (props.isScrollLeft ?'#333':'#c0c0c0')};
+    transition: color 0.2s linear;
+`
+const RightIcon = styled(MdOutlineArrowForwardIos)<{isScrollRight:boolean}>`
+    transform:translate(70%,50%);
+    color: ${(props) => (props.isScrollRight ?'#333':'#c0c0c0')};
+    transition: color 0.2s linear;
+`
 interface ContentHeaderProps{
     hasScrollbar:boolean;
     isScrollLeft:boolean;
@@ -57,16 +67,6 @@ interface ContentHeaderProps{
 }
 function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderProps){
 
-    const LeftButtonStyles = {
-        'transform':'translate(50%,50%)',
-        'color': isScrollLeft ? '#333' :'#c0c0c0',
-        'transition' : 'color 0.2s linear',
-    }
-    const RightButtonStyles = {
-        'transform':'translate(70%,50%)',
-        'color': isScrollRight ? '#333' : '#c0c0c0',
-        'transition' : 'color 0.2s linear',
-    }
     const LeftButtonFormStyles = {
         'cursor': isScrollLeft ? '' : 'pointer',
         'backgroundColor' : isScrollLeft ? '#030303' : ''
@@ -75,20 +75,16 @@ function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderPr
         'cursor': isScrollRight ? '' : 'pointer',
         'backgroundColor' : isScrollRight ? '#030303' : ''
     }
-    const ButtonGroupStyles = {
-        'display': hasScrollbar ? 'flex' :'none'
-    }
-    
     return(
         <>
             <Wrapper>
                 <Title>Lorem ipsum dolor sit amet</Title>
-                <ButtonGroup style={ButtonGroupStyles}>
+                <ButtonGroup hasScrollbar={hasScrollbar}>
                     <ArrowIconForm style={LeftButtonFormStyles}>
-                        <MdOutlineArrowBackIosNew style={LeftButtonStyles}/>
+                            <LeftIcon isScrollLeft={isScrollLeft}></LeftIcon>
                     </ArrowIconForm>
                     <ArrowIconForm style={RightButtonFormStyles}>
-                        <MdOutlineArrowForwardIos style={RightButtonStyles}/>
+                        <RightIcon isScrollRight={isScrollRight}></RightIcon>
                     </ArrowIconForm>
                 </ButtonGroup>
             </Wrapper>
