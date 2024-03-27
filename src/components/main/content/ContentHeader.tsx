@@ -56,12 +56,11 @@ interface ContentHeaderProps{
     isScrollRight:boolean;
 }
 function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderProps){
-    
+
     const LeftButtonStyles = {
         'transform':'translate(50%,50%)',
         'color': isScrollLeft ? '#333' :'#c0c0c0',
         'transition' : 'color 0.2s linear',
-
     }
     const RightButtonStyles = {
         'transform':'translate(70%,50%)',
@@ -76,12 +75,15 @@ function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderPr
         'cursor': isScrollRight ? '' : 'pointer',
         'backgroundColor' : isScrollRight ? '#030303' : ''
     }
+    const ButtonGroupStyles = {
+        'display': hasScrollbar ? 'flex' :'none'
+    }
+    
     return(
         <>
             <Wrapper>
                 <Title>Lorem ipsum dolor sit amet</Title>
-                {hasScrollbar &&
-                <ButtonGroup>
+                <ButtonGroup style={ButtonGroupStyles}>
                     <ArrowIconForm style={LeftButtonFormStyles}>
                         <MdOutlineArrowBackIosNew style={LeftButtonStyles}/>
                     </ArrowIconForm>
@@ -89,7 +91,6 @@ function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderPr
                         <MdOutlineArrowForwardIos style={RightButtonStyles}/>
                     </ArrowIconForm>
                 </ButtonGroup>
-                }
             </Wrapper>
         </>
     )

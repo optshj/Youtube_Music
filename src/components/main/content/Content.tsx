@@ -10,7 +10,8 @@ const Wrapper = styled.div`
 
 function Content() {
     const [hasScrollbar,setHasScollbar] = useState(false);
-    const [isScrollLeft,setIsScrollLeft] = useState(true);
+    
+    const [isScrollLeft,setIsScrollLeft] = useState(false);
     const [isScrollRight,setIsScrollRight] = useState(false);
 
     return(

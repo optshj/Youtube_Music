@@ -54,15 +54,6 @@ interface ContentCarouselProps {
 function ContentCarousel({setHasScollbar,setIsScrollLeft,setIsScrollRight}:ContentCarouselProps){
 
     const componentRef = useRef<any>(null);
-    
-    const scrollMove = throttle(() => {
-        const componentElement = componentRef.current;
-        const IsScrollRight = componentElement.scrollLeft + componentElement.clientWidth === componentElement.scrollWidth;
-        const IsScrollLeft = componentElement.scrollLeft === 0;
-
-        setIsScrollRight(IsScrollRight);
-        setIsScrollLeft(IsScrollLeft);
-    },500);
 
     const checkScrollbar = throttle(() => {
         const componentElement = componentRef.current;
@@ -74,9 +65,20 @@ function ContentCarousel({setHasScollbar,setIsScrollLeft,setIsScrollRight}:Conte
         }
     },200);
 
+    const scrollMove = throttle(() => {
+        const componentElement = componentRef.current;
+        if (componentElement) {
+            const IsScrollRight = (componentElement.scrollLeft + componentElement.clientWidth === componentElement.scrollWidth) && (componentElement.clientWidth < componentElement.scrollWidth);
+            const IsScrollLeft = componentElement.scrollLeft === 0;
+
+            setIsScrollRight(IsScrollRight);
+            setIsScrollLeft(IsScrollLeft);
+        }
+    },500);
+
     useEffect(()=> {
-        checkScrollbar();
         scrollMove();
+        checkScrollbar();
         const componentElement = componentRef.current;
 
         componentElement.addEventListener('scroll',scrollMove);

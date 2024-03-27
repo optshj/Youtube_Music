@@ -11,7 +11,6 @@ const Wrapper = styled.div`
 
 function Logo(){
 	
-	
 	return(
 		<>
 			<Wrapper>
