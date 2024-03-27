@@ -56,6 +56,7 @@ interface ContentHeaderProps{
     isScrollRight:boolean;
 }
 function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderProps){
+    
     const LeftButtonStyles = {
         'transform':'translate(50%,50%)',
         'color': isScrollLeft ? '#333' :'#c0c0c0',
@@ -69,11 +70,11 @@ function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderPr
     }
     const LeftButtonFormStyles = {
         'cursor': isScrollLeft ? '' : 'pointer',
-        'background-color' : isScrollLeft ? '#030303' : ''
+        'backgroundColor' : isScrollLeft ? '#030303' : ''
     }
     const RightButtonFormStyles = {
         'cursor': isScrollRight ? '' : 'pointer',
-        'background-color' : isScrollRight ? '#030303' : ''
+        'backgroundColor' : isScrollRight ? '#030303' : ''
     }
     return(
         <>

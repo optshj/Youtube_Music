@@ -24,6 +24,7 @@ const LeftContent = styled.div`
 	display:flex;
 	width:224px;
 	z-index:2;
+	border-right:1px solid rgba(255,255,255,.15);
 `
 const CenterContent = styled.div`
 	display:flex;

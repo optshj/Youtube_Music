@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import ContentHeader from "./ContentHeader";
@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 
 function Content() {
     const [hasScrollbar,setHasScollbar] = useState(false);
-    const [isScrollLeft,setIsScrollLeft] = useState(false);
+    const [isScrollLeft,setIsScrollLeft] = useState(true);
     const [isScrollRight,setIsScrollRight] = useState(false);
 
     return(
