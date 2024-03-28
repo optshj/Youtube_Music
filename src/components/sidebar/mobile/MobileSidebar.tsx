@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Menu from "./menu/Menu";
+import { IsWebSidebarOpen } from "../../context/SidebarContext";
 
 const Wrapper = styled.div`
     margin-top:64px;
@@ -16,6 +17,8 @@ const Wrapper = styled.div`
     }
 `
 function MobileSidebar(){
+    const isOpen = IsWebSidebarOpen();
+    
     return(
         <>
             <Wrapper>

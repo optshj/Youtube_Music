@@ -35,6 +35,22 @@ const SubTitle = styled.div`
     color:rgba(255,255,255,0.7);
     font-size:14px;
 `
+const ItemMenuWrapper = styled.div`
+position:absolute;
+border-radius:50%;
+width:40px;
+height:40px;
+top:8px;
+right:4px;
+&:hover{
+    background-color:rgba(255,255,255,0.2);
+}
+`
+const ItemBackGround = styled.div`
+    width: 160px;
+    height: 160px;
+    position: absolute;
+`;
 const ItemPlayButton = styled(FaCirclePlay)`
     position:absolute;
     right:40px;
@@ -49,22 +65,10 @@ const ItemPlayButton = styled(FaCirclePlay)`
         opacity:1;
     }
 `
-const ItemMenuWrapper = styled.div`
-    position:absolute;
-    border-radius:50%;
-    width:40px;
-    height:40px;
-    top:8px;
-    right:4px;
-    &:hover{
-        background-color:rgba(255,255,255,0.2);
-    }
-`
 const ItemMenuButton = styled(HiOutlineDotsVertical)`
     transform:translate(50%,50%);
     color:#fff;
     font-size:20px;
-    opacitiy:0.2;
     visibility:hidden;
 `
 const ImageWrapper = styled.div`
@@ -77,17 +81,11 @@ const ImageWrapper = styled.div`
         ${ItemMenuButton}{
             visibility:visible;
         }
+        ${ItemBackGround}{
+            background: linear-gradient(rgba(0, 0, 0, 0.502), rgba(0, 0, 0, 0.000), rgba(0, 0, 0, 0.000));
+        }
     }
 `
-const ItemBackGround = styled.div`
-    &:hover {
-        background: linear-gradient(rgba(0, 0, 0, 0.502), rgba(0, 0, 0, 0.000), rgba(0, 0, 0, 0.000));
-    }
-    width: 160px;
-    height: 160px;
-    position: absolute;
-`;
-
 function Item(){
     return(
         <>
