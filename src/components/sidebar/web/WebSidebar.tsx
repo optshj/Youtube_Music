@@ -22,7 +22,6 @@ const Wrapper = styled.div<{isOpen:boolean}>`
     border-right:1px solid rgba(255,255,255,.15);
     height:100%;
     @media (max-width:936px){
-        visibility:hidden;
         animation: ${hideSidebar} 0.2s linear forwards;
     }
     visibility: ${(props) => (props.isOpen ? 'visible':'hidden')} 

@@ -12,10 +12,10 @@ const Wrapper = styled.div`
     gap:24px;
     padding:16px 0 0 0;
     max-width:min(calc(100vw - 452px),1478px);
-    @media (max-width:1150px) and (min-width:936px){
+    @media (max-width:1150px){
         max-width:min(calc(100vw - 112px - 240px - 12px ),1478px);
     }
-    @media (max-width:936px) and (min-width:615px){
+    @media (max-width:936px){
         max-width:min(calc(100vw - 112px - 72px - 12px ),1478px);
     }
     @media (max-width:615px){
@@ -30,7 +30,7 @@ const Title = styled.h2`
     @media(min-width:1578px) {
         font-size:45px;
     }
-    @media(min-width:1150px) and (max-width:1578) {
+    @media(min-width:1150px) and (max-width:1578px) {
         font-size:28px;
     }
 `

@@ -13,7 +13,7 @@ const ItemsWrapper = styled.ul`
     gap:16px;
     overflow-x:auto;
     max-width:min(calc(100vw - 452px),1478px);
-    @media (max-width:1150px) and (min-width:936px){
+    @media (max-width:1150px){
         max-width:min(calc(100vw - 112px - 240px - 12px ),1478px);
     }
     @media (max-width:936px){

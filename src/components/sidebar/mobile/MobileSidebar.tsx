@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import Menu from "./menu/Menu";
 import { IsWebSidebarOpen } from "../../context/SidebarContext";
 
-const Wrapper = styled.div`
+import Menu from "./menu/Menu";
+
+const Wrapper = styled.div<{isOpen:boolean}>`
     margin-top:64px;
     width:72px;
     position:fixed;
@@ -21,7 +22,7 @@ function MobileSidebar(){
     
     return(
         <>
-            <Wrapper>
+            <Wrapper isOpen={isOpen}>
                 <Menu></Menu>
             </Wrapper>
         </>
