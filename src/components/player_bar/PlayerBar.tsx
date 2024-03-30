@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+
 import LeftControl from "./LeftControl";
 import TimeInfo from "./TimeInfo";
 import CenterControl from "./CenterControl";
+import RightControl from "./RightControl";
 
 const Wrapper = styled.div`
     visibility:visible;
@@ -34,6 +36,10 @@ const CenterContent = styled.div`
     justify-content:center;
 `
 const RightContent = styled.div`
+    display:flex;
+    align-items:center;
+    margin-right:4px;
+    justify-content:end;
 `
 function PlayerBar(){
 
@@ -48,7 +54,10 @@ function PlayerBar(){
                 <CenterContent>
                     <CenterControl></CenterControl>
                 </CenterContent>
-                <RightContent></RightContent>
+
+                <RightContent>
+                    <RightControl></RightControl>
+                </RightContent>
             </Wrapper>
         </>
     )
