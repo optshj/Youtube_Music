@@ -29,11 +29,15 @@ const LeftContent = styled.div`
     @media (max-width:936px){
         width:144px;
     }
+    @media (max-width:616px) {
+        display:none;
+    }
 `
 const CenterContent = styled.div`
     display:flex;
     align-items:center;
     justify-content:center;
+    margin-left:8px;
 `
 const RightContent = styled.div`
     display:flex;

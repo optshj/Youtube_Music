@@ -6,6 +6,9 @@ const Wrapper = styled.div`
     color:#aaa;
     margin:0 16px 0 8px;
     white-space:nowrap;
+    @media (max-width:936px) {
+        visibility:hidden;
+    }
 `
 function TimeInfo(){
     return(
