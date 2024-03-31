@@ -5,9 +5,10 @@ import LeftControl from "./LeftControl";
 import TimeInfo from "./TimeInfo";
 import CenterControl from "./CenterControl";
 import RightControl from "./RightControl";
+import { IsPlayerOpen } from "../context/PlayerContsxt";
 
-const Wrapper = styled.div`
-    visibility:visible;
+const Wrapper = styled.div<{isOpen:boolean}>`
+    visibility:${(props) => (props.isOpen ? 'visible':'hidden')};
     position:fixed;
     bottom:0;
     left:0;
@@ -46,10 +47,10 @@ const RightContent = styled.div`
     justify-content:end;
 `
 function PlayerBar(){
-
+    const isOpen = IsPlayerOpen();
     return(
         <>
-            <Wrapper>
+            <Wrapper isOpen={isOpen}>
                 <LeftContent>
                     <LeftControl></LeftControl>
                     <TimeInfo></TimeInfo>

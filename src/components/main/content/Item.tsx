@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { FaCirclePlay } from "react-icons/fa6";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
+import { usePlayer } from "../../context/PlayerContsxt";
+
 const Wrapper = styled.div`
     width:160px;
     cursor:pointer;
@@ -36,15 +38,15 @@ const SubTitle = styled.div`
     font-size:14px;
 `
 const ItemMenuWrapper = styled.div`
-position:absolute;
-border-radius:50%;
-width:40px;
-height:40px;
-top:8px;
-right:4px;
-&:hover{
-    background-color:rgba(255,255,255,0.2);
-}
+    position:absolute;
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    top:8px;
+    right:4px;
+    &:hover{
+        background-color:rgba(255,255,255,0.2);
+    }
 `
 const ItemBackGround = styled.div`
     width: 160px;
@@ -87,9 +89,12 @@ const ImageWrapper = styled.div`
     }
 `
 function Item(){
+
+    const {open} = usePlayer();
+
     return(
         <>
-            <Wrapper>
+            <Wrapper onClick={open}>
                 <ImageWrapper>
                     <ItemBackGround></ItemBackGround>
                     <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>
