@@ -7,7 +7,6 @@ import { AiFillLike } from "react-icons/ai";
 import { AiOutlineLike } from "react-icons/ai";
 import { PiDotsThreeVertical } from "react-icons/pi";
 
-
 const ImgWrapper = styled.div`
 `
 const ContentInfoWrapper = styled.div`
@@ -22,6 +21,8 @@ const Title = styled.div`
 const ExplainWrapper = styled.div`
     display:flex;
     flex-direction:row;
+    white-space: nowrap;
+
 `
 const Explain = styled.div`
     font-size:14px;
@@ -70,6 +71,9 @@ const MenuWrapper = styled.div`
         background-color:rgba(255,255,255,0.2);
     }
     cursor:pointer;
+    @media (max-width:616px){
+        display:none;
+    }
 `
 const Menu = styled(PiDotsThreeVertical)`
     width:24px;

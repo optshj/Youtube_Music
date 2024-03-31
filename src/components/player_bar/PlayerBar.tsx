@@ -37,8 +37,8 @@ const LeftContent = styled.div`
 const CenterContent = styled.div`
     display:flex;
     align-items:center;
-    justify-content:center;
     margin-left:8px;
+    overflow:hidden;
 `
 const RightContent = styled.div`
     display:flex;
