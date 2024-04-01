@@ -5,7 +5,7 @@ import LeftControl from "./LeftControl";
 import TimeInfo from "./TimeInfo";
 import CenterControl from "./CenterControl";
 import RightControl from "./RightControl";
-import { IsPlayerOpen } from "../context/PlayerContsxt";
+import { IsPlayerOpen } from "../context/PlayerContext";
 
 const Wrapper = styled.div<{isOpen:boolean}>`
     visibility:${(props) => (props.isOpen ? 'visible':'hidden')};

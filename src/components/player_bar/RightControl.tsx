@@ -6,6 +6,7 @@ import { PiRepeatOnceThin } from "react-icons/pi";
 import { PiShuffleThin } from "react-icons/pi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import SoundSlidebar from "./VolumSide";
+import { usePlayerPage } from "../context/PlayerPageContext";
 
 
 const Wrapper = styled.div`
@@ -54,6 +55,8 @@ const PlayerPageButton = styled(IoMdArrowDropdown)<{isOpen:boolean}>`
 function RightControl(){
     const [isOpen,setIsOpen] = useState(false);
     const [repeatStatus,setRepeatStatus] = useState(1); // 0:한곡반복 1:반복안함 2:재생목록반복
+    const {click} = usePlayerPage();
+
     const onRepeat = () => {
         if (repeatStatus === 2) {
             setRepeatStatus(0);
@@ -73,7 +76,7 @@ function RightControl(){
                     </RepeatWrapper>
                     <ShuffleButton></ShuffleButton>
                 </ButtonWrapper>
-                <PlayerPageButton onClick={() => {setIsOpen(!isOpen)}} isOpen={isOpen}></PlayerPageButton>
+                <PlayerPageButton onClick={() => {setIsOpen(!isOpen);click()}} isOpen={isOpen}></PlayerPageButton>
             </Wrapper>
         </>
     )

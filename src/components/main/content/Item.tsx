@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { FaCirclePlay } from "react-icons/fa6";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
-import { usePlayer } from "../../context/PlayerContsxt";
+import { usePlayer } from "../../context/PlayerContext";
 
 const Wrapper = styled.div`
     width:160px;
