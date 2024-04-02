@@ -1,29 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
+import { throttle } from 'lodash';
 
 import Menu from './Menu';
 import Logo from './Logo';
 import Search from './Search';
 import UserIcon from './UserIcon';
+
 import { IsWebSidebarOpen } from '../context/SidebarContext';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{isScrollTop:boolean}>`
 	display: flex;
 	background-color:#030303;
 	justify-content:flex-start;
 	position:fixed;
 	width:calc(100vw - 12px);
 	z-index:2;
+	border-bottom:${(props)=> (props.isScrollTop?'0px solid transparent':'1px solid rgba(255,255,255,.15)')};
+	transition:all 0.2s linear;
 `
 
-const LeftContent = styled.div<{isOpen:boolean}>`
+const LeftContent = styled.div<{isOpen:boolean,isScrollTop:boolean}>`
 	padding-left:16px;
 	align-items:center;
 	display:flex;
 	width:224px;
 	z-index:2;
-	border-right:${(props) => (props.isOpen ? '1px solid rgba(255,255,255,.15)' : 'none')};
+	border-right:${(props) => (props.isOpen&&props.isScrollTop ? '1px solid rgba(255,255,255,.15)' : '0px solid transparent')};
+	transition:all 0.2s linear;
 	@media(max-width:936px){
 		border:none;
 	}
@@ -50,11 +54,22 @@ const RightContent = styled.div`
 `
 function Header() {
 	const isOpen = IsWebSidebarOpen();
+	const [isScrollTop,setIsScrollTop] = useState(true);
 
+	const ScrollMove = throttle (() =>{
+		const isScrollTop = window.scrollY === 0;
+		setIsScrollTop(isScrollTop);
+	},500)
+
+	useEffect(()=> {
+		window.addEventListener('scroll',ScrollMove);
+
+		return () => window.removeEventListener('scroll',ScrollMove);
+	},[ScrollMove])
 	return(
 		<>
-			<Wrapper>
-				<LeftContent isOpen={isOpen}>
+			<Wrapper isScrollTop={isScrollTop}>
+				<LeftContent isOpen={isOpen} isScrollTop={isScrollTop}>
 					<Menu/>
 					<Logo/>
 				</LeftContent>
