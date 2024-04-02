@@ -9,6 +9,10 @@ import UserIcon from './UserIcon';
 
 import { IsWebSidebarOpen } from '../context/SidebarContext';
 
+interface HeaderProps {
+	isScrollTop:boolean
+}
+
 const Wrapper = styled.div<{isScrollTop:boolean}>`
 	display: flex;
 	background-color:#030303;
@@ -52,20 +56,8 @@ const RightContent = styled.div`
 	padding-right:100px;
 	display:flex;
 `
-function Header() {
+function Header({isScrollTop}:HeaderProps) {
 	const isOpen = IsWebSidebarOpen();
-	const [isScrollTop,setIsScrollTop] = useState(true);
-
-	const ScrollMove = throttle (() =>{
-		const isScrollTop = window.scrollY === 0;
-		setIsScrollTop(isScrollTop);
-	},500)
-
-	useEffect(()=> {
-		window.addEventListener('scroll',ScrollMove);
-
-		return () => window.removeEventListener('scroll',ScrollMove);
-	},[ScrollMove])
 	return(
 		<>
 			<Wrapper isScrollTop={isScrollTop}>

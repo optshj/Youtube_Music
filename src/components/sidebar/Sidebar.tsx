@@ -1,13 +1,15 @@
-import React from "react";
-
 import MobileSidebar from "./mobile/MobileSidebar";
 import WebSidebar from "./web/WebSidebar";
 
-function Sidebar(){
+interface SidebarProps {
+    isScrollTop:boolean;
+}
+
+function Sidebar({isScrollTop}:SidebarProps){
     return(
         <>  
             <WebSidebar></WebSidebar>
-            <MobileSidebar></MobileSidebar>
+            <MobileSidebar isScrollTop={isScrollTop}></MobileSidebar>
         </>
     )
 
