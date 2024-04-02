@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import { usePlayerPage } from "../context/PlayerPageContext";
+
 import { PiRepeatThin } from "react-icons/pi";
 import { PiRepeatOnceThin } from "react-icons/pi";
 import { PiShuffleThin } from "react-icons/pi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import SoundSlidebar from "./VolumSide";
-import { usePlayerPage } from "../context/PlayerPageContext";
 
 
 const Wrapper = styled.div`

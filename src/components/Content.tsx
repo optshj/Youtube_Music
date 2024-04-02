@@ -20,6 +20,7 @@ function Content() {
 
 		return () => window.removeEventListener('scroll',ScrollMove);
 	},[ScrollMove])
+	
     return(
         <>
             <Header isScrollTop={isScrollTop}></Header>

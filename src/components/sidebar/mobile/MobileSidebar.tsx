@@ -4,16 +4,17 @@ import { IsWebSidebarOpen } from "../../context/SidebarContext";
 
 import Menu from "./menu/Menu";
 
+import { IsPlayerPageOpen } from "../../context/PlayerPageContext";
+
 interface MobileSidebarProps {
     isScrollTop:boolean;
 }
-const Wrapper = styled.div<{isOpen:boolean,isScrollTop:boolean}>`
-    margin-top:64px;
-    width:72px;
-    position:fixed;
+const Wrapper = styled.div<{isOpen:boolean,isScrollTop:boolean,isPlayerPageOpen:boolean}>`
+    position:absolute;
     height:100%;
-    border-right:${(props)=> (props.isScrollTop?'0px solid transparent':'1px solid rgba(255,255,255,.15)')};
-    transitio:all 0.2s linear;
+    width:72px;
+    border-right:${(props)=> (!props.isScrollTop||props.isPlayerPageOpen?'1px solid rgba(255,255,255,.15)':'0px solid transparent')};
+    transition:border-right 0.2s linear;
     @media (min-width:936px){
         display:none;   
     }
@@ -23,9 +24,11 @@ const Wrapper = styled.div<{isOpen:boolean,isScrollTop:boolean}>`
 `
 function MobileSidebar({isScrollTop}:MobileSidebarProps){
     const isOpen = IsWebSidebarOpen();
+    const isPlayerPageOpen = IsPlayerPageOpen();
+
     return(
         <>
-            <Wrapper isOpen={isOpen} isScrollTop={isScrollTop}>
+            <Wrapper isOpen={isOpen} isScrollTop={isScrollTop} isPlayerPageOpen={isPlayerPageOpen}>
                 <Menu></Menu>
             </Wrapper>
         </>

@@ -3,15 +3,13 @@ import styled from "styled-components";
 import { IsPlayerPageOpen } from "../context/PlayerPageContext";
 
 const Wrapper = styled.div<{isOpen:boolean}>`
-    color:white;
+    background-color:#030303;
     visibility:${(props) => (props.isOpen?'visible':'hidden')};
     position:fixed;
-    z-index:2;
     top:64px;
     left:240px;
     width:calc(100vw - 240px);
     height:calc(100vh - 136px);
-
     @media (max-width:936px){
         width:calc(100vw - 72px);
         left:72px;
@@ -22,13 +20,24 @@ const Wrapper = styled.div<{isOpen:boolean}>`
         left:0;
     }
 `
-
+const ContentWrapper = styled.div`
+    padding:24px 48px 0;
+    box-sizing:border-box;
+    height:100%;
+    display:flex;
+`
+const MainPanel = styled.div`
+`
+const SidePanel = styled.div`
+`
 function PlayerPage() {
     const isOpen = IsPlayerPageOpen();
     return(
         <>
             <Wrapper isOpen={isOpen}>
-                
+                <ContentWrapper>
+
+                </ContentWrapper>
             </Wrapper>
         </>
     )

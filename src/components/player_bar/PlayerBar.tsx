@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+import { IsPlayerOpen } from "../context/PlayerContext";
+
 import LeftControl from "./LeftControl";
 import TimeInfo from "./TimeInfo";
 import CenterControl from "./CenterControl";
 import RightControl from "./RightControl";
-import { IsPlayerOpen } from "../context/PlayerContext";
+
 
 const Wrapper = styled.div<{isOpen:boolean}>`
     visibility:${(props) => (props.isOpen ? 'visible':'hidden')};

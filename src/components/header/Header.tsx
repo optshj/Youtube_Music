@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { throttle } from 'lodash';
 
 import Menu from './Menu';
 import Logo from './Logo';
@@ -8,29 +6,30 @@ import Search from './Search';
 import UserIcon from './UserIcon';
 
 import { IsWebSidebarOpen } from '../context/SidebarContext';
+import { IsPlayerPageOpen } from '../context/PlayerPageContext';
 
 interface HeaderProps {
 	isScrollTop:boolean
 }
 
-const Wrapper = styled.div<{isScrollTop:boolean}>`
+const Wrapper = styled.div<{isScrollTop:boolean,isPlayerPageOpen:boolean}>`
 	display: flex;
 	background-color:#030303;
 	justify-content:flex-start;
 	position:fixed;
 	width:calc(100vw - 12px);
 	z-index:2;
-	border-bottom:${(props)=> (props.isScrollTop?'0px solid transparent':'1px solid rgba(255,255,255,.15)')};
-	transition:all 0.2s linear;
+	border-bottom:${(props)=> (!props.isScrollTop||props.isPlayerPageOpen?'1px solid rgba(255,255,255,.15)':'0px solid transparent')};
+	transition:border-bottom 0.2s linear;
 `
 
-const LeftContent = styled.div<{isOpen:boolean,isScrollTop:boolean}>`
+const LeftContent = styled.div<{isSidebarOpen:boolean,isScrollTop:boolean,isPlayerPageOpen:boolean}>`
 	padding-left:16px;
 	align-items:center;
 	display:flex;
 	width:224px;
 	z-index:2;
-	border-right:${(props) => (props.isOpen&&props.isScrollTop ? '1px solid rgba(255,255,255,.15)' : '0px solid transparent')};
+	border-right:${(props) => (!props.isPlayerPageOpen&&(props.isSidebarOpen&&props.isScrollTop)? '1px solid rgba(255,255,255,.15)':'0px solid transparent')};
 	transition:all 0.2s linear;
 	@media(max-width:936px){
 		border:none;
@@ -57,11 +56,13 @@ const RightContent = styled.div`
 	display:flex;
 `
 function Header({isScrollTop}:HeaderProps) {
-	const isOpen = IsWebSidebarOpen();
+	const isSidebarOpen = IsWebSidebarOpen();
+	const isPlyaerPageOpen = IsPlayerPageOpen();
+	
 	return(
 		<>
-			<Wrapper isScrollTop={isScrollTop}>
-				<LeftContent isOpen={isOpen} isScrollTop={isScrollTop}>
+			<Wrapper isScrollTop={isScrollTop} isPlayerPageOpen={isPlyaerPageOpen}>
+				<LeftContent isSidebarOpen={isSidebarOpen} isScrollTop={isScrollTop} isPlayerPageOpen={isPlyaerPageOpen}>
 					<Menu/>
 					<Logo/>
 				</LeftContent>

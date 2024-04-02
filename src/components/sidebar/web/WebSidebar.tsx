@@ -15,10 +15,8 @@ const hideSidebar = keyframes`
 `
 
 const Wrapper = styled.div<{isOpen:boolean}>`
-    margin-top:64px;
     width:240px;
-    position:fixed;
-    top:0;
+    position:absolute;
     border-right:1px solid rgba(255,255,255,.15);
     height:100%;
     @media (max-width:936px){
