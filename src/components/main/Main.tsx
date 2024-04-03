@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import Header from "./header/Header";
-import Content from "./content/Content";
+import Header from "./Header/Header";
+import Content from "./Content/Content";
 
 const Wrapper = styled.div`
     box-sizing:border-box;

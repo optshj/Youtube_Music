@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { IoChevronDownSharp } from "react-icons/io5";
 
-import PublicDropDown from "./dropdown/PublicDropDown";
+import PublicDropDown from "./DropDown/PublicDropDown";
 import PublicStatus from "./PublicStatus";
 
 const UnderLine = styled.div`

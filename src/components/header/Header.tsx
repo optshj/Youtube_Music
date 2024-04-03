@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import Menu from './Menu';
-import Logo from './Logo';
+import Menu from './Menu'
+import Logo from './Logo'
 import Search from './Search';
 import UserIcon from './UserIcon';
 

@@ -1,11 +1,11 @@
 import { useState,useEffect } from "react";
 import { throttle } from "lodash";
 
-import Header from "./header/Header";
+import Header from "./Header/Header";
 import Sidebar from "./sidebar/Sidebar";
-import Main from "./main/Main";
-import MakePlayListModal from "./playlist_modal/MakePlayListModal";
-import PlayerBar from "./player_bar/PlayerBar";
+import Main from "./Main/Main";
+import MakePlayListModal from "./PlayListModal/MakePlayListModal";
+import PlayerBar from "./PlayerBar/PlayerBar";
 
 function Content() {
     const [isScrollTop,setIsScrollTop] = useState(true);

@@ -2,8 +2,8 @@ import styled,{keyframes} from "styled-components";
 
 import { IsWebSidebarOpen } from "../../context/SidebarContext";
 
-import Menu from "./menu/Menu";
-import PlayListMenu from "./playlist/PlayListMenu";
+import Menu from "./Menu/Menu";
+import PlayListMenu from "./Playlist/PlayListMenu";
 
 
 const hideSidebar = keyframes`
