@@ -9,12 +9,9 @@ const Wrapper = styled.h2`
 `
 function Title(){
     return(
-        <>
-            <Wrapper>
-                새 재생목록
-            </Wrapper>
-        </>
+        <Wrapper>
+            새 재생목록
+        </Wrapper>
     )
 }
-
 export default Title;

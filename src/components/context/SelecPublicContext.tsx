@@ -5,6 +5,7 @@ const SelectPublicActionContext = createContext<any>(null);
 
 export default function SelectPublicProvider({children} : {children:React.ReactNode}){
     const [selectStatus,setSelectStatus] = useState(0); // 0:공개,1:일부공개,2:비공개
+
     const actions = useMemo(
         () => ({
             selectPublic() {
@@ -21,6 +22,7 @@ export default function SelectPublicProvider({children} : {children:React.ReactN
             }
         }),[]
     )
+
     return(
         <SelectPublicActionContext.Provider value={actions}>
             <SelectPublicValueContext.Provider value={selectStatus}>
@@ -29,10 +31,12 @@ export default function SelectPublicProvider({children} : {children:React.ReactN
         </SelectPublicActionContext.Provider>
     )
 }
+
 export function useDropdown() {
     const {selectPublic,selectPartial,selectPrivate,initDropDown} = useContext(SelectPublicActionContext);
     return {selectPublic,selectPartial,selectPrivate,initDropDown};
 }
+
 export function SelectStatus(){
     const selectStatus = useContext(SelectPublicValueContext);
     return selectStatus;

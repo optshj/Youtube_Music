@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from "styled-components"
-
 
 import { MdHomeFilled } from "react-icons/md";
 import { FaRegCompass } from "react-icons/fa";
@@ -14,17 +12,14 @@ const Wrapper = styled.div`
     width:100%; 
     box-sizing: border-box;
 `
-function Menu(){
 
+function Menu(){
     return(
-        <>
             <Wrapper>
                 <MenuIcon icon ={MdHomeFilled} descript='홈'></MenuIcon>
                 <MenuIcon icon ={FaRegCompass} descript='둘러보기'></MenuIcon>
                 <MenuIcon icon={ImFilePlay} descript='보관함'></MenuIcon>
             </Wrapper>
-        </>
-
     )
 }
 export default Menu;

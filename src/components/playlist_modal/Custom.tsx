@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import SelectPublic from "./SelectPublic";
 import { IsModalOpen } from "../context/ModalContext";
@@ -61,41 +61,40 @@ const UnderLine = styled.div`
 function Custom(){
     const inputRef = useRef<HTMLInputElement>(null);
     const isOpen = IsModalOpen();
+
     useEffect (()=> {
         if (isOpen && inputRef.current){
             inputRef.current.focus();
         }
     },[isOpen])
+
     return(
-        <>
-            <Wrapper>
-                <TilteForm>
-                    <Space>&nbsp;</Space>
-                    <Label htmlFor="input-title">제목</Label>
-                    <Input type='text' id="input-title" ref={inputRef}></Input>
+        <Wrapper>
+            <TilteForm>
+                <Space>&nbsp;</Space>
+                <Label htmlFor="input-title">제목</Label>
+                <Input type='text' id="input-title" ref={inputRef}></Input>
 
-                    <UnderLineWrapper>
-                        <UnderLine></UnderLine>
-                        <UnderLineActive></UnderLineActive>
-                    </UnderLineWrapper>
+                <UnderLineWrapper>
+                    <UnderLine></UnderLine>
+                    <UnderLineActive></UnderLineActive>
+                </UnderLineWrapper>
 
-                </TilteForm>
+            </TilteForm>
 
-                <ExplainForm>
-                    <Space>&nbsp;</Space>
-                    <Label htmlFor="input-explain">설명</Label>
-                    <Input type='text' id="input-explain"></Input>
+            <ExplainForm>
+                <Space>&nbsp;</Space>
+                <Label htmlFor="input-explain">설명</Label>
+                <Input type='text' id="input-explain"></Input>
 
-                    <UnderLineWrapper>
-                        <UnderLine></UnderLine>
-                        <UnderLineActive></UnderLineActive>
-                    </UnderLineWrapper>
+                <UnderLineWrapper>
+                    <UnderLine></UnderLine>
+                    <UnderLineActive></UnderLineActive>
+                </UnderLineWrapper>
 
-                </ExplainForm>
-                <SelectPublic></SelectPublic>
-            </Wrapper>
-        </>
+            </ExplainForm>
+            <SelectPublic></SelectPublic>
+        </Wrapper>
     )
 }
-
 export default Custom;

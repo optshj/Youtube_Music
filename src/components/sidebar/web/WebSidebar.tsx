@@ -1,9 +1,10 @@
-import React from "react";
 import styled,{keyframes} from "styled-components";
+
+import { IsWebSidebarOpen } from "../../context/SidebarContext";
 
 import Menu from "./menu/Menu";
 import PlayListMenu from "./playlist/PlayListMenu";
-import { IsWebSidebarOpen } from "../../context/SidebarContext";
+
 
 const hideSidebar = keyframes`
     from {
@@ -29,12 +30,10 @@ function WebSidebar() {
     const isOpen = IsWebSidebarOpen();
 
     return(
-        <> 
-            <Wrapper isOpen={isOpen}>
-                <Menu></Menu>
-                <PlayListMenu></PlayListMenu>
-            </Wrapper>
-        </>
+        <Wrapper isOpen={isOpen}>
+            <Menu></Menu>
+            <PlayListMenu></PlayListMenu>
+        </Wrapper>
     )
 }
 export default WebSidebar;

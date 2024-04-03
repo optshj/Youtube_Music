@@ -5,6 +5,7 @@ const PlayerActionContext = createContext<any>(null);
 
 export default function PlayerProvider({children} : {children:React.ReactNode}){
     const [isOpen,setIsOpen] = useState(false);
+
     const actions = useMemo(
         () => ({
             open(){
@@ -12,7 +13,6 @@ export default function PlayerProvider({children} : {children:React.ReactNode}){
             }
         }),[]
     )
-
 
     return(
         <PlayerValueContext.Provider value={isOpen}>
@@ -22,10 +22,12 @@ export default function PlayerProvider({children} : {children:React.ReactNode}){
         </PlayerValueContext.Provider>
     )
 }
+
 export function usePlayer() {
     const {open} = useContext(PlayerActionContext);
     return {open};
 }
+
 export function IsPlayerOpen(){
     const isOpen = useContext(PlayerValueContext);
     return isOpen;

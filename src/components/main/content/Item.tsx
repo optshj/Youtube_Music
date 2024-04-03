@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import { FaCirclePlay } from "react-icons/fa6";
@@ -89,34 +88,31 @@ const ImageWrapper = styled.div`
     }
 `
 function Item(){
-
     const {open} = usePlayer();
 
     return(
-        <>
-            <Wrapper onClick={open}>
-                <ImageWrapper>
-                    <ItemBackGround></ItemBackGround>
-                    <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>
-                    <ItemPlayButton></ItemPlayButton>
-                    <ItemMenuWrapper>
-                        <ItemMenuButton></ItemMenuButton>
-                    </ItemMenuWrapper>
-                </ImageWrapper>
-                <Details>
-                    <TitleWrapper>
-                        <Title>
-                            Lorem ipsum
-                        </Title>
-                    </TitleWrapper>
-                    <SubTitleWrapper>
-                        <SubTitle>
-                            Lorem ipusm
-                        </SubTitle>
-                    </SubTitleWrapper>
-                </Details>
-            </Wrapper>
-        </>
+        <Wrapper onClick={open}>
+            <ImageWrapper>
+                <ItemBackGround></ItemBackGround>
+                <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>
+                <ItemPlayButton></ItemPlayButton>
+                <ItemMenuWrapper>
+                    <ItemMenuButton></ItemMenuButton>
+                </ItemMenuWrapper>
+            </ImageWrapper>
+            <Details>
+                <TitleWrapper>
+                    <Title>
+                        Lorem ipsum
+                    </Title>
+                </TitleWrapper>
+                <SubTitleWrapper>
+                    <SubTitle>
+                        Lorem ipusm
+                    </SubTitle>
+                </SubTitleWrapper>
+            </Details>
+        </Wrapper>
     )
 }
 export default Item;

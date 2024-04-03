@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { useSidebar } from '../context/SidebarContext';
@@ -25,12 +24,9 @@ function Menu(){
 	const click = useSidebar();
 	
 	return(
-		<>
-			<Wrapper >
-				<MenuIcon onClick={click}></MenuIcon>
-			</Wrapper>
-		</>
+		<Wrapper>
+			<MenuIcon onClick={click}></MenuIcon>
+		</Wrapper>
 	)
 }
-
 export default Menu;

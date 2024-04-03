@@ -1,9 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 
 import { useModal } from "../context/ModalContext";
 
-const ActionForm = styled.div`
+const Wrapper = styled.div`
     display:flex;
     justify-content:flex-end;
     padding:16px 24px 24px;
@@ -33,16 +32,15 @@ const MakeButton = styled(Button)`
         background-color:#d9d9d9;
     }
 `
+
 function ActionButton(){
     const {close} = useModal();
 
     return(
-        <>
-            <ActionForm>
-                <CancelButton onClick={close}>취소</CancelButton>
-                <MakeButton>만들기</MakeButton>
-            </ActionForm>
-        </>
+        <Wrapper>
+            <CancelButton onClick={close}>취소</CancelButton>
+            <MakeButton>만들기</MakeButton>
+        </Wrapper>
     )   
 }
 export default ActionButton;

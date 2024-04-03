@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components"
 import { IconType } from "react-icons";
 
@@ -24,17 +23,14 @@ const MenuIconFont = styled.div`
     font-size:10px;
 `
 function MenuIcon({icon:Icon,descript}:MenuIconProps){
-
     return(
-        <>
-            <MenuIconForm>
-                <Icon/>
+        <MenuIconForm>
+            <Icon/>
 
-                <MenuIconFont>
-                    {descript}
-                </MenuIconFont>
-            </MenuIconForm>
-        </>
+            <MenuIconFont>
+                {descript}
+            </MenuIconFont>
+        </MenuIconForm>
     )
 }
 export default MenuIcon;

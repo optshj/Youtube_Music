@@ -18,15 +18,10 @@ const UserName = styled.div`
 `
 
 function UserIcon(){
-	
-	
 	return(
-		<>
-			<User>
-				<UserName>성빈</UserName>
-			</User>
-		</>
+		<User>
+			<UserName>성빈</UserName>
+		</User>
 	)
 }
-
 export default UserIcon;

@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { GoSearch } from "react-icons/go";
@@ -58,16 +58,15 @@ function Search(){
 	const handleBlur = () => {
 		setIsSearchFocused(false);
 	}
+	
 	return(
-		<>
-			<WebSearchForm isFocused={isSearchFocused}>
-				<WebSearchIconForm isFocused={isSearchFocused}>
-					<GoSearch />
-				</WebSearchIconForm>
+		<WebSearchForm isFocused={isSearchFocused}>
+			<WebSearchIconForm isFocused={isSearchFocused}>
+				<GoSearch />
+			</WebSearchIconForm>
 
-				<SearchBar type="text" placeholder="노래, 앨범, 아티스트, 팟캐스트 검색" onFocus={handleFocus} onBlur={handleBlur}></SearchBar>
-			</WebSearchForm>
-		</>
+			<SearchBar type="text" placeholder="노래, 앨범, 아티스트, 팟캐스트 검색" onFocus={handleFocus} onBlur={handleBlur}></SearchBar>
+		</WebSearchForm>
 	)
 }
 export default Search;

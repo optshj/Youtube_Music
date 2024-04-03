@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "styled-components";
+
 import HeaderButton from "./HeaderButton";
 
 const Wrapper = styled.div`
@@ -34,20 +34,18 @@ const Wrapper = styled.div`
 
 function MainHeader(){
     return(
-        <>
-            <Wrapper>
-                <HeaderButton name="운동"></HeaderButton>
-                <HeaderButton name="에너지 충전"></HeaderButton>
-                <HeaderButton name="휴식"></HeaderButton>
-                <HeaderButton name="출퇴근길"></HeaderButton>
-                <HeaderButton name="행복한 기분"></HeaderButton>
-                <HeaderButton name="집중"></HeaderButton>
-                <HeaderButton name="로맨스"></HeaderButton>
-                <HeaderButton name="파티"></HeaderButton>
-                <HeaderButton name="슬픔"></HeaderButton>
-                <HeaderButton name="잠잘 때"></HeaderButton>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <HeaderButton name="운동"></HeaderButton>
+            <HeaderButton name="에너지 충전"></HeaderButton>
+            <HeaderButton name="휴식"></HeaderButton>
+            <HeaderButton name="출퇴근길"></HeaderButton>
+            <HeaderButton name="행복한 기분"></HeaderButton>
+            <HeaderButton name="집중"></HeaderButton>
+            <HeaderButton name="로맨스"></HeaderButton>
+            <HeaderButton name="파티"></HeaderButton>
+            <HeaderButton name="슬픔"></HeaderButton>
+            <HeaderButton name="잠잘 때"></HeaderButton>
+        </Wrapper>
     )
 }
 export default MainHeader;

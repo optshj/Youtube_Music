@@ -4,6 +4,12 @@ import throttle from 'lodash/throttle';
 
 import Item from "./Item";
 
+interface ContentCarouselProps {
+    setHasScollbar: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsScrollLeft: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsScrollRight : React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const Wrapper = styled.div`
     margin:16px 0 24px;
 `
@@ -43,12 +49,6 @@ const ItemsWrapper = styled.ul`
 
 function MakeRandomNumber(min:number,max:number){
     return Math.floor(Math.random() *(max - min + 1)) + min;
-}
-
-interface ContentCarouselProps {
-    setHasScollbar: React.Dispatch<React.SetStateAction<boolean>>;
-    setIsScrollLeft: React.Dispatch<React.SetStateAction<boolean>>;
-    setIsScrollRight : React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function ContentCarousel({setHasScollbar,setIsScrollLeft,setIsScrollRight}:ContentCarouselProps){
@@ -100,13 +100,11 @@ function ContentCarousel({setHasScollbar,setIsScrollLeft,setIsScrollRight}:Conte
     ));
     
     return(
-        <>
-            <Wrapper>
-                <ItemsWrapper ref={componentRef}>
-                    {ItemArray}
-                </ItemsWrapper>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <ItemsWrapper ref={componentRef}>
+                {ItemArray}
+            </ItemsWrapper>
+        </Wrapper>
     )
 }
 export default React.memo(ContentCarousel);

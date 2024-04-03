@@ -1,5 +1,4 @@
 import Modal from 'react-modal';
-import ReactModal from "react-modal";
 import styled,{keyframes} from 'styled-components';
 
 import { IsModalOpen } from "../context/ModalContext";
@@ -57,20 +56,18 @@ const ResponsiveModal = styled(Modal)`
     }
     @media (max-width:615px){
     width:calc(100vw - 48px);
-}
+    }
 `
+
 function MakePlayListModal(){
     const isOpen = IsModalOpen();
     const {close} = useModal();
 
     return(
-        <>
-            <ResponsiveModal isOpen={isOpen} onRequestClose={close} style={ModalStyles}>
-                    <Title></Title>
-                    <Content></Content>
-            </ResponsiveModal>
-        </>
+        <ResponsiveModal isOpen={isOpen} onRequestClose={close} style={ModalStyles}>
+                <Title></Title>
+                <Content></Content>
+        </ResponsiveModal>
     )
 }
-
 export default MakePlayListModal;

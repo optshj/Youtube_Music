@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 import { IsWebSidebarOpen } from "../../context/SidebarContext";
+import { IsPlayerPageOpen } from "../../context/PlayerPageContext";
 
 import Menu from "./menu/Menu";
-
-import { IsPlayerPageOpen } from "../../context/PlayerPageContext";
 
 interface MobileSidebarProps {
     isScrollTop:boolean;
 }
+
 const Wrapper = styled.div<{isOpen:boolean,isScrollTop:boolean,isPlayerPageOpen:boolean}>`
     position:absolute;
     height:100%;
@@ -22,16 +22,15 @@ const Wrapper = styled.div<{isOpen:boolean,isScrollTop:boolean,isPlayerPageOpen:
         display:none;
     }
 `
+
 function MobileSidebar({isScrollTop}:MobileSidebarProps){
     const isOpen = IsWebSidebarOpen();
     const isPlayerPageOpen = IsPlayerPageOpen();
 
     return(
-        <>
-            <Wrapper isOpen={isOpen} isScrollTop={isScrollTop} isPlayerPageOpen={isPlayerPageOpen}>
-                <Menu></Menu>
-            </Wrapper>
-        </>
+        <Wrapper isOpen={isOpen} isScrollTop={isScrollTop} isPlayerPageOpen={isPlayerPageOpen}>
+            <Menu></Menu>
+        </Wrapper>
     )
 }
 export default MobileSidebar;

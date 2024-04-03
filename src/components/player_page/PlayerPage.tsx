@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import { IsPlayerPageOpen } from "../context/PlayerPageContext";
@@ -6,6 +5,7 @@ import { IsPlayerPageOpen } from "../context/PlayerPageContext";
 import SelectButton from "./SelectButton";
 import AlbumImage from "./AlbumImage";
 import SidePanelHeader from "./SidePanelHeader";
+import MusicList from "./MusicList";
 
 const Wrapper = styled.div<{isOpen:boolean}>`
     background-color:#030303;
@@ -45,20 +45,20 @@ const SidePanel = styled.div`
 `
 function PlayerPage() {
     const isOpen = IsPlayerPageOpen();
+
     return(
-        <>
-            <Wrapper isOpen={isOpen}>
-                <ContentWrapper>
-                    <MainPanel>
-                        <SelectButton></SelectButton>
-                        <AlbumImage></AlbumImage>
-                    </MainPanel>
-                    <SidePanel>
-                        <SidePanelHeader></SidePanelHeader>
-                    </SidePanel>
-                </ContentWrapper>
-            </Wrapper>
-        </>
+        <Wrapper isOpen={isOpen}>
+            <ContentWrapper>
+                <MainPanel>
+                    <SelectButton></SelectButton>
+                    <AlbumImage></AlbumImage>
+                </MainPanel>
+                <SidePanel>
+                    <SidePanelHeader></SidePanelHeader>
+                    <MusicList></MusicList>
+                </SidePanel>
+            </ContentWrapper>
+        </Wrapper>
     )
 }
 export default PlayerPage;

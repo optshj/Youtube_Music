@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -26,25 +26,18 @@ const Button = styled.button<{isSelect:boolean}>`
 
 `
 function SelectButton(){
-    const [isMusicSelect,setIsMusicSelect] = useState(true);
-    const [isVideoSelect,setIsVideoSelect] = useState(false);
-    const selectMusic = () => {
-        setIsMusicSelect(true);
-        setIsVideoSelect(false);
+    const [selectType,setSelectType] = useState<String>('Music');
+    const handleClick = (type:String) => {
+        setSelectType(type);
     }
-    const selectVideo = () => {
-        setIsMusicSelect(false);
-        setIsVideoSelect(true);
-    }
+
     return(
-        <>
-            <Wrapper>
-                <ButtonWrapper>
-                    <Button isSelect={isMusicSelect} onClick={selectMusic} > 노래 </Button>
-                    <Button isSelect={isVideoSelect} onClick={selectVideo}> 동영상 </Button>
-                </ButtonWrapper>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <ButtonWrapper>
+                <Button isSelect={selectType === 'Music'} onClick={() => handleClick('Music')}> 노래 </Button>
+                <Button isSelect={selectType === 'Video'} onClick={() => handleClick('Video')}> 동영상 </Button>
+            </ButtonWrapper>
+        </Wrapper>
     )
 }
 export default SelectButton;

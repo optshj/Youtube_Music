@@ -47,15 +47,14 @@ function VolumSide(){
     const onChangeVolume = (e:React.ChangeEvent<HTMLInputElement>) => {
         setRangeValue(parseInt(e.target.value));
     }
+
     return(
-        <>
-            <Wrapper>
-                <SlideBackground>
-                    <SlideInner length={rangeValue}></SlideInner>
-                    <Slidebar type="range" max={100} min ={0} value={rangeValue} onChange={onChangeVolume}></Slidebar>
-                </SlideBackground>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <SlideBackground>
+                <SlideInner length={rangeValue}></SlideInner>
+                <Slidebar type="range" max={100} min ={0} value={rangeValue} onChange={onChangeVolume}></Slidebar>
+            </SlideBackground>
+        </Wrapper>
     )
 }
 export default VolumSide;

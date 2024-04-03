@@ -22,7 +22,6 @@ const ExplainWrapper = styled.div`
     display:flex;
     flex-direction:row;
     white-space: nowrap;
-
 `
 const Explain = styled.div`
     font-size:14px;

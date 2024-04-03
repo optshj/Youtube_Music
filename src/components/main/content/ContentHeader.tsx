@@ -1,8 +1,13 @@
-import React from "react";
-import styled,{css} from "styled-components";
+import styled from "styled-components";
 
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
+
+interface ContentHeaderProps{
+    hasScrollbar:boolean;
+    isScrollLeft:boolean;
+    isScrollRight:boolean;
+}
 
 const Wrapper = styled.div`
     display:flex;
@@ -60,11 +65,7 @@ const RightIcon = styled(MdOutlineArrowForwardIos)<{isScrollRight:boolean}>`
     color: ${(props) => (props.isScrollRight ?'#333':'#c0c0c0')};
     transition: color 0.2s linear;
 `
-interface ContentHeaderProps{
-    hasScrollbar:boolean;
-    isScrollLeft:boolean;
-    isScrollRight:boolean;
-}
+
 function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderProps){
 
     const LeftButtonFormStyles = {
@@ -75,20 +76,19 @@ function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderPr
         'cursor': isScrollRight ? '' : 'pointer',
         'backgroundColor' : isScrollRight ? '#030303' : ''
     }
+
     return(
-        <>
-            <Wrapper>
-                <Title>Lorem ipsum dolor sit amet</Title>
-                <ButtonGroup hasScrollbar={hasScrollbar}>
-                    <ArrowIconForm style={LeftButtonFormStyles}>
-                            <LeftIcon isScrollLeft={isScrollLeft}></LeftIcon>
-                    </ArrowIconForm>
-                    <ArrowIconForm style={RightButtonFormStyles}>
-                        <RightIcon isScrollRight={isScrollRight}></RightIcon>
-                    </ArrowIconForm>
-                </ButtonGroup>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <Title>Lorem ipsum dolor sit amet</Title>
+            <ButtonGroup hasScrollbar={hasScrollbar}>
+                <ArrowIconForm style={LeftButtonFormStyles}>
+                        <LeftIcon isScrollLeft={isScrollLeft}></LeftIcon>
+                </ArrowIconForm>
+                <ArrowIconForm style={RightButtonFormStyles}>
+                    <RightIcon isScrollRight={isScrollRight}></RightIcon>
+                </ArrowIconForm>
+            </ButtonGroup>
+        </Wrapper>
     )
 }
 export default ContentHeader;

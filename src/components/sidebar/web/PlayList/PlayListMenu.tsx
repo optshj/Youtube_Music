@@ -1,6 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-
 
 import MakeNewPlayList from "./MakeNewPlayList";
 import PlayList from "./PlayList";
@@ -9,7 +7,7 @@ import PlayList from "./PlayList";
 const MaekForm = styled.div`
     padding:0 16px;
 `
-const PlayListMenuForm = styled.div`
+const Wrapper = styled.div`
     flex-direction:column;
     padding:0 4px;
 `
@@ -18,20 +16,16 @@ const PlayListsForm = styled.div`
 `
 
 function PlayListMenu(){
-
     return(
-        <>
-            <PlayListMenuForm>
-                <MaekForm>
-                    <MakeNewPlayList></MakeNewPlayList>
-                </MaekForm>
+        <Wrapper>
+            <MaekForm>
+                <MakeNewPlayList></MakeNewPlayList>
+            </MaekForm>
 
-                <PlayListsForm>
-                    <PlayList listName={"My PlayList"} ownerName={"이성빈"}></PlayList>
-                </PlayListsForm>
-            </PlayListMenuForm>
-        </>
+            <PlayListsForm>
+                <PlayList listName={"My PlayList"} ownerName={"이성빈"}></PlayList>
+            </PlayListsForm>
+        </Wrapper>
     )
 }
-
 export default PlayListMenu;

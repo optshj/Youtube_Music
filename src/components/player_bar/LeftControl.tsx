@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 import { IoMdPlay } from "react-icons/io";
@@ -47,16 +47,15 @@ function LeftControl(){
     const onChange = () => {
         setIsPlay(!isPlay);
     }
+
     return(
-        <>
-            <Wrapper>
-                <BackwardButton></BackwardButton>
-                <PlayPauseWrapper onClick={onChange}>
-                    {isPlay?<PlayButton></PlayButton>:<PauseButton></PauseButton>}
-                </PlayPauseWrapper>
-                <ForwardButton></ForwardButton>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <BackwardButton></BackwardButton>
+            <PlayPauseWrapper onClick={onChange}>
+                {isPlay?<PlayButton></PlayButton>:<PauseButton></PauseButton>}
+            </PlayPauseWrapper>
+            <ForwardButton></ForwardButton>
+        </Wrapper>
     )
 }
 export default LeftControl;

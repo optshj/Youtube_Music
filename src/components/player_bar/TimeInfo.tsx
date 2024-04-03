@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -12,9 +11,7 @@ const Wrapper = styled.div`
 `
 function TimeInfo(){
     return(
-        <>
-            <Wrapper>0:00/2:51</Wrapper>
-        </>
+        <Wrapper>0:00/2:51</Wrapper>
     )
 }
 export default TimeInfo;

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 interface HeaderButtonProps {
@@ -25,18 +24,14 @@ const FontForm = styled.div`
     margin:0 12px;
 `
 function HeaderButton({name}:HeaderButtonProps){
-
     return(
-        <>
-            <Wrapper>
-                <LinkButton>
-                    <FontForm>
-                        {name}
-                    </FontForm>
-                </LinkButton>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <LinkButton>
+                <FontForm>
+                    {name}
+                </FontForm>
+            </LinkButton>
+        </Wrapper>
     )
 }
-
 export default HeaderButton;

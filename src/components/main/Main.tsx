@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import Header from "./header/Header";
@@ -17,14 +16,12 @@ const Wrapper = styled.div`
 
 function Main(){
     return(
-        <>
-            <Wrapper>
-                <Header></Header>
-                <Content></Content>
-                <Content></Content>
-                <Content></Content>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <Header></Header>
+            <Content></Content>
+            <Content></Content>
+            <Content></Content>
+        </Wrapper>
     )
 }
 export default Main;

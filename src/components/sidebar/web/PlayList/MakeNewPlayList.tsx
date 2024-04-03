@@ -1,10 +1,10 @@
-import React,{useState} from "react";
 import styled from "styled-components";
+
 import { IoAddSharp } from "react-icons/io5";
 
 import { useModal } from "../../../context/ModalContext";
 
-const MakePlayListForm = styled.div`
+const Wrapper = styled.div`
     display:flex;
     color:white;
     margin-bottom:16px;
@@ -20,7 +20,6 @@ const MakePlayListForm = styled.div`
         background-color:#343434;
     }
 `
-
 const AddIconForm = styled.div`
     margin-right:8px;
     color:white;
@@ -28,22 +27,20 @@ const AddIconForm = styled.div`
 const AddNameForm = styled.div`
     line-height:36px;
 `
+
 function MakeNewPlayList() {
     const {open} = useModal();
 
     return(
-        <>
-            <MakePlayListForm onClick={open}>
-                <AddIconForm>
-                    <IoAddSharp size={24} />
-                </AddIconForm>
+        <Wrapper onClick={open}>
+            <AddIconForm>
+                <IoAddSharp size={24} />
+            </AddIconForm>
 
-                <AddNameForm>
-                    새 재생목록
-                </AddNameForm>
-            </MakePlayListForm>
-        </>
+            <AddNameForm>
+                새 재생목록
+            </AddNameForm>
+        </Wrapper>
     )
 }
-
 export default MakeNewPlayList;

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components"
 import { IconType } from "react-icons";
 
@@ -7,7 +6,7 @@ interface MenuIconProps {
     descript: string;
 }
 
-const MenuIconForm = styled.div`
+const Wrapper = styled.div`
     display:flex;
     color:#fff;
     font-size:22px;
@@ -26,20 +25,18 @@ const IconMargin = styled.div`
 const MenuIconFont = styled.div`
     font-size:16px;
 `
+
 function MenuIcon({icon:Icon,descript}:MenuIconProps){
-
     return(
-        <>
-            <MenuIconForm>
-                <IconMargin>
-                <Icon/>
-                </IconMargin>
+        <Wrapper>
+            <IconMargin>
+            <Icon/>
+            </IconMargin>
 
-                <MenuIconFont>
-                    {descript}
-                </MenuIconFont>
-            </MenuIconForm>
-        </>
+            <MenuIconFont>
+                {descript}
+            </MenuIconFont>
+        </Wrapper>
     )
 }
 export default MenuIcon;

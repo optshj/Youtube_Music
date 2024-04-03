@@ -1,10 +1,11 @@
-import React,{useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 
 import { IoChevronDownSharp } from "react-icons/io5";
 
 import PublicDropDown from "./dropdown/PublicDropDown";
 import PublicStatus from "./PublicStatus";
+
 const UnderLine = styled.div`
     position:absolute;
     border-bottom:1px solid #606060;
@@ -53,6 +54,7 @@ const ArrowFont = styled.div`
     position:relative;
     top:6px;
 `
+
 function SelectPublic(){
     const [openDropDown,setOpenDropDown] = useState(false);
     const componentRef = useRef<HTMLDivElement>(null);
@@ -70,33 +72,29 @@ function SelectPublic(){
     })
 
     return(
-        <>
-            <Wrapper ref={componentRef}>
-                <Text>공개 범위 설정</Text>
-                <DropDownBox onClick={() => setOpenDropDown(true)}>
+        <Wrapper ref={componentRef}>
+            <Text>공개 범위 설정</Text>
+            <DropDownBox onClick={() => setOpenDropDown(true)}>
 
-                    <PublicStatus></PublicStatus>
+                <PublicStatus></PublicStatus>
 
-                    <ArrowFont>
-                        <IoChevronDownSharp />
-                    </ArrowFont>
-                </DropDownBox>
-                
-                <UnderLineWrapper>
-                    <UnderLine></UnderLine>
-                    <UnderLineActive></UnderLineActive>
-                </UnderLineWrapper>
+                <ArrowFont>
+                    <IoChevronDownSharp />
+                </ArrowFont>
+            </DropDownBox>
+            
+            <UnderLineWrapper>
+                <UnderLine></UnderLine>
+                <UnderLineActive></UnderLineActive>
+            </UnderLineWrapper>
 
-                {
-                    openDropDown && 
-                    <div onClick={()=> setOpenDropDown(false)}>
-                        <PublicDropDown></PublicDropDown>
-                    </div>
-                }
-            </Wrapper>
-        
-        </>
+            {
+                openDropDown && 
+                <div onClick={()=> setOpenDropDown(false)}>
+                    <PublicDropDown></PublicDropDown>
+                </div>
+            }
+        </Wrapper>
     )
 }
-
 export default SelectPublic;

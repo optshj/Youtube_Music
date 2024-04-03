@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -10,14 +9,10 @@ const Wrapper = styled.div`
 `
 
 function Logo(){
-	
 	return(
-		<>
-			<Wrapper>
-				Music
-			</Wrapper>
-		</>
+		<Wrapper>
+			Music
+		</Wrapper>
 	)
 }
-
 export default Logo;

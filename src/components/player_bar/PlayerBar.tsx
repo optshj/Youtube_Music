@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import { IsPlayerOpen } from "../context/PlayerContext";
@@ -50,23 +49,22 @@ const RightContent = styled.div`
 `
 function PlayerBar(){
     const isOpen = IsPlayerOpen();
+
     return(
-        <>
-            <Wrapper isOpen={isOpen}>
-                <LeftContent>
-                    <LeftControl></LeftControl>
-                    <TimeInfo></TimeInfo>
-                </LeftContent>
+        <Wrapper isOpen={isOpen}>
+            <LeftContent>
+                <LeftControl></LeftControl>
+                <TimeInfo></TimeInfo>
+            </LeftContent>
 
-                <CenterContent>
-                    <CenterControl></CenterControl>
-                </CenterContent>
+            <CenterContent>
+                <CenterControl></CenterControl>
+            </CenterContent>
 
-                <RightContent>
-                    <RightControl></RightControl>
-                </RightContent>
-            </Wrapper>
-        </>
+            <RightContent>
+                <RightControl></RightControl>
+            </RightContent>
+        </Wrapper>
     )
 }
 export default PlayerBar;

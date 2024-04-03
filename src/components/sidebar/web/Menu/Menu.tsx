@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from "styled-components"
-
 
 import { MdHomeFilled } from "react-icons/md";
 import { FaRegCompass } from "react-icons/fa";
@@ -19,8 +17,8 @@ const MenuUnderLine = styled.div`
     margin:24px auto;
     width:192px;
 `
-function Menu(){
 
+function Menu(){
     return(
         <>
             <Wrapper>

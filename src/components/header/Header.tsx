@@ -60,25 +60,22 @@ function Header({isScrollTop}:HeaderProps) {
 	const isPlyaerPageOpen = IsPlayerPageOpen();
 	
 	return(
-		<>
-			<Wrapper isScrollTop={isScrollTop} isPlayerPageOpen={isPlyaerPageOpen}>
-				<LeftContent isSidebarOpen={isSidebarOpen} isScrollTop={isScrollTop} isPlayerPageOpen={isPlyaerPageOpen}>
-					<Menu/>
-					<Logo/>
-				</LeftContent>
-				
+		<Wrapper isScrollTop={isScrollTop} isPlayerPageOpen={isPlyaerPageOpen}>
+			<LeftContent isSidebarOpen={isSidebarOpen} isScrollTop={isScrollTop} isPlayerPageOpen={isPlyaerPageOpen}>
+				<Menu/>
+				<Logo/>
+			</LeftContent>
 			
-				<CenterContent>
-					<Search/>
-				</CenterContent>
-			
-			
-				<RightContent>
-					<UserIcon/>
-				</RightContent>
-			</Wrapper>
-		</>
+		
+			<CenterContent>
+				<Search/>
+			</CenterContent>
+		
+		
+			<RightContent>
+				<UserIcon/>
+			</RightContent>
+		</Wrapper>
 	)
 }
-
 export default Header;

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import DropDownItem from "./DropDownItem";
@@ -14,13 +13,12 @@ const Wrapper = styled.div`
     left:4%;
     top:63%;
 `
+
 function PublicDropDown(){
     return(
-        <>
-            <Wrapper>
-                <DropDownItem></DropDownItem>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <DropDownItem></DropDownItem>
+        </Wrapper>
     )
 }
 export default PublicDropDown;
