@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+
 import { IsPlayerPageOpen } from "../context/PlayerPageContext";
+
+import SelectButton from "./SelectButton";
+import AlbumImage from "./AlbumImage";
+import SidePanelHeader from "./SidePanelHeader";
 
 const Wrapper = styled.div<{isOpen:boolean}>`
     background-color:#030303;
-    visibility:${(props) => (props.isOpen?'visible':'hidden')};
     position:fixed;
     top:64px;
     left:240px;
@@ -19,6 +23,8 @@ const Wrapper = styled.div<{isOpen:boolean}>`
         top:0;
         left:0;
     }
+    transform:${(props) => (props.isOpen ?'translate3d(0,0,0)':'translate3d(0,100vh,0)')};
+    transition:transform .3s cubic-bezier(.2,0,.6,1);
 `
 const ContentWrapper = styled.div`
     padding:24px 48px 0;
@@ -27,8 +33,15 @@ const ContentWrapper = styled.div`
     display:flex;
 `
 const MainPanel = styled.div`
+    display:flex;
+    flex-direction:column;
+    flex:1;
 `
 const SidePanel = styled.div`
+    display:flex;
+    flex-direction:column;
+    width:40%;
+    margin:0 0 0 48px;
 `
 function PlayerPage() {
     const isOpen = IsPlayerPageOpen();
@@ -36,7 +49,13 @@ function PlayerPage() {
         <>
             <Wrapper isOpen={isOpen}>
                 <ContentWrapper>
-
+                    <MainPanel>
+                        <SelectButton></SelectButton>
+                        <AlbumImage></AlbumImage>
+                    </MainPanel>
+                    <SidePanel>
+                        <SidePanelHeader></SidePanelHeader>
+                    </SidePanel>
                 </ContentWrapper>
             </Wrapper>
         </>
