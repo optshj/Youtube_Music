@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 import { IsPlayerPageOpen } from "../context/PlayerPageContext";
 
-import SelectButton from "./SelectButton";
-import AlbumImage from "./AlbumImage";
-import SidePanelHeader from "./SidePanelHeader";
-import MusicList from "./MusicList";
+import SelectButton from "./AlbumImage/SelectButton";
+import AlbumImage from "./AlbumImage/AlbumImage";
+import SidePanelHeader from "./MusicList/SidePanelHeader";
+import MusicList from "./MusicList/MusicList";
 
 const Wrapper = styled.div<{isOpen:boolean}>`
     background-color:#030303;

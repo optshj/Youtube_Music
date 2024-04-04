@@ -1,10 +1,11 @@
-import Content from './components/Content';
-import PlayerPage from './components/player_page/PlayerPage';
+import Main from './pages/Main/Main'
+import PlayerPage from './components/PlayerPage/PlayerPage';
+
 
 function App() {
 	return (
-		<>
-			<Content></Content>
+		<>	
+			<Main></Main>
 			<PlayerPage></PlayerPage>
 		</>
 	);

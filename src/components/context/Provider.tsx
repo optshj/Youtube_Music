@@ -1,8 +1,8 @@
-import ModalProvider from './components/context/ModalContext';
-import SidebarProvider from './components/context/SidebarContext';
-import SelectPublicProvider from './components/context/SelecPublicContext';
-import PlayerProvider from './components/context/PlayerContext';
-import PlayerPageProvider from './components/context/PlayerPageContext';
+import ModalProvider from './ModalContext';
+import SidebarProvider from './SidebarContext';
+import SelectPublicProvider from './SelecPublicContext';
+import PlayerProvider from './PlayerContext';
+import PlayerPageProvider from './PlayerPageContext';
 
 function Provider({children}: {children:React.ReactNode}) {
     return(

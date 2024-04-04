@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { IsWebSidebarOpen } from "../../context/SidebarContext";
 import { IsPlayerPageOpen } from "../../context/PlayerPageContext";
 
-import Menu from "./menu/Menu";
+import Menu from "./Menu/Menu";
 
 interface MobileSidebarProps {
     isScrollTop:boolean;
