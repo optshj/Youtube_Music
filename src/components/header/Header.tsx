@@ -52,7 +52,6 @@ const CenterContent = styled.div`
 `
 const RightContent = styled.div`
 	padding:20px;
-	padding-right:100px;
 	display:flex;
 `
 function Header({isScrollTop}:HeaderProps) {

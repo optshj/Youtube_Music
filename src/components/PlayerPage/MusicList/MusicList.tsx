@@ -5,6 +5,7 @@ import Item from "./Item";
 const Wrapper = styled.div`
     overflow-x:hidden;
     overflow-y:scroll;
+    flex:1;
 `
 const ListWrapper = styled.div`
     width:100%;

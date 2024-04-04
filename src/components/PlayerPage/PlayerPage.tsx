@@ -31,17 +31,30 @@ const ContentWrapper = styled.div`
     box-sizing:border-box;
     height:100%;
     display:flex;
+    @media (max-width:936px){
+        flex-direction:column;
+    }
 `
 const MainPanel = styled.div`
     display:flex;
     flex-direction:column;
     flex:1;
+    @media (max-width:936px){
+        height:35vw;
+        padding:0 30vw;
+    }
 `
 const SidePanel = styled.div`
     display:flex;
     flex-direction:column;
     width:40%;
     margin:0 0 0 48px;
+    min-height:0;
+    height:100%;
+    @media (max-width:936px){
+        width:100%;
+        margin:64px 0 0 0;
+    }
 `
 function PlayerPage() {
     const isOpen = IsPlayerPageOpen();

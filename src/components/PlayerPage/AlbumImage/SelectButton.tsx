@@ -23,6 +23,7 @@ const Button = styled.button<{isSelect:boolean}>`
     line-height:1.3;
     border:transparent;
     cursor:pointer;
+    white-space:nowrap;
 
 `
 function SelectButton(){

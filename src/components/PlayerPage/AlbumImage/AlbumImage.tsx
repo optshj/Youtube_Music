@@ -11,7 +11,6 @@ const ImageWrapper = styled.div`
     top:0;
     left:0;
     width:100%;
-    height:100%;
 `
 function AlbumImage(){
 
@@ -19,7 +18,7 @@ function AlbumImage(){
         <>
             <Wrapper>
                 <ImageWrapper>
-                    <img src="https://via.placeholder.com/1048x1048/666.png" alt="Placeholder" style={{'width':'100%'}}/>
+                    <img src="https://via.placeholder.com/1048x1048/666.png" alt="Placeholder" style={{'width':'100%','height':'100%'}}/>
                 </ImageWrapper>
             </Wrapper>
         </>
