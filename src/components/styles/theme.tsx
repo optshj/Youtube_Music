@@ -4,9 +4,12 @@ const widths = {
     medium:'min(calc(100vw - 196px),1478px)',
     small:'calc(100vw - 32px)',
 }
-
+const colors = {
+    backgroundColor:'#030303',
+}
 const theme = {
     widths,
+    colors,
 };
 
 export type ThemeTypes = typeof theme;

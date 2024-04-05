@@ -46,9 +46,9 @@ const LikeWrapper = styled.div`
     &:hover{
         background-color:rgba(255,255,255,0.2);
     }
-    @media (max-width:936px){
+    ${({theme}) => theme.medium`
         display:none;
-    }
+    `}
 `
 const Dislike = styled.div`
     cursor:pointer;

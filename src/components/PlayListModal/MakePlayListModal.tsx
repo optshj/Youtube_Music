@@ -45,18 +45,18 @@ const FadeIn = keyframes`
 `
 const ResponsiveModal = styled(Modal)`
     animation: ${FadeIn} .15s linear;
-    @media (min-width: 1364px){
+    ${({theme}) => theme.xlarge`
         width:640px;
-    }
-    @media (min-width: 936px) and (max-width: 1363px){
+    `}
+    ${({theme}) => theme.large`
         width:560px;
-    }
-    @media (min-width: 616px) and (max-width: 935px){
+    `}
+    ${({theme}) => theme.medium`
         width:480px;
-    }
-    @media (max-width:615px){
-    width:calc(100vw - 48px);
-    }
+    `}
+    ${({theme}) => theme.small`
+        width:calc(100vw - 48px);
+    `}
 `
 
 function MakePlayListModal(){

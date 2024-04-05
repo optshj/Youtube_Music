@@ -7,21 +7,19 @@ interface SidebarProps {
     isScrollTop:boolean;
 }
 const Wrapper = styled.div`
-    margin-top:66px;
+    padding-top:66px;
     position:fixed;
     top:0;
     left:0;
-    z-index:2;
+    z-index:1;
     height:100%;
-`
+`   
 function Sidebar({isScrollTop}:SidebarProps){
     return(
-        <>  
-            <Wrapper>
-                <LargeSidebar></LargeSidebar>
-                <SmallSidebar isScrollTop={isScrollTop}></SmallSidebar>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <LargeSidebar></LargeSidebar>
+            <SmallSidebar isScrollTop={isScrollTop}></SmallSidebar>
+        </Wrapper>
     )
 
 }
