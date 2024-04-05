@@ -12,10 +12,10 @@ const WebSearchForm = styled.div<{isFocused:boolean}>`
 	&:foucs{
 		backgorund-color:black;
 	}
-	@media (max-width:936px) {
+	${({theme}) => theme.medium`
 		background-color:#030303;
 		border:none;
-	}
+	`}
 `
 
 const SearchBar = styled.input`
@@ -33,21 +33,19 @@ const SearchBar = styled.input`
 	&:focus{
 		outline:none;
 	}
-	@media (max-width:936px) {
+	${({theme}) => theme.medium`
 		display:none;
-	}
+	`}
 
 `
 const WebSearchIconForm = styled.div<{isFocused:boolean}>`
 	font-size:20px;
 	padding:8px 16px;
-	cursor:pointer;
-	@media (min-width:936px){
-		color:${props => props.isFocused ? '#fff' : '#9a9e9b'};
-	}
-	@media (max-width:936px) {
+	color:${props => props.isFocused ? '#fff' : '#9a9e9b'};
+	
+	${({theme}) => theme.medium`
 		color:#fff;
-	}
+	`}
 `
 function Search(){
 	const [isSearchFocused,setIsSearchFocused] = useState(false);

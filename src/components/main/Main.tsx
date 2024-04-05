@@ -6,12 +6,13 @@ import Content from "./Content/Content";
 const Wrapper = styled.div`
     box-sizing:border-box;
     padding-top:64px;
-    @media (min-width:936px){
-        margin-left:240px;
-    }
-    @media (min-width:616px) and (max-width:936px){
+    margin-left:240px;
+    ${({theme}) => theme.medium`
         margin-left:72px;
-    }
+    `}
+    ${({theme}) => theme.small`
+        margin-left:0;
+    `}
 `
 
 function Main(){

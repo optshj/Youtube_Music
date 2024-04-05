@@ -7,16 +7,16 @@ const Wrapper = styled.div`
     margin:0 auto;
     overflow-x: auto;
     white-space:nowrap;
-    max-width:min(calc(100vw - 452px),1478px);
-    @media (max-width:1150px){
-        max-width:min(calc(100vw - 112px - 240px - 12px ),1478px);
-    }
-    @media (max-width:936px){
-        max-width:min(calc(100vw - 112px - 72px - 12px ),1478px);
-    }
-    @media (max-width:615px){
-        max-width:calc(100vw - 32px);
-    }
+    max-width:${({theme}) => theme.widths.xlarge};
+    ${({theme}) => theme.large`
+        max-width:${theme.widths.large}
+    `}
+    ${({theme}) => theme.medium`
+        max-width:${theme.widths.medium}
+    `}
+    ${({theme}) => theme.small`
+        max-width:${theme.widths.small}
+    `}
     &:hover{
         &::-webkit-scrollbar-thumb{
             background-color:#606060;

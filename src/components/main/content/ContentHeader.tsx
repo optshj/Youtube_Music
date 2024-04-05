@@ -16,28 +16,28 @@ const Wrapper = styled.div`
     margin:0 auto;
     gap:24px;
     padding:16px 0 0 0;
-    max-width:min(calc(100vw - 452px),1478px);
-    @media (max-width:1150px){
-        max-width:min(calc(100vw - 112px - 240px - 12px ),1478px);
-    }
-    @media (max-width:936px){
-        max-width:min(calc(100vw - 112px - 72px - 12px ),1478px);
-    }
-    @media (max-width:615px){
-        max-width:calc(100vw - 32px);
-    }
+    max-width:${({theme}) => theme.widths.xlarge};
+    ${({theme}) => theme.large`
+        max-width:${theme.widths.large}
+    `}
+    ${({theme}) => theme.medium`
+        max-width:${theme.widths.medium}
+    `}
+    ${({theme}) => theme.small`
+        max-width:${theme.widths.small}
+    `}
 `
 const Title = styled.h2`
     margin:0;
-    font-size:24px;
+    font-size:45px;
     color:#fff;
     width:100%;
-    @media(min-width:1578px) {
-        font-size:45px;
-    }
-    @media(min-width:1150px) and (max-width:1578px) {
+    ${({theme}) => theme.xlarge`
         font-size:28px;
-    }
+    `}
+    ${({theme}) => theme.large`
+        font-size:24px;
+    `}
 `
 const ButtonGroup = styled.div<{ hasScrollbar :boolean}>`
     display:flex;

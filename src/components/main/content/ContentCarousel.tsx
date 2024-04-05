@@ -18,25 +18,14 @@ const ItemsWrapper = styled.ul`
     flex-direction:row;
     gap:16px;
     overflow-x:auto;
-    max-width:min(calc(100vw - 452px),1478px);
-    @media (max-width:1150px){
-        max-width:min(calc(100vw - 112px - 240px - 12px ),1478px);
-    }
-    @media (max-width:936px){
-        max-width:100%;
-    }
     margin:0 auto;
     padding:0;
-    @media (max-width:616px){
-        & > *:first-child {
-            padding-left:16px;
-        }
-    
-        & > *:last-child {
-            padding-right:16px;
-        }
-    }
-    @media (min-width:616px) and (max-width:935px){
+    max-width:${({theme}) => theme.widths.xlarge};
+    ${({theme}) => theme.large`
+        max-width:${theme.widths.large}
+    `}
+    ${({theme}) => theme.medium`
+        max-width:100%;
         & > *:first-child {
             padding-left:56px;
         }
@@ -44,7 +33,16 @@ const ItemsWrapper = styled.ul`
         & > *:last-child {
             padding-right:56px;
         }
-    }
+    `}
+    ${({theme}) => theme.small`
+        & > *:first-child {
+            padding-left:16px;
+        }
+        
+        & > *:last-child {
+            padding-right:16px;
+        }
+    `}
 `
 
 function MakeRandomNumber(min:number,max:number){

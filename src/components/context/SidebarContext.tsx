@@ -29,7 +29,7 @@ export function useSidebar() {
     return click;
 }
 
-export function IsWebSidebarOpen(){
+export function IsLargeSidebarOpen(){
     const isOpen = useContext(SidebarValueContext);
     return isOpen;
 }

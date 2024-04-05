@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { IsWebSidebarOpen } from "../../context/SidebarContext";
+import { IsLargeSidebarOpen } from "../../context/SidebarContext";
 import { IsPlayerPageOpen } from "../../context/PlayerPageContext";
 
 import Menu from "./Menu/Menu";
@@ -9,22 +9,28 @@ interface MobileSidebarProps {
     isScrollTop:boolean;
 }
 
-const Wrapper = styled.div<{isOpen:boolean,isScrollTop:boolean,isPlayerPageOpen:boolean}>`
+interface WrapperProps {
+    isOpen:boolean;
+    isScrollTop:boolean;
+    isPlayerPageOpen:boolean;
+}
+const Wrapper = styled.div<WrapperProps>`
     position:absolute;
     height:100%;
     width:72px;
     border-right:${(props)=> (!props.isScrollTop||props.isPlayerPageOpen?'1px solid rgba(255,255,255,.15)':'0px solid transparent')};
     transition:border-right 0.2s linear;
-    @media (min-width:936px){
-        display:none;   
-    }
-    @media (max-width:616px){
+    display:${(props) => (props.isOpen?'none':'inline-block')};
+    ${({theme}) => theme.medium`
+        display:${(props:WrapperProps) => (props.isOpen?'inline-block':'none')};
+    `}
+    ${({theme}) => theme.small`
         display:none;
-    }
+    `}
 `
 
-function MobileSidebar({isScrollTop}:MobileSidebarProps){
-    const isOpen = IsWebSidebarOpen();
+function SmallSidebar({isScrollTop}:MobileSidebarProps){
+    const isOpen = IsLargeSidebarOpen();
     const isPlayerPageOpen = IsPlayerPageOpen();
 
     return(
@@ -33,4 +39,4 @@ function MobileSidebar({isScrollTop}:MobileSidebarProps){
         </Wrapper>
     )
 }
-export default MobileSidebar;
+export default SmallSidebar;

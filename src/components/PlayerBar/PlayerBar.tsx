@@ -25,15 +25,15 @@ const LeftContent = styled.div`
     align-items:center;
     width:292px;
     height:72px;
-    @media (max-width:1150px){
+    ${({theme}) => theme.large`
         width:241px;
-    }
-    @media (max-width:936px){
+    `}
+    ${({theme}) => theme.medium`
         width:144px;
-    }
-    @media (max-width:616px) {
+    `}
+    ${({theme}) => theme.small`
         display:none;
-    }
+    `}
 `
 const CenterContent = styled.div`
     display:flex;

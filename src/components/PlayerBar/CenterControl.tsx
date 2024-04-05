@@ -70,9 +70,9 @@ const MenuWrapper = styled.div`
         background-color:rgba(255,255,255,0.2);
     }
     cursor:pointer;
-    @media (max-width:616px){
+    ${({theme}) => theme.medium`
         display:none;
-    }
+    `}
 `
 const Menu = styled(PiDotsThreeVertical)`
     width:24px;

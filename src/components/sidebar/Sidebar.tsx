@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import MobileSidebar from "./mobile/MobileSidebar";
-import WebSidebar from "./web/WebSidebar";
+import SmallSidebar from "./mobile/SmallSidebar";
+import LargeSidebar from "./web/LargeSidebar";
 
 interface SidebarProps {
     isScrollTop:boolean;
@@ -18,8 +18,8 @@ function Sidebar({isScrollTop}:SidebarProps){
     return(
         <>  
             <Wrapper>
-                <WebSidebar></WebSidebar>
-                <MobileSidebar isScrollTop={isScrollTop}></MobileSidebar>
+                <LargeSidebar></LargeSidebar>
+                <SmallSidebar isScrollTop={isScrollTop}></SmallSidebar>
             </Wrapper>
         </>
     )

@@ -5,7 +5,7 @@ import Logo from './Logo'
 import Search from './Search';
 import UserIcon from './UserIcon';
 
-import { IsWebSidebarOpen } from '../context/SidebarContext';
+import { IsLargeSidebarOpen } from '../context/SidebarContext';
 import { IsPlayerPageOpen } from '../context/PlayerPageContext';
 
 interface HeaderProps {
@@ -31,9 +31,9 @@ const LeftContent = styled.div<{isSidebarOpen:boolean,isScrollTop:boolean,isPlay
 	z-index:2;
 	border-right:${(props) => (!props.isPlayerPageOpen&&(props.isSidebarOpen&&props.isScrollTop)? '1px solid rgba(255,255,255,.15)':'0px solid transparent')};
 	transition:all 0.2s linear;
-	@media(max-width:936px){
+	${({theme}) => theme.medium`
 		border:none;
-	}
+	`}
 `
 const CenterContent = styled.div`
 	display:flex;
@@ -42,20 +42,20 @@ const CenterContent = styled.div`
 	align-items:center;
 	justify-content:flex-start;
 	padding-left:100px;
-	@media (max-width:1149px) {
+	${({theme}) => theme.large`
 		padding-left:56px;
-	}
-	@media (max-width:936px) {
+	`}
+	${({theme}) => theme.medium`
 		justify-content:flex-end;
 		padding-left:0;
-	}
+	`}
 `
 const RightContent = styled.div`
 	padding:20px;
 	display:flex;
 `
 function Header({isScrollTop}:HeaderProps) {
-	const isSidebarOpen = IsWebSidebarOpen();
+	const isSidebarOpen = IsLargeSidebarOpen();
 	const isPlyaerPageOpen = IsPlayerPageOpen();
 	
 	return(
