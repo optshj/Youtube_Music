@@ -24,8 +24,8 @@ function Menu(){
 	const click = useSidebar();
 	
 	return(
-		<Wrapper>
-			<MenuIcon onClick={click}></MenuIcon>
+		<Wrapper onClick={click}>
+			<MenuIcon></MenuIcon>
 		</Wrapper>
 	)
 }
