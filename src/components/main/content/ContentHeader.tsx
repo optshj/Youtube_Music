@@ -76,7 +76,12 @@ function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderPr
         'cursor': isScrollRight ? '' : 'pointer',
         'backgroundColor' : isScrollRight ? '#030303' : ''
     }
+    const scrollToLeft = () => {
 
+    }
+    const scrollToRight = () => {
+        
+    }
     return(
         <Wrapper>
             <Title>Lorem ipsum dolor sit amet</Title>
