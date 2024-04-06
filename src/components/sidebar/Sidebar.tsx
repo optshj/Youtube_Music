@@ -13,8 +13,9 @@ const Wrapper = styled.div`
     left:0;
     z-index:1;
     height:100%;
-`   
+`
 function Sidebar({isScrollTop}:SidebarProps){
+
     return(
         <Wrapper>
             <LargeSidebar></LargeSidebar>

@@ -1,4 +1,4 @@
-import styled,{keyframes} from "styled-components";
+import styled from "styled-components";
 
 import { IsLargeSidebarOpen } from "../../context/SidebarContext";
 
@@ -13,10 +13,12 @@ const Wrapper = styled.div<WrapperProps>`
     width:240px;
     border-right:1px solid rgba(255,255,255,.15);
     height:100%;
-    display:${(props) => props.isOpen? 'inline-block':'none'};
-
+    display:${(props) => (props.isOpen?'inline-block':'none')};
     ${({theme}) => theme.medium`
-        display:${(props:WrapperProps) => props.isOpen? 'none':'inline-block'};
+        display:${(props:WrapperProps) => (props.isOpen?'inline-block':'')};
+    `}
+    ${({theme}) => theme.small`
+        display:none;
     `}
 `
 

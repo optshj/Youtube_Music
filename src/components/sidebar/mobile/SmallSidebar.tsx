@@ -22,7 +22,7 @@ const Wrapper = styled.div<WrapperProps>`
     transition:border-right 0.2s linear;
     display:${(props) => (props.isOpen?'none':'inline-block')};
     ${({theme}) => theme.medium`
-        display:${(props:WrapperProps) => (props.isOpen?'inline-block':'none')};
+        display:${(props:WrapperProps) => (props.isOpen?'':'inline-block')};
     `}
     ${({theme}) => theme.small`
         display:none;
