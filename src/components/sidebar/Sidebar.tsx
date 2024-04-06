@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import SmallSidebar from "./mobile/SmallSidebar";
-import LargeSidebar from "./web/LargeSidebar";
+import SmallSidebar from "./Small/SmallSidebar";
+import LargeSidebar from "./Large/LargeSidebar";
 
 interface SidebarProps {
     isScrollTop:boolean;

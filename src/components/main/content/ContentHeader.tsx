@@ -77,10 +77,10 @@ function ContentHeader({hasScrollbar,isScrollLeft,isScrollRight}:ContentHeaderPr
         'backgroundColor' : isScrollRight ? '#030303' : ''
     }
     const scrollToLeft = () => {
-
+        
     }
     const scrollToRight = () => {
-        
+
     }
     return(
         <Wrapper>
