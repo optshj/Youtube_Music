@@ -6,8 +6,7 @@ import Item from "./Item";
 
 interface ContentCarouselProps {
     setHasScollbar: React.Dispatch<React.SetStateAction<boolean>>;
-    setIsScrollLeft: React.Dispatch<React.SetStateAction<boolean>>;
-    setIsScrollRight : React.Dispatch<React.SetStateAction<boolean>>;
+    setScrollRef : React.Dispatch<React.SetStateAction<HTMLUListElement>>
 }
 
 const Wrapper = styled.div`
@@ -49,9 +48,9 @@ function MakeRandomNumber(min:number,max:number){
     return Math.floor(Math.random() *(max - min + 1)) + min;
 }
 
-function ContentCarousel({setHasScollbar,setIsScrollLeft,setIsScrollRight}:ContentCarouselProps){
+function ContentCarousel({setHasScollbar,setScrollRef}:ContentCarouselProps){
 
-    const componentRef = useRef<any>(null);
+    const componentRef = useRef<HTMLUListElement>(null);
 
     const checkScrollbar = throttle(() => {
         const componentElement = componentRef.current;
@@ -66,11 +65,7 @@ function ContentCarousel({setHasScollbar,setIsScrollLeft,setIsScrollRight}:Conte
     const scrollMove = throttle(() => {
         const componentElement = componentRef.current;
         if (componentElement) {
-            const IsScrollRight = (componentElement.scrollLeft + componentElement.clientWidth === componentElement.scrollWidth) && (componentElement.clientWidth < componentElement.scrollWidth);
-            const IsScrollLeft = componentElement.scrollLeft === 0;
-
-            setIsScrollRight(IsScrollRight);
-            setIsScrollLeft(IsScrollLeft);
+            setScrollRef(componentElement);
         }
     },500);
 
@@ -78,12 +73,15 @@ function ContentCarousel({setHasScollbar,setIsScrollLeft,setIsScrollRight}:Conte
         scrollMove();
         checkScrollbar();
         const componentElement = componentRef.current;
-
-        componentElement.addEventListener('scroll',scrollMove);
+        if (componentElement){
+            componentElement.addEventListener('scroll',scrollMove);
+        }
         window.addEventListener('resize',checkScrollbar);
 
         return () =>{
-            componentElement.removeEventListener('scroll',scrollMove);
+            if (componentElement){
+                componentElement.removeEventListener('scroll',scrollMove);
+            }
             window.removeEventListener('resize',checkScrollbar)
         };
     },[checkScrollbar,scrollMove]);

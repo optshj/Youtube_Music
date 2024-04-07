@@ -10,20 +10,17 @@ const Wrapper = styled.div`
 
 function Content() {
     const [hasScrollbar,setHasScollbar] = useState(false);
-    const [isScrollLeft,setIsScrollLeft] = useState(false);
-    const [isScrollRight,setIsScrollRight] = useState(false);
+    const [scrollRef, setScrollRef] = useState<HTMLUListElement>(document.createElement('ul'));
 
     return(
         <Wrapper>
             <ContentHeader 
             hasScrollbar={hasScrollbar}
-            isScrollLeft={isScrollLeft}
-            isScrollRight={isScrollRight}></ContentHeader>
+            scrollRef={scrollRef}></ContentHeader>
 
             <ContentCarousel 
             setHasScollbar={setHasScollbar} 
-            setIsScrollLeft={setIsScrollLeft} 
-            setIsScrollRight={setIsScrollRight}></ContentCarousel>
+            setScrollRef={setScrollRef}></ContentCarousel>
         </Wrapper>
     )
 }
