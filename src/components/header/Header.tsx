@@ -31,6 +31,7 @@ const LeftContent = styled.div<{isSidebarOpen:boolean,isScrollTop:boolean,isPlay
 	z-index:2;
 	border-right:${(props) => (!props.isPlayerPageOpen&&(props.isSidebarOpen&&props.isScrollTop)? '1px solid rgba(255,255,255,.15)':'0px solid transparent')};
 	transition:all 0.2s linear;
+	flex-shrink:0;
 	${({theme}) => theme.medium`
 		border:none;
 	`}
@@ -38,10 +39,12 @@ const LeftContent = styled.div<{isSidebarOpen:boolean,isScrollTop:boolean,isPlay
 const CenterContent = styled.div`
 	display:flex;
 	position:relative;
-	flex-grow:1;
+	flex-shrink:1;
 	align-items:center;
+	width:100%;
 	justify-content:flex-start;
 	padding-left:100px;
+	right:0;
 	${({theme}) => theme.large`
 		padding-left:56px;
 	`}
