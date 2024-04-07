@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { IoAddSharp } from "react-icons/io5";
 
-import { useModal } from "../../../context/ModalContext";
+import { useModal } from "../../../../context/ModalContext";
 
 const Wrapper = styled.div`
     display:flex;

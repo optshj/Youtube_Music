@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { IsPlayerOpen } from "../context/PlayerContext";
+import { IsPlayerOpen } from "../../context/PlayerContext";
 
 import LeftControl from "./LeftControl";
 import TimeInfo from "./TimeInfo";

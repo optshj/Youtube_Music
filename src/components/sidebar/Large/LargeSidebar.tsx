@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import { IsLargeSidebarOpen } from "../../context/SidebarContext";
+import { IsLargeSidebarOpen } from "../../../context/SidebarContext";
 
 import Menu from "./Menu/Menu";
 import PlayListMenu from "./Playlist/PlayListMenu";

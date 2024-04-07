@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { useSidebar } from '../context/SidebarContext';
+import { useSidebar } from '../../context/SidebarContext';
 
 import { RxHamburgerMenu } from "react-icons/rx";
 

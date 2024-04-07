@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { IsPlayerPageOpen } from "../context/PlayerPageContext";
+import { IsPlayerPageOpen } from "../../context/PlayerPageContext";
 
 import SelectButton from "./AlbumImage/SelectButton";
 import AlbumImage from "./AlbumImage/AlbumImage";

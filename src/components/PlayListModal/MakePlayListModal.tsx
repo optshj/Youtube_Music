@@ -1,8 +1,8 @@
 import Modal from 'react-modal';
 import styled,{keyframes} from 'styled-components';
 
-import { IsModalOpen } from "../context/ModalContext";
-import { useModal } from "../context/ModalContext";
+import { IsModalOpen } from "../../context/ModalContext";
+import { useModal } from "../../context/ModalContext";
 
 import Title from "./Title";
 import Content from "./Content";

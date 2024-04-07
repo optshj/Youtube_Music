@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { SelectStatus } from "../context/SelecPublicContext";
+import { SelectStatus } from "../../context/SelecPublicContext";
 
 import { IoEarthOutline } from "react-icons/io5";
 import { CiLock } from "react-icons/ci";

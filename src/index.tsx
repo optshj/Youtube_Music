@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import Provider from './components/context/Provider';
+import Provider from './context/Provider';
 import { ThemeProvider } from 'styled-components';
 import theme from './components/styles/theme';
 import media from './components/styles/media'; 

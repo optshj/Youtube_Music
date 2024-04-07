@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { IsLargeSidebarOpen } from "../../context/SidebarContext";
-import { IsPlayerPageOpen } from "../../context/PlayerPageContext";
+import { IsLargeSidebarOpen } from "../../../context/SidebarContext";
+import { IsPlayerPageOpen } from "../../../context/PlayerPageContext";
 
 import Menu from "./Menu/Menu";
 

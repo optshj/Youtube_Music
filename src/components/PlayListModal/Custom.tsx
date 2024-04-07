@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import SelectPublic from "./SelectPublic";
-import { IsModalOpen } from "../context/ModalContext";
+import { IsModalOpen } from "../../context/ModalContext";
 
 const UnderLineActive = styled.div`
     position:absolute;
