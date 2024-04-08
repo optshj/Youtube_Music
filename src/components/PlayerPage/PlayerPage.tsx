@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import { IsPlayerPageOpen } from "../../context/PlayerPageContext";
 
@@ -6,7 +6,17 @@ import SelectButton from "./AlbumImage/SelectButton";
 import AlbumImage from "./AlbumImage/AlbumImage";
 import SidePanelHeader from "./MusicList/SidePanelHeader";
 import MusicList from "./MusicList/MusicList";
+import PlayerControl from "./PlayerControl/PlayerControl";
+import { useState } from "react";
 
+const openPlayerPage = keyframes`
+    0%{
+        transform:translateY(100%);
+    }
+    100%{
+        transform:translateY(0%);
+    }
+`
 const Wrapper = styled.div<{isOpen:boolean}>`
     background-color:${({theme}) => theme.colors.backgroundColor};
     position:fixed;
@@ -19,9 +29,12 @@ const Wrapper = styled.div<{isOpen:boolean}>`
         left:72px;
     `}
     ${({theme}) => theme.small`
+        z-index:6;
+        height:100%;
         width:100%;
         top:0;
         left:0;
+        animation:${openPlayerPage} .3s cubic-bezier(.2,0,.6,1);
     `}
     transform:${(props) => (props.isOpen ?'translate3d(0,0,0)':'translate3d(0,100vh,0)')};
     transition:transform .3s cubic-bezier(.2,0,.6,1);
@@ -34,6 +47,10 @@ const ContentWrapper = styled.div`
     ${({theme}) => theme.medium`
         flex-direction:column;
     `}
+    ${({theme}) => theme.small`
+        padding:0;
+    `}
+
 `
 const MainPanel = styled.div`
     display:flex;
@@ -43,8 +60,17 @@ const MainPanel = styled.div`
         height:35vw;
         padding:0 30vw;
     `}
+    ${({theme}) => theme.small`
+        height:0;
+        padding:0;
+    `}
 `
-const SidePanel = styled.div`
+const SidePanelWrapper = styled.div`
+`
+interface SidePanelProps {
+    isUp:boolean
+}
+const SidePanel = styled.div<SidePanelProps>`
     display:flex;
     flex-direction:column;
     width:40%;
@@ -55,19 +81,34 @@ const SidePanel = styled.div`
         width:100%;
         margin:64px 0 0 0;
     `}
+    ${({theme}) => theme.small`
+        transform:${(props:SidePanelProps) => (props.isUp?'translate(0,0)':'translate(0,740px)')};
+        z-index:10;
+        background-color:${theme.colors.backgroundColor};
+        transition:transform 0.2s cubic-bezier(.2,0,.6,1);
+    `}
 `
 function PlayerPage() {
     const isOpen = IsPlayerPageOpen();
-
+    const [isUp,setIsUP] = useState(false);
+    const onUp = () => {
+        setIsUP(true);
+    }
+    const onDown = () => {
+        setIsUP(false);
+    }
     return(
         <Wrapper isOpen={isOpen}>
             <ContentWrapper>
-                <MainPanel>
+                <MainPanel onClick={onDown}>
                     <SelectButton></SelectButton>
                     <AlbumImage></AlbumImage>
                 </MainPanel>
-                <SidePanel>
-                    <SidePanelHeader></SidePanelHeader>
+                <PlayerControl></PlayerControl>
+                <SidePanel isUp={isUp}>
+                    <SidePanelWrapper onClick={onUp}>
+                        <SidePanelHeader></SidePanelHeader>
+                    </SidePanelWrapper>
                     <MusicList></MusicList>
                 </SidePanel>
             </ContentWrapper>

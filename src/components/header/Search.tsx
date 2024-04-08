@@ -54,12 +54,6 @@ const WebSearchIconForm = styled(GoSearch)<{isFocused:boolean}>`
 `
 function Search(){
 	const [isSearchFocused,setIsSearchFocused] = useState(false);
-	const inputRef = useRef<HTMLInputElement>(null);
-	useEffect(() =>{
-		if (inputRef.current){
-			inputRef.current.focus();
-		}
-	},[isSearchFocused]);
 	const handleFocus = () => {
 		setIsSearchFocused(true);
 	}
@@ -73,7 +67,6 @@ function Search(){
 			</WebSearchIconForm>
 
 			<SearchBar type="text" placeholder="노래, 앨범, 아티스트, 팟캐스트 검색" 
-			ref={inputRef}
 			onFocus={handleFocus} 
 			onBlur={handleBlur} 
 			isFocused={isSearchFocused}></SearchBar>

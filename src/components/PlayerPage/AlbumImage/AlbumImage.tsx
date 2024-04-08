@@ -5,6 +5,10 @@ const Wrapper = styled.div`
     flex:none;
     position:relative;
     padding-top:100%;
+    max-height:min(100vw - 64px);
+    ${({theme}) => theme.small`
+        margin:auto 15vw;
+    `}
 `
 const ImageWrapper = styled.div`
     position:absolute;

@@ -5,6 +5,9 @@ const Wrapper = styled.div`
     display:flex;
     justify-content:center;
     padding-bottom:24px;
+    ${({theme}) => theme.small`
+        padding-top:16px;
+    `}
 `
 const ButtonWrapper = styled.div`
     display:flex;
