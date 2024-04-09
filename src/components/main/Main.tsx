@@ -22,6 +22,8 @@ function Main(){
             <Content></Content>
             <Content></Content>
             <Content></Content>
+            <Content></Content>
+            <Content></Content>
         </Wrapper>
     )
 }
