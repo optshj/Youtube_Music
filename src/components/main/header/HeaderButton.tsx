@@ -1,20 +1,17 @@
 import styled from "styled-components";
 
-interface HeaderButtonProps {
-    name:string
-}
 const Wrapper = styled.div`
     padding:40px 0 8px;
     margin:6px;
 `
 const LinkButton = styled.div`
-    border-radius:8px;
     display:flex;
     height:36px;
-    background:rgba(255,255,255,.1);
-    color:white;
-    align-items:center;
     font-size:14px;
+    border-radius:8px;
+    align-items:center;
+    background:rgba(255,255,255,.1);
+    color:#fff;
     cursor:pointer;
     &:hover{
         background-color:#403f42;
@@ -23,12 +20,16 @@ const LinkButton = styled.div`
 const FontForm = styled.div`
     margin:0 12px;
 `
-function HeaderButton({name}:HeaderButtonProps){
+
+interface HeaderButtonProps {
+    tag:string
+}
+function HeaderButton({tag}:HeaderButtonProps){
     return(
         <Wrapper>
             <LinkButton>
                 <FontForm>
-                    {name}
+                    {tag}
                 </FontForm>
             </LinkButton>
         </Wrapper>

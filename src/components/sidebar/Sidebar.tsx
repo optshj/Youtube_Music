@@ -3,17 +3,16 @@ import styled from "styled-components";
 import SmallSidebar from "./Small/SmallSidebar";
 import LargeSidebar from "./Large/LargeSidebar";
 
+const Wrapper = styled.div`
+    position:fixed;
+    height:100%;
+    z-index:1;
+    padding-top:66px;
+`
+
 interface SidebarProps {
     isScrollTop:boolean;
 }
-const Wrapper = styled.div`
-    padding-top:66px;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:1;
-    height:100%;
-`
 function Sidebar({isScrollTop}:SidebarProps){
 
     return(

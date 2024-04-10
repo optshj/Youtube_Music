@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { useModal } from "../../context/ModalContext";
+import { useModal } from "../../../context/ModalContext";
 
 const Wrapper = styled.div`
     display:flex;

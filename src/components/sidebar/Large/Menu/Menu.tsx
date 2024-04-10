@@ -15,7 +15,6 @@ const Wrapper = styled.div`
 const MenuUnderLine = styled.div`
     border-top:1px solid rgba(255,255,255,.15);
     margin:24px auto;
-    width:192px;
 `
 
 function Menu(){

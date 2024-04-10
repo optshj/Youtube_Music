@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
-import { AiFillDislike } from "react-icons/ai";
-import { AiOutlineDislike } from "react-icons/ai";
-import { AiFillLike } from "react-icons/ai";
-import { AiOutlineLike } from "react-icons/ai";
+import { AiFillDislike,AiOutlineDislike,AiFillLike,AiOutlineLike } from "react-icons/ai";
 import { PiDotsThreeVertical } from "react-icons/pi";
 
-const ImgWrapper = styled.div`
-`
 const ContentInfoWrapper = styled.div`
     display:flex;
     flex-direction:column;
@@ -34,15 +29,20 @@ const Explain = styled.div`
 const Dot = styled.div`
     font-size:14px;
     color:rgba(255,255,255,0.7);    
+    &::before{
+        content:" ";
+    }
 `
 const ButtonWrapper = styled.div`
     display:flex;
 `
-const LikeWrapper = styled.div`
+const IconWrapper = styled.div`
     color:#fff;
     border-radius:50%;
     width:36px;
     height:36px;
+    font-size:24px;
+    cursor: pointer;
     &:hover{
         background-color:rgba(255,255,255,0.2);
     }
@@ -51,68 +51,50 @@ const LikeWrapper = styled.div`
     `}
 `
 const Dislike = styled.div`
-    cursor:pointer;
     margin-right:8px;
-    font-size:24px;
     transform:translate(20%,20%);
 `
 const Like = styled.div`
-    cursor:pointer;
-    font-size:24px;
-    transform:translate(20%,10%);
-`
-const MenuWrapper = styled.div`
-    margin:0 16px 0 8px;
-    border-radius:50%;
-    width:36px;
-    height:36px;
-    &:hover{
-        background-color:rgba(255,255,255,0.2);
-    }
-    cursor:pointer;
-    ${({theme}) => theme.medium`
-        display:none;
-    `}
+    transform:translate(20%,20%);
 `
 const Menu = styled(PiDotsThreeVertical)`
-    width:24px;
-    height:24px;
     color:#909090;
     transform:translate(25%,25%);
 `
+
 function CenterControl(){
     const [isDislike,setIsDislike] = useState(false);
     const [isLike,setIsLike] = useState(false);
 
     return(
         <>
-            <ImgWrapper>
-                <img src="https://via.placeholder.com/40x40/666.png" alt="Placeholder"/>
-            </ImgWrapper>
+            <img src="https://via.placeholder.com/40x40/666.png" alt="Placeholder"/>
             <ContentInfoWrapper>
                 <Title>Lorem ipsum</Title>
                 <ExplainWrapper>
                     <Explain>Lorem ipsum</Explain>
-                    <Dot> • </Dot>
+                    <Dot>•</Dot>
                     <Explain>Lorem</Explain>
-                    <Dot> • </Dot>
-                    <Dot> 2024 </Dot>
+                    <Dot>•</Dot>
+                    <Dot>2024</Dot>
                 </ExplainWrapper>
             </ContentInfoWrapper>
             <ButtonWrapper>
-                <LikeWrapper>
+                <IconWrapper>
                     <Dislike onClick={() => setIsDislike(!isDislike)}>
                         {isDislike ? <AiFillDislike></AiFillDislike> : <AiOutlineDislike></AiOutlineDislike>}
                     </Dislike>
-                </LikeWrapper>
-                <LikeWrapper>
+                </IconWrapper>
+
+                <IconWrapper>
                     <Like onClick={() => setIsLike(!isLike)}>
                         {isLike ? <AiFillLike></AiFillLike> : <AiOutlineLike></AiOutlineLike>}
                     </Like>
-                </LikeWrapper>
-                <MenuWrapper>
+                </IconWrapper>
+
+                <IconWrapper>
                     <Menu></Menu>
-                </MenuWrapper>
+                </IconWrapper>
             </ButtonWrapper>
         </>
     )

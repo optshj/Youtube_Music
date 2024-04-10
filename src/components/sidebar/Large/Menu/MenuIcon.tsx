@@ -1,11 +1,6 @@
 import styled from "styled-components"
 import { IconType } from "react-icons";
 
-interface MenuIconProps {
-    icon: IconType;
-    descript: string;
-}
-
 const Wrapper = styled.div`
     display:flex;
     color:#fff;
@@ -19,19 +14,23 @@ const Wrapper = styled.div`
         background-color:#343434;
     }
 `
-const IconMargin = styled.div`
+const IconWrapper = styled.div`
     margin-right:20px;
 `
 const MenuIconFont = styled.div`
     font-size:16px;
 `
 
+interface MenuIconProps {
+    icon: IconType;
+    descript: string;
+}
 function MenuIcon({icon:Icon,descript}:MenuIconProps){
     return(
         <Wrapper>
-            <IconMargin>
-            <Icon/>
-            </IconMargin>
+            <IconWrapper>
+                <Icon/>
+            </IconWrapper>
 
             <MenuIconFont>
                 {descript}

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { FaCirclePlay } from "react-icons/fa6";
+import { MdPlayArrow } from "react-icons/md";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
-import { usePlayer } from "../../../context/PlayerContext";
+import { usePlayerbar } from "../../../context/PlayerbarContext";
 
 const Wrapper = styled.div`
     width:160px;
@@ -14,27 +14,21 @@ const Details = styled.div`
     flex-direction:column;
     margin-top:8px;
 `
-const TitleWrapper = styled.div`
-    overflow:hidden;
-`
 const Title = styled.div`
     color:#fff;
-    font-size:14px;
     cursor:pointer;
+    font-size:14px;
     font-weight:500;
     line-height:1.3;
     &:hover{
         text-decoration:underline;
     }
 `
-const SubTitleWrapper = styled.div`
-    margin-top:3px;
-    align-items:center;
-`
 const SubTitle = styled.div`
-    white-space:normal;
     color:rgba(255,255,255,0.7);
     font-size:14px;
+    white-space:normal;
+    margin-top:3px;
 `
 const ItemMenuWrapper = styled.div`
     position:absolute;
@@ -48,35 +42,41 @@ const ItemMenuWrapper = styled.div`
     }
 `
 const ItemBackGround = styled.div`
+    position: absolute;
     width: 160px;
     height: 160px;
-    position: absolute;
 `;
-const ItemPlayButton = styled(FaCirclePlay)`
+const ItemPlayButtonWrapper = styled.div`
     position:absolute;
-    right:40px;
-    bottom:40px;
-    font-size:32px;
     visibility:hidden;
+    right:20px;
+    bottom:20px;
+    width:40px;
+    height:40px;
+    background-color:#090909;
     opacity:0.8;
-    transform:translate(50%,50%);
+    border-radius:50%;
     &:hover{
-        font-size:40px;
-        transition:font-size 0.2s linear;
+        transform:scale(1.3);
+        transition:transform 0.2s linear;
         opacity:1;
     }
 `
-const ItemMenuButton = styled(HiOutlineDotsVertical)`
-    transform:translate(50%,50%);
+const ItemPlayButton = styled(MdPlayArrow)`
+    font-size:40px;
     color:#fff;
-    font-size:20px;
+`
+const ItemMenuButton = styled(HiOutlineDotsVertical)`
     visibility:hidden;
+    transform:translate(50%,50%);
+    font-size:20px;
+    color:#fff;
 `
 const ImageWrapper = styled.div`
     position:relative;
     top:0;
     &:hover {
-        ${ItemPlayButton}{
+        ${ItemPlayButtonWrapper}{
             visibility:visible;
         }
         ${ItemMenuButton}{
@@ -88,29 +88,28 @@ const ImageWrapper = styled.div`
     }
 `
 function Item(){
-    const {open} = usePlayer();
+    const {open} = usePlayerbar();
 
     return(
         <Wrapper onClick={open}>
             <ImageWrapper>
                 <ItemBackGround></ItemBackGround>
                 <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>
-                <ItemPlayButton></ItemPlayButton>
+
+                <ItemPlayButtonWrapper>
+                    <ItemPlayButton></ItemPlayButton>
+                </ItemPlayButtonWrapper>
                 <ItemMenuWrapper>
                     <ItemMenuButton></ItemMenuButton>
                 </ItemMenuWrapper>
             </ImageWrapper>
             <Details>
-                <TitleWrapper>
-                    <Title>
-                        Lorem ipsum
-                    </Title>
-                </TitleWrapper>
-                <SubTitleWrapper>
-                    <SubTitle>
-                        Lorem ipusm
-                    </SubTitle>
-                </SubTitleWrapper>
+                <Title>
+                    Lorem ipsum
+                </Title>
+                <SubTitle>
+                    Lorem ipusm
+                </SubTitle>
             </Details>
         </Wrapper>
     )

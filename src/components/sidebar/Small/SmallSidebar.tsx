@@ -5,10 +5,6 @@ import { IsPlayerPageOpen } from "../../../context/PlayerPageContext";
 
 import Menu from "./Menu/Menu";
 
-interface MobileSidebarProps {
-    isScrollTop:boolean;
-}
-
 interface WrapperProps {
     isOpen:boolean;
     isScrollTop:boolean;
@@ -29,6 +25,9 @@ const Wrapper = styled.div<WrapperProps>`
     `}
 `
 
+interface MobileSidebarProps {
+    isScrollTop:boolean;
+}
 function SmallSidebar({isScrollTop}:MobileSidebarProps){
     const isOpen = IsLargeSidebarOpen();
     const isPlayerPageOpen = IsPlayerPageOpen();

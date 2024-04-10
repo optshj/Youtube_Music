@@ -3,7 +3,7 @@ import React, { useState,createContext,useContext,useMemo} from "react";
 const PlayerValueContext = createContext<any>(null);
 const PlayerActionContext = createContext<any>(null);
 
-export default function PlayerProvider({children} : {children:React.ReactNode}){
+export default function PlayerbarContext({children} : {children:React.ReactNode}){
     const [isOpen,setIsOpen] = useState(false);
 
     const actions = useMemo(
@@ -23,12 +23,12 @@ export default function PlayerProvider({children} : {children:React.ReactNode}){
     )
 }
 
-export function usePlayer() {
+export function usePlayerbar() {
     const {open} = useContext(PlayerActionContext);
     return {open};
 }
 
-export function IsPlayerOpen(){
+export function IsPlayerbarOpen(){
     const isOpen = useContext(PlayerValueContext);
     return isOpen;
 }

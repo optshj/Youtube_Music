@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { GoSearch } from "react-icons/go";
@@ -6,7 +6,7 @@ import { GoSearch } from "react-icons/go";
 interface FocusedProps {
 	isFocused:boolean;
 }
-const WebSearchForm = styled.div<{isFocused:boolean}>`
+const WebSearchForm = styled.div<FocusedProps>`
 	position:relative;
 	display:flex;
 	height:40px;
@@ -17,7 +17,7 @@ const WebSearchForm = styled.div<{isFocused:boolean}>`
 	border:1px solid #4a5056;
 	z-index:2;
 	&:foucs{
-		backgorund-color:black;
+		background-color:black;
 	}
 	${({theme}) => theme.medium`
 		background-color:#030303;
@@ -25,7 +25,7 @@ const WebSearchForm = styled.div<{isFocused:boolean}>`
 		border:${(props:FocusedProps) => (props.isFocused?'':'none')};
 	`}
 `
-const SearchBar = styled.input<{isFocused:boolean}>`
+const SearchBar = styled.input<FocusedProps>`
 	width:100%;
 	height:40px;
 	padding-right:56px;
@@ -33,7 +33,7 @@ const SearchBar = styled.input<{isFocused:boolean}>`
 	font-weight:400;
 	background-color: transparent;
 	border:none;
-	color:white;
+	color:#fff;
 	outline:none;
 	&::placeholder{
 		color:#9a9e9b;
@@ -43,7 +43,7 @@ const SearchBar = styled.input<{isFocused:boolean}>`
 	`}
 
 `
-const WebSearchIconForm = styled(GoSearch)<{isFocused:boolean}>`
+const WebSearchIconForm = styled(GoSearch)<FocusedProps>`
 	font-size:20px;
 	padding:8px 16px;
 	color:${props => props.isFocused ? '#fff' : '#9a9e9b'};
@@ -52,6 +52,7 @@ const WebSearchIconForm = styled(GoSearch)<{isFocused:boolean}>`
 		color:#fff;
 	`}
 `
+
 function Search(){
 	const [isSearchFocused,setIsSearchFocused] = useState(false);
 	const handleFocus = () => {

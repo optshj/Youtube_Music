@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { IoChevronDownSharp } from "react-icons/io5";
 
-import PublicDropDown from "./DropDown/PublicDropDown";
+import PublicDropDown from "../DropDown/PublicDropDown";
 import PublicStatus from "./PublicStatus";
 
 const UnderLine = styled.div`
@@ -42,7 +42,6 @@ const Text = styled.div`
 const DropDownBox = styled.div`
     display:flex;
     flex-direction:row;
-    align-itmes:center;
     &:active{
         & + ${UnderLineWrapper} ${UnderLineActive}{
             transform:scaleX(1);

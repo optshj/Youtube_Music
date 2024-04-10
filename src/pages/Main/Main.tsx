@@ -4,7 +4,7 @@ import { throttle } from "lodash";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Main from "../../components/Main/Main";
-import MakePlayListModal from "../../components/PlayListModal/MakePlayListModal";
+import PlayListModal from "../../components/PlayListModal/PlayListModal";
 import PlayerBar from "../../components/PlayerBar/PlayerBar";
 
 function Content() {
@@ -26,7 +26,7 @@ function Content() {
             <Header isScrollTop={isScrollTop}></Header>
 			<Sidebar isScrollTop={isScrollTop}></Sidebar>
 			<Main></Main>
-			<MakePlayListModal></MakePlayListModal>
+			<PlayListModal></PlayListModal>
 			<PlayerBar></PlayerBar>
         </>
     )

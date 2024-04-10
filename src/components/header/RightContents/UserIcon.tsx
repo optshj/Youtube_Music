@@ -1,18 +1,17 @@
 import styled from 'styled-components';
 
 const User = styled.div`
-	cursor:pointer;
 	width:26px;
 	height:26px;
-	border-radius:13px;
+	border-radius:50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color:#5c6bc0;
+	cursor:pointer;
 `
 const UserName = styled.div`
-	position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-	color: #d3d8ed;
+	color: #fff;
 	font-size:10px;
 `
 

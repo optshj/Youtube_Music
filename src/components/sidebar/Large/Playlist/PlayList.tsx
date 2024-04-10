@@ -2,18 +2,13 @@ import styled from "styled-components";
 
 import { IoPlayCircleSharp } from "react-icons/io5";
 
-interface PlayListProps {
-    listName:String,
-    ownerName:String
-}
-
 const Wrapper = styled.div`
-    padding:4px 16px;
-    border-radius:8px;
-    cursor:pointer;
     display:flex;
     flex-direction:row;
     height:48px;
+    padding:4px 16px;
+    border-radius:8px;
+    cursor:pointer;
     align-items:center;
     &:hover{
         background-color:#343434;
@@ -24,23 +19,25 @@ const ListInformation = styled.div`
 `
 const PlayListName = styled.div`
     font-size:14px;
-    color:white;
     font-weight:500;
+    color:white;
 `
 const PlayListOwnerName = styled.div`
-    display:flex;
     font-size:12px;
-    align-itmes:center;
     color:#b4b4b4;
 `
 const PlayIcon = styled.div`
-    color:white;
+    color:#fff;
     display:none;
     ${Wrapper}:hover &{
         display:inline-block;
     }
 `
 
+interface PlayListProps {
+    listName:String,
+    ownerName:String
+}
 function PlayList({listName,ownerName}:PlayListProps){
     return(
         <Wrapper>

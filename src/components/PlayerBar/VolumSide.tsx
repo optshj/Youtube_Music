@@ -34,10 +34,8 @@ const Slidebar = styled.input`
     }
     &:active{
         &::-webkit-slider-thumb{
-            width:15px;
-            height:15px;
-            transform:translate(-5%,-15%);
-            transition:all 0.2s ease-in-out;
+            transform:scale(1.3);
+            transition:transform 0.2s ease-in-out;
         }
     }
 `

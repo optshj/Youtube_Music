@@ -1,30 +1,27 @@
 import styled from "styled-components";
 
-import { IsPlayerOpen } from "../../context/PlayerContext";
+import { IsPlayerbarOpen } from "../../context/PlayerbarContext";
 
 import LeftControl from "./LeftControl";
 import TimeInfo from "./TimeInfo";
 import CenterControl from "./CenterControl";
 import RightControl from "./RightControl";
 
-
 const Wrapper = styled.div<{isOpen:boolean}>`
+    display:flex;
+    justify-content: space-between;
     visibility:${(props) => (props.isOpen ? 'visible':'hidden')};
     position:fixed;
+    z-index:1;
     bottom:0;
     left:0;
-    z-index:2;
     width:100%;
     height:72px;
-    display:grid;
-    grid-template-areas:"start middle end";
     background-color:#212121;
 `
 const LeftContent = styled.div`
     display:flex;
     align-items:center;
-    width:292px;
-    height:72px;
     ${({theme}) => theme.large`
         width:241px;
     `}
@@ -45,10 +42,9 @@ const RightContent = styled.div`
     display:flex;
     align-items:center;
     margin-right:4px;
-    justify-content:end;
 `
 function PlayerBar(){
-    const isOpen = IsPlayerOpen();
+    const isOpen = IsPlayerbarOpen();
 
     return(
         <Wrapper isOpen={isOpen}>

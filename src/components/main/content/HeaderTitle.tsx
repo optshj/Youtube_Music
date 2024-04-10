@@ -1,10 +1,11 @@
 import styled from "styled-components"
 
 const Title = styled.h2`
-    margin:0;
-    font-size:45px;
-    color:#fff;
     width:100%;
+    color:#fff;
+    font-size:45px;
+    overflow: visible;
+    margin:0;
     ${({theme}) => theme.xlarge`
         font-size:28px;
     `}
@@ -12,9 +13,13 @@ const Title = styled.h2`
         font-size:24px;
     `}
 `
-function HeaderTitle() {
+
+interface HeaderTitleProps {
+    title:string;
+}
+function HeaderTitle({title}:HeaderTitleProps) {
     return(
-        <Title>Lorem ipsum dolor sit amet</Title>
+        <Title>{title}</Title>
     )
 }
 export default HeaderTitle;

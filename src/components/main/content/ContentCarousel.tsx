@@ -4,11 +4,6 @@ import throttle from 'lodash/throttle';
 
 import Item from "./Item";
 
-interface ContentCarouselProps {
-    setHasScollbar: React.Dispatch<React.SetStateAction<boolean>>;
-    setScrollRef : React.Dispatch<React.SetStateAction<HTMLUListElement>>
-}
-
 const Wrapper = styled.div`
     margin:16px 0 24px;
 `
@@ -48,7 +43,20 @@ function MakeRandomNumber(min:number,max:number){
     return Math.floor(Math.random() *(max - min + 1)) + min;
 }
 
+interface ContentCarouselProps {
+    setHasScollbar: React.Dispatch<React.SetStateAction<boolean>>;
+    setScrollRef : React.Dispatch<React.SetStateAction<HTMLUListElement>>
+}
 function ContentCarousel({setHasScollbar,setScrollRef}:ContentCarouselProps){
+    // 스켈레톤용으로 4~8개의 똑같은 아이템으로 만들게 구현하였음.
+    // 추후에 변경필요함. 작성일시: 2024-03-23
+    const randomNumber = MakeRandomNumber(4,8);
+    const ItemArray = Array.from({ length:randomNumber},(_,index) =>(
+        <div key={index}>
+            <Item></Item>
+        </div>
+    ));
+
 
     const componentRef = useRef<HTMLUListElement>(null);
 
@@ -72,6 +80,7 @@ function ContentCarousel({setHasScollbar,setScrollRef}:ContentCarouselProps){
     useEffect(()=> {
         scrollMove();
         checkScrollbar();
+        
         const componentElement = componentRef.current;
         if (componentElement){
             componentElement.addEventListener('scroll',scrollMove);
@@ -85,15 +94,6 @@ function ContentCarousel({setHasScollbar,setScrollRef}:ContentCarouselProps){
             window.removeEventListener('resize',checkScrollbar)
         };
     },[checkScrollbar,scrollMove]);
-
-    // 스켈레톤용으로 4~8개의 똑같은 아이템으로 만들게 구현하였음.
-    // 추후에 변경필요함. 작성일시: 2024-03-23
-    const randomNumber = MakeRandomNumber(4,8);
-    const ItemArray = Array.from({ length:randomNumber},(_,index) =>(
-        <div key={index}>
-            <Item></Item>
-        </div>
-    ));
     
     return(
         <Wrapper>

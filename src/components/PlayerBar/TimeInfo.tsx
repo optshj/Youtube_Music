@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `
 function TimeInfo(){
     return(
-        <Wrapper>0:00/2:51</Wrapper>
+        <Wrapper>NaN:NaN/NaN:NaN</Wrapper>
     )
 }
 export default TimeInfo;

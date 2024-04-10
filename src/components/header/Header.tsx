@@ -1,36 +1,31 @@
 import styled from 'styled-components';
 
-import Menu from './Menu'
-import Logo from './Logo'
-import Search from './Search';
-import UserIcon from './UserIcon';
+import Menu from './LeftContents/Menu'
+import Logo from './LeftContents/Logo'
+import Search from './CenterContents/Search';
+import UserIcon from './RightContents/UserIcon';
 
 import { IsLargeSidebarOpen } from '../../context/SidebarContext';
 import { IsPlayerPageOpen } from '../../context/PlayerPageContext';
 
-interface HeaderProps {
-	isScrollTop:boolean
-}
-
 const Wrapper = styled.div<{isScrollTop:boolean,isPlayerPageOpen:boolean}>`
+	position:fixed;
 	display: flex;
 	background-color:#030303;
-	justify-content:flex-start;
-	position:fixed;
 	width:calc(100vw - 12px);
-	z-index:2;
+	z-index:1;
 	border-bottom:${(props)=> (!props.isScrollTop||props.isPlayerPageOpen?'1px solid rgba(255,255,255,.15)':'0px solid transparent')};
 	transition:border-bottom 0.2s linear;
 `
 
 const LeftContent = styled.div<{isSidebarOpen:boolean,isScrollTop:boolean,isPlayerPageOpen:boolean}>`
-	padding-left:16px;
-	align-items:center;
 	display:flex;
+	align-items:center;
 	width:224px;
+	padding-left:16px;
 	z-index:2;
 	border-right:${(props) => (!props.isPlayerPageOpen&&(props.isSidebarOpen&&props.isScrollTop)? '1px solid rgba(255,255,255,.15)':'0px solid transparent')};
-	transition:all 0.2s linear;
+	transition:border-right 0.2s linear;
 	flex-shrink:0;
 	${({theme}) => theme.medium`
 		border:none;
@@ -39,12 +34,10 @@ const LeftContent = styled.div<{isSidebarOpen:boolean,isScrollTop:boolean,isPlay
 const CenterContent = styled.div`
 	display:flex;
 	position:relative;
-	flex-shrink:1;
 	align-items:center;
 	width:100%;
 	justify-content:flex-start;
 	padding-left:100px;
-	right:0;
 	${({theme}) => theme.large`
 		padding-left:56px;
 	`}
@@ -54,9 +47,13 @@ const CenterContent = styled.div`
 	`}
 `
 const RightContent = styled.div`
-	padding:20px;
 	display:flex;
+	padding:20px;
 `
+
+interface HeaderProps {
+	isScrollTop:boolean
+}
 function Header({isScrollTop}:HeaderProps) {
 	const isSidebarOpen = IsLargeSidebarOpen();
 	const isPlyaerPageOpen = IsPlayerPageOpen();
@@ -67,12 +64,10 @@ function Header({isScrollTop}:HeaderProps) {
 				<Menu/>
 				<Logo/>
 			</LeftContent>
-			
 		
 			<CenterContent>
 				<Search/>
 			</CenterContent>
-		
 		
 			<RightContent>
 				<UserIcon/>

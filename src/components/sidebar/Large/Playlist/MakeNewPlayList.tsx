@@ -6,14 +6,13 @@ import { useModal } from "../../../../context/ModalContext";
 
 const Wrapper = styled.div`
     display:flex;
-    color:white;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
     margin-bottom:16px;
-    display:flex;
     border-radius:18px;
     background-color:rgba(255,255,255,0.1);
     font-size:14px;
-    justify-content:center;
-    align-items:center;
     cursor:pointer;
     height:36px;
     &:hover{
@@ -22,10 +21,11 @@ const Wrapper = styled.div`
 `
 const AddIconForm = styled.div`
     margin-right:8px;
-    color:white;
+    font-size:24px;
+    color:#fff;
 `
 const AddNameForm = styled.div`
-    line-height:36px;
+    line-height:1.3;
 `
 
 function MakeNewPlayList() {
@@ -34,7 +34,7 @@ function MakeNewPlayList() {
     return(
         <Wrapper onClick={open}>
             <AddIconForm>
-                <IoAddSharp size={24} />
+                <IoAddSharp/>
             </AddIconForm>
 
             <AddNameForm>

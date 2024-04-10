@@ -3,11 +3,6 @@ import styled from "styled-components";
 import HeaderTitle from "./HeaderTitle";
 import HeaderButton from "./HeaderButton";
 
-interface ContentHeaderProps{
-    hasScrollbar:boolean;
-    scrollRef:HTMLUListElement;
-}
-
 const Wrapper = styled.div`
     display:flex;
     justify-content:space-between;
@@ -26,10 +21,14 @@ const Wrapper = styled.div`
         max-width:${theme.widths.small}
     `}
 `
+interface ContentHeaderProps{
+    hasScrollbar:boolean;
+    scrollRef:HTMLUListElement;
+}
 function ContentHeader({hasScrollbar,scrollRef}:ContentHeaderProps){
     return(
         <Wrapper>
-            <HeaderTitle></HeaderTitle>
+            <HeaderTitle title={'Lorem ipusm dolor sit amet'}></HeaderTitle>
             <HeaderButton hasScrollbar={hasScrollbar} scrollRef={scrollRef}></HeaderButton>
         </Wrapper>
     )

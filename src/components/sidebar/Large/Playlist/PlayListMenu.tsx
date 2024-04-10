@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MakeNewPlayList from "./MakeNewPlayList";
 import PlayList from "./PlayList";
 
-const MaekForm = styled.div`
+const MakeForm = styled.div`
     padding:0 16px;
 `
 const Wrapper = styled.div`
@@ -17,9 +17,9 @@ const PlayListsForm = styled.div`
 function PlayListMenu(){
     return(
         <Wrapper>
-            <MaekForm>
+            <MakeForm>
                 <MakeNewPlayList></MakeNewPlayList>
-            </MaekForm>
+            </MakeForm>
 
             <PlayListsForm>
                 <PlayList listName={"My PlayList"} ownerName={"이성빈"}></PlayList>

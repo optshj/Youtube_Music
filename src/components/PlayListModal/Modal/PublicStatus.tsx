@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { SelectStatus } from "../../context/SelecPublicContext";
+import { SelectStatus } from "../../../context/SelecPublicContext";
 
 import { IoEarthOutline } from "react-icons/io5";
 import { CiLock } from "react-icons/ci";
@@ -8,12 +8,12 @@ import { GrConnect } from "react-icons/gr";
 
 
 const StateForm = styled.div`
-    width:100%;
-    left:10px;
-    color:white;
-    font-size:14px;
-    top:4px;
     position:relative;
+    left:10px;
+    top:4px;
+    width:100%;
+    color:#fff;
+    font-size:14px;
 `
 const IconFont = styled.div`
     color:#aaa;

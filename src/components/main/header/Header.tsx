@@ -35,16 +35,16 @@ const Wrapper = styled.div`
 function MainHeader(){
     return(
         <Wrapper>
-            <HeaderButton name="운동"></HeaderButton>
-            <HeaderButton name="에너지 충전"></HeaderButton>
-            <HeaderButton name="휴식"></HeaderButton>
-            <HeaderButton name="출퇴근길"></HeaderButton>
-            <HeaderButton name="행복한 기분"></HeaderButton>
-            <HeaderButton name="집중"></HeaderButton>
-            <HeaderButton name="로맨스"></HeaderButton>
-            <HeaderButton name="파티"></HeaderButton>
-            <HeaderButton name="슬픔"></HeaderButton>
-            <HeaderButton name="잠잘 때"></HeaderButton>
+            <HeaderButton tag="운동"></HeaderButton>
+            <HeaderButton tag="에너지 충전"></HeaderButton>
+            <HeaderButton tag="휴식"></HeaderButton>
+            <HeaderButton tag="출퇴근길"></HeaderButton>
+            <HeaderButton tag="행복한 기분"></HeaderButton>
+            <HeaderButton tag="집중"></HeaderButton>
+            <HeaderButton tag="로맨스"></HeaderButton>
+            <HeaderButton tag="파티"></HeaderButton>
+            <HeaderButton tag="슬픔"></HeaderButton>
+            <HeaderButton tag="잠잘 때"></HeaderButton>
         </Wrapper>
     )
 }

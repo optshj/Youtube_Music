@@ -5,11 +5,6 @@ import { throttle } from "lodash";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
 
-interface HeaderButtonProps{
-    hasScrollbar:boolean;
-    scrollRef:HTMLUListElement;
-}
-
 const Wrapper = styled.div<{ hasScrollbar :boolean}>`
     display: ${(props) => (props.hasScrollbar ? 'flex' : 'none')};
     align-items:flex-end;
@@ -45,6 +40,10 @@ const RightIcon = styled(MdOutlineArrowForwardIos)<{isScrollRight:boolean}>`
     transition: color 0.2s linear;
 `
 
+interface HeaderButtonProps{
+    hasScrollbar:boolean;
+    scrollRef:HTMLUListElement;
+}
 function HeaderButton({hasScrollbar,scrollRef}:HeaderButtonProps){
     const [isScrollLeft,setIsScrollLeft] = useState(false);
     const [isScrollRight,setIsScrollRight] = useState(false);
