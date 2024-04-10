@@ -1,4 +1,5 @@
-import styled, { keyframes } from "styled-components";
+import { useState } from "react";
+import styled, { css,keyframes } from "styled-components";
 
 import { IsPlayerPageOpen } from "../../context/PlayerPageContext";
 
@@ -7,7 +8,6 @@ import AlbumImage from "./AlbumImage/AlbumImage";
 import SidePanelHeader from "./MusicList/SidePanelHeader";
 import MusicList from "./MusicList/MusicList";
 import PlayerControl from "./PlayerControl/PlayerControl";
-import { useState } from "react";
 
 const openPlayerPage = keyframes`
     0%{
@@ -17,7 +17,10 @@ const openPlayerPage = keyframes`
         transform:translateY(0%);
     }
 `
-const Wrapper = styled.div<{isOpen:boolean}>`
+interface WrapperProps {
+    isOpen:boolean
+}
+const Wrapper = styled.div<WrapperProps>`
     background-color:${({theme}) => theme.colors.backgroundColor};
     position:fixed;
     top:64px;
@@ -34,16 +37,18 @@ const Wrapper = styled.div<{isOpen:boolean}>`
         width:100%;
         top:0;
         left:0;
-        animation:${openPlayerPage} .3s cubic-bezier(.2,0,.6,1);
+        ${({ isOpen }:WrapperProps) => isOpen && css`
+            animation: ${openPlayerPage} 0.3s cubic-bezier(.2,0,.6,1);
+        `}
     `}
     transform:${(props) => (props.isOpen ?'translate3d(0,0,0)':'translate3d(0,100vh,0)')};
     transition:transform .3s cubic-bezier(.2,0,.6,1);
 `
 const ContentWrapper = styled.div`
+    display:flex;
     padding:24px 48px 0;
     box-sizing:border-box;
     height:100%;
-    display:flex;
     ${({theme}) => theme.medium`
         flex-direction:column;
     `}

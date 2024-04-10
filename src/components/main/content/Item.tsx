@@ -51,10 +51,10 @@ const ItemPlayButtonWrapper = styled.div`
     visibility:hidden;
     right:20px;
     bottom:20px;
-    width:40px;
-    height:40px;
+    width:32px;
+    height:32px;
     background-color:#090909;
-    opacity:0.8;
+    opacity:0.7;
     border-radius:50%;
     &:hover{
         transform:scale(1.3);
@@ -63,7 +63,7 @@ const ItemPlayButtonWrapper = styled.div`
     }
 `
 const ItemPlayButton = styled(MdPlayArrow)`
-    font-size:40px;
+    font-size:32px;
     color:#fff;
 `
 const ItemMenuButton = styled(HiOutlineDotsVertical)`
