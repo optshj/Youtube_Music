@@ -18,7 +18,7 @@ const openPlayerPage = keyframes`
     }
 `
 interface WrapperProps {
-    isOpen:boolean
+    $isOpen:boolean
 }
 const Wrapper = styled.div<WrapperProps>`
     background-color:${({theme}) => theme.colors.backgroundColor};
@@ -37,11 +37,11 @@ const Wrapper = styled.div<WrapperProps>`
         width:100%;
         top:0;
         left:0;
-        ${({ isOpen }:WrapperProps) => isOpen && css`
+        ${({ $isOpen }:WrapperProps) => $isOpen && css`
             animation: ${openPlayerPage} 0.3s cubic-bezier(.2,0,.6,1);
         `}
     `}
-    transform:${(props) => (props.isOpen ?'translate3d(0,0,0)':'translate3d(0,100vh,0)')};
+    transform:${(props) => (props.$isOpen ?'translate3d(0,0,0)':'translate3d(0,100vh,0)')};
     transition:transform .3s cubic-bezier(.2,0,.6,1);
 `
 const ContentWrapper = styled.div`
@@ -73,7 +73,7 @@ const MainPanel = styled.div`
 const SidePanelWrapper = styled.div`
 `
 interface SidePanelProps {
-    isUp:boolean
+    $isUp:boolean
 }
 const SidePanel = styled.div<SidePanelProps>`
     display:flex;
@@ -87,7 +87,7 @@ const SidePanel = styled.div<SidePanelProps>`
         margin:64px 0 0 0;
     `}
     ${({theme}) => theme.small`
-        transform:${(props:SidePanelProps) => (props.isUp?'translate(0,0)':'translate(0,740px)')};
+        transform:${(props:SidePanelProps) => (props.$isUp?'translate(0,0)':'translate(0,740px)')};
         z-index:10;
         background-color:${theme.colors.backgroundColor};
         transition:transform 0.2s cubic-bezier(.2,0,.6,1);
@@ -103,14 +103,14 @@ function PlayerPage() {
         setIsUP(false);
     }
     return(
-        <Wrapper isOpen={isOpen}>
+        <Wrapper $isOpen={isOpen}>
             <ContentWrapper>
                 <MainPanel onClick={onDown}>
                     <SelectButton></SelectButton>
                     <AlbumImage></AlbumImage>
                 </MainPanel>
                 <PlayerControl></PlayerControl>
-                <SidePanel isUp={isUp}>
+                <SidePanel $isUp={isUp}>
                     <SidePanelWrapper onClick={onUp}>
                         <SidePanelHeader></SidePanelHeader>
                     </SidePanelWrapper>

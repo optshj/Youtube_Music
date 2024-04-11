@@ -29,6 +29,7 @@ const PlayListOwnerName = styled.div`
 const PlayIcon = styled.div`
     color:#fff;
     display:none;
+    font-size:24px;
     ${Wrapper}:hover &{
         display:inline-block;
     }
@@ -52,7 +53,7 @@ function PlayList({listName,ownerName}:PlayListProps){
             </ListInformation>
 
             <PlayIcon>
-                <IoPlayCircleSharp size={28}/>
+                <IoPlayCircleSharp/>
             </PlayIcon>
         </Wrapper>
     )

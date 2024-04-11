@@ -22,7 +22,7 @@ const onShow = keyframes`
 }
 `
 interface WrapperProps {
-    isOpen:boolean;
+    $isOpen:boolean;
 }
 const Wrapper = styled.div<WrapperProps>`
     position:absolute;
@@ -32,7 +32,7 @@ const Wrapper = styled.div<WrapperProps>`
     background-color:${({theme}) => theme.colors.backgroundColor};
     border-right:1px solid rgba(255,255,255,.15);
     ${({theme}) => theme.medium`
-        animation:${(props:WrapperProps) => (props.isOpen? onShow : onHide)} 0.2s linear forwards;
+        animation:${(props:WrapperProps) => (props.$isOpen? onShow : onHide)} 0.2s linear forwards;
     `}
     ${({theme}) => theme.small`
         display:none;
@@ -43,7 +43,7 @@ function LargeSidebar() {
     const isOpen = IsLargeSidebarOpen();
 
     return(
-        <Wrapper isOpen={isOpen}>
+        <Wrapper $isOpen={isOpen}>
             <Menu></Menu>
             <PlayListMenu></PlayListMenu>
         </Wrapper>

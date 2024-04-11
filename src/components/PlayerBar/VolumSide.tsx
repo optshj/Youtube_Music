@@ -12,9 +12,9 @@ const SlideBackground = styled.div`
     height:3px;
     background-color:#909090;
 `
-const SlideInner = styled.div<{length:number}>`
+const SlideInner = styled.div<{$length:number}>`
     position:absolute;
-    width:${(props) => (props.length/100*70)}px;
+    width:${(props) => (props.$length/100*70)}px;
     height:3px;
     background-color:#fff;
 `
@@ -49,7 +49,7 @@ function VolumSide(){
     return(
         <Wrapper>
             <SlideBackground>
-                <SlideInner length={rangeValue}></SlideInner>
+                <SlideInner $length={rangeValue}></SlideInner>
                 <Slidebar type="range" max={100} min ={0} value={rangeValue} onChange={onChangeVolume}></Slidebar>
             </SlideBackground>
         </Wrapper>

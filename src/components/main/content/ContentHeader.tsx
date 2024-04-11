@@ -29,7 +29,7 @@ function ContentHeader({hasScrollbar,scrollRef}:ContentHeaderProps){
     return(
         <Wrapper>
             <HeaderTitle title={'Lorem ipusm dolor sit amet'}></HeaderTitle>
-            <HeaderButton hasScrollbar={hasScrollbar} scrollRef={scrollRef}></HeaderButton>
+            <HeaderButton $hasScrollbar={hasScrollbar} $scrollRef={scrollRef}></HeaderButton>
         </Wrapper>
     )
 }

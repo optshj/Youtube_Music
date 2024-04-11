@@ -23,8 +23,8 @@ function Content() {
 	
     return(
         <>
-            <Header isScrollTop={isScrollTop}></Header>
-			<Sidebar isScrollTop={isScrollTop}></Sidebar>
+            <Header $isScrollTop={isScrollTop}></Header>
+			<Sidebar $isScrollTop={isScrollTop}></Sidebar>
 			<Main></Main>
 			<PlayListModal></PlayListModal>
 			<PlayerBar></PlayerBar>

@@ -55,10 +55,10 @@ const RepeatWrapper = styled.div`
     width:24px;
     height:24px;
 `
-const RepeatButton = styled(PiRepeatThin)<{isRepeat:number}>`
+const RepeatButton = styled(PiRepeatThin)<{$isRepeat:number}>`
     width:24px;
     height:24px;
-    color: ${(props) => (props.isRepeat===1 ? '#7a7a7a':'#fff')};
+    color: ${(props) => (props.$isRepeat===1 ? '#7a7a7a':'#fff')};
 `
 const RepeatButtonOne = styled(PiRepeatOnceThin)`
     width:24px;
@@ -86,7 +86,7 @@ function ControlButton(){
             </PlayPauseWrapper>
             <NextButton></NextButton>
             <RepeatWrapper onClick={onRepeat}>
-                {repeatStatus? <RepeatButton isRepeat={repeatStatus}></RepeatButton> : <RepeatButtonOne></RepeatButtonOne>}
+                {repeatStatus? <RepeatButton $isRepeat={repeatStatus}></RepeatButton> : <RepeatButtonOne></RepeatButtonOne>}
             </RepeatWrapper>
         </Wrapper>
     )

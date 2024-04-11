@@ -19,7 +19,7 @@ const ExplainWrapper = styled.div`
 const Title = styled.div`
     font-size:24px;
     font-weight:700;
-    line-weight:1.3;
+    line-height:1.3;
     color:#fff;
 `
 const ArtistName = styled.div`
@@ -41,9 +41,9 @@ const SlidebarWrapper = styled.div`
     height:3px;
     margin-bottom:10px;
 `
-const SlideInner = styled.div<{length:number}>`
+const SlideInner = styled.div<{$length:number}>`
     position:absolute;
-    width:${(props) => (props.length)}%;
+    width:${(props) => (props.$length)}%;
     height:3px;
     background-color:#fff;
 `
@@ -90,7 +90,7 @@ function PlayerControl(){
                 <ArtistName>Lorem ipsum</ArtistName>
                 <ProgressbarWrapper>
                     <SlidebarWrapper>
-                        <SlideInner length={playTime}></SlideInner>
+                        <SlideInner $length={playTime}></SlideInner>
                         <Sliderbar type="range" max={100} min={0} value={playTime} onChange={onChangePlayTime}></Sliderbar>
                     </SlidebarWrapper>
                     <TimeWrapper>

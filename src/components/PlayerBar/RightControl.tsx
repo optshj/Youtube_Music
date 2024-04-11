@@ -33,18 +33,18 @@ const RepeatButtonOne = styled(PiRepeatOnceThin)`
     margin-right:8px;
     padding:8px;
 `
-const RepeatButton = styled(PiRepeatThin)<{isRepeat:number}>`
-    color: ${(props) => (props.isRepeat===1 ? '#7a7a7a':'#fff')};
+const RepeatButton = styled(PiRepeatThin)<{$isRepeat:number}>`
+    color: ${(props) => (props.$isRepeat===1 ? '#7a7a7a':'#fff')};
     font-size:28px;
     margin-right:8px;
     padding:8px;
 `
-const PlayerPageButton = styled(IoMdArrowDropdown)<{isOpen:boolean}>`
+const PlayerPageButton = styled(IoMdArrowDropdown)<{$isOpen:boolean}>`
     color:#fff;
     cursor:pointer;
     padding:8px;
     font-size:32px;
-    transform: ${(props) => (props.isOpen ? 'rotate(0deg)':'rotate(180deg)')};
+    transform: ${(props) => (props.$isOpen ? 'rotate(0deg)':'rotate(180deg)')};
     transition:transform 0.3s ease-in-out;
 `
 function RightControl(){
@@ -66,11 +66,11 @@ function RightControl(){
             <SoundSlidebar></SoundSlidebar>
             <ButtonWrapper>
                 <RepeatWrapper onClick={onRepeat}>
-                    {repeatStatus? <RepeatButton isRepeat={repeatStatus}></RepeatButton> : <RepeatButtonOne></RepeatButtonOne>}
+                    {repeatStatus? <RepeatButton $isRepeat={repeatStatus}></RepeatButton> : <RepeatButtonOne></RepeatButtonOne>}
                 </RepeatWrapper>
                 <ShuffleButton></ShuffleButton>
             </ButtonWrapper>
-            <PlayerPageButton onClick={() => {setIsOpen(!isOpen);click()}} isOpen={isOpen}></PlayerPageButton>
+            <PlayerPageButton onClick={() => {setIsOpen(!isOpen);click()}} $isOpen={isOpen}></PlayerPageButton>
         </Wrapper>
     )
 }

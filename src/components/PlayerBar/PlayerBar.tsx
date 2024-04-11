@@ -7,10 +7,10 @@ import TimeInfo from "./TimeInfo";
 import CenterControl from "./CenterControl";
 import RightControl from "./RightControl";
 
-const Wrapper = styled.div<{isOpen:boolean}>`
+const Wrapper = styled.div<{$isOpen:boolean}>`
     display:flex;
     justify-content: space-between;
-    visibility:${(props) => (props.isOpen ? 'visible':'hidden')};
+    visibility:${(props) => (props.$isOpen ? 'visible':'hidden')};
     position:fixed;
     z-index:1;
     bottom:0;
@@ -47,7 +47,7 @@ function PlayerBar(){
     const isOpen = IsPlayerbarOpen();
 
     return(
-        <Wrapper isOpen={isOpen}>
+        <Wrapper $isOpen={isOpen}>
             <LeftContent>
                 <LeftControl></LeftControl>
                 <TimeInfo></TimeInfo>

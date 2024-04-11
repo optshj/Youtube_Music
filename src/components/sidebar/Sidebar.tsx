@@ -11,14 +11,14 @@ const Wrapper = styled.div`
 `
 
 interface SidebarProps {
-    isScrollTop:boolean;
+    $isScrollTop:boolean;
 }
-function Sidebar({isScrollTop}:SidebarProps){
+function Sidebar({$isScrollTop}:SidebarProps){
 
     return(
         <Wrapper>
             <LargeSidebar></LargeSidebar>
-            <SmallSidebar isScrollTop={isScrollTop}></SmallSidebar>
+            <SmallSidebar $isScrollTop={$isScrollTop}></SmallSidebar>
         </Wrapper>
     )
 

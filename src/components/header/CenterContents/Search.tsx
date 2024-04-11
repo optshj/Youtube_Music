@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { GoSearch } from "react-icons/go";
 
 interface FocusedProps {
-	isFocused:boolean;
+	$isFocused:boolean;
 }
 const WebSearchForm = styled.div<FocusedProps>`
 	position:relative;
@@ -13,7 +13,7 @@ const WebSearchForm = styled.div<FocusedProps>`
 	width:100%;
 	max-width:480px;
 	border-radius:8px;
-	background-color: ${props => props.isFocused ? '#030303':'#292929'};
+	background-color: ${props => props.$isFocused ? '#030303':'#292929'};
 	border:1px solid #4a5056;
 	z-index:2;
 	&:foucs{
@@ -22,7 +22,7 @@ const WebSearchForm = styled.div<FocusedProps>`
 	${({theme}) => theme.medium`
 		background-color:#030303;
 		justify-content:flex-end;
-		border:${(props:FocusedProps) => (props.isFocused?'':'none')};
+		border:${(props:FocusedProps) => (props.$isFocused?'':'none')};
 	`}
 `
 const SearchBar = styled.input<FocusedProps>`
@@ -39,14 +39,14 @@ const SearchBar = styled.input<FocusedProps>`
 		color:#9a9e9b;
 	}
 	${({theme}) => theme.medium`
-		display:${(props:FocusedProps) => (props.isFocused?'inline-block':'none')};
+		display:${(props:FocusedProps) => (props.$isFocused?'inline-block':'none')};
 	`}
 
 `
 const WebSearchIconForm = styled(GoSearch)<FocusedProps>`
 	font-size:20px;
 	padding:8px 16px;
-	color:${props => props.isFocused ? '#fff' : '#9a9e9b'};
+	color:${props => props.$isFocused ? '#fff' : '#9a9e9b'};
 	cursor:pointer;
 	${({theme}) => theme.medium`
 		color:#fff;
@@ -63,14 +63,14 @@ function Search(){
 	}
 	
 	return(
-		<WebSearchForm isFocused={isSearchFocused}>
-			<WebSearchIconForm isFocused={isSearchFocused} onClick={handleFocus}>
+		<WebSearchForm $isFocused={isSearchFocused}>
+			<WebSearchIconForm $isFocused={isSearchFocused} onClick={handleFocus}>
 			</WebSearchIconForm>
 
 			<SearchBar type="text" placeholder="노래, 앨범, 아티스트, 팟캐스트 검색" 
 			onFocus={handleFocus} 
 			onBlur={handleBlur} 
-			isFocused={isSearchFocused}></SearchBar>
+			$isFocused={isSearchFocused}></SearchBar>
 		</WebSearchForm>
 	)
 }

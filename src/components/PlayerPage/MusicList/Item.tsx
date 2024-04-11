@@ -20,7 +20,6 @@ const PlayButton = styled(MdPlayArrow)`
 const SongInfo = styled.div`
     display:flex;
     flex-direction:column;
-    align-itme:center;
     flex:1;
     min-width:1px;
 `
