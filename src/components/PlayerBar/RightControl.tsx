@@ -47,6 +47,7 @@ const PlayerPageButton = styled(IoMdArrowDropdown)<{$isOpen:boolean}>`
     transform: ${(props) => (props.$isOpen ? 'rotate(0deg)':'rotate(180deg)')};
     transition:transform 0.3s ease-in-out;
 `
+
 function RightControl(){
     const [isOpen,setIsOpen] = useState(false);
     const [repeatStatus,setRepeatStatus] = useState(1); // 0:한곡반복 1:반복안함 2:재생목록반복

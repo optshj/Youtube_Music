@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { IsPlayerbarOpen } from "../../context/PlayerbarContext";
+import { usePlayerPage } from "../../context/PlayerPageContext";
 
 import LeftControl from "./LeftControl";
 import TimeInfo from "./TimeInfo";
@@ -45,9 +46,15 @@ const RightContent = styled.div`
 `
 function PlayerBar(){
     const isOpen = IsPlayerbarOpen();
+    const {click} = usePlayerPage();
+    const handleClcik = (event:React.MouseEvent<HTMLDivElement>) => {
+        if (event.target === event.currentTarget) {
+            click();
+        }
+    }
 
     return(
-        <Wrapper $isOpen={isOpen}>
+        <Wrapper $isOpen={isOpen} onClick={handleClcik}>
             <LeftContent>
                 <LeftControl></LeftControl>
                 <TimeInfo></TimeInfo>
