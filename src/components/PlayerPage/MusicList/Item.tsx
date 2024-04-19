@@ -88,7 +88,7 @@ function Item() {
             <MenuButtonWrapper>
                 <MenuButton></MenuButton>
             </MenuButtonWrapper>
-            <PlayTime>2:58</PlayTime>
+            <PlayTime>NaN:NaN</PlayTime>
         </Wrapper>
     )
 }

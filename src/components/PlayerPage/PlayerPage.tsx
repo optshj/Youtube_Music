@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styled, { css,keyframes } from "styled-components";
 
-import { IsPlayerPageOpen } from "../../context/PlayerPageContext";
+import { SlArrowDown } from "react-icons/sl";
+
+import { IsPlayerPageOpen, usePlayerPage } from "../../context/PlayerPageContext";
 
 import SelectButton from "./AlbumImage/SelectButton";
 import AlbumImage from "./AlbumImage/AlbumImage";
@@ -93,8 +95,20 @@ const SidePanel = styled.div<SidePanelProps>`
         transition:transform 0.2s cubic-bezier(.2,0,.6,1);
     `}
 `
+const DownArrow = styled(SlArrowDown)`
+    color:#fff;
+    position: absolute;
+    padding: 24px;
+    font-size: 16px;
+    display: none;
+    cursor: pointer;
+    ${({theme}) => theme.small`
+        display:inline-block;
+    `}
+`
 function PlayerPage() {
     const isOpen = IsPlayerPageOpen();
+    const {click} = usePlayerPage();
     const [isUp,setIsUP] = useState(false);
     const onUp = () => {
         setIsUP(true);
@@ -106,6 +120,7 @@ function PlayerPage() {
         <Wrapper $isOpen={isOpen}>
             <ContentWrapper>
                 <MainPanel onClick={onDown}>
+                    <DownArrow onClick={click}></DownArrow>
                     <SelectButton></SelectButton>
                     <AlbumImage></AlbumImage>
                 </MainPanel>

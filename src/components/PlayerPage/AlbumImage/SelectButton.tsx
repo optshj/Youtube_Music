@@ -27,7 +27,6 @@ const Button = styled.button<{$isSelect:boolean}>`
     border:transparent;
     cursor:pointer;
     white-space:nowrap;
-
 `
 function SelectButton(){
     const [selectType,setSelectType] = useState<String>('Music');
