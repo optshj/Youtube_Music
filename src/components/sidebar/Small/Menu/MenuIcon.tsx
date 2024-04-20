@@ -1,7 +1,10 @@
 import styled from "styled-components"
 import { IconType } from "react-icons";
 
-const MenuIconForm = styled.div`
+interface WrapperProps {
+    $selectState?:boolean
+}
+const Wrapper = styled.div<WrapperProps>`
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -10,6 +13,7 @@ const MenuIconForm = styled.div`
     color:#fff;
     cursor:pointer;
     border-radius:8px;
+    background-color:${(props) => (props.$selectState ? '#1d1d1d':'')};
     &:hover{
         background-color:#343434;
     }
@@ -21,16 +25,18 @@ const MenuIconFont = styled.div`
 interface MenuIconProps {
     icon: IconType;
     descript: string;
+    selectState?: boolean;
+    onClick?:() => void;
 }
-function MenuIcon({icon:Icon,descript}:MenuIconProps){
+function MenuIcon({icon:Icon,descript,selectState,onClick}:MenuIconProps){
     return(
-        <MenuIconForm>
+        <Wrapper onClick={onClick} $selectState={selectState}>
             <Icon/>
 
             <MenuIconFont>
                 {descript}
             </MenuIconFont>
-        </MenuIconForm>
+        </Wrapper>
     )
 }
 export default MenuIcon;

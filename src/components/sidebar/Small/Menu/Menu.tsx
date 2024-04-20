@@ -13,12 +13,16 @@ const Wrapper = styled.div`
     box-sizing: border-box;
 `
 
-function Menu(){
+interface MenuProps {
+    selectState:number;
+    setSelectState:React.Dispatch<React.SetStateAction<number>>
+}
+function Menu({selectState,setSelectState}:MenuProps){
     return(
             <Wrapper>
-                <MenuIcon icon ={MdHomeFilled} descript='홈'></MenuIcon>
-                <MenuIcon icon ={FaRegCompass} descript='둘러보기'></MenuIcon>
-                <MenuIcon icon={ImFilePlay} descript='보관함'></MenuIcon>
+                <MenuIcon icon ={MdHomeFilled} descript='홈' selectState={selectState===0} onClick={() => setSelectState(0)}></MenuIcon>
+                <MenuIcon icon ={FaRegCompass} descript='둘러보기' selectState={selectState===1} onClick={() => setSelectState(1)}></MenuIcon>
+                <MenuIcon icon={ImFilePlay} descript='보관함' selectState={selectState===2} onClick={() => setSelectState(2)}></MenuIcon>
             </Wrapper>
     )
 }

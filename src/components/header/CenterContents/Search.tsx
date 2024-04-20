@@ -13,14 +13,14 @@ const WebSearchForm = styled.div<FocusedProps>`
 	width:100%;
 	max-width:480px;
 	border-radius:8px;
-	background-color: ${props => props.$isFocused ? '#030303':'#292929'};
+	background-color: ${props => props.$isFocused ? 'transparent':'#292929'};
 	border:1px solid #4a5056;
 	z-index:2;
 	&:foucs{
 		background-color:black;
 	}
 	${({theme}) => theme.medium`
-		background-color:#030303;
+		background-color:transparent;
 		justify-content:flex-end;
 		border:${(props:FocusedProps) => (props.$isFocused?'':'none')};
 	`}

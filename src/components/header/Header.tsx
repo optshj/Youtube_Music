@@ -8,14 +8,23 @@ import UserIcon from './RightContents/UserIcon';
 import { IsLargeSidebarOpen } from '../../context/SidebarContext';
 import { IsPlayerPageOpen } from '../../context/PlayerPageContext';
 
-const Wrapper = styled.div<{$isScrollTop:boolean,$isPlayerPageOpen:boolean}>`
+interface WrapperProps {
+	$isScrollTop:boolean;
+	$isPlayerPageOpen:boolean;
+	$isLargeSiderbarOpen:boolean;
+}
+const Wrapper = styled.div<WrapperProps>`
 	position:fixed;
 	display: flex;
+	width: 100%;
+	z-index:2;
 	background-color:#030303;
-	width:calc(100vw - 12px);
-	z-index:1;
 	border-bottom:${(props)=> (!props.$isScrollTop||props.$isPlayerPageOpen?'1px solid rgba(255,255,255,.15)':'0px solid transparent')};
 	transition:border-bottom 0.2s linear;
+	${({theme}) => theme.medium`
+		background-color: ${(props:WrapperProps) => (props.$isLargeSiderbarOpen?'transparent':'#030303')};
+		border:${(props:WrapperProps) => (props.$isLargeSiderbarOpen?'none':'')};
+	`}
 `
 
 const LeftContent = styled.div<{$isSidebarOpen:boolean,$isScrollTop:boolean,$isPlayerPageOpen:boolean}>`
@@ -23,7 +32,7 @@ const LeftContent = styled.div<{$isSidebarOpen:boolean,$isScrollTop:boolean,$isP
 	align-items:center;
 	width:224px;
 	padding-left:16px;
-	z-index:2;
+	z-index:3;
 	border-right:${(props) => (!props.$isPlayerPageOpen&&(props.$isSidebarOpen&&props.$isScrollTop)? '1px solid rgba(255,255,255,.15)':'0px solid transparent')};
 	transition:border-right 0.2s linear;
 	flex-shrink:0;
@@ -57,9 +66,10 @@ interface HeaderProps {
 function Header({$isScrollTop}:HeaderProps) {
 	const isSidebarOpen = IsLargeSidebarOpen();
 	const isPlyaerPageOpen = IsPlayerPageOpen();
-	
+	const isOpen = IsLargeSidebarOpen();
+
 	return(
-		<Wrapper $isScrollTop={$isScrollTop} $isPlayerPageOpen={isPlyaerPageOpen}>
+		<Wrapper $isScrollTop={$isScrollTop} $isPlayerPageOpen={isPlyaerPageOpen} $isLargeSiderbarOpen={isOpen}>
 			<LeftContent $isSidebarOpen={isSidebarOpen} $isScrollTop={$isScrollTop} $isPlayerPageOpen={isPlyaerPageOpen}>
 				<Menu/>
 				<Logo/>
