@@ -10,6 +10,7 @@ import AlbumImage from "./AlbumImage/AlbumImage";
 import SidePanelHeader from "./MusicList/SidePanelHeader";
 import MusicList from "./MusicList/MusicList";
 import PlayerControl from "./PlayerControl/PlayerControl";
+import PlayerBar from "./PlayerBar/PlayerBar";
 
 const openPlayerPage = keyframes`
     0%{
@@ -57,7 +58,6 @@ const ContentWrapper = styled.div`
     ${({theme}) => theme.small`
         padding:0;
     `}
-
 `
 const MainPanel = styled.div`
     display:flex;
@@ -70,6 +70,14 @@ const MainPanel = styled.div`
     ${({theme}) => theme.small`
         height:0;
         padding:0;
+    `}
+`
+interface ButtonWrapperProps {
+    $isUp:boolean
+}
+const ButtonWrapper = styled.div<ButtonWrapperProps>`
+    ${({theme}) => theme.small`
+        visibility: ${({$isUp}:ButtonWrapperProps) => $isUp ? 'hidden' : 'visible'};
     `}
 `
 const SidePanelWrapper = styled.div`
@@ -120,10 +128,13 @@ function PlayerPage() {
         <Wrapper $isOpen={isOpen}>
             <ContentWrapper>
                 <MainPanel onClick={onDown}>
-                    <DownArrow onClick={click}></DownArrow>
-                    <SelectButton></SelectButton>
-                    <AlbumImage></AlbumImage>
+                    <ButtonWrapper $isUp={isUp}>
+                        <DownArrow onClick={click}></DownArrow>
+                        <SelectButton></SelectButton>
+                        <AlbumImage></AlbumImage>
+                    </ButtonWrapper>
                 </MainPanel>
+                <PlayerBar isUp={isUp} onClick={onDown}></PlayerBar>
                 <PlayerControl></PlayerControl>
                 <SidePanel $isUp={isUp}>
                     <SidePanelWrapper onClick={onUp}>

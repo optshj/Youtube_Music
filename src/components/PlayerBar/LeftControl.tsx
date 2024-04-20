@@ -8,6 +8,7 @@ const Wrapper = styled.div`
     align-items:center;
 `
 const PlayButton = styled(IoMdPlay)`
+    color:#fff;
     width:36px;
     height:36px;
     padding:8px;

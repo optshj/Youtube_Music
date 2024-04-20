@@ -22,6 +22,7 @@ const Wrapper = styled.div<WrapperProps>`
 	border-bottom:${(props)=> (!props.$isScrollTop||props.$isPlayerPageOpen?'1px solid rgba(255,255,255,.15)':'0px solid transparent')};
 	transition:border-bottom 0.2s linear;
 	${({theme}) => theme.medium`
+		transition: background-color 0.2s linear;
 		background-color: ${(props:WrapperProps) => (props.$isLargeSiderbarOpen?'transparent':'#030303')};
 		border:${(props:WrapperProps) => (props.$isLargeSiderbarOpen?'none':'')};
 	`}
