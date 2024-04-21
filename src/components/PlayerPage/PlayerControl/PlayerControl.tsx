@@ -5,7 +5,7 @@ import ControlButton from "./ControlButton";
 const Wrapper = styled.div`
     display:none;
     position:absolute;
-    top:501px;
+    top:calc(100% - 312px);
     width:calc(100vw - 64px);
     margin:0 32px;
     ${({theme}) => theme.small`
@@ -54,6 +54,7 @@ const Sliderbar = styled.input`
     margin:0;
     appearance:none;
     background:none;
+    cursor:pointer;
     &::-webkit-slider-thumb {
         height: 12px;
         width: 12px;
@@ -90,8 +91,8 @@ function PlayerControl(){
                 <ArtistName>Lorem ipsum</ArtistName>
                 <ProgressbarWrapper>
                     <SlidebarWrapper>
-                        <SlideInner $length={playTime}></SlideInner>
-                        <Sliderbar type="range" max={100} min={0} value={playTime} onChange={onChangePlayTime}></Sliderbar>
+                        <SlideInner $length={playTime}/>
+                        <Sliderbar type="range" max={100} min={0} value={playTime} onChange={onChangePlayTime}/>
                     </SlidebarWrapper>
                     <TimeWrapper>
                         <CurrentTime>NaN:NaN</CurrentTime>
@@ -99,7 +100,7 @@ function PlayerControl(){
                     </TimeWrapper>
                 </ProgressbarWrapper>
             </ExplainWrapper>
-            <ControlButton></ControlButton>
+            <ControlButton/>
         </Wrapper>
     )
 }

@@ -82,18 +82,18 @@ function CenterControl(){
             <ButtonWrapper>
                 <IconWrapper>
                     <Dislike onClick={() => setIsDislike(!isDislike)}>
-                        {isDislike ? <AiFillDislike></AiFillDislike> : <AiOutlineDislike></AiOutlineDislike>}
+                        {isDislike ? <AiFillDislike/>: <AiOutlineDislike/>}
                     </Dislike>
                 </IconWrapper>
 
                 <IconWrapper>
                     <Like onClick={() => setIsLike(!isLike)}>
-                        {isLike ? <AiFillLike></AiFillLike> : <AiOutlineLike></AiOutlineLike>}
+                        {isLike ? <AiFillLike/> : <AiOutlineLike/>}
                     </Like>
                 </IconWrapper>
 
                 <IconWrapper>
-                    <Menu></Menu>
+                    <Menu/>
                 </IconWrapper>
             </ButtonWrapper>
         </>

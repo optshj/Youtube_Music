@@ -49,8 +49,8 @@ function VolumSide(){
     return(
         <Wrapper>
             <SlideBackground>
-                <SlideInner $length={rangeValue}></SlideInner>
-                <Slidebar type="range" max={100} min ={0} value={rangeValue} onChange={onChangeVolume}></Slidebar>
+                <SlideInner $length={rangeValue}/>
+                <Slidebar type="range" max={100} min ={0} value={rangeValue} onChange={onChangeVolume}/>
             </SlideBackground>
         </Wrapper>
     )

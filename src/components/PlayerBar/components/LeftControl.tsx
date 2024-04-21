@@ -1,5 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
+
+import { IsPlayState, usePlayState } from "../../../context/PlayStateContext";
 
 import { IoMdPlay, IoMdPause, IoMdSkipForward, IoMdSkipBackward } from "react-icons/io";
 
@@ -35,20 +36,18 @@ const PrevButton = styled(IoMdSkipBackward)`
     cursor:pointer;
     margin:0 0 0 12px;
 `
-function LeftControl(){
-    const [isPlay,setIsPlay] = useState(false);
 
-    const onChange = () => {
-        setIsPlay(!isPlay);
-    }
+function LeftControl(){
+    const isPlay = IsPlayState();
+    const {togglePlayState} = usePlayState();
 
     return(
         <Wrapper>
-            <PrevButton></PrevButton>
-            <div onClick={onChange}>
-                {isPlay?<PlayButton></PlayButton>:<PauseButton></PauseButton>}
+            <PrevButton/>
+            <div onClick={togglePlayState}>
+                {isPlay?<PauseButton/>:<PlayButton/>}
             </div>
-            <NextButton></NextButton>
+            <NextButton/>
         </Wrapper>
     )
 }

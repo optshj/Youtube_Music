@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import { usePlayerPage } from "../../context/PlayerPageContext";
+import { usePlayerPage } from "../../../context/PlayerPageContext";
 
 import { PiRepeatThin,PiRepeatOnceThin,PiShuffleThin } from "react-icons/pi";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -67,11 +67,11 @@ function RightControl(){
             <SoundSlidebar></SoundSlidebar>
             <ButtonWrapper>
                 <RepeatWrapper onClick={onRepeat}>
-                    {repeatStatus? <RepeatButton $isRepeat={repeatStatus}></RepeatButton> : <RepeatButtonOne></RepeatButtonOne>}
+                    {repeatStatus? <RepeatButton $isRepeat={repeatStatus}/>:<RepeatButtonOne/>}
                 </RepeatWrapper>
-                <ShuffleButton></ShuffleButton>
+                <ShuffleButton/>
             </ButtonWrapper>
-            <PlayerPageButton onClick={() => {setIsOpen(!isOpen);click()}} $isOpen={isOpen}></PlayerPageButton>
+            <PlayerPageButton onClick={() => {setIsOpen(!isOpen);click()}} $isOpen={isOpen}/>
         </Wrapper>
     )
 }

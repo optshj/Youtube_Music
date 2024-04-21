@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { IsPlayerbarOpen } from "../../context/PlayerbarContext";
 import { usePlayerPage } from "../../context/PlayerPageContext";
 
-import LeftControl from "./LeftControl";
-import TimeInfo from "./TimeInfo";
-import CenterControl from "./CenterControl";
-import RightControl from "./RightControl";
+import LeftControl from "./components/LeftControl";
+import TimeInfo from "./components/TimeInfo";
+import CenterControl from "./components/CenterControl";
+import RightControl from "./components/RightControl";
 
 const Wrapper = styled.div<{$isOpen:boolean}>`
     display:flex;
@@ -47,25 +47,25 @@ const RightContent = styled.div`
 function PlayerBar(){
     const isOpen = IsPlayerbarOpen();
     const {click} = usePlayerPage();
-    const handleClcik = (event:React.MouseEvent<HTMLDivElement>) => {
+    const handleClick = (event:React.MouseEvent<HTMLDivElement>) => {
         if (event.target === event.currentTarget) {
             click();
         }
     }
 
     return(
-        <Wrapper $isOpen={isOpen} onClick={handleClcik}>
+        <Wrapper $isOpen={isOpen} onClick={handleClick}>
             <LeftContent>
-                <LeftControl></LeftControl>
-                <TimeInfo></TimeInfo>
+                <LeftControl/>
+                <TimeInfo/>
             </LeftContent>
 
             <CenterContent>
-                <CenterControl></CenterControl>
+                <CenterControl/>
             </CenterContent>
 
             <RightContent>
-                <RightControl></RightControl>
+                <RightControl/>
             </RightContent>
         </Wrapper>
     )

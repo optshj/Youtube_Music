@@ -81,6 +81,7 @@ const ButtonWrapper = styled.div<ButtonWrapperProps>`
     `}
 `
 const SidePanelWrapper = styled.div`
+    margin-top: 20px;
 `
 interface SidePanelProps {
     $isUp:boolean
@@ -94,13 +95,15 @@ const SidePanel = styled.div<SidePanelProps>`
     height:100%;
     ${({theme}) => theme.medium`
         width:100%;
-        margin:64px 0 0 0;
+        margin:0;
     `}
     ${({theme}) => theme.small`
-        transform:${(props:SidePanelProps) => (props.$isUp?'translate(0,0)':'translate(0,740px)')};
+        transform:${(props:SidePanelProps) => (props.$isUp?'translate(0,64px)':'translate(0,calc(100% - 80px))')};
+        border-radius:10px 10px 0 0;
         z-index:10;
         background-color:${theme.colors.backgroundColor};
         transition:transform 0.2s cubic-bezier(.2,0,.6,1);
+        background-color:${(props:SidePanelProps) => (props.$isUp ? '#212121': theme.colors.backgroundColor)};
     `}
 `
 const DownArrow = styled(SlArrowDown)`
@@ -129,18 +132,21 @@ function PlayerPage() {
             <ContentWrapper>
                 <MainPanel onClick={onDown}>
                     <ButtonWrapper $isUp={isUp}>
-                        <DownArrow onClick={click}></DownArrow>
-                        <SelectButton></SelectButton>
-                        <AlbumImage></AlbumImage>
+                        <DownArrow onClick={click}/>
+                        <SelectButton/>
+                        <AlbumImage/>
                     </ButtonWrapper>
                 </MainPanel>
-                <PlayerBar isUp={isUp} onClick={onDown}></PlayerBar>
+
+                <PlayerBar isUp={isUp} onClick={onDown}/>
+                
                 <PlayerControl></PlayerControl>
+
                 <SidePanel $isUp={isUp}>
                     <SidePanelWrapper onClick={onUp}>
-                        <SidePanelHeader></SidePanelHeader>
+                        <SidePanelHeader isUp={isUp}/>
                     </SidePanelWrapper>
-                    <MusicList></MusicList>
+                    <MusicList/>
                 </SidePanel>
             </ContentWrapper>
         </Wrapper>

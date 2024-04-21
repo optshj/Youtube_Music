@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+import { IsPlayState,usePlayState } from '../../../context/PlayStateContext';
+
+import { IoPlaySharp,IoPlaySkipForwardSharp,IoPauseSharp} from "react-icons/io5";
+
 interface WrapperProps {
     $isUp:boolean;
 }
@@ -35,7 +39,28 @@ const Artist = styled.div`
     color: rgba(255,255,255,0.7);
 `
 const RightContent = styled.div`
+    display: flex;
     margin: 0 16px;
+    align-items: center;
+    flex-direction: row;
+    font-size:20px;
+    margin-left:auto;
+`
+const PlayPauseWrapper = styled.div`
+    color: #fff;
+`
+const PlayIcon = styled(IoPlaySharp)`
+    margin: 0 16px;
+    cursor: pointer;
+`
+const PauseIcon = styled(IoPauseSharp)`
+    margin: 0 16px;
+    cursor: pointer;
+`
+const NextIcon = styled(IoPlaySkipForwardSharp)`
+    color: #fff;
+    margin: 0 16px;
+    cursor: pointer;
 `
 
 interface PlayerBarProps {
@@ -43,6 +68,9 @@ interface PlayerBarProps {
     onClick?:() => void;
 }
 function PlayerBar({isUp,onClick}:PlayerBarProps) {
+    const isPlay = IsPlayState();
+    const {togglePlayState} = usePlayState();
+
     return (
         <Wrapper $isUp={isUp} onClick={onClick}>
             <LeftContent>
@@ -55,7 +83,10 @@ function PlayerBar({isUp,onClick}:PlayerBarProps) {
             </CenterContent>
 
             <RightContent>
-
+                <PlayPauseWrapper onClick={togglePlayState}>
+                    {isPlay?<PauseIcon/>:<PlayIcon/>}
+                </PlayPauseWrapper>
+                <NextIcon/>
             </RightContent>
         </Wrapper>
     );

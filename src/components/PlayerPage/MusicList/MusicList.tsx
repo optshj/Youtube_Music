@@ -6,6 +6,7 @@ const Wrapper = styled.div`
     overflow-x:hidden;
     overflow-y:scroll;
     flex:1;
+    padding:0 16px;
 `
 const ListWrapper = styled.div`
     width:100%;
@@ -18,7 +19,7 @@ function MusicList(){
     ));
     return(
         <Wrapper>
-            <MusicListHeader></MusicListHeader>
+            <MusicListHeader/>
             <ListWrapper>
                 {ItemArray}
             </ListWrapper>

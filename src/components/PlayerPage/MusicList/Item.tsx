@@ -60,6 +60,9 @@ const Wrapper = styled.div`
     height:56px;
     border-bottom:1px solid rgba(255,255,255,.1);
     cursor:move;
+    ${({theme}) => theme.small`
+        border:none;
+    `}
     &:hover{
         ${PlayTime}{
             display:none;
@@ -78,7 +81,7 @@ function Item() {
     return(
         <Wrapper>
             <LeftItem>
-                <PlayButton></PlayButton>
+                <PlayButton/>
                 <img src="https://via.placeholder.com/60x60/666.png" alt="Placeholder" style={{'width':'100%'}}/>
             </LeftItem>
             <SongInfo>
@@ -86,7 +89,7 @@ function Item() {
                 <ArtistName>Lorem ipsum</ArtistName>
             </SongInfo>
             <MenuButtonWrapper>
-                <MenuButton></MenuButton>
+                <MenuButton/>
             </MenuButtonWrapper>
             <PlayTime>NaN:NaN</PlayTime>
         </Wrapper>

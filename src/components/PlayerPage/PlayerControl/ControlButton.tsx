@@ -1,13 +1,10 @@
+import { useState } from "react";
 import styled from "styled-components";
 
-import { IoMdPlay } from "react-icons/io";
-import { IoMdPause } from "react-icons/io";
-import { IoMdSkipForward } from "react-icons/io";
-import { IoMdSkipBackward } from "react-icons/io";
-import { PiRepeatThin } from "react-icons/pi";
-import { PiRepeatOnceThin } from "react-icons/pi";
-import { PiShuffleThin } from "react-icons/pi";
-import { useState } from "react";
+import { IsPlayState,usePlayState } from "../../../context/PlayStateContext";
+
+import { IoMdPlay, IoMdPause, IoMdSkipForward,IoMdSkipBackward  } from "react-icons/io";
+import { PiRepeatThin,PiRepeatOnceThin,PiShuffleThin } from "react-icons/pi";
 
 const Wrapper = styled.div`
     align-items:center;
@@ -19,6 +16,7 @@ const ShuffleButton = styled(PiShuffleThin)`
     width:24px;
     height:24px;
     color:#7a7a7a;
+    cursor: pointer;
     &:active{
         color:#fff;
     }
@@ -26,6 +24,7 @@ const ShuffleButton = styled(PiShuffleThin)`
 const PrevButton = styled(IoMdSkipBackward)`
     width:24px;
     height:24px;
+    cursor: pointer;
 `
 const PlayPauseWrapper = styled.div`
     width:72px;
@@ -50,24 +49,31 @@ const PauseButton = styled(IoMdPause)`
 const NextButton = styled(IoMdSkipForward)`
     width:24px;
     height:24px;
+    cursor: pointer;
 `
 const RepeatWrapper = styled.div`
     width:24px;
     height:24px;
+    cursor:pointer;
 `
 const RepeatButton = styled(PiRepeatThin)<{$isRepeat:number}>`
     width:24px;
     height:24px;
     color: ${(props) => (props.$isRepeat===1 ? '#7a7a7a':'#fff')};
+    cursor: pointer;
 `
 const RepeatButtonOne = styled(PiRepeatOnceThin)`
     width:24px;
     height:24px;
     color:#fff;
+    cursor: pointer;
 `
+
 function ControlButton(){
-    const [isPlay,setIsPlay] = useState(true);
     const [repeatStatus,setRepeatStatus] = useState(1);
+    const isPlay = IsPlayState();
+    const {togglePlayState} = usePlayState();
+
     const onRepeat = () => {
         if (repeatStatus === 2) {
             setRepeatStatus(0);
@@ -79,14 +85,16 @@ function ControlButton(){
 
     return(
         <Wrapper>
-            <ShuffleButton></ShuffleButton>
-            <PrevButton></PrevButton>
-            <PlayPauseWrapper onClick={() => setIsPlay(!isPlay)}>
-                {isPlay ? <PlayButton></PlayButton> : <PauseButton></PauseButton>}
+            <ShuffleButton/>
+            <PrevButton/>
+
+            <PlayPauseWrapper onClick={togglePlayState}>
+                {isPlay ? <PauseButton/>:<PlayButton/>}
             </PlayPauseWrapper>
-            <NextButton></NextButton>
+
+            <NextButton/>
             <RepeatWrapper onClick={onRepeat}>
-                {repeatStatus? <RepeatButton $isRepeat={repeatStatus}></RepeatButton> : <RepeatButtonOne></RepeatButtonOne>}
+                {repeatStatus? <RepeatButton $isRepeat={repeatStatus}/> : <RepeatButtonOne/>}
             </RepeatWrapper>
         </Wrapper>
     )
