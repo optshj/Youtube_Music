@@ -18,11 +18,11 @@ function PlayListMenu(){
     return(
         <Wrapper>
             <MakeForm>
-                <MakeNewPlayList></MakeNewPlayList>
+                <MakeNewPlayList/>
             </MakeForm>
 
             <PlayListsForm>
-                <PlayList listName={"My PlayList"} ownerName={"이성빈"}></PlayList>
+                <PlayList listName={"My PlayList"} ownerName={"이성빈"}/>
             </PlayListsForm>
         </Wrapper>
     )

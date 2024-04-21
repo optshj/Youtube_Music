@@ -32,10 +32,7 @@ function MenuIcon({icon:Icon,descript,selectState,onClick}:MenuIconProps){
     return(
         <Wrapper onClick={onClick} $selectState={selectState}>
             <Icon/>
-
-            <MenuIconFont>
-                {descript}
-            </MenuIconFont>
+            <MenuIconFont>{descript}</MenuIconFont>
         </Wrapper>
     )
 }

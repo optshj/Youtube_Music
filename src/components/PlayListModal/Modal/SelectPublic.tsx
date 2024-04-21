@@ -74,23 +74,19 @@ function SelectPublic(){
         <Wrapper ref={componentRef}>
             <Text>공개 범위 설정</Text>
             <DropDownBox onClick={() => setOpenDropDown(true)}>
-
-                <PublicStatus></PublicStatus>
-
+                <PublicStatus/>
                 <ArrowFont>
                     <IoChevronDownSharp />
                 </ArrowFont>
             </DropDownBox>
             
             <UnderLineWrapper>
-                <UnderLine></UnderLine>
-                <UnderLineActive></UnderLineActive>
+                <UnderLine/>
+                <UnderLineActive/>
             </UnderLineWrapper>
-
             {
-                openDropDown && 
-                <div onClick={()=> setOpenDropDown(false)}>
-                    <PublicDropDown></PublicDropDown>
+                openDropDown && <div onClick={()=> setOpenDropDown(false)}>
+                    <PublicDropDown/>
                 </div>
             }
         </Wrapper>

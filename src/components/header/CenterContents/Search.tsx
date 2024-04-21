@@ -64,13 +64,12 @@ function Search(){
 	
 	return(
 		<WebSearchForm $isFocused={isSearchFocused}>
-			<WebSearchIconForm $isFocused={isSearchFocused} onClick={handleFocus}>
-			</WebSearchIconForm>
+			<WebSearchIconForm $isFocused={isSearchFocused} onClick={handleFocus}/>
 
 			<SearchBar type="text" placeholder="노래, 앨범, 아티스트, 팟캐스트 검색" 
 			onFocus={handleFocus} 
 			onBlur={handleBlur} 
-			$isFocused={isSearchFocused}></SearchBar>
+			$isFocused={isSearchFocused}/>
 		</WebSearchForm>
 	)
 }

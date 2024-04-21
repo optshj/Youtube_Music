@@ -20,9 +20,7 @@ function MusicList(){
     return(
         <Wrapper>
             <MusicListHeader/>
-            <ListWrapper>
-                {ItemArray}
-            </ListWrapper>
+            <ListWrapper>{ItemArray}</ListWrapper>
         </Wrapper>
     )
 }

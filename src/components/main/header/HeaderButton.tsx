@@ -28,9 +28,7 @@ function HeaderButton({tag}:HeaderButtonProps){
     return(
         <Wrapper>
             <LinkButton>
-                <FontForm>
-                    {tag}
-                </FontForm>
+                <FontForm>{tag}</FontForm>
             </LinkButton>
         </Wrapper>
     )

@@ -28,8 +28,8 @@ interface ContentHeaderProps{
 function ContentHeader({hasScrollbar,scrollRef}:ContentHeaderProps){
     return(
         <Wrapper>
-            <HeaderTitle title={'Lorem ipusm dolor sit amet'}></HeaderTitle>
-            <HeaderButton $hasScrollbar={hasScrollbar} $scrollRef={scrollRef}></HeaderButton>
+            <HeaderTitle title={'Lorem ipusm dolor sit amet'}/>
+            <HeaderButton $hasScrollbar={hasScrollbar} $scrollRef={scrollRef}/>
         </Wrapper>
     )
 }

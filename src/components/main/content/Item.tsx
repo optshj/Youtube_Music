@@ -93,23 +93,19 @@ function Item(){
     return(
         <Wrapper onClick={open}>
             <ImageWrapper>
-                <ItemBackGround></ItemBackGround>
+                <ItemBackGround/>
                 <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>
 
                 <ItemPlayButtonWrapper>
-                    <ItemPlayButton></ItemPlayButton>
+                    <ItemPlayButton/>
                 </ItemPlayButtonWrapper>
                 <ItemMenuWrapper>
-                    <ItemMenuButton></ItemMenuButton>
+                    <ItemMenuButton/>
                 </ItemMenuWrapper>
             </ImageWrapper>
             <Details>
-                <Title>
-                    Lorem ipsum
-                </Title>
-                <SubTitle>
-                    Lorem ipusm
-                </SubTitle>
+                <Title>Lorem ipsum</Title>
+                <SubTitle>Lorem ipusm</SubTitle>
             </Details>
         </Wrapper>
     )

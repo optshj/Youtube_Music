@@ -19,7 +19,7 @@ function Menu(){
 	const click = useSidebar();
 	
 	return(
-		<Wrapper onClick={click}></Wrapper>
+		<Wrapper onClick={click}/>
 	)
 }
 export default Menu;

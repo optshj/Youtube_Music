@@ -16,11 +16,11 @@ function Content() {
         <Wrapper>
             <ContentHeader 
             hasScrollbar={hasScrollbar}
-            scrollRef={scrollRef}></ContentHeader>
+            scrollRef={scrollRef}/>
 
             <ContentCarousel 
             setHasScollbar={setHasScollbar} 
-            setScrollRef={setScrollRef}></ContentCarousel>
+            setScrollRef={setScrollRef}/>
         </Wrapper>
     )
 }

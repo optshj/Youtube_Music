@@ -43,18 +43,19 @@ const RightContent = styled.div`
     margin: 0 16px;
     align-items: center;
     flex-direction: row;
-    font-size:20px;
+    font-size:24px;
     margin-left:auto;
 `
 const PlayPauseWrapper = styled.div`
+    display: flex;
     color: #fff;
+    align-items: center;
+    margin: 0 16px;
 `
 const PlayIcon = styled(IoPlaySharp)`
-    margin: 0 16px;
     cursor: pointer;
 `
 const PauseIcon = styled(IoPauseSharp)`
-    margin: 0 16px;
     cursor: pointer;
 `
 const NextIcon = styled(IoPlaySkipForwardSharp)`

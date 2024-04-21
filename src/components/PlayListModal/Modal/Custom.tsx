@@ -76,8 +76,8 @@ function Custom(){
                 <Input type='text' id="input-title" ref={inputRef}></Input>
 
                 <UnderLineWrapper>
-                    <UnderLine></UnderLine>
-                    <UnderLineActive></UnderLineActive>
+                    <UnderLine/>
+                    <UnderLineActive/>
                 </UnderLineWrapper>
 
             </TilteForm>
@@ -88,12 +88,12 @@ function Custom(){
                 <Input type='text' id="input-explain"></Input>
 
                 <UnderLineWrapper>
-                    <UnderLine></UnderLine>
-                    <UnderLineActive></UnderLineActive>
+                    <UnderLine/>
+                    <UnderLineActive/>
                 </UnderLineWrapper>
 
             </ExplainForm>
-            <SelectPublic></SelectPublic>
+            <SelectPublic/>
         </Wrapper>
     )
 }

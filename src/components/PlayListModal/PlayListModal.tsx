@@ -65,9 +65,9 @@ function PlayLisModal(){
 
     return(
         <ResponsiveModal isOpen={isOpen} onRequestClose={close} style={ModalStyles}>
-                <Title></Title>
-                <Custom></Custom>
-                <ActionButton></ActionButton>
+                <Title/>
+                <Custom/>
+                <ActionButton/>
         </ResponsiveModal>
     )
 }

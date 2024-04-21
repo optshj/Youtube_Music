@@ -37,10 +37,7 @@ function MenuIcon({icon:Icon,descript,selectState,onClick}:MenuIconProps){
             <IconWrapper>
                 <Icon/>
             </IconWrapper>
-
-            <MenuIconFont>
-                {descript}
-            </MenuIconFont>
+            <MenuIconFont>{descript}</MenuIconFont>
         </Wrapper>
     )
 }

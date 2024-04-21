@@ -31,9 +31,7 @@ function PublicStatus(){
                     <IconFont>
                         <IoEarthOutline />
                     </IconFont>
-                    <StateForm>
-                        공개
-                    </StateForm>
+                    <StateForm>공개</StateForm>
                 </>
             )
         case 1 :
@@ -42,9 +40,7 @@ function PublicStatus(){
                     <IconFont>
                         <GrConnect/>
                     </IconFont>
-                    <StateForm>
-                        일부공개
-                    </StateForm>
+                    <StateForm>일부공개</StateForm>
                 </>
             )
             
@@ -54,9 +50,7 @@ function PublicStatus(){
                     <IconFont>
                         <CiLock/>
                     </IconFont>
-                    <StateForm>
-                        비공개
-                    </StateForm>
+                        <StateForm>비공개</StateForm>
                 </>
             )
         default :

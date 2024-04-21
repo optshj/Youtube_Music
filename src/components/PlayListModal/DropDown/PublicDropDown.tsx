@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 function PublicDropDown(){
     return(
         <Wrapper>
-            <DropDownItem></DropDownItem>
+            <DropDownItem/>
         </Wrapper>
     )
 }

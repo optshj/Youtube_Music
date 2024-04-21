@@ -19,7 +19,7 @@ const Wrapper = styled.div`
         background-color:#343434;
     }
 `
-const AddIconForm = styled.div`
+const AddIcon = styled(IoAddSharp)`
     margin-right:8px;
     font-size:24px;
     color:#fff;
@@ -33,13 +33,8 @@ function MakeNewPlayList() {
 
     return(
         <Wrapper onClick={open}>
-            <AddIconForm>
-                <IoAddSharp/>
-            </AddIconForm>
-
-            <AddNameForm>
-                새 재생목록
-            </AddNameForm>
+            <AddIcon/>
+            <AddNameForm>새 재생목록</AddNameForm>
         </Wrapper>
     )
 }

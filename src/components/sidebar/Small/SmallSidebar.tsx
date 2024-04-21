@@ -34,7 +34,7 @@ function SmallSidebar({$isScrollTop,selectState,setSelectState}:MobileSidebarPro
 
     return(
         <Wrapper $isOpen={isOpen} $isScrollTop={$isScrollTop} $isPlayerPageOpen={isPlayerPageOpen}>
-            <Menu selectState={selectState} setSelectState={setSelectState}></Menu>
+            <Menu selectState={selectState} setSelectState={setSelectState}/>
         </Wrapper>
     )
 }

@@ -26,7 +26,7 @@ const PlayListOwnerName = styled.div`
     font-size:12px;
     color:#b4b4b4;
 `
-const PlayIcon = styled.div`
+const PlayIcon = styled(IoPlayCircleSharp)`
     color:#fff;
     display:none;
     font-size:24px;
@@ -43,18 +43,10 @@ function PlayList({listName,ownerName}:PlayListProps){
     return(
         <Wrapper>
             <ListInformation>
-                <PlayListName>
-                    {listName}
-                </PlayListName>
-
-                <PlayListOwnerName>
-                    {ownerName}
-                </PlayListOwnerName>
+                <PlayListName>{listName}</PlayListName>
+                <PlayListOwnerName>{ownerName}</PlayListOwnerName>
             </ListInformation>
-
-            <PlayIcon>
-                <IoPlayCircleSharp/>
-            </PlayIcon>
+            <PlayIcon/>
         </Wrapper>
     )
 }

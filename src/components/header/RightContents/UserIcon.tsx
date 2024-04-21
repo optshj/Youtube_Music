@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const User = styled.div`
+const Wrapper = styled.div`
 	width:26px;
 	height:26px;
 	border-radius:50%;
@@ -17,9 +17,9 @@ const UserName = styled.div`
 
 function UserIcon(){
 	return(
-		<User>
+		<Wrapper>
 			<UserName>성빈</UserName>
-		</User>
+		</Wrapper>
 	)
 }
 export default UserIcon;

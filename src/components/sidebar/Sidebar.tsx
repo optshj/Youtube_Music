@@ -18,8 +18,8 @@ function Sidebar({$isScrollTop}:SidebarProps){
 
     return(
         <Wrapper>
-            <LargeSidebar selectState={selectState} setSelectState={setSelectState}></LargeSidebar>
-            <SmallSidebar $isScrollTop={$isScrollTop} selectState={selectState} setSelectState={setSelectState}></SmallSidebar>
+            <LargeSidebar selectState={selectState} setSelectState={setSelectState}/>
+            <SmallSidebar $isScrollTop={$isScrollTop} selectState={selectState} setSelectState={setSelectState}/>
         </Wrapper>
     )
 

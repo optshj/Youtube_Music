@@ -80,11 +80,11 @@ function HeaderButton({$hasScrollbar,$scrollRef}:HeaderButtonProps){
     return(
         <Wrapper $hasScrollbar={$hasScrollbar}>
             <LeftArrowIconForm $isScrollLeft={isScrollLeft} onClick={scrollToLeft}>
-                <LeftIcon $isScrollLeft={isScrollLeft}></LeftIcon>
+                <LeftIcon $isScrollLeft={isScrollLeft}/>
             </LeftArrowIconForm>
 
             <RightArrowIconForm $isScrollRight={isScrollRight} onClick={scrollToRight}>
-                <RightIcon $isScrollRight={isScrollRight}></RightIcon>
+                <RightIcon $isScrollRight={isScrollRight}/>
             </RightArrowIconForm>
         </Wrapper>
     )

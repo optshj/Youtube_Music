@@ -18,12 +18,12 @@ const Wrapper = styled.div`
 function Main(){
     return(
         <Wrapper>
-            <Header></Header>
-            <Content></Content>
-            <Content></Content>
-            <Content></Content>
-            <Content></Content>
-            <Content></Content>
+            <Header/>
+            <Content/>
+            <Content/>
+            <Content/>
+            <Content/>
+            <Content/>
         </Wrapper>
     )
 }

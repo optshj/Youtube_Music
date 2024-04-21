@@ -43,8 +43,8 @@ function LargeSidebar({selectState,setSelectState}:LargeSidebarProps) {
 
     return(
         <Wrapper $isOpen={isOpen}>
-            <Menu selectState={selectState} setSelectState={setSelectState}></Menu>
-            <PlayListMenu></PlayListMenu>
+            <Menu selectState={selectState} setSelectState={setSelectState}/>
+            <PlayListMenu/>
         </Wrapper>
     )
 }
