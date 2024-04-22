@@ -71,9 +71,14 @@ interface PlayerBarProps {
 function PlayerBar({isUp,onClick}:PlayerBarProps) {
     const isPlay = IsPlayState();
     const {togglePlayState} = usePlayState();
+    const handleClick = (event:React.MouseEvent<HTMLDivElement>) => {
+        if (event.target === event.currentTarget) {
+            onClick && onClick();
+        }
+    }
 
     return (
-        <Wrapper $isUp={isUp} onClick={onClick}>
+        <Wrapper $isUp={isUp} onClick={handleClick}>
             <LeftContent>
                 <img src="https://via.placeholder.com/40x40/666.png" alt="Placeholder"/>
             </LeftContent>

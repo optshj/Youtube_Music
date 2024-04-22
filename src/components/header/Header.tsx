@@ -41,13 +41,13 @@ const LeftContent = styled.div<{$isSidebarOpen:boolean,$isScrollTop:boolean,$isP
 		border:none;
 	`}
 `
-const CenterContent = styled.div`
+const CenterContent = styled.div<{$isOpen:boolean}>`
 	display:flex;
 	position:relative;
 	align-items:center;
 	width:100%;
 	justify-content:flex-start;
-	padding-left:100px;
+	padding-left:${(props) => (props.$isOpen?'100px':'0px')};
 	${({theme}) => theme.large`
 		padding-left:56px;
 	`}
@@ -76,7 +76,7 @@ function Header({$isScrollTop}:HeaderProps) {
 				<Logo/>
 			</LeftContent>
 		
-			<CenterContent>
+			<CenterContent $isOpen={isOpen}>
 				<Search/>
 			</CenterContent>
 		

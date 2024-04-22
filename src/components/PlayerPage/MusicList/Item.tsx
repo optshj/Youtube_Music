@@ -28,11 +28,13 @@ const SongTitle = styled.div`
     color:#fff;
     font-weight:500;
     font-size:14px;
+    white-space: nowrap;
 `
 const ArtistName = styled.div`
     color:#aaa;
     font-weight:400;
     font-size:14px;
+    white-space: nowrap;
 `
 const MenuButtonWrapper = styled.div`
     width:32px;

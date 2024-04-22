@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 
+import HeaderContent from "./HeaderContent";
+
 interface WrapperProps {
     $isUp:boolean;
 }
@@ -18,24 +20,6 @@ const TabContainer = styled.div`
     height:100%;
     flex:1 1 auto;
 `
-interface ContentProps {
-    $isSelect:boolean;
-    $isUp:boolean;
-}
-const Content = styled.div<ContentProps>`
-    color:${(props) => (props.$isSelect ? '#fff':'rgba(255,255,255,.7)')};
-    height:100%;
-    cursor:pointer;
-    display:flex;
-    padding:0 12px;
-    align-items:center;
-    justify-content:center;
-    flex:1 1 auto;
-    border-bottom:${(props) => (props.$isSelect ? '1px solid #fff':'none')};
-    ${({theme}) => theme.small`
-        border:${(props:ContentProps) => (props.$isUp ? '':'none')};
-    `}
-`
     
 interface SidePanelHeaderProps {
     isUp:boolean;
@@ -49,9 +33,9 @@ function SidePanelHeader({ isUp }:SidePanelHeaderProps){
     return(
         <Wrapper $isUp={isUp}>
             <TabContainer>
-                <Content $isSelect={selectType === 'NextTrack'} $isUp={isUp} onClick={() => handleClick('NextTrack')}>다음 트랙</Content>
-                <Content $isSelect={selectType ==='Lyrics'} $isUp={isUp} onClick={() => handleClick("Lyrics")}>가사</Content>
-                <Content $isSelect={selectType === 'Related'} $isUp={isUp} onClick={() => handleClick("Related")}>관련 항목</Content>
+                <HeaderContent isSelect={selectType === 'NextTrack'} isUp={isUp} onClick={() => handleClick('NextTrack')} title={'다음 트랙'}></HeaderContent>
+                <HeaderContent isSelect={selectType ==='Lyrics'} isUp={isUp} onClick={() => handleClick("Lyrics")} title={'가사'}></HeaderContent>
+                <HeaderContent isSelect={selectType === 'Related'} isUp={isUp} onClick={() => handleClick("Related")} title={'관련 항목'}></HeaderContent>
             </TabContainer>
         </Wrapper>
     )
