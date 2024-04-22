@@ -60,7 +60,7 @@ function PlayerBar(){
                 <TimeInfo/>
             </LeftContent>
 
-            <CenterContent>
+            <CenterContent onClick={handleClick}>
                 <CenterControl/>
             </CenterContent>
 

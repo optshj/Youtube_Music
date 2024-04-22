@@ -29,9 +29,6 @@ const Explain = styled.div`
 const Dot = styled.div`
     font-size:14px;
     color:rgba(255,255,255,0.7);    
-    &::before{
-        content:" ";
-    }
 `
 const ButtonWrapper = styled.div`
     display:flex;
@@ -45,6 +42,9 @@ const IconWrapper = styled.div`
     cursor: pointer;
     &:hover{
         background-color:rgba(255,255,255,0.2);
+    }
+    &:active{
+        background-color: rgba(255,255,255,0.3);
     }
     ${({theme}) => theme.medium`
         display:none;
@@ -73,9 +73,9 @@ function CenterControl(){
                 <Title>Lorem ipsum</Title>
                 <ExplainWrapper>
                     <Explain>Lorem ipsum</Explain>
-                    <Dot>•</Dot>
+                    <Dot>&nbsp;•&nbsp;</Dot>
                     <Explain>Lorem</Explain>
-                    <Dot>•</Dot>
+                    <Dot>&nbsp;•&nbsp;</Dot>
                     <Dot>2024</Dot>
                 </ExplainWrapper>
             </ContentInfoWrapper>

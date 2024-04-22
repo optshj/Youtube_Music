@@ -80,12 +80,12 @@ function PlayerBar({isUp,onClick}:PlayerBarProps) {
     return (
         <Wrapper $isUp={isUp} onClick={handleClick}>
             <LeftContent>
-                <img src="https://via.placeholder.com/40x40/666.png" alt="Placeholder"/>
+                <img src="https://via.placeholder.com/40x40/666.png" alt="Placeholder" onClick={handleClick}/>
             </LeftContent>
 
             <CenterContent>
-                <Title>Lorem ipsum</Title>
-                <Artist>Lorem ipsum</Artist>
+                <Title onClick={handleClick}>Lorem ipsum</Title>
+                <Artist onClick={handleClick}>Lorem ipsum</Artist>
             </CenterContent>
 
             <RightContent>

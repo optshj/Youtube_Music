@@ -16,6 +16,7 @@ const PlayButton = styled(MdPlayArrow)`
     height:100%;
     color:#fff;
     display:none;
+    border-radius: 50%;
 `
 const SongInfo = styled.div`
     display:flex;
