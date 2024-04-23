@@ -6,30 +6,31 @@
 
 1. 브라우저의 가로폭이 작아지면 하단에 있는 Playerbar에서 앨범커버와 셔플 기능이 사라지는 것
 2. 굳이 숨기는 볼륨조절기능과 반복재생기능
-![alt text](1-ezgif.com-video-to-gif-converter.gif)
+![10-ezgif com-video-to-gif-converter](https://github.com/optshj/Youtube_Music/assets/105402944/3bcbea75-3113-4546-b839-18037be2dfde)
 
 <br/>
 
 3. 브라우저의 가로폭이 작아지면 조작하기 힘든 MusicList
-![alt text](3-ezgif.com-video-to-gif-converter.gif)
+![3-ezgif com-video-to-gif-converter](https://github.com/optshj/Youtube_Music/assets/105402944/59fcbf36-e2fd-45b1-a7f5-45f1463a38c1)
+
+
 
 ## 프로젝트 실행
     npm start
 ## 바뀐점
 1,2번 문제점
 ### 기존
-![alt text](10-ezgif.com-video-to-gif-converter.gif)
+![10-ezgif com-video-to-gif-converter](https://github.com/optshj/Youtube_Music/assets/105402944/07a919a3-1d00-4651-9f1e-d6e4049ce0f8)
 ### 변경
-![alt text](11-ezgif.com-video-to-gif-converter.gif)
+![11-ezgif com-video-to-gif-converter](https://github.com/optshj/Youtube_Music/assets/105402944/85fea61d-0634-4316-95eb-9f99a16ee9b6)
 
 <br/>
 3번 문제점
 
 ### 기존
-![alt text](3-ezgif.com-video-to-gif-converter.gif)
+![3-ezgif com-video-to-gif-converter](https://github.com/optshj/Youtube_Music/assets/105402944/46d901bf-2b65-4908-afa1-31d2d45e1a43)
 ### 변경
-![alt text](12-ezgif.com-video-to-gif-converter.gif)
-
+![12-ezgif com-video-to-gif-converter](https://github.com/optshj/Youtube_Music/assets/105402944/184593a2-29e4-41cc-81c8-bd77f647fa0d)
 
 
 <br/>
