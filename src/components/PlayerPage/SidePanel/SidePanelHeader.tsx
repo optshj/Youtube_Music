@@ -1,7 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
 
-import HeaderContent from "./HeaderContent";
+import HeaderContent from "../MusicList/HeaderContent";
 
 interface WrapperProps {
     $isUp:boolean;
@@ -23,9 +22,10 @@ const TabContainer = styled.div`
     
 interface SidePanelHeaderProps {
     isUp:boolean;
+    selectType:String;
+    setSelectType:React.Dispatch<React.SetStateAction<String>>;
 }
-function SidePanelHeader({ isUp }:SidePanelHeaderProps){
-    const [selectType,setSelectType] = useState<String>('NextTrack');
+function SidePanelHeader({ isUp,selectType,setSelectType }:SidePanelHeaderProps){
     const handleClick = (type:String) => {
         setSelectType(type);
     }

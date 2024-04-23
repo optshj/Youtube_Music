@@ -44,7 +44,7 @@ const RightContent = styled.div`
     align-items:center;
     margin-right:4px;
 `
-function PlayerBar(){
+function Playerbar(){
     const isOpen = IsPlayerbarOpen();
     const {click} = usePlayerPage();
     const handleClick = (event:React.MouseEvent<HTMLDivElement>) => {
@@ -70,4 +70,4 @@ function PlayerBar(){
         </Wrapper>
     )
 }
-export default PlayerBar;
+export default Playerbar;

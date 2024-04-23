@@ -45,9 +45,7 @@ const FadeIn = keyframes`
 `
 const ResponsiveModal = styled(Modal)`
     animation: ${FadeIn} .15s linear;
-    ${({theme}) => theme.xlarge`
-        width:640px;
-    `}
+    width:640px;
     ${({theme}) => theme.large`
         width:560px;
     `}

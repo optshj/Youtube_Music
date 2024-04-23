@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Main from "../../components/Main/Main";
 import PlayListModal from "../../components/PlayListModal/PlayListModal";
-import PlayerBar from "../../components/PlayerBar/PlayerBar";
+import Playerbar from "../../components/Playerbar/Playerbar";
 
 function Content() {
     const [isScrollTop,setIsScrollTop] = useState(true);
@@ -27,7 +27,7 @@ function Content() {
 			<Sidebar $isScrollTop={isScrollTop}></Sidebar>
 			<Main></Main>
 			<PlayListModal></PlayListModal>
-			<PlayerBar></PlayerBar>
+			<Playerbar></Playerbar>
         </>
     )
 }

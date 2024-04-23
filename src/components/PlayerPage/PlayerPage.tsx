@@ -5,12 +5,13 @@ import { SlArrowDown } from "react-icons/sl";
 
 import { IsPlayerPageOpen, usePlayerPage } from "../../context/PlayerPageContext";
 
-import SelectButton from "./AlbumImage/SelectButton";
-import AlbumImage from "./AlbumImage/AlbumImage";
-import SidePanelHeader from "./MusicList/SidePanelHeader";
-import MusicList from "./MusicList/MusicList";
+import SelectButton from "./MainPanel/AlbumImage/SelectButton";
+import AlbumImage from "./MainPanel/AlbumImage/AlbumImage";
+import SidePanelHeader from "./SidePanel/SidePanelHeader";
+import NextTrack from "./MusicList/NextTrack";
 import PlayerControl from "./PlayerControl/PlayerControl";
 import PlayerBar from "./PlayerBar/PlayerBar";
+import Lyrics from "./Lyrics/Lyrics";
 
 const openPlayerPage = keyframes`
     0%{
@@ -118,9 +119,10 @@ const DownArrow = styled(SlArrowDown)`
     `}
 `
 function PlayerPage() {
+    const [isUp,setIsUP] = useState(false);
+    const [selectType,setSelectType] = useState<String>('NextTrack');
     const isOpen = IsPlayerPageOpen();
     const {click} = usePlayerPage();
-    const [isUp,setIsUP] = useState(false);
     const onUp = () => {
         setIsUP(true);
     }
@@ -144,9 +146,10 @@ function PlayerPage() {
 
                 <SidePanel $isUp={isUp}>
                     <SidePanelWrapper onClick={onUp}>
-                        <SidePanelHeader isUp={isUp}/>
+                        <SidePanelHeader isUp={isUp} selectType={selectType} setSelectType={setSelectType}/>
                     </SidePanelWrapper>
-                    <MusicList/>
+                    {selectType === 'NextTrack' && <NextTrack/> }
+                    {selectType === 'Lyrics' && <Lyrics/>}
                 </SidePanel>
             </ContentWrapper>
         </Wrapper>

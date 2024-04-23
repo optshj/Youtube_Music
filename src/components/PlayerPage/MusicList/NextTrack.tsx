@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 const ListWrapper = styled.div`
     width:100%;
 `
-function MusicList(){
+function NextTrack(){
     const ItemArray = Array.from({ length:20},(_,index) =>(
         <div key={index}>
             <Item></Item>
@@ -24,4 +24,4 @@ function MusicList(){
         </Wrapper>
     )
 }
-export default MusicList;
+export default NextTrack;
