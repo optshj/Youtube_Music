@@ -14,15 +14,15 @@ export default function SidebarProvider({children}: {children:React.ReactNode}){
             if (!prevWindowSize.isSmall && newSizeSmall) {
                 setIsLargeSidebarOpen(!newSizeSmall);
                 setPrevWindowSize({
-                  isSmall: newSizeSmall,
-                  width: windowWidth,
+                    isSmall: newSizeSmall,
+                    width: windowWidth,
                 });
-              }
-              else if (prevWindowSize.isSmall && !newSizeSmall) {
+            }
+            else if (prevWindowSize.isSmall && !newSizeSmall) {
                 setIsLargeSidebarOpen(!newSizeSmall);
                 setPrevWindowSize({
-                  isSmall: newSizeSmall,
-                  width: windowWidth,
+                    isSmall: newSizeSmall,
+                    width: windowWidth,
                 });
             }
         }
@@ -31,13 +31,12 @@ export default function SidebarProvider({children}: {children:React.ReactNode}){
             window.removeEventListener('resize',handleResize);
         }
     },[prevWindowSize])
-    const actions = useMemo(
-        () => ({
+
+    const actions = useMemo(() => ({
             click() {
                 setIsLargeSidebarOpen(preState => !preState);
             }
-        }),
-        []
+        }),[]
     )
 
     return(

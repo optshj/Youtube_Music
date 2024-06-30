@@ -1,5 +1,5 @@
-import Main from './pages/Main/Main'
-import PlayerPage from './components/PlayerPage/PlayerPage';
+import Main from './pages/Main'
+import PlayerPage from './components/Main/PlayerPage/PlayerPage';
 
 
 function App() {

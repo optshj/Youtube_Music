@@ -6,13 +6,11 @@ const PlayerActionContext = createContext<any>(null);
 export default function PlayerbarContext({children} : {children:React.ReactNode}){
     const [isOpen,setIsOpen] = useState(false);
 
-    const actions = useMemo(
-        () => ({
-            open(){
-                setIsOpen(true);
-            }
-        }),[]
-    )
+    const actions = useMemo(() => ({
+        open(){
+            setIsOpen(true);
+        }
+    }),[])
 
     return(
         <PlayerValueContext.Provider value={isOpen}>

@@ -6,13 +6,11 @@ const PlayerPageActionContext = createContext<any>(null);
 export default function PlayerPageProvider({children} : {children:React.ReactNode}) {
     const [isOpen,setIsOpen] = useState(false);
 
-    const actions = useMemo(
-        () => ({
-                click(){
-                    setIsOpen(prestate => !prestate);
-                }
-        }),[]
-    )
+    const actions = useMemo(() => ({
+        click(){
+            setIsOpen(prestate => !prestate);
+        }
+    }),[])
     
     return(
         <PlayerPageValueContext.Provider value={isOpen}>

@@ -6,13 +6,11 @@ const PlayStateActionContext = createContext<any>(null);
 export default function PlayStateProvider({ children }:{children:React.ReactNode}) {
     const [isPlay,setIsPlay] = useState(true);
 
-    const actions = useMemo(
-        () => ({
-            togglePlayState(){
-                setIsPlay(prestate => !prestate);
-            }
-        }),[]
-    );
+    const actions = useMemo(() => ({
+        togglePlayState(){
+            setIsPlay(prestate => !prestate);
+        }
+    }),[]);
 
     return (
         <PlayStateActionContext.Provider value={actions}>

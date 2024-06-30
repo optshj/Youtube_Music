@@ -1,51 +1,88 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import HeaderButton from "./HeaderButton";
+import Menu from './components/Menu'
+import Logo from './components/Logo'
+import Search from './components/Search';
+import UserIcon from './components/UserIcon';
 
-const Wrapper = styled.div`
-    display:flex;
-    margin:0 auto;
-    overflow-x: auto;
-    white-space:nowrap;
-    max-width:${({theme}) => theme.widths.xlarge};
-    ${({theme}) => theme.large`
-        max-width:${theme.widths.large}
-    `}
-    ${({theme}) => theme.medium`
-        max-width:${theme.widths.medium}
-    `}
-    ${({theme}) => theme.small`
-        max-width:${theme.widths.small}
-    `}
-    &:hover{
-        &::-webkit-scrollbar-thumb{
-            background-color:#606060;
-        }
-    }
-    & > *:first-child {
-        margin-left: 0;
-    }
-    
-    & > *:last-child {
-        margin-right: 0;
-    }
-    
+import { IsLargeSidebarOpen } from '../../../context/SidebarContext';
+import { IsPlayerPageOpen } from '../../../context/PlayerPageContext';
+
+interface WrapperProps {
+	$isScrollTop:boolean;
+	$isPlayerPageOpen:boolean;
+	$isLargeSiderbarOpen:boolean;
+}
+const Wrapper = styled.div<WrapperProps>`
+	position:fixed;
+	display: flex;
+	width: 100%;
+	z-index:2;
+	background-color:#030303;
+	border-bottom:${(props)=> (!props.$isScrollTop||props.$isPlayerPageOpen?'1px solid rgba(255,255,255,.15)':'0px solid transparent')};
+	transition:border-bottom 0.2s linear;
+	${({theme}) => theme.medium`
+		transition: background-color 0.2s linear;
+		background-color: ${(props:WrapperProps) => (props.$isLargeSiderbarOpen?'transparent':'#030303')};
+		border:${(props:WrapperProps) => (props.$isLargeSiderbarOpen?'none':'')};
+	`}
 `
 
-function MainHeader(){
-    return(
-        <Wrapper>
-            <HeaderButton tag="운동"/>
-            <HeaderButton tag="에너지 충전"/>
-            <HeaderButton tag="휴식"/>
-            <HeaderButton tag="출퇴근길"/>
-            <HeaderButton tag="행복한 기분"/>
-            <HeaderButton tag="집중"/>
-            <HeaderButton tag="로맨스"/>
-            <HeaderButton tag="파티"/>
-            <HeaderButton tag="슬픔"/>
-            <HeaderButton tag="잠잘 때"/>
-        </Wrapper>
-    )
+const LeftContent = styled.div<{$isSidebarOpen:boolean,$isScrollTop:boolean,$isPlayerPageOpen:boolean}>`
+	display:flex;
+	align-items:center;
+	width:224px;
+	padding-left:16px;
+	z-index:3;
+	border-right:${(props) => (!props.$isPlayerPageOpen&&(props.$isSidebarOpen&&props.$isScrollTop)? '1px solid rgba(255,255,255,.15)':'0px solid transparent')};
+	transition:border-right 0.2s linear;
+	flex-shrink:0;
+	${({theme}) => theme.medium`
+		border:none;
+	`}
+`
+const CenterContent = styled.div<{$isOpen:boolean}>`
+	display:flex;
+	position:relative;
+	align-items:center;
+	width:100%;
+	justify-content:flex-start;
+	padding-left:${(props) => (props.$isOpen?'100px':'0px')};
+	${({theme}) => theme.large`
+		padding-left:56px;
+	`}
+	${({theme}) => theme.medium`
+		justify-content:flex-end;
+		padding-left:0;
+	`}
+`
+const RightContent = styled.div`
+	display:flex;
+	padding:20px;
+`
+
+interface HeaderProps {
+	$isScrollTop:boolean
 }
-export default MainHeader;
+export default function Header({$isScrollTop}:HeaderProps) {
+	const isSidebarOpen = IsLargeSidebarOpen();
+	const isPlyaerPageOpen = IsPlayerPageOpen();
+	const isOpen = IsLargeSidebarOpen();
+
+	return(
+		<Wrapper $isScrollTop={$isScrollTop} $isPlayerPageOpen={isPlyaerPageOpen} $isLargeSiderbarOpen={isOpen}>
+			<LeftContent $isSidebarOpen={isSidebarOpen} $isScrollTop={$isScrollTop} $isPlayerPageOpen={isPlyaerPageOpen}>
+				<Menu/>
+				<Logo/>
+			</LeftContent>
+		
+			<CenterContent $isOpen={isOpen}>
+				<Search/>
+			</CenterContent>
+		
+			<RightContent>
+				<UserIcon/>
+			</RightContent>
+		</Wrapper>
+	)
+}
