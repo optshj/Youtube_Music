@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import SmallSidebar from "./components/SmallSidebar";
-import LargeSidebar from "./components/LargeSidebar";
+
+import SmallSideBar from "./components/SmallSideBar";
+import LargeSideBar from "./components/LargeSideBar";
 
 const Wrapper = styled.div`
     position:fixed;
@@ -10,16 +11,13 @@ const Wrapper = styled.div`
     z-index:1;
 `
 
-interface SidebarProps {
-    $isScrollTop:boolean;
-}
-export default function Sidebar({$isScrollTop}:SidebarProps){
+export default function SideBar(){
     const [selectState,setSelectState] = useState(0); // 0 = 홈, 1 = 둘러보기, 2 = 보관함
 
     return(
         <Wrapper>
-            <LargeSidebar selectState={selectState} setSelectState={setSelectState}/>
-            <SmallSidebar $isScrollTop={$isScrollTop} selectState={selectState} setSelectState={setSelectState}/>
+            <LargeSideBar selectState={selectState} setSelectState={setSelectState}/>
+            <SmallSideBar selectState={selectState} setSelectState={setSelectState}/>
         </Wrapper>
     )
 

@@ -25,11 +25,9 @@ const Wrapper = styled.div`
     & > *:first-child {
         margin-left: 0;
     }
-    
     & > *:last-child {
         margin-right: 0;
     }
-    
 `
 
 export default function MainHeader(){

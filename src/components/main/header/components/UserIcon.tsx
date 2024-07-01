@@ -9,16 +9,12 @@ const Wrapper = styled.div`
 	justify-content: center;
 	background-color:#5c6bc0;
 	cursor:pointer;
-`
-const UserName = styled.div`
 	color: #fff;
 	font-size:10px;
 `
 
 export default function UserIcon(){
 	return(
-		<Wrapper>
-			<UserName>Me</UserName>
-		</Wrapper>
+		<Wrapper>Me</Wrapper>
 	)
 }

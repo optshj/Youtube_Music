@@ -21,6 +21,7 @@ const Wrapper = styled.div`
         max-width:${theme.widths.small}
     `}
 `
+
 interface ContentHeaderProps{
     hasScrollbar:boolean;
     scrollRef:HTMLUListElement;

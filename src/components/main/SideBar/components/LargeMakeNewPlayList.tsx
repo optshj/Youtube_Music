@@ -24,7 +24,7 @@ const AddIcon = styled(IoAddSharp)`
     font-size:24px;
     color:#fff;
 `
-const AddNameForm = styled.div`
+const Title = styled.div`
     line-height:1.3;
 `
 
@@ -34,7 +34,7 @@ export default function LargeMakePlayList() {
     return(
         <Wrapper onClick={open}>
             <AddIcon/>
-            <AddNameForm>새 재생목록</AddNameForm>
+            <Title>새 재생목록</Title>
         </Wrapper>
     )
 }

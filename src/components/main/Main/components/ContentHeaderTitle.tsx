@@ -14,10 +14,7 @@ const Title = styled.h2`
     `}
 `
 
-interface HeaderTitleProps {
-    title:string;
-}
-export default function ContentHeaderTitle({title}:HeaderTitleProps) {
+export default function ContentHeaderTitle({title}:{title:string}) {
     return(
         <Title>{title}</Title>
     )

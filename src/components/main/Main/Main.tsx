@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
+import { IsLargeSideBarOpen } from "../../../context/SideBarContext";
+
 import Header from "./components/Header";
 import Content from "./components/Content";
-import { IsLargeSidebarOpen } from "../../../context/SidebarContext";
 
 const Wrapper = styled.div<{$isOpen:boolean}>`
     box-sizing:border-box;
@@ -17,7 +18,8 @@ const Wrapper = styled.div<{$isOpen:boolean}>`
 `
 
 export default function Main(){
-    const isOpen = IsLargeSidebarOpen();
+    const isOpen = IsLargeSideBarOpen();
+
     return(
         <Wrapper $isOpen={isOpen}>
             <Header/>

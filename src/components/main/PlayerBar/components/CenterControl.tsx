@@ -32,6 +32,7 @@ const Dot = styled.div`
 `
 const ButtonWrapper = styled.div`
     display:flex;
+    gap:8px;
 `
 const IconWrapper = styled.div`
     color:#fff;
@@ -50,11 +51,7 @@ const IconWrapper = styled.div`
         display:none;
     `}
 `
-const Dislike = styled.div`
-    margin-right:8px;
-    transform:translate(20%,20%);
-`
-const Like = styled.div`
+const Icon = styled.div`
     transform:translate(20%,20%);
 `
 const Menu = styled(PiDotsThreeVertical)`
@@ -79,17 +76,18 @@ export default function CenterControl(){
                     <Dot>2024</Dot>
                 </ExplainWrapper>
             </ContentInfoWrapper>
+            
             <ButtonWrapper>
                 <IconWrapper>
-                    <Dislike onClick={() => setIsDislike(!isDislike)}>
+                    <Icon onClick={() => setIsDislike(!isDislike)}>
                         {isDislike ? <AiFillDislike/>: <AiOutlineDislike/>}
-                    </Dislike>
+                    </Icon>
                 </IconWrapper>
 
                 <IconWrapper>
-                    <Like onClick={() => setIsLike(!isLike)}>
+                    <Icon onClick={() => setIsLike(!isLike)}>
                         {isLike ? <AiFillLike/> : <AiOutlineLike/>}
-                    </Like>
+                    </Icon>
                 </IconWrapper>
 
                 <IconWrapper>

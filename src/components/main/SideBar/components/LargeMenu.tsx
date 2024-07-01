@@ -68,6 +68,5 @@ export default function LargeMenu({selectState,setSelectState}:MenuProps){
             <MenuIcon icon={ImFilePlay} descript='보관함' selectState={selectState===2} onClick={() => setSelectState(2)}/>
             <MenuUnderLine/>
         </Wrapper>
-
     )
 }

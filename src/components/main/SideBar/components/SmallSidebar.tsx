@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
-import { IsLargeSidebarOpen } from "../../../../context/SidebarContext";
+import { IsScrollTop } from "../../../../context/ScrollContext";
 import { IsPlayerPageOpen } from "../../../../context/PlayerPageContext";
 
-import Menu from "./SmallMenu";
+import SmallMenu from "./SmallMenu";
 
 interface WrapperProps {
-    $isOpen:boolean;
     $isScrollTop:boolean;
     $isPlayerPageOpen:boolean;
 }
@@ -23,18 +22,17 @@ const Wrapper = styled.div<WrapperProps>`
     `}
 `
 
-interface SmallSidebarProps{
-    $isScrollTop:boolean;
+interface SmallSideBarProps{
     selectState:number;
     setSelectState:React.Dispatch<React.SetStateAction<number>>
 }
-export default function SmallSidebar({$isScrollTop,selectState,setSelectState}:SmallSidebarProps){
-    const isOpen = IsLargeSidebarOpen();
+export default function SmallSideBar({selectState,setSelectState}:SmallSideBarProps){
     const isPlayerPageOpen = IsPlayerPageOpen();
+    const isScrollTop = IsScrollTop();
 
     return(
-        <Wrapper $isOpen={isOpen} $isScrollTop={$isScrollTop} $isPlayerPageOpen={isPlayerPageOpen}>
-            <Menu selectState={selectState} setSelectState={setSelectState}/>
+        <Wrapper $isScrollTop={isScrollTop} $isPlayerPageOpen={isPlayerPageOpen}>
+            <SmallMenu selectState={selectState} setSelectState={setSelectState}/>
         </Wrapper>
     )
 }

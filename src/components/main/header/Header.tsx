@@ -5,55 +5,36 @@ import Logo from './components/Logo'
 import Search from './components/Search';
 import UserIcon from './components/UserIcon';
 
-import { IsLargeSidebarOpen } from '../../../context/SidebarContext';
+import { IsLargeSideBarOpen } from '../../../context/SideBarContext';
 import { IsPlayerPageOpen } from '../../../context/PlayerPageContext';
+import { IsScrollTop } from '../../../context/ScrollContext';
 
-interface WrapperProps {
-	$isScrollTop:boolean;
-	$isPlayerPageOpen:boolean;
-	$isLargeSiderbarOpen:boolean;
-}
-const Wrapper = styled.div<WrapperProps>`
+const Wrapper = styled.div<{$borderBottom:boolean}>`
 	position:fixed;
 	display: flex;
 	width: 100%;
-	z-index:2;
-	background-color:#030303;
-	border-bottom:${(props)=> (!props.$isScrollTop||props.$isPlayerPageOpen?'1px solid rgba(255,255,255,.15)':'0px solid transparent')};
-	transition:border-bottom 0.2s linear;
-	${({theme}) => theme.medium`
-		transition: background-color 0.2s linear;
-		background-color: ${(props:WrapperProps) => (props.$isLargeSiderbarOpen?'transparent':'#030303')};
-		border:${(props:WrapperProps) => (props.$isLargeSiderbarOpen?'none':'')};
-	`}
+	z-index:3;
+	background-color: ${(props)=> (props.$borderBottom ?'#030303':'')};
+	border-bottom:${(props)=> (props.$borderBottom?'1px solid rgba(255,255,255,.15)':'')};
+	transition: all 0.2s linear;
 `
-
-const LeftContent = styled.div<{$isSidebarOpen:boolean,$isScrollTop:boolean,$isPlayerPageOpen:boolean}>`
+const LeftContent = styled.div`
 	display:flex;
 	align-items:center;
 	width:224px;
 	padding-left:16px;
-	z-index:3;
-	border-right:${(props) => (!props.$isPlayerPageOpen&&(props.$isSidebarOpen&&props.$isScrollTop)? '1px solid rgba(255,255,255,.15)':'0px solid transparent')};
-	transition:border-right 0.2s linear;
 	flex-shrink:0;
-	${({theme}) => theme.medium`
-		border:none;
-	`}
 `
-const CenterContent = styled.div<{$isOpen:boolean}>`
+const CenterContent = styled.div<{$isSideBarOpen:boolean}>`
 	display:flex;
-	position:relative;
 	align-items:center;
 	width:100%;
-	justify-content:flex-start;
-	padding-left:${(props) => (props.$isOpen?'100px':'0px')};
+	padding-left:${(props) => (props.$isSideBarOpen?'100px':'20px')};
 	${({theme}) => theme.large`
 		padding-left:56px;
 	`}
 	${({theme}) => theme.medium`
 		justify-content:flex-end;
-		padding-left:0;
 	`}
 `
 const RightContent = styled.div`
@@ -61,22 +42,21 @@ const RightContent = styled.div`
 	padding:20px;
 `
 
-interface HeaderProps {
-	$isScrollTop:boolean
-}
-export default function Header({$isScrollTop}:HeaderProps) {
-	const isSidebarOpen = IsLargeSidebarOpen();
+export default function Header() {
+	const isSideBarOpen = IsLargeSideBarOpen();
 	const isPlyaerPageOpen = IsPlayerPageOpen();
-	const isOpen = IsLargeSidebarOpen();
+	const isScrollTop = IsScrollTop();
+
+	const borderBottom = !isScrollTop||isPlyaerPageOpen 
 
 	return(
-		<Wrapper $isScrollTop={$isScrollTop} $isPlayerPageOpen={isPlyaerPageOpen} $isLargeSiderbarOpen={isOpen}>
-			<LeftContent $isSidebarOpen={isSidebarOpen} $isScrollTop={$isScrollTop} $isPlayerPageOpen={isPlyaerPageOpen}>
+		<Wrapper $borderBottom={borderBottom}>
+			<LeftContent>
 				<Menu/>
 				<Logo/>
 			</LeftContent>
 		
-			<CenterContent $isOpen={isOpen}>
+			<CenterContent $isSideBarOpen={isSideBarOpen}>
 				<Search/>
 			</CenterContent>
 		

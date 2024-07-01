@@ -10,8 +10,6 @@ const Wrapper = styled.div`
 
 export default function Logo(){
 	return(
-		<Wrapper>
-			Music
-		</Wrapper>
+		<Wrapper>Music</Wrapper>
 	)
 }

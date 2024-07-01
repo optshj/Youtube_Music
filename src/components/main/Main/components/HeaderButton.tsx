@@ -12,23 +12,18 @@ const LinkButton = styled.div`
     align-items:center;
     background:rgba(255,255,255,.1);
     color:#fff;
+    padding:0 12px;
     cursor:pointer;
     &:hover{
         background-color:#403f42;
     }
 `
-const FontForm = styled.div`
-    margin:0 12px;
-`
 
-interface HeaderButtonProps {
-    tag:string
-}
-export default function HeaderButton({tag}:HeaderButtonProps){
+export default function HeaderButton({tag}:{tag:string}){
     return(
         <Wrapper>
             <LinkButton>
-                <FontForm>{tag}</FontForm>
+                {tag}
             </LinkButton>
         </Wrapper>
     )

@@ -15,12 +15,12 @@ export default function Content() {
     return(
         <Wrapper>
             <ContentHeader 
-            hasScrollbar={hasScrollbar}
-            scrollRef={scrollRef}/>
+                hasScrollbar={hasScrollbar}
+                scrollRef={scrollRef}/>
 
             <ContentCarousel 
-            setHasScollbar={setHasScollbar} 
-            setScrollRef={setScrollRef}/>
+                setHasScollbar={setHasScollbar} 
+                setScrollRef={setScrollRef}/>
         </Wrapper>
     )
 }

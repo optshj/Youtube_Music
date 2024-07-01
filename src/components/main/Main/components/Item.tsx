@@ -87,6 +87,7 @@ const ImageWrapper = styled.div`
         }
     }
 `
+
 export default function Item(){
     const {open} = usePlayerbar();
 
@@ -103,6 +104,7 @@ export default function Item(){
                     <ItemMenuButton/>
                 </ItemMenuWrapper>
             </ImageWrapper>
+
             <Details>
                 <Title>Lorem ipsum</Title>
                 <SubTitle>Lorem ipusm</SubTitle>

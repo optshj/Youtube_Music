@@ -4,7 +4,7 @@ const SidebarValueContext = createContext<any>(null);
 const SidebarActionContext = createContext<any>(null);
     
 export default function SidebarProvider({children}: {children:React.ReactNode}){
-    const [isLargeSidebarOpen,setIsLargeSidebarOpen] = useState(true);
+    const [IsLargeSideBarOpen,setIsLargeSideBarOpen] = useState(true);
     const [prevWindowSize,setPrevWindowSize] = useState({isSmall:false,width:window.innerWidth})
 
     useEffect(() => {
@@ -12,14 +12,14 @@ export default function SidebarProvider({children}: {children:React.ReactNode}){
             const windowWidth = window.innerWidth;
             const newSizeSmall = windowWidth < 936;
             if (!prevWindowSize.isSmall && newSizeSmall) {
-                setIsLargeSidebarOpen(!newSizeSmall);
+                setIsLargeSideBarOpen(!newSizeSmall);
                 setPrevWindowSize({
                     isSmall: newSizeSmall,
                     width: windowWidth,
                 });
             }
             else if (prevWindowSize.isSmall && !newSizeSmall) {
-                setIsLargeSidebarOpen(!newSizeSmall);
+                setIsLargeSideBarOpen(!newSizeSmall);
                 setPrevWindowSize({
                     isSmall: newSizeSmall,
                     width: windowWidth,
@@ -34,13 +34,13 @@ export default function SidebarProvider({children}: {children:React.ReactNode}){
 
     const actions = useMemo(() => ({
             click() {
-                setIsLargeSidebarOpen(preState => !preState);
+                setIsLargeSideBarOpen(preState => !preState);
             }
         }),[]
     )
 
     return(
-        <SidebarValueContext.Provider value={isLargeSidebarOpen}>
+        <SidebarValueContext.Provider value={IsLargeSideBarOpen}>
             <SidebarActionContext.Provider value={actions}>
                 {children}
             </SidebarActionContext.Provider>
@@ -48,12 +48,12 @@ export default function SidebarProvider({children}: {children:React.ReactNode}){
     )
 }
 
-export function useSidebar() {
+export function useSideBar() {
     const {click} = useContext(SidebarActionContext);
     return click;
 }
 
-export function IsLargeSidebarOpen(){
+export function IsLargeSideBarOpen(){
     const isOpen = useContext(SidebarValueContext);
     return isOpen;
 }

@@ -13,7 +13,7 @@ const Wrapper = styled.div<{$isOpen:boolean}>`
     justify-content: space-between;
     visibility:${(props) => (props.$isOpen ? 'visible':'hidden')};
     position:fixed;
-    z-index:1;
+    z-index:4;
     bottom:0;
     left:0;
     width:100%;

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import { IsLargeSidebarOpen } from "../../../../context/SidebarContext";
+import { IsLargeSideBarOpen } from "../../../../context/SideBarContext";
 
 import Menu from "./LargeMenu";
 import PlayListMenu from "./LargePlayListMenu";
@@ -21,7 +21,7 @@ const Wrapper = styled.div<WrapperProps>`
     padding-top:66px;
     width:240px;
     height:100%;
-    z-index:1;
+    z-index:2;
     background-color:${({theme}) => theme.colors.backgroundColor};
     border-right:1px solid rgba(255,255,255,.15);
     display:${(props:WrapperProps)=>props.$isOpen?'inline-block':'none'};
@@ -34,12 +34,12 @@ const Wrapper = styled.div<WrapperProps>`
     `}
 `
 
-interface LargeSidebarProps {
+interface LargeSideBarProps {
     selectState:number;
     setSelectState:React.Dispatch<React.SetStateAction<number>>
 }
-export default function LargeSidebar({selectState,setSelectState}:LargeSidebarProps) {
-    const isOpen = IsLargeSidebarOpen();
+export default function LargeSideBar({selectState,setSelectState}:LargeSideBarProps) {
+    const isOpen = IsLargeSideBarOpen();
 
     return(
         <Wrapper $isOpen={isOpen}>

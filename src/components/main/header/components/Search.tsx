@@ -6,8 +6,7 @@ import { GoSearch } from "react-icons/go";
 interface FocusedProps {
 	$isFocused:boolean;
 }
-const WebSearchForm = styled.div<FocusedProps>`
-	position:relative;
+const Wrapper = styled.div<FocusedProps>`
 	display:flex;
 	height:40px;
 	width:100%;
@@ -15,10 +14,6 @@ const WebSearchForm = styled.div<FocusedProps>`
 	border-radius:8px;
 	background-color: ${props => props.$isFocused ? 'transparent':'#292929'};
 	border:1px solid #4a5056;
-	z-index:2;
-	&:foucs{
-		background-color:black;
-	}
 	${({theme}) => theme.medium`
 		background-color:transparent;
 		justify-content:flex-end;
@@ -41,9 +36,8 @@ const SearchBar = styled.input<FocusedProps>`
 	${({theme}) => theme.medium`
 		display:${(props:FocusedProps) => (props.$isFocused?'inline-block':'none')};
 	`}
-
 `
-const WebSearchIconForm = styled(GoSearch)<FocusedProps>`
+const Icon = styled(GoSearch)<FocusedProps>`
 	font-size:20px;
 	padding:8px 16px;
 	color:${props => props.$isFocused ? '#fff' : '#9a9e9b'};
@@ -63,13 +57,13 @@ export default function Search(){
 	}
 	
 	return(
-		<WebSearchForm $isFocused={isSearchFocused}>
-			<WebSearchIconForm $isFocused={isSearchFocused} onClick={handleFocus}/>
+		<Wrapper $isFocused={isSearchFocused}>
+			<Icon $isFocused={isSearchFocused} onClick={handleFocus}/>
 
 			<SearchBar type="text" placeholder="노래, 앨범, 아티스트, 팟캐스트 검색" 
-			onFocus={handleFocus} 
-			onBlur={handleBlur} 
-			$isFocused={isSearchFocused}/>
-		</WebSearchForm>
+				onFocus={handleFocus} 
+				onBlur={handleBlur} 
+				$isFocused={isSearchFocused}/>
+		</Wrapper>
 	)
 }
