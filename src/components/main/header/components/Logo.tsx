@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -10,6 +11,8 @@ const Wrapper = styled.div`
 
 export default function Logo(){
 	return(
-		<Wrapper>Music</Wrapper>
+		<Link to="/">
+			<Wrapper>Music</Wrapper>
+		</Link>
 	)
 }

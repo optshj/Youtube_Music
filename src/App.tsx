@@ -1,13 +1,11 @@
-import Main from './pages/Main'
-import PlayerPage from './components/Main/PlayerPage/PlayerPage';
-
-
-function App() {
+import Home from './pages/Home'
+import {Routes,Route, BrowserRouter} from 'react-router-dom'
+export default function App() {
 	return (
-		<>	
-			<Main></Main>
-			<PlayerPage></PlayerPage>
-		</>
+		<BrowserRouter>
+		<Routes>
+			<Route path="/" element={<Home/>}/>
+		</Routes>
+		</BrowserRouter>
 	);
 }
-export default App;

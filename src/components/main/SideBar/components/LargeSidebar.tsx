@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 import { IsLargeSideBarOpen } from "../../../../context/SideBarContext";
 
-import Menu from "./LargeMenu";
+import LargeMenu from "./LargeMenu";
 import PlayListMenu from "./LargePlayListMenu";
 
 const onShow = keyframes`
@@ -34,16 +34,12 @@ const Wrapper = styled.div<WrapperProps>`
     `}
 `
 
-interface LargeSideBarProps {
-    selectState:number;
-    setSelectState:React.Dispatch<React.SetStateAction<number>>
-}
-export default function LargeSideBar({selectState,setSelectState}:LargeSideBarProps) {
+export default function LargeSideBar() {
     const isOpen = IsLargeSideBarOpen();
 
     return(
         <Wrapper $isOpen={isOpen}>
-            <Menu selectState={selectState} setSelectState={setSelectState}/>
+            <LargeMenu/>
             <PlayListMenu/>
         </Wrapper>
     )

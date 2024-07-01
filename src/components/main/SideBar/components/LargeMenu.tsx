@@ -4,7 +4,7 @@ import { IconType } from "react-icons";
 import { MdHomeFilled } from "react-icons/md";
 import { FaRegCompass } from "react-icons/fa";
 import { ImFilePlay } from "react-icons/im";
-
+import { useLocation,Link } from "react-router-dom";
 
 const IconWrapper = styled.div<{$selectState?:boolean}>`
     display:flex;
@@ -30,20 +30,21 @@ const IconFont = styled.div`
 interface MenuIconProps {
     icon: IconType;
     descript: string;
-    selectState: boolean;
-    onClick:() => void;
+    link:string
 }
-const MenuIcon = ({icon:Icon,descript,selectState,onClick}:MenuIconProps) => {
+const MenuIcon = ({icon:Icon,descript,link}:MenuIconProps) => {
+    const location = useLocation();
     return(
-        <IconWrapper $selectState={selectState} onClick={onClick}>
-            <IconMargin>
-                <Icon/>
-            </IconMargin>
-            <IconFont>{descript}</IconFont>
-        </IconWrapper>
+        <Link to={link}>
+            <IconWrapper $selectState={link == location.pathname}>
+                <IconMargin>
+                    <Icon/>
+                </IconMargin>
+                <IconFont>{descript}</IconFont>
+            </IconWrapper>
+        </Link>
     )
 }
-
 
 const Wrapper = styled.div`
     padding:0 8px;
@@ -56,16 +57,12 @@ const MenuUnderLine = styled.div`
     margin:24px auto;
 `
 
-interface MenuProps {
-    selectState:number;
-    setSelectState:React.Dispatch<React.SetStateAction<number>>
-}
-export default function LargeMenu({selectState,setSelectState}:MenuProps){
+export default function LargeMenu(){
     return(
         <Wrapper>
-            <MenuIcon icon ={MdHomeFilled} descript='홈' selectState={selectState===0} onClick={() => setSelectState(0)}/>
-            <MenuIcon icon ={FaRegCompass} descript='둘러보기' selectState={selectState===1} onClick={() => setSelectState(1)}/>
-            <MenuIcon icon={ImFilePlay} descript='보관함' selectState={selectState===2} onClick={() => setSelectState(2)}/>
+            <MenuIcon icon ={MdHomeFilled} descript='홈' link={"/"}/>
+            <MenuIcon icon ={FaRegCompass} descript='둘러보기' link={"/explore"}/>
+            <MenuIcon icon={ImFilePlay} descript='보관함' link={"/libray"}/>
             <MenuUnderLine/>
         </Wrapper>
     )
