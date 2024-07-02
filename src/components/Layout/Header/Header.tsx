@@ -9,13 +9,13 @@ import { IsLargeSideBarOpen } from '../../../context/SideBarContext';
 import { IsPlayerPageOpen } from '../../../context/PlayerPageContext';
 import { IsScrollTop } from '../../../context/ScrollContext';
 
-const Wrapper = styled.div<{$borderBottom:boolean}>`
+const Wrapper = styled.div<{$isBorder:boolean}>`
 	position:fixed;
 	display: flex;
 	width: 100%;
 	z-index:3;
-	background-color: ${(props)=> (props.$borderBottom ?'#030303':'')};
-	border-bottom:${(props)=> (props.$borderBottom?'1px solid rgba(255,255,255,.15)':'')};
+	background-color: ${(props)=> (props.$isBorder ?'#030303':'')};
+	border-bottom:${(props)=> (props.$isBorder?'1px solid rgba(255,255,255,.15)':'')};
 	transition: all 0.2s linear;
 `
 const LeftContent = styled.div`
@@ -47,10 +47,10 @@ export default function Header() {
 	const isPlyaerPageOpen = IsPlayerPageOpen();
 	const isScrollTop = IsScrollTop();
 
-	const borderBottom = !isScrollTop||isPlyaerPageOpen 
+	const isBorder = !isScrollTop||isPlyaerPageOpen 
 
 	return(
-		<Wrapper $borderBottom={borderBottom}>
+		<Wrapper $isBorder={isBorder}>
 			<LeftContent>
 				<Menu/>
 				<Logo/>

@@ -27,25 +27,6 @@ const IconFont = styled.div`
     font-size:16px;
 `
 
-interface MenuIconProps {
-    icon: IconType;
-    descript: string;
-    link:string
-}
-const MenuIcon = ({icon:Icon,descript,link}:MenuIconProps) => {
-    const location = useLocation();
-    return(
-        <Link to={link}>
-            <IconWrapper $selectState={link == location.pathname}>
-                <IconMargin>
-                    <Icon/>
-                </IconMargin>
-                <IconFont>{descript}</IconFont>
-            </IconWrapper>
-        </Link>
-    )
-}
-
 const Wrapper = styled.div`
     padding:0 8px;
     padding-top:8px;
@@ -57,12 +38,30 @@ const MenuUnderLine = styled.div`
     margin:24px auto;
 `
 
+interface MenuIconProps {
+    icon: IconType;
+    descript: string;
+    link:string
+}
+const MenuIcon = ({icon:Icon,descript,link}:MenuIconProps) => {
+    const location = useLocation();
+    return(
+        <Link to={link}>
+            <IconWrapper $selectState={link === location.pathname}>
+                <IconMargin>
+                    <Icon/>
+                </IconMargin>
+                <IconFont>{descript}</IconFont>
+            </IconWrapper>
+        </Link>
+    )
+}
 export default function LargeMenu(){
     return(
         <Wrapper>
             <MenuIcon icon ={MdHomeFilled} descript='홈' link={"/"}/>
             <MenuIcon icon ={FaRegCompass} descript='둘러보기' link={"/explore"}/>
-            <MenuIcon icon={ImFilePlay} descript='보관함' link={"/libray"}/>
+            <MenuIcon icon={ImFilePlay} descript='보관함' link={"/library"}/>
             <MenuUnderLine/>
         </Wrapper>
     )

@@ -24,6 +24,13 @@ const IconWrapper = styled.div<{$selectState?:boolean}>`
 const IconFont = styled.div`
     font-size:10px;
 `
+const Wrapper = styled.div`
+    padding:0 8px;
+    padding-top:8px;
+    width:100%; 
+    box-sizing: border-box;
+`
+
 interface MenuIconProps {
     icon: IconType;
     descript: string;
@@ -40,20 +47,12 @@ const MenuIcon = ({icon:Icon,descript,link}:MenuIconProps) => {
         </Link>
     )
 }
-
-const Wrapper = styled.div`
-    padding:0 8px;
-    padding-top:8px;
-    width:100%; 
-    box-sizing: border-box;
-`
-
 export default function SmallMenu(){
     return(
             <Wrapper>
                 <MenuIcon icon ={MdHomeFilled} descript='홈' link={"/"}/>
                 <MenuIcon icon ={FaRegCompass} descript='둘러보기' link={"/explore"}/>
-                <MenuIcon icon={ImFilePlay} descript='보관함' link={"libray"}/>
+                <MenuIcon icon={ImFilePlay} descript='보관함' link={"library"}/>
             </Wrapper>
     )
 }

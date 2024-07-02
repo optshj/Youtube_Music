@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { MdPlayArrow } from "react-icons/md";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
-import { usePlayerbar } from "../../../../context/PlayerbarContext";
+import { usePlayerbar } from "../../../context/PlayerbarContext";
 
 const Wrapper = styled.div`
     width:160px;

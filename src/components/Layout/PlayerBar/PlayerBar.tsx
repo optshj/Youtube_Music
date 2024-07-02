@@ -46,7 +46,7 @@ const RightContent = styled.div`
 `
 export default function Playerbar(){
     const isOpen = IsPlayerbarOpen();
-    const {click} = usePlayerPage();
+    const { click } = usePlayerPage();
     const handleClick = (event:React.MouseEvent<HTMLDivElement>) => {
         if (event.target === event.currentTarget) {
             click();

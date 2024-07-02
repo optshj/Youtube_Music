@@ -16,13 +16,14 @@ const Wrapper = styled.div`
     background:#333;
     z-index:5;
 `
-const DropDownItemWrapper = styled.li`
+const DropDownItemWrapper = styled.li<{$isSelect:boolean}>`
     display:flex;
     align-items:center;
     cursor:pointer;
     &:hover{
-        background-color:#212121;
+        background-color: ${(props) => (props.$isSelect ? '#484848' : '#212121')};
     }
+    background-color:${(props) => (props.$isSelect ? '#484848':'')};
 `
 const Icon = styled.div`
     color:#aaa;
@@ -49,8 +50,7 @@ export default function DropDownMenu() {
 
     return(
         <Wrapper>
-            <DropDownItemWrapper onClick={selectPublic} 
-            style={{backgroundColor:selectStatus === 0 ? '#484848': ''}}>
+            <DropDownItemWrapper onClick={selectPublic} $isSelect={selectStatus === 0}>
                 <Icon>
                     <IoEarthOutline/>
                 </Icon>
@@ -60,8 +60,7 @@ export default function DropDownMenu() {
                 </ExplainWrapper>
             </DropDownItemWrapper>
 
-            <DropDownItemWrapper onClick={selectPartial}
-            style={{backgroundColor:selectStatus === 1 ? '#484848': ''}}>
+            <DropDownItemWrapper onClick={selectPartial} $isSelect={selectStatus === 1}>
                 <Icon>
                     <GrConnect />
                 </Icon>
@@ -71,8 +70,7 @@ export default function DropDownMenu() {
                 </ExplainWrapper>
             </DropDownItemWrapper>
 
-            <DropDownItemWrapper onClick={selectPrivate}
-            style={{backgroundColor:selectStatus === 2 ? '#484848': ''}}>
+            <DropDownItemWrapper onClick={selectPrivate} $isSelect={selectStatus === 2}>
                 <Icon>
                     <CiLock />
                 </Icon>

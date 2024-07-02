@@ -23,14 +23,11 @@ const ModalStyles:ReactModal.Styles = {
         left:"50%",
         height:"400px",
         border: "1px solid rgba(255,255,255,0.1)",
-        boxShadow: "0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.4)",
         backgroundColor: "#212121",
         borderRadius: 3,
         zIndex: 3,
-        padding:"0",
         overflow:'visible',
         transform:"translate(-50%,-50%)",
-        outline:'none'
     }
 };
 const FadeIn = keyframes`

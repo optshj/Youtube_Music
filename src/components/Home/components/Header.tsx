@@ -1,7 +1,23 @@
 import styled from "styled-components";
 
-import HeaderButton from "./HeaderButton";
-
+const HeaderWrapper = styled.div`
+    padding:40px 0 8px;
+    margin:6px;
+`
+const LinkButton = styled.div`
+    display:flex;
+    height:36px;
+    font-size:14px;
+    border-radius:8px;
+    align-items:center;
+    background:rgba(255,255,255,.1);
+    color:#fff;
+    padding:0 12px;
+    cursor:pointer;
+    &:hover{
+        background-color:#403f42;
+    }
+`
 const Wrapper = styled.div`
     display:flex;
     margin:0 auto;
@@ -30,6 +46,15 @@ const Wrapper = styled.div`
     }
 `
 
+const HeaderButton = ({tag}:{tag:string}) => {
+    return(
+        <HeaderWrapper>
+            <LinkButton>
+                {tag}
+            </LinkButton>
+        </HeaderWrapper>
+    )
+}
 export default function MainHeader(){
     return(
         <Wrapper>
