@@ -1,29 +1,24 @@
 import styled from "styled-components";
 
-import MakeNewPlayList from "./LargeMakeNewPlayList";
-import PlayList from "./LargePlayList";
+import LargeMakeList from "./LargeMakeList";
+import PlayList from "./PlayList";
 
-const MakeForm = styled.div`
-    padding:0 16px;
-`
 const Wrapper = styled.div`
     flex-direction:column;
     padding:0 4px;
 `
-const PlayListsForm = styled.div`
+const ListWrapper = styled.div`
     padding:0 4px;
 `
 
 export default function LargePlayListMenu(){
     return(
         <Wrapper>
-            <MakeForm>
-                <MakeNewPlayList/>
-            </MakeForm>
+            <LargeMakeList/>
 
-            <PlayListsForm>
+            <ListWrapper>
                 <PlayList listName={"My PlayList"} ownerName={"이성빈"}/>
-            </PlayListsForm>
+            </ListWrapper>
         </Wrapper>
     )
 }

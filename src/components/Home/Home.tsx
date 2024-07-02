@@ -9,6 +9,7 @@ const Wrapper = styled.div<{$isOpen:boolean}>`
     box-sizing:border-box;
     padding-top:64px;
     margin-left:${(props) => props.$isOpen ? '240px' : '72px'};
+    padding-bottom:70px;
     ${({theme}) => theme.medium`
         margin-left:72px;
     `}

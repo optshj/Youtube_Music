@@ -9,9 +9,6 @@ import { GrConnect } from "react-icons/gr";
 const Wrapper = styled.div`
     position: fixed;
     top:60%;
-    display:flex;
-    flex-direction:column;
-    box-sizing: border-box;
     padding:12px 0;
     background:#333;
     z-index:5;

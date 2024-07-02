@@ -11,6 +11,7 @@ const Wrapper = styled.div`
     color:#fff;
     margin-bottom:16px;
     border-radius:18px;
+    margin:0 16px;
     background-color:rgba(255,255,255,0.1);
     font-size:14px;
     cursor:pointer;
@@ -28,7 +29,7 @@ const Title = styled.div`
     line-height:1.3;
 `
 
-export default function LargeMakePlayList() {
+export default function LargeMakeList() {
     const {open} = useModal();
 
     return(

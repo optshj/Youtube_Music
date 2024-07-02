@@ -14,7 +14,7 @@ const Wrapper = styled.div`
         background-color:#343434;
     }
 `
-const ListInformation = styled.div`
+const InformationWrapper = styled.div`
     width:100%;
 `
 const PlayListName = styled.div`
@@ -28,10 +28,10 @@ const PlayListOwnerName = styled.div`
 `
 const PlayIcon = styled(IoPlayCircleSharp)`
     color:#fff;
-    display:none;
     font-size:24px;
+    visibility: hidden;
     ${Wrapper}:hover &{
-        display:inline-block;
+        visibility: visible;
     }
 `
 
@@ -39,13 +39,13 @@ interface PlayListProps {
     listName:String,
     ownerName:String
 }
-export default function LargePlayList({listName,ownerName}:PlayListProps){
+export default function PlayList({listName,ownerName}:PlayListProps){
     return(
         <Wrapper>
-            <ListInformation>
+            <InformationWrapper>
                 <PlayListName>{listName}</PlayListName>
                 <PlayListOwnerName>{ownerName}</PlayListOwnerName>
-            </ListInformation>
+            </InformationWrapper>
             <PlayIcon/>
         </Wrapper>
     )
