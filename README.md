@@ -1,7 +1,6 @@
 # Youtube Music 불편함 고쳐보기
 
 ## 내가 느낀 불편함
-유튜브 뮤직을 노트북을 자주 쓰는 저에게는 웹에서 이용할 일이 많습니다. <br/>
 제가 웹에서 쓰면서 느낀 불편함은 다음과 같습니다.
 
 1. 브라우저의 가로폭이 작아지면 하단에 있는 Playerbar에서 앨범커버와 셔플 기능이 사라지는 것
@@ -16,7 +15,11 @@
 
 
 ## 프로젝트 실행
-    npm start
+    Music_Server(서버)
+    -> npm start
+
+    MusicApp(웹)
+    -> npm start
 ## 바뀐점
 1,2번 문제점
 ### 기존
@@ -64,6 +67,11 @@
 * `Chore` : 빌드 업무 수정, 패키지 매니저 수정
 
 ## 2. 적용 기술 스택
+### Web
 * React
 * TypeScript
 * Styled-component
+
+### Server
+* koa
+* mongodb
