@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Oxygen', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color:#030303;
+}
+a{
+  text-decoration: none;
+}
