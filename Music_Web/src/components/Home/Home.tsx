@@ -25,10 +25,6 @@ export default function Home(){
         <Wrapper $isOpen={isOpen}>
             <Header/>
             <Content/>
-            <Content/>
-            <Content/>
-            <Content/>
-            <Content/>
         </Wrapper>
     )
 }
