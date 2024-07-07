@@ -2,43 +2,30 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { throttle } from "lodash";
 
-import { MdOutlineArrowForwardIos } from "react-icons/md";
-import { MdOutlineArrowBackIosNew } from "react-icons/md";
+import { MdOutlineArrowForwardIos,MdOutlineArrowBackIos } from "react-icons/md";
 
 const Wrapper = styled.div<{$hasScrollbar:boolean}>`
     display: ${(props) => (props.$hasScrollbar ? 'flex' : 'none')};
     align-items:flex-end;
     gap:16px;
 `
-const ArrowIconForm = styled.div`
+const ArrowIconForm = styled.div<{$isScroll:boolean}>`
+    box-sizing: border-box  ;
     width:36px;
     height:36px;
     border-radius:50%;
     border:solid 1px rgba(255,255,255,.2);
     color:#fff;
-`
-const LeftArrowIconForm = styled(ArrowIconForm)<{$isScrollLeft:boolean}>`
-    cursor:${(props) => (props.$isScrollLeft?'':'pointer')};
+    cursor:${(props) => (props.$isScroll?'':'pointer')};
     &:hover {
-        background-color:${(props) => (props.$isScrollLeft?'#030303':'rgba(255,255,255,.1)')}
+        background-color:${(props) => (props.$isScroll?'#030303':'rgba(255,255,255,.1)')}
     }
 `
-const RightArrowIconForm = styled(ArrowIconForm)<{$isScrollRight:boolean}>`
-    cursor:${(props) => (props.$isScrollRight?'':'pointer')};
-    &:hover {
-        background-color:${(props) => (props.$isScrollRight?'#030303':'rgba(255,255,255,.1)')}
-    }
-`
-const LeftIcon = styled(MdOutlineArrowBackIosNew)<{$isScrollLeft:boolean}>`
-    transform:translate(50%,50%);
-    color: ${(props) => (props.$isScrollLeft ?'#333':'#c0c0c0')};
+const IconStyle = styled.div<{ $isDisabled: boolean }>`
+    transform: translate(50%, 50%);
+    color: ${(props) => (props.$isDisabled ? '#333' : '#c0c0c0')};
     transition: color 0.2s linear;
-`
-const RightIcon = styled(MdOutlineArrowForwardIos)<{$isScrollRight:boolean}>`
-    transform:translate(70%,50%);
-    color: ${(props) => (props.$isScrollRight ?'#333':'#c0c0c0')};
-    transition: color 0.2s linear;
-`
+`;
 
 interface HeaderButtonProps{
     $hasScrollbar:boolean;
@@ -79,13 +66,13 @@ export default function ContentHeaderButton({$hasScrollbar,$scrollRef}:HeaderBut
     }
     return(
         <Wrapper $hasScrollbar={$hasScrollbar}>
-            <LeftArrowIconForm $isScrollLeft={isScrollLeft} onClick={scrollToLeft}>
-                <LeftIcon $isScrollLeft={isScrollLeft}/>
-            </LeftArrowIconForm>
+            <ArrowIconForm $isScroll={isScrollLeft} onClick={scrollToLeft}>
+                <IconStyle as={MdOutlineArrowBackIos} $isDisabled={isScrollLeft} />
+            </ArrowIconForm>
 
-            <RightArrowIconForm $isScrollRight={isScrollRight} onClick={scrollToRight}>
-                <RightIcon $isScrollRight={isScrollRight}/>
-            </RightArrowIconForm>
+            <ArrowIconForm $isScroll={isScrollRight} onClick={scrollToRight}>
+                <IconStyle as={MdOutlineArrowForwardIos} $isDisabled={isScrollRight} />
+            </ArrowIconForm>
         </Wrapper>
     )
-}
+}   

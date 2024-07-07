@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { IsLargeSideBarOpen } from "../../context/SideBarContext";
 
-import Header from "./components/Header";
+import HomeHeader from "./components/HomeHeader";
 import Content from "./components/Content";
 
 const Wrapper = styled.div<{$isOpen:boolean}>`
@@ -23,7 +23,7 @@ export default function Home(){
 
     return(
         <Wrapper $isOpen={isOpen}>
-            <Header/>
+            <HomeHeader/>
             <Content/>
         </Wrapper>
     )

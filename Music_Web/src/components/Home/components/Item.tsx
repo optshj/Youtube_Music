@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import axios from "axios";
 
 import { MdPlayArrow } from "react-icons/md";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
 import { usePlayerbar } from "../../../context/PlayerbarContext";
-import { set } from "lodash";
-import SkeletonImage from "./SkeletonImage";
 
 const Wrapper = styled.div`
     width:160px;
@@ -91,64 +88,14 @@ const ImageWrapper = styled.div`
         }
     }
 `
-async function fetchImage(prompt: string, negativePrompt?: string) {
-    const url = 'https://api.kakaobrain.com/v2/inference/karlo/t2i';
-    const headers = {
-        'Authorization': `KakaoAK ${process.env.REACT_APP_KAKAO_REST_API_KEY}`,
-        'Content-Type': 'application/json'
-    };
-    const data = {
-        version: "v2.1",
-        prompt: prompt,
-        negative_prompt: negativePrompt,
-        height: 768,
-        width: 768,
-        image_quality:20
-    };
-
-    try {
-        const response = await axios.post(url, data, { headers });
-        return response.data
-    } catch (error) {
-        console.error('Error during API request:', error);
-        throw error;
-    }
-}
-
-
-export default React.memo(function Item(){
+export default React.memo(function Item({title,subTitle}: {title:string,subTitle:string}){
     const {open} = usePlayerbar();
-    const [imageSrc, setImageSrc] = useState<string | undefined>(undefined);
-    const [loading, setLoading] = useState<boolean>(true);
-
-    const prompt = "the forest in the raining";
-    const negativePrompt = "";
-    useEffect(() => {
-        const generateAndShowImage = async () => {
-            setLoading(true);
-            try {
-                const response = await fetchImage(prompt, negativePrompt);
-
-                if (response.images.length > 0) {
-                    const imageUrl = response.images[0].image;
-                    setImageSrc(imageUrl);
-                } else {
-                    console.error('No images returned from the API');
-                }
-            } catch (error) {
-                console.error('Error generating or showing image:', error);
-            }
-            setLoading(false);
-        };
-        generateAndShowImage();
-    }, [prompt, negativePrompt]);
 
     return(
         <Wrapper onClick={open}>
             <ImageWrapper>
                 <ItemBackGround/>
-                {loading ? <SkeletonImage/> : <img src={imageSrc} alt={prompt} width={160} height={160}/>}
-
+                <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>
                 <ItemPlayButtonWrapper>
                     <ItemPlayButton/>
                 </ItemPlayButtonWrapper>
@@ -158,8 +105,8 @@ export default React.memo(function Item(){
             </ImageWrapper>
 
             <Details>
-                <Title>Lorem ipsum</Title>
-                <SubTitle>Lorem ipusm</SubTitle>
+                <Title>{title}</Title>
+                <SubTitle>{subTitle}</SubTitle>
             </Details>
         </Wrapper>
     )

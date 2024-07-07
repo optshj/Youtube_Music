@@ -55,7 +55,7 @@ const HeaderButton = ({tag}:{tag:string}) => {
         </HeaderWrapper>
     )
 }
-export default function MainHeader(){
+export default function HomeHeader(){
     return(
         <Wrapper>
             <HeaderButton tag="운동"/>

@@ -5,7 +5,7 @@ import { usePlayerPage } from "../../../context/PlayerPageContext";
 
 import LeftControl from "./components/LeftControl";
 import TimeInfo from "./components/TimeInfo";
-import CenterControl from "./components/CenterControl";
+import SongInfo from "./components/SongInfo";
 import RightControl from "./components/RightControl";
 
 const Wrapper = styled.div<{$isOpen:boolean}>`
@@ -61,7 +61,7 @@ export default function Playerbar(){
             </LeftContent>
 
             <CenterContent onClick={handleClick}>
-                <CenterControl/>
+                <SongInfo/>
             </CenterContent>
 
             <RightContent>

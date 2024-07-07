@@ -29,7 +29,7 @@ const Dot = styled.div`
     color:rgba(255,255,255,0.7);    
 `
 
-export default function CenterControl(){
+export default function SongInfo(){
     return(
         <>
             <img src="https://via.placeholder.com/40x40/666.png" alt="Placeholder"/>
@@ -40,7 +40,7 @@ export default function CenterControl(){
                     <Dot>&nbsp;•&nbsp;</Dot>
                     <Explain>Lorem</Explain>
                     <Dot>&nbsp;•&nbsp;</Dot>
-                    <Dot>2024</Dot>
+                    <Dot>NaN</Dot>
                 </ExplainWrapper>
             </ContentInfoWrapper>
             
