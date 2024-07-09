@@ -28,49 +28,64 @@ const IconStyle = styled.div<{ $isDisabled: boolean }>`
 `;
 
 interface HeaderButtonProps{
-    $hasScrollbar:boolean;
-    $scrollRef:HTMLUListElement;
+    scrollRef:HTMLUListElement | null;
 }
-export default function ContentHeaderButton({$hasScrollbar,$scrollRef}:HeaderButtonProps){
+export default function ContentHeaderButton({scrollRef}:HeaderButtonProps){
+    const [hasScrollbar,setHasScollbar] = useState(false);
     const [isScrollLeft,setIsScrollLeft] = useState(false);
     const [isScrollRight,setIsScrollRight] = useState(false);
 
-    const scrollMove = throttle(() => {
-        if ($scrollRef) {
-            const IsScrollLeft = $scrollRef.scrollLeft === 0;
-            const IsScrollRight = ($scrollRef.scrollLeft + $scrollRef.clientWidth >= $scrollRef.scrollWidth - 1) && ($scrollRef.clientWidth < $scrollRef.scrollWidth)
+    const checkScrollbar = throttle(() => {
+        if (!scrollRef || scrollRef.scrollWidth <= scrollRef.clientWidth){
+            setHasScollbar(false);
+        }
+        else {
+            setHasScollbar(true);
+            const IsScrollLeft = scrollRef.scrollLeft === 0;
+            const IsScrollRight = (scrollRef.scrollLeft + scrollRef.clientWidth >= scrollRef.scrollWidth - 1) && (scrollRef.clientWidth < scrollRef.scrollWidth)
             setIsScrollRight(IsScrollRight);
             setIsScrollLeft(IsScrollLeft);
         }
     },500);
-    
-    useEffect(() => {
-        scrollMove();
-        $scrollRef.addEventListener('scroll',scrollMove);
 
-        return () => {
-            $scrollRef.removeEventListener('scroll',scrollMove);
-        }
-    })
+    useEffect(()=> {
+        checkScrollbar();
+        
+        if (scrollRef)
+            scrollRef.addEventListener('scroll',checkScrollbar);
+        window.addEventListener('resize',checkScrollbar);
+
+        return () =>{
+            if (scrollRef)
+                scrollRef.removeEventListener('scroll',checkScrollbar);
+            window.removeEventListener('resize',checkScrollbar)
+        };
+    },[scrollRef,checkScrollbar]);
+
     const scrollToLeft = () => {
-        $scrollRef.scrollBy({
-            left:-352,
-            behavior:'smooth'
-        })
+        if (scrollRef){
+            scrollRef.scrollBy({
+                left:-352,
+                behavior:'smooth'
+            })
+        }
     }
     const scrollToRight = () => {
-        $scrollRef.scrollBy({
-            left:+352,
-            behavior:'smooth'
-        })
+        if (scrollRef){
+            scrollRef.scrollBy({
+                left:+352,
+                behavior:'smooth'
+            })
+        }
     }
+
     return(
-        <Wrapper $hasScrollbar={$hasScrollbar}>
-            <ArrowIconForm $isScroll={isScrollLeft} onClick={scrollToLeft}>
+        <Wrapper $hasScrollbar={hasScrollbar}>
+            <ArrowIconForm  onClick={scrollToLeft} $isScroll={isScrollLeft}>
                 <IconStyle as={MdOutlineArrowBackIos} $isDisabled={isScrollLeft} />
             </ArrowIconForm>
 
-            <ArrowIconForm $isScroll={isScrollRight} onClick={scrollToRight}>
+            <ArrowIconForm onClick={scrollToRight} $isScroll={isScrollRight}>
                 <IconStyle as={MdOutlineArrowForwardIos} $isDisabled={isScrollRight} />
             </ArrowIconForm>
         </Wrapper>

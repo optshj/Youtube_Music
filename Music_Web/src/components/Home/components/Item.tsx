@@ -5,7 +5,7 @@ import { MdPlayArrow } from "react-icons/md";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
 import { usePlayerbar } from "../../../context/PlayerbarContext";
-
+import { SongType } from "../../../types/songType";
 const Wrapper = styled.div`
     width:160px;
     cursor:pointer;
@@ -46,7 +46,7 @@ const ItemBackGround = styled.div`
     position: absolute;
     width: 160px;
     height: 160px;
-`;
+`
 const ItemPlayButtonWrapper = styled.div`
     position:absolute;
     visibility:hidden;
@@ -88,7 +88,11 @@ const ImageWrapper = styled.div`
         }
     }
 `
-export default React.memo(function Item({title,subTitle}: {title:string,subTitle:string}){
+
+interface ItemProps{
+    songData:SongType;
+}
+export default React.memo(function Item({songData}:ItemProps){
     const {open} = usePlayerbar();
 
     return(
@@ -105,8 +109,8 @@ export default React.memo(function Item({title,subTitle}: {title:string,subTitle
             </ImageWrapper>
 
             <Details>
-                <Title>{title}</Title>
-                <SubTitle>{subTitle}</SubTitle>
+                <Title>{songData.title}</Title>
+                <SubTitle>{songData.artist}</SubTitle>
             </Details>
         </Wrapper>
     )

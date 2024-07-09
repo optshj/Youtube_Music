@@ -1,0 +1,72 @@
+{
+    "datas":[
+        {
+            "listTitle":"최신 음악",
+            "songs":[
+                {
+                    "title":"Dynamite",
+                    "artist":"BTS",
+                    "album":"Dynamite",
+                    "releaseDate":"2020",
+                    "playTime":234
+
+                },
+                {
+                    "title":"How You Like That",
+                    "artist":"BLACKPINK",
+                    "album":"How You Like That",
+                    "releaseDate":"2020",
+                    "playTime":184
+                },
+                {
+                    "title":"마리아",
+                    "artist":"화사",
+                    "album":"María",
+                    "releaseDate":"2020",
+                    "playTime":177
+                
+                },
+                {
+                    "title":"에잇",
+                    "artist":"아이유",
+                    "album":"에잇",
+                    "releaseDate":"2020",
+                    "playTime":195
+                },
+                {
+                    "title":"아로하",
+                    "artist":"조정석",
+                    "album":"슬기로운 의사생활 OST Part 3",
+                    "releaseDate":"2020",
+                    "playTime":184
+                }
+            ]
+        },
+        {
+            "listTitle":"인기 음악",
+            "songs":[
+                {
+                    "title":"Dolphin",
+                    "artist":"오마이걸",
+                    "album":"NONSTOP",
+                    "releaseDate":"2020",
+                    "playTime":165
+                },
+                {
+                    "title":"MORE & MORE",
+                    "artist":"TWICE",
+                    "album":"MORE & MORE",
+                    "releaseDate":"2020",
+                    "playTime":190
+                },
+                {
+                    "title":"사랑하게 될 줄 알았어",
+                    "artist":"전미도",
+                    "album":"슬기로운 의사생활 OST Part 11",
+                    "releaseDate":"2020",
+                    "playTime":204
+                }
+            ]
+        }
+    ]
+}

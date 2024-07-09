@@ -5,6 +5,8 @@ import { IsLargeSideBarOpen } from "../../context/SideBarContext";
 import HomeHeader from "./components/HomeHeader";
 import Content from "./components/Content";
 
+import musicList from "../../data/musicList.json";
+
 const Wrapper = styled.div<{$isOpen:boolean}>`
     box-sizing:border-box;
     padding-top:64px;
@@ -24,7 +26,13 @@ export default function Home(){
     return(
         <Wrapper $isOpen={isOpen}>
             <HomeHeader/>
-            <Content/>
+            {
+                musicList.datas.map((musicListData,index) => {
+                    return(
+                        <Content key={index} musicListData={musicListData}/>
+                    )
+                })
+            }
         </Wrapper>
     )
 }

@@ -1,10 +1,10 @@
-import { useState,useEffect,useRef } from "react";
+import { useRef } from "react";
 import styled from "styled-components";
-import throttle from 'lodash/throttle';
 
-import HeaderTitle from "./ContentHeaderTitle";
-import HeaderButton from "./ContentHeaderButton";
+import ContentHeaderButton from "./ContentHeaderButton";
 import Item from "./Item";
+
+import { SongType } from "../../../types/songType";
 
 const Wrapper = styled.div`
     margin-bottom:24px;
@@ -20,6 +20,16 @@ const HeaderWrapper = styled.div`
     ${({theme}) => theme.large` max-width:${theme.widths.large}`}
     ${({theme}) => theme.medium` max-width:${theme.widths.medium}`}
     ${({theme}) => theme.small` max-width:${theme.widths.small}`}
+`
+const HeaderTitle = styled.h2`
+    width:100%;
+    color:#fff;
+    font-size:28px;
+    overflow: visible;
+    margin:0;
+    ${({theme}) => theme.large`
+        font-size:24px;
+    `}
 `
 const ItemsWrapper = styled.ul`
     display:flex;
@@ -41,65 +51,27 @@ const ItemsWrapper = styled.ul`
     `}
 `
 
-const MakeRandomNumber = (min:number,max:number) => {
-    return Math.floor(Math.random() *(max - min + 1)) + min;
+interface ContentProps {
+    listTitle: string;
+    songs: SongType[];
 }
 
-export default function Content() {
-    const [hasScrollbar,setHasScollbar] = useState(false);
-    const [scrollRef, setScrollRef] = useState<HTMLUListElement>(document.createElement('ul'));
+export default function Content({musicListData}:{musicListData:ContentProps}) {
     const componentRef = useRef<HTMLUListElement>(null);
-
-    const checkScrollbar = throttle(() => {
-        const componentElement = componentRef.current;
-        if (!componentElement || componentElement.scrollWidth <= componentElement.clientWidth){
-            setHasScollbar(false);
-        }
-        else {
-            setHasScollbar(true);
-        }
-    },200);
-
-    const scrollMove = throttle(() => {
-        const componentElement = componentRef.current;
-        if (componentElement) {
-            setScrollRef(componentElement);
-        }
-    },500);
-
-    useEffect(()=> {
-        scrollMove();
-        checkScrollbar();
-        
-        const componentElement = componentRef.current;
-        if (componentElement){
-            componentElement.addEventListener('scroll',scrollMove);
-        }
-        window.addEventListener('resize',checkScrollbar);
-
-        return () =>{
-            if (componentElement){
-                componentElement.removeEventListener('scroll',scrollMove);
-            }
-            window.removeEventListener('resize',checkScrollbar)
-        };
-    },[checkScrollbar,scrollMove]);
-
-
-    const randomNumber = MakeRandomNumber(4,8);
-    const ItemArray = Array.from({ length:randomNumber},(_,index) =>(
-        <Item title={"Title"} subTitle={"SubTitle"} key={index}/>
-    ));
 
     return(
         <Wrapper>
             <HeaderWrapper>
-                <HeaderTitle title={'Lorem ipusm dolor sit amet'}/>
-                <HeaderButton $hasScrollbar={hasScrollbar} $scrollRef={scrollRef}/>
+                <HeaderTitle>{musicListData.listTitle}</HeaderTitle>
+                <ContentHeaderButton scrollRef={componentRef.current}/>
             </HeaderWrapper>
 
             <ItemsWrapper ref={componentRef}>
-                {ItemArray}
+                {
+                    musicListData.songs.map((item,index) => (
+                        <Item key={index} songData={item}/>
+                    ))
+                }
             </ItemsWrapper>
         </Wrapper>
     )
