@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import styled from "styled-components";
 
-import ContentHeaderButton from "./ContentHeaderButton";
+import ContentButton from "./ContentButton";
 import Item from "./Item";
 
 import { SongType } from "../../../types/songType";
@@ -63,7 +63,7 @@ export default function Content({musicListData}:{musicListData:ContentProps}) {
         <Wrapper>
             <HeaderWrapper>
                 <HeaderTitle>{musicListData.listTitle}</HeaderTitle>
-                <ContentHeaderButton scrollRef={componentRef.current}/>
+                <ContentButton scrollRef={componentRef.current}/>
             </HeaderWrapper>
 
             <ItemsWrapper ref={componentRef}>

@@ -93,10 +93,13 @@ interface ItemProps{
     songData:SongType;
 }
 export default React.memo(function Item({songData}:ItemProps){
-    const {open} = usePlayerbar();
-
+    const {open,setSongData} = usePlayerbar();
+    const onClick = () => {
+        setSongData(songData);
+        open();
+    }
     return(
-        <Wrapper onClick={open}>
+        <Wrapper onClick={onClick}>
             <ImageWrapper>
                 <ItemBackGround/>
                 <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>

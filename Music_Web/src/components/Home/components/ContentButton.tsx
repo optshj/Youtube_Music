@@ -30,7 +30,7 @@ const IconStyle = styled.div<{ $isDisabled: boolean }>`
 interface HeaderButtonProps{
     scrollRef:HTMLUListElement | null;
 }
-export default function ContentHeaderButton({scrollRef}:HeaderButtonProps){
+export default function ContentButton({scrollRef}:HeaderButtonProps){
     const [hasScrollbar,setHasScollbar] = useState(false);
     const [isScrollLeft,setIsScrollLeft] = useState(false);
     const [isScrollRight,setIsScrollRight] = useState(false);

@@ -79,7 +79,7 @@ export default function PlayLisModal(){
     return(
         <ResponsiveModal isOpen={isOpen} onRequestClose={close} style={ModalStyles}>
             <Title>새 재생목록</Title>
-            <ModalInput/>
+            <ModalInput isOpen={isOpen}/>
             <ModalButton onSubmit={submitPlayList}/>
         </ResponsiveModal>
     )

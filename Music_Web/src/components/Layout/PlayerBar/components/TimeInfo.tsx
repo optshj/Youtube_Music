@@ -9,8 +9,10 @@ const Wrapper = styled.div`
         visibility:hidden;
     `}
 `
-export default function TimeInfo(){
+export default function TimeInfo({playTime}:{playTime:number}){
+    const minute = Math.floor(playTime / 60).toString().padStart(2, '0');
+    const second = (playTime % 60).toString().padStart(2, '0');
     return(
-        <Wrapper>NaN:NaN/NaN:NaN</Wrapper>
+        <Wrapper>{`00:00/${minute}:${second}`}</Wrapper>
     )
 }

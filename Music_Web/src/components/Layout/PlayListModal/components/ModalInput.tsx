@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import SelectPublic from "./ModalSelectButton";
-import { IsModalOpen } from "../../../../context/ModalContext";
 
 const UnderLineActive = styled.div`
     position:absolute;
@@ -58,9 +57,8 @@ const UnderLine = styled.div`
     width:100%;
 `
 
-export default function ModalInput(){
+export default function ModalInput({isOpen}:{isOpen:boolean}){
     const inputRef = useRef<HTMLInputElement>(null);
-    const isOpen = IsModalOpen();
 
     useEffect (()=> {
         if (isOpen && inputRef.current){

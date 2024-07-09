@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { IsPlayerbarOpen } from "../../../context/PlayerbarContext";
+import { IsPlayerbarOpen, useSongData } from "../../../context/PlayerbarContext";
 import { usePlayerPage } from "../../../context/PlayerPageContext";
 
 import LeftControl from "./components/LeftControl";
@@ -47,6 +47,8 @@ const RightContent = styled.div`
 export default function Playerbar(){
     const isOpen = IsPlayerbarOpen();
     const { click } = usePlayerPage();
+    const { songData } = useSongData();
+
     const handleClick = (event:React.MouseEvent<HTMLDivElement>) => {
         if (event.target === event.currentTarget) {
             click();
@@ -54,19 +56,23 @@ export default function Playerbar(){
     }
 
     return(
-        <Wrapper $isOpen={isOpen} onClick={handleClick}>
-            <LeftContent>
-                <LeftControl/>
-                <TimeInfo/>
-            </LeftContent>
+        <>
+        {songData &&
+            <Wrapper $isOpen={isOpen} onClick={handleClick}>
+                <LeftContent>
+                    <LeftControl/>
+                    <TimeInfo playTime={songData.playTime}/>
+                </LeftContent>
 
-            <CenterContent onClick={handleClick}>
-                <SongInfo/>
-            </CenterContent>
+                <CenterContent onClick={handleClick}>
+                    <SongInfo songData={songData}/>
+                </CenterContent>
 
-            <RightContent>
-                <RightControl/>
-            </RightContent>
-        </Wrapper>
+                <RightContent>
+                    <RightControl/>
+                </RightContent>
+            </Wrapper>
+        }
+        </>
     )
 }

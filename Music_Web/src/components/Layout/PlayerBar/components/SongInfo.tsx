@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import CenterButton from "./CenterButton";
+import { SongType } from "../../../../types/songType";
 
 const ContentInfoWrapper = styled.div`
     display:flex;
@@ -16,7 +17,7 @@ const ExplainWrapper = styled.div`
     flex-direction:row;
     white-space: nowrap;
 `
-const Explain = styled.div`
+const Explain = styled.span`
     font-size:14px;
     color:rgba(255,255,255,0.7);
     cursor:pointer;
@@ -24,23 +25,24 @@ const Explain = styled.div`
         text-decoration:underline;
     }
 `
-const Dot = styled.div`
+const Dot = styled.span`
     font-size:14px;
     color:rgba(255,255,255,0.7);    
+    margin: 0 4px;
 `
 
-export default function SongInfo(){
+export default function SongInfo({songData}:{songData:SongType}){
     return(
         <>
             <img src="https://via.placeholder.com/40x40/666.png" alt="Placeholder"/>
             <ContentInfoWrapper>
-                <Title>Lorem ipsum</Title>
+                <Title>{songData.title}</Title>
                 <ExplainWrapper>
-                    <Explain>Lorem ipsum</Explain>
-                    <Dot>&nbsp;•&nbsp;</Dot>
-                    <Explain>Lorem</Explain>
-                    <Dot>&nbsp;•&nbsp;</Dot>
-                    <Dot>NaN</Dot>
+                    <Explain>{songData.artist}</Explain>
+                    <Dot>•</Dot>
+                    <Explain>{songData.album}</Explain>
+                    <Dot>•</Dot>
+                    <Explain>{songData.releaseDate}</Explain>
                 </ExplainWrapper>
             </ContentInfoWrapper>
             
