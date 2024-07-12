@@ -5,13 +5,9 @@ const PlayerValueContext = createContext<any>(null);
 const PlayerActionContext = createContext<any>(null);
 
 export default function PlayerbarContext({children} : {children:React.ReactNode}){
-    const [isOpen,setIsOpen] = useState(false);
     const [songData,setSongData] = useState<SongType | null>(null);
 
     const actions = useMemo(() => ({
-        open(){
-            setIsOpen(true);
-        },
         setSongData(data:SongType){
             setSongData(data);
         }
@@ -19,23 +15,15 @@ export default function PlayerbarContext({children} : {children:React.ReactNode}
     }),[])
 
     return(
-        <PlayerValueContext.Provider value={{isOpen,songData}}>
+        <PlayerValueContext.Provider value={songData}>
             <PlayerActionContext.Provider value={actions}>
                 {children}
             </PlayerActionContext.Provider>
         </PlayerValueContext.Provider>
     )
 }
-
-export function usePlayerbar() {
-    const {open,setSongData} = useContext(PlayerActionContext);
-    return {open,setSongData};
-}
 export function useSongData(){
+    const {setSongData} = useContext(PlayerActionContext);
     const songData = useContext(PlayerValueContext);
-    return songData;
-}
-export function IsPlayerbarOpen(){
-    const isOpen = useContext(PlayerValueContext);
-    return isOpen;
+    return {setSongData,songData};
 }

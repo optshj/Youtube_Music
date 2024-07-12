@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { IsPlayerbarOpen, useSongData } from "../../../context/PlayerbarContext";
+import { useSongData } from "../../../context/PlayerbarContext";
 import { usePlayerPage } from "../../../context/PlayerPageContext";
 
 import LeftControl from "./components/LeftControl";
@@ -8,10 +8,9 @@ import TimeInfo from "./components/TimeInfo";
 import SongInfo from "./components/SongInfo";
 import RightControl from "./components/RightControl";
 
-const Wrapper = styled.div<{$isOpen:boolean}>`
+const Wrapper = styled.div`
     display:flex;
     justify-content: space-between;
-    visibility:${(props) => (props.$isOpen ? 'visible':'hidden')};
     position:fixed;
     z-index:4;
     bottom:0;
@@ -45,7 +44,6 @@ const RightContent = styled.div`
     margin-right:4px;
 `
 export default function Playerbar(){
-    const isOpen = IsPlayerbarOpen();
     const { click } = usePlayerPage();
     const { songData } = useSongData();
 
@@ -58,7 +56,7 @@ export default function Playerbar(){
     return(
         <>
         {songData &&
-            <Wrapper $isOpen={isOpen} onClick={handleClick}>
+            <Wrapper onClick={handleClick}>
                 <LeftContent>
                     <LeftControl/>
                     <TimeInfo playTime={songData.playTime}/>

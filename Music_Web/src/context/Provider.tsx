@@ -5,8 +5,9 @@ import PlayerProvider from './PlayerbarContext';
 import PlayerPageProvider from './PlayerPageContext';
 import PlayStateProvider from './PlayStateContext';
 import ScrollProvider from './ScrollContext';
+import ToggleProvider from './ToggleContext';
 
-function Provider({children}: {children:React.ReactNode}) {
+export default function Provider({children}: {children:React.ReactNode}) {
     return(
     <PlayerPageProvider>
       <PlayerProvider>
@@ -15,7 +16,9 @@ function Provider({children}: {children:React.ReactNode}) {
             <SidebarProvider>
               <PlayStateProvider>
                 <ScrollProvider>
+                  <ToggleProvider>
                   {children}
+                  </ToggleProvider>
                 </ScrollProvider>
               </PlayStateProvider>
             </SidebarProvider>
@@ -25,4 +28,3 @@ function Provider({children}: {children:React.ReactNode}) {
     </PlayerPageProvider>
     )
 }
-export default Provider;

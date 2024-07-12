@@ -3,6 +3,7 @@ import Sidebar from "../components/Layout/SideBar/SideBar";
 import PlayListModal from "../components/Layout/PlayListModal/PlayListModal";
 import PlayerBar from "../components/Layout/PlayerBar/PlayerBar";
 import PlayerPage from "../components/Layout/PlayerPage/PlayerPage";
+import { ToggleComponent } from "../context/ToggleContext";
 
 export default function Layout({children}: {children: React.ReactNode}) {
     return(
@@ -10,9 +11,7 @@ export default function Layout({children}: {children: React.ReactNode}) {
             <Header/>
 			<Sidebar/>
             {children}
-			<PlayListModal/>
-			<PlayerBar/>
-            <PlayerPage/>
+            <ToggleComponent/>
         </>
     )
 }

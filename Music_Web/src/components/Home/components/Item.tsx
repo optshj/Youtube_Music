@@ -4,8 +4,11 @@ import styled from "styled-components";
 import { MdPlayArrow } from "react-icons/md";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
-import { usePlayerbar } from "../../../context/PlayerbarContext";
+import { useSongData } from "../../../context/PlayerbarContext";
 import { SongType } from "../../../types/songType";
+import { useToggle } from "../../../context/ToggleContext";
+import PlayerBar from "../../Layout/PlayerBar/PlayerBar";
+
 const Wrapper = styled.div`
     width:160px;
     cursor:pointer;
@@ -93,10 +96,14 @@ interface ItemProps{
     songData:SongType;
 }
 export default React.memo(function Item({songData}:ItemProps){
-    const {open,setSongData} = usePlayerbar();
+    const { setSongData } = useSongData();
+    const { openComponent } = useToggle();
     const onClick = () => {
         setSongData(songData);
-        open();
+        openComponent(
+            PlayerBar,{}
+        )
+
     }
     return(
         <Wrapper onClick={onClick}>

@@ -7,6 +7,8 @@ import { useModal } from "../../../context/ModalContext";
 
 import ModalInput from './components/ModalInput';
 import ModalButton from './components/ModalButton';
+import { ToggleComponent, useToggle } from '../../../context/ToggleContext';
+
 
 const ModalStyles:ReactModal.Styles = {
     overlay: {
@@ -78,9 +80,9 @@ export default function PlayLisModal(){
 
     return(
         <ResponsiveModal isOpen={isOpen} onRequestClose={close} style={ModalStyles}>
-            <Title>새 재생목록</Title>
-            <ModalInput isOpen={isOpen}/>
-            <ModalButton onSubmit={submitPlayList}/>
+                <Title>새 재생목록</Title>
+                <ModalInput isOpen={isOpen}/>
+                <ModalButton onSubmit={submitPlayList}/>
         </ResponsiveModal>
     )
 }
