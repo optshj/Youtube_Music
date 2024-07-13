@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 import { IsScrollTop } from "../../../../context/ScrollContext";
-import { IsPlayerPageOpen } from "../../../../context/PlayerPageContext";
+import { useToggle } from "../../../../context/ToggleContext";
 
+import PlayerPage from "../../PlayerPage/PlayerPage";
 import SmallMenu from "./SmallMenu";
 
 const Wrapper = styled.div<{$isBorder:boolean}>`
@@ -18,10 +19,10 @@ const Wrapper = styled.div<{$isBorder:boolean}>`
 `
 
 export default function SmallSideBar(){
-    const isPlayerPageOpen = IsPlayerPageOpen();
+    const { isComponentsOpen } = useToggle();
     const isScrollTop = IsScrollTop();
 
-    const isBorder = !isScrollTop||isPlayerPageOpen;
+    const isBorder = !isScrollTop||isComponentsOpen(PlayerPage);
 
     return(
         <Wrapper $isBorder={isBorder}>

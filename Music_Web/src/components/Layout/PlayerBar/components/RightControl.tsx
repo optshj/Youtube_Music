@@ -1,12 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import { usePlayerPage } from "../../../../context/PlayerPageContext";
+import { useToggle } from "../../../../context/ToggleContext";
 
 import { PiRepeatThin,PiRepeatOnceThin,PiShuffleThin } from "react-icons/pi";
 import { IoMdArrowDropdown } from "react-icons/io";
 
-import SoundSlidebar from "./VolumSide";
+import SoundSlide from "./VolumSide";
+import PlayerPage from "../../PlayerPage/PlayerPage";
 
 const Wrapper = styled.div`
     display:flex;
@@ -49,29 +50,29 @@ const PlayerPageButton = styled(IoMdArrowDropdown)<{$isOpen:boolean}>`
 `
 
 export default function RightControl(){
-    const [isOpen,setIsOpen] = useState(false);
     const [repeatStatus,setRepeatStatus] = useState(1); // 0:한곡반복 1:반복안함 2:재생목록반복
-    const {click} = usePlayerPage();
+    const { toggleComponent,isComponentsOpen } = useToggle();
 
+    const onToggle = () => {
+        toggleComponent(PlayerPage);
+    }
     const onRepeat = () => {
-        if (repeatStatus === 2) {
+        if (repeatStatus === 2)
             setRepeatStatus(0);
-        }
-        else {
+        else
             setRepeatStatus(repeatStatus+1);
-        }
     }
 
     return(
         <Wrapper>
-            <SoundSlidebar></SoundSlidebar>
+            <SoundSlide/>
             <ButtonWrapper>
                 <RepeatWrapper onClick={onRepeat}>
                     {repeatStatus? <RepeatButton $isRepeat={repeatStatus}/>:<RepeatButtonOne/>}
                 </RepeatWrapper>
                 <ShuffleButton/>
             </ButtonWrapper>
-            <PlayerPageButton onClick={() => {setIsOpen(!isOpen);click()}} $isOpen={isOpen}/>
+            <PlayerPageButton onClick={onToggle} $isOpen={isComponentsOpen(PlayerPage)}/>
         </Wrapper>
     )
 }

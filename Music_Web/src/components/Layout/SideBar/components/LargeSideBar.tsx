@@ -1,9 +1,10 @@
 import styled, { keyframes } from "styled-components";
 
-import { IsLargeSideBarOpen } from "../../../../context/SideBarContext";
+import { useToggle } from "../../../../context/ToggleContext";
 
 import LargeMenu from "./LargeMenu";
 import PlayListMenu from "./LargePlayListMenu";
+import SideBar from "../SideBar";
 
 const onShow = keyframes`
     from {
@@ -35,7 +36,8 @@ const Wrapper = styled.div<WrapperProps>`
 `
 
 export default function LargeSideBar() {
-    const isOpen = IsLargeSideBarOpen();
+    const { isComponentsOpen } = useToggle();
+    const isOpen = isComponentsOpen(SideBar);
 
     return(
         <Wrapper $isOpen={isOpen}>

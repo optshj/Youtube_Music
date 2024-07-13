@@ -92,19 +92,16 @@ const ImageWrapper = styled.div`
     }
 `
 
-interface ItemProps{
-    songData:SongType;
-}
-export default React.memo(function Item({songData}:ItemProps){
+export default React.memo(function Item({songData}:{songData:SongType}) {
     const { setSongData } = useSongData();
-    const { openComponent } = useToggle();
+    const { openComponent,isComponentsOpen } = useToggle();
+
     const onClick = () => {
         setSongData(songData);
-        openComponent(
-            PlayerBar,{}
-        )
-
+        if (!isComponentsOpen(PlayerBar))
+            openComponent(PlayerBar)
     }
+
     return(
         <Wrapper onClick={onClick}>
             <ImageWrapper>

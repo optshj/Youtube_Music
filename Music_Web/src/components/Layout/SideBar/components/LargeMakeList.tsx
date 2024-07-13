@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 import { IoAddSharp } from "react-icons/io5";
 
-import { useModal } from "../../../../context/ModalContext";
+import { useToggle } from "../../../../context/ToggleContext";
+import PlayListModal from "../../PlayListModal/PlayListModal";
 
 const Wrapper = styled.div`
     display:flex;
@@ -30,7 +31,8 @@ const Title = styled.div`
 `
 
 export default function LargeMakeList() {
-    const {open} = useModal();
+    const { openComponent } = useToggle();
+    const open = () => openComponent(PlayListModal);
 
     return(
         <Wrapper onClick={open}>

@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
+import { useToggle } from '../../../context/ToggleContext';
+import { IsScrollTop } from '../../../context/ScrollContext';
+
 import Menu from './components/Menu'
 import Logo from './components/Logo'
 import Search from './components/Search';
 import UserIcon from './components/UserIcon';
+import PlayerPage from '../PlayerPage/PlayerPage';
+import SideBar from '../SideBar/SideBar';
 
-import { IsLargeSideBarOpen } from '../../../context/SideBarContext';
-import { IsPlayerPageOpen } from '../../../context/PlayerPageContext';
-import { IsScrollTop } from '../../../context/ScrollContext';
 
 const Wrapper = styled.div<{$isBorder:boolean}>`
 	position:fixed;
@@ -43,11 +45,12 @@ const RightContent = styled.div`
 `
 
 export default function Header() {
-	const isSideBarOpen = IsLargeSideBarOpen();
-	const isPlyaerPageOpen = IsPlayerPageOpen();
+	const { isComponentsOpen } = useToggle();
+	const isPlayerPageOpen = isComponentsOpen(PlayerPage);
+	const isSideBarOpen = isComponentsOpen(SideBar);
 	const isScrollTop = IsScrollTop();
 
-	const isBorder = !isScrollTop||isPlyaerPageOpen 
+	const isBorder = !isScrollTop||isPlayerPageOpen 
 
 	return(
 		<Wrapper $isBorder={isBorder}>

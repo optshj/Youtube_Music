@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-import { useSideBar } from '../../../../context/SideBarContext';
+import { useToggle } from '../../../../context/ToggleContext';
 
 import { RxHamburgerMenu } from "react-icons/rx";
+
+import SideBar from '../../SideBar/SideBar';
 
 const Wrapper = styled(RxHamburgerMenu)`
 	padding:6px;
@@ -16,9 +18,9 @@ const Wrapper = styled(RxHamburgerMenu)`
 `
 
 export default function Menu(){
-	const click = useSideBar();
+	const { toggleComponent } = useToggle();
 	
 	return(
-		<Wrapper onClick={click}/>
+		<Wrapper onClick={() => toggleComponent(SideBar)}/>
 	)
 }

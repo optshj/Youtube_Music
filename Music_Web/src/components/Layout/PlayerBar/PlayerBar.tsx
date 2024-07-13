@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 import { useSongData } from "../../../context/PlayerbarContext";
-import { usePlayerPage } from "../../../context/PlayerPageContext";
+import { useToggle } from "../../../context/ToggleContext";
 
 import LeftControl from "./components/LeftControl";
 import TimeInfo from "./components/TimeInfo";
 import SongInfo from "./components/SongInfo";
 import RightControl from "./components/RightControl";
+import PlayerPage from "../PlayerPage/PlayerPage";
 
 const Wrapper = styled.div`
     display:flex;
@@ -43,13 +44,14 @@ const RightContent = styled.div`
     align-items:center;
     margin-right:4px;
 `
+
 export default function Playerbar(){
-    const { click } = usePlayerPage();
+    const { toggleComponent } = useToggle();
     const { songData } = useSongData();
 
     const handleClick = (event:React.MouseEvent<HTMLDivElement>) => {
         if (event.target === event.currentTarget) {
-            click();
+            toggleComponent(PlayerPage);
         }
     }
 

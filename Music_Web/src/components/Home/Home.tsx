@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-import { IsLargeSideBarOpen } from "../../context/SideBarContext";
+import { useToggle } from "../../context/ToggleContext";
 
 import HomeHeader from "./components/HomeHeader";
 import Content from "./components/Content";
+import SideBar from "../Layout/SideBar/SideBar";
 
 import musicList from "../../data/musicList.json";
 
@@ -21,10 +22,10 @@ const Wrapper = styled.div<{$isOpen:boolean}>`
 `
 
 export default function Home(){
-    const isOpen = IsLargeSideBarOpen();
+    const isSideBarOpen = useToggle().isComponentsOpen(SideBar);
 
     return(
-        <Wrapper $isOpen={isOpen}>
+        <Wrapper $isOpen={isSideBarOpen}>
             <HomeHeader/>
             {
                 musicList.datas.map((musicListData,index) => {

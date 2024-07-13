@@ -2,12 +2,10 @@ import Modal from 'react-modal';
 import styled,{keyframes} from 'styled-components';
 import axios from 'axios';
 
-import { IsModalOpen } from "../../../context/ModalContext";
-import { useModal } from "../../../context/ModalContext";
+import { useToggle } from '../../../context/ToggleContext';
 
 import ModalInput from './components/ModalInput';
 import ModalButton from './components/ModalButton';
-import { ToggleComponent, useToggle } from '../../../context/ToggleContext';
 
 
 const ModalStyles:ReactModal.Styles = {
@@ -64,9 +62,10 @@ const Title = styled.h2`
 `
 
 export default function PlayLisModal(){
-    const isOpen = IsModalOpen();
-    const {close} = useModal();
-    
+    const { closeComponent,isComponentsOpen } = useToggle();
+
+    const isModalOpen = isComponentsOpen(PlayLisModal);
+
     const submitPlayList = () => {
         axios.post("http://localhost:4000/api/playlists",
         {
@@ -79,9 +78,9 @@ export default function PlayLisModal(){
     }
 
     return(
-        <ResponsiveModal isOpen={isOpen} onRequestClose={close} style={ModalStyles}>
+        <ResponsiveModal isOpen={isModalOpen} onRequestClose={() => closeComponent(PlayLisModal)} style={ModalStyles}>
                 <Title>새 재생목록</Title>
-                <ModalInput isOpen={isOpen}/>
+                <ModalInput isOpen={isModalOpen}/>
                 <ModalButton onSubmit={submitPlayList}/>
         </ResponsiveModal>
     )

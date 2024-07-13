@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { useModal } from "../../../../context/ModalContext";
+import { useToggle } from "../../../../context/ToggleContext";
+import PlayLisModal from "../PlayListModal";
 
 const Wrapper = styled.div`
     display:flex;
@@ -34,7 +35,8 @@ const MakeButton = styled(Button)`
 `
 
 export default function ModalButton({onSubmit}:{onSubmit:()=>void}){
-    const {close} = useModal();
+    const { closeComponent } = useToggle();
+    const close = () => closeComponent(PlayLisModal);
 
     return(
         <Wrapper>

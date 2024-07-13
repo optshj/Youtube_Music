@@ -1,17 +1,18 @@
 import Header from "../components/Layout/Header/Header";
-import Sidebar from "../components/Layout/SideBar/SideBar";
-import PlayListModal from "../components/Layout/PlayListModal/PlayListModal";
-import PlayerBar from "../components/Layout/PlayerBar/PlayerBar";
 import PlayerPage from "../components/Layout/PlayerPage/PlayerPage";
-import { ToggleComponent } from "../context/ToggleContext";
+import Playerbar from "../components/Layout/PlayerBar/PlayerBar";
+import Sidebar from "../components/Layout/SideBar/SideBar";
+import PlayLisModal from "../components/Layout/PlayListModal/PlayListModal";
 
 export default function Layout({children}: {children: React.ReactNode}) {
     return(
         <>
             <Header/>
-			<Sidebar/>
+            <Sidebar/>
             {children}
-            <ToggleComponent/>
+            <PlayerPage/>
+            <Playerbar/>
+            <PlayLisModal/>
         </>
     )
 }
