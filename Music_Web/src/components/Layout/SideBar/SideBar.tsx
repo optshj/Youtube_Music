@@ -13,11 +13,15 @@ const Wrapper = styled.div`
 `
 
 export default function SideBar(){
-    const { openComponent } = useToggle();
-    
+    const { openComponent, closeComponent } = useToggle();
+
     useEffect(() => {
-        openComponent(SideBar);
-    },[])
+        if (window.innerWidth > 936) {
+            openComponent(SideBar);
+        } else {
+            closeComponent(SideBar);
+        }
+    },[]);
     
     return(
         <Wrapper>

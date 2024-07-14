@@ -52,7 +52,6 @@ const ResponsiveModal = styled(Modal)`
         width:calc(100vw - 48px);
     `}
 `
-
 const Title = styled.h2`
     padding:24px 24px 0;
     font-size:22px;
@@ -79,9 +78,9 @@ export default function PlayLisModal(){
 
     return(
         <ResponsiveModal isOpen={isModalOpen} onRequestClose={() => closeComponent(PlayLisModal)} style={ModalStyles}>
-                <Title>새 재생목록</Title>
-                <ModalInput isOpen={isModalOpen}/>
-                <ModalButton onSubmit={submitPlayList}/>
+            <Title>새 재생목록</Title>
+            <ModalInput isOpen={isModalOpen}/>
+            <ModalButton onSubmit={submitPlayList}/>
         </ResponsiveModal>
     )
 }

@@ -27,11 +27,7 @@ const Wrapper = styled.div<WrapperProps>`
     border-right:1px solid rgba(255,255,255,.15);
     display:${(props:WrapperProps)=>props.$isOpen?'inline-block':'none'};
     ${({theme}) => theme.medium`
-        display:${(props:WrapperProps)=>props.$isOpen?'inline-block':'none'};
-        animation:${(props:WrapperProps)=>props.$isOpen?onShow:''} 0.2s linear;
-    `}
-    ${({theme}) => theme.small`
-        display:${(props:WrapperProps)=>props.$isOpen?'block':'none'};   
+        animation:${(props:WrapperProps)=>props.$isOpen ? onShow:''} 0.2s linear;
     `}
 `
 

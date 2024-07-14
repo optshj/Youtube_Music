@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import ControlButton from "./PlayerControlButton";
+import { useSongData } from "../../../../context/SongDataConetext";
 
 const Wrapper = styled.div`
     display:none;
@@ -22,7 +23,7 @@ const Title = styled.div`
     line-height:1.3;
     color:#fff;
 `
-const ArtistName = styled.div`
+const Artist = styled.div`
     padding-top:8px;
     font-weight:400;
     font-size:16px;
@@ -79,25 +80,34 @@ const TotalTime = styled.div`
 `
 
 export default function PlayerControl(){
-    const initPlayTime = 0;
-    const [playTime,setPlayTime] = useState(initPlayTime);
-    const onChangePlayTime = (e:React.ChangeEvent<HTMLInputElement>) => {
-        setPlayTime(parseInt(e.target.value));
-    }
+    const [playTimeRatio,setPlayTimeRatio] = useState(0);
+    const [playTime,setPlayTime] = useState(0);
+    const { songData } = useSongData();
 
+    const totalMinute = Math.floor(songData.playTime / 60).toString().padStart(2, '0');
+    const totalSecond = (songData.playTime % 60).toString().padStart(2, '0');
+
+    const playTimeMinute = Math.floor(playTime / 60).toString().padStart(2, '0');
+    const playTimeSecond = (playTime % 60).toString().padStart(2, '0');
+
+    const onChangePlayTime = (e:React.ChangeEvent<HTMLInputElement>) => {
+        setPlayTimeRatio(parseInt(e.target.value));
+        setPlayTime(Math.floor(songData.playTime * (parseInt(e.target.value) / 100)));
+
+    }
     return(
         <Wrapper>
             <ExplainWrapper>
-                <Title>Lorem ipsum</Title>
-                <ArtistName>Lorem ipsum</ArtistName>
+                <Title>{songData.title}</Title>
+                <Artist>{songData.artist}</Artist>
                 <ProgressbarWrapper>
                     <SlidebarWrapper>
-                        <SlideInner $length={playTime}/>
-                        <Sliderbar type="range" max={100} min={0} value={playTime} onChange={onChangePlayTime}/>
+                        <SlideInner $length={playTimeRatio}/>
+                        <Sliderbar type="range" max={100} min={0} value={playTimeRatio} onChange={onChangePlayTime}/>
                     </SlidebarWrapper>
                     <TimeWrapper>
-                        <CurrentTime>NaN:NaN</CurrentTime>
-                        <TotalTime>NaN:NaN</TotalTime>
+                        <CurrentTime>{`${playTimeMinute}:${playTimeSecond}`}</CurrentTime>
+                        <TotalTime>{`${totalMinute}:${totalSecond}`}</TotalTime>
                     </TimeWrapper>
                 </ProgressbarWrapper>
             </ExplainWrapper>

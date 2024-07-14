@@ -9,11 +9,11 @@ import { Link,useLocation } from "react-router-dom";
 
 const IconWrapper = styled.div<{$selectState?:boolean}>`
     display:flex;
+    color:#fff;
+    font-size:20px;
     flex-direction:column;
     align-items:center;
-    font-size:20px;
     padding:12px 0;
-    color:#fff;
     cursor:pointer;
     border-radius:8px;
     background-color:${(props) => (props.$selectState ? '#1d1d1d':'')};

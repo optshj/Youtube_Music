@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { MdPlayArrow } from "react-icons/md";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
-import { useSongData } from "../../../context/PlayerbarContext";
+import { useSongData } from "../../../context/SongDataConetext";
 import { SongType } from "../../../types/songType";
 import { useToggle } from "../../../context/ToggleContext";
 import PlayerBar from "../../Layout/PlayerBar/PlayerBar";

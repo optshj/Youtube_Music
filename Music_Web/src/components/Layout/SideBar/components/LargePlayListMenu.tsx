@@ -38,11 +38,9 @@ export default function LargePlayListMenu(){
     return(
         <Wrapper>
             <LargeMakeList/>
-
             <ListWrapper>
                 {playList.map((list)=>{
-                    return <PlayList key={list._id} title={list.title} owner={list.owner}/>;
-                })}
+                    return <PlayList key={list._id} title={list.title} owner={list.owner}/>})}
             </ListWrapper>
         </Wrapper>
     )

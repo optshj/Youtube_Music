@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { useSongData } from "../../../context/PlayerbarContext";
 import { useToggle } from "../../../context/ToggleContext";
+import { useSongData } from "../../../context/SongDataConetext";
 
 import LeftControl from "./components/LeftControl";
 import TimeInfo from "./components/TimeInfo";

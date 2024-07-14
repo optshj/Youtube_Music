@@ -20,13 +20,10 @@ const IconWrapper = styled.div<{$selectState?:boolean}>`
         background-color:#343434;
     }
 `
-const IconMargin = styled.div`
-    margin-right:20px;
-`
 const IconFont = styled.div`
+    margin-left:20px;
     font-size:16px;
 `
-
 const Wrapper = styled.div`
     padding:0 8px;
     padding-top:8px;
@@ -48,9 +45,7 @@ const MenuIcon = ({icon:Icon,descript,link}:MenuIconProps) => {
     return(
         <Link to={link}>
             <IconWrapper $selectState={link === location.pathname}>
-                <IconMargin>
-                    <Icon/>
-                </IconMargin>
+                <Icon/>
                 <IconFont>{descript}</IconFont>
             </IconWrapper>
         </Link>

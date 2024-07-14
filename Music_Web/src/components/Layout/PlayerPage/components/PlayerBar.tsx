@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-import { IsPlayState,usePlayState } from '../../../../context/PlayStateContext';
-
 import { IoPlaySharp,IoPlaySkipForwardSharp,IoPauseSharp} from "react-icons/io5";
 
+import { IsPlayState,usePlayState } from '../../../../context/PlayStateContext';
+import { useSongData } from '../../../../context/SongDataConetext';
+
 interface WrapperProps {
-    $isUp:boolean;
+    $isBottomBarUp:boolean;
 }
 const Wrapper = styled.div<WrapperProps>`
     display: flex;
@@ -15,7 +16,7 @@ const Wrapper = styled.div<WrapperProps>`
     visibility: hidden;
     padding-top:8px;
     ${({theme}) => theme.small`
-        visibility: ${({$isUp}:WrapperProps) => $isUp ? 'visible' : 'hidden'};
+        visibility: ${({$isBottomBarUp}:WrapperProps) => $isBottomBarUp ? 'visible' : 'hidden'};
     `}
 `
 const LeftContent = styled.div`
@@ -65,32 +66,33 @@ const NextIcon = styled(IoPlaySkipForwardSharp)`
 `
 
 interface PlayerBarProps {
-    isUp:boolean;
-    onClick?:() => void;
+    $isBottomBarUp:boolean;
+    onClick:() => void;
 }
-export default function PlayerBar({isUp,onClick}:PlayerBarProps) {
+export default function PlayerBar({$isBottomBarUp,onClick}:PlayerBarProps) {
     const isPlay = IsPlayState();
     const {togglePlayState} = usePlayState();
+    const { songData } = useSongData();
     const handleClick = (event:React.MouseEvent<HTMLDivElement>) => {
         if (event.target === event.currentTarget) {
-            onClick && onClick();
+            onClick();
         }
     }
 
     return (
-        <Wrapper $isUp={isUp} onClick={handleClick}>
+        <Wrapper $isBottomBarUp={$isBottomBarUp} onClick={handleClick}>
             <LeftContent>
                 <img src="https://via.placeholder.com/40x40/666.png" alt="Placeholder" onClick={handleClick}/>
             </LeftContent>
 
             <CenterContent>
-                <Title onClick={handleClick}>Lorem ipsum</Title>
-                <Artist onClick={handleClick}>Lorem ipsum</Artist>
+                <Title onClick={handleClick}>{songData.title}</Title>
+                <Artist onClick={handleClick}>{songData.artist}</Artist>
             </CenterContent>
 
             <RightContent>
                 <PlayPauseWrapper onClick={togglePlayState}>
-                    {isPlay?<PauseIcon/>:<PlayIcon/>}
+                    {isPlay ? <PauseIcon/> : <PlayIcon/>}
                 </PlayPauseWrapper>
                 <NextIcon/>
             </RightContent>

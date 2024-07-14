@@ -6,21 +6,24 @@ import { useToggle } from "../../../context/ToggleContext";
 
 import { SlArrowDown } from "react-icons/sl";
 
-import SelectButton from "./components/MainSelectButton";
-import AlbumImage from "./components/MainAlbumImage";
-import SidePanelHeader from "./components/SideHeader";
-import NextTrack from "./components/MusicListNextTrack";
+import MainSelectButton from "./components/MainSelectButton";
+import MainAlbumImage from "./components/MainAlbumImage";
+import SideHeader from "./components/SideHeader";
+import MusicListNextTrack from "./components/MusicListNextTrack";
 import PlayerControl from "./components/PlayerControl";
 import PlayerBar from "./components/PlayerBar";
 import Lyrics from "./components/Lyrics";
+import SideBar from "../SideBar/SideBar";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{$isSideBarOpen:boolean}>`
     background-color:${({theme}) => theme.colors.backgroundColor};
     position:fixed;
     top:64px;
-    left:240px;
-    width:calc(100vw - 240px);
     height:calc(100vh - 136px);
+    ${(props) => props.$isSideBarOpen ? 
+        'left:240px;width:calc(100vw - 240px);'
+        :'left:72px;width:calc(100vw - 72px);'
+    } 
     ${({theme}) => theme.medium`
         width:calc(100vw - 72px);
         left:72px;
@@ -72,21 +75,18 @@ const MainPanel = styled.div`
         padding:0;
     `}
 `
-interface ButtonWrapperProps {
-    $isUp:boolean
+interface IsUpProps {
+    $isBottomBarUp:boolean
 }
-const ButtonWrapper = styled.div<ButtonWrapperProps>`
+const ButtonWrapper = styled.div<IsUpProps>`
     ${({theme}) => theme.small`
-        visibility: ${({$isUp}:ButtonWrapperProps) => $isUp ? 'hidden' : 'visible'};
+        visibility: ${({$isBottomBarUp}:IsUpProps) => $isBottomBarUp ? 'hidden' : 'visible'};
     `}
 `
 const SidePanelWrapper = styled.div`
     margin-top: 20px;
 `
-interface SidePanelProps {
-    $isUp:boolean
-}
-const SidePanel = styled.div<SidePanelProps>`
+const SidePanel = styled.div<IsUpProps>`
     display:flex;
     flex-direction:column;
     width:40%;
@@ -98,12 +98,11 @@ const SidePanel = styled.div<SidePanelProps>`
         margin:0;
     `}
     ${({theme}) => theme.small`
-        transform:${(props:SidePanelProps) => (props.$isUp?'translate(0,64px)':'translate(0,calc(100% - 80px))')};
+        transform:${(props:IsUpProps) => (props.$isBottomBarUp?'translate(0,64px)':'translate(0,calc(100% - 80px))')};
+        background-color:${(props:IsUpProps) => (props.$isBottomBarUp ? '#212121': theme.colors.backgroundColor)};
+        transition:transform 0.2s cubic-bezier(.2,0,.6,1);
         border-radius:10px 10px 0 0;
         z-index:10;
-        background-color:${theme.colors.backgroundColor};
-        transition:transform 0.2s cubic-bezier(.2,0,.6,1);
-        background-color:${(props:SidePanelProps) => (props.$isUp ? '#212121': theme.colors.backgroundColor)};
     `}
 `
 const DownArrow = styled(SlArrowDown)`
@@ -119,37 +118,37 @@ const DownArrow = styled(SlArrowDown)`
 `
 
 export default function PlayerPage() {
-    const [isUp,setIsUP] = useState(false);
+    const [isBottomBarUp,setIsBottomBarUp] = useState(false);
     const [selectType,setSelectType] = useState<String>('NextTrack');
     const { toggleComponent,isComponentsOpen } = useToggle();
     const onUp = () => {
-        setIsUP(true);
+        setIsBottomBarUp(true);
     }
     const onDown = () => {
-        setIsUP(false);
+        setIsBottomBarUp(false);
     }
 
     return( 
         <CSSTransition in={isComponentsOpen(PlayerPage)} timeout={500} classNames="playerpage" unmountOnExit>
-            <Wrapper>
+            <Wrapper $isSideBarOpen={isComponentsOpen(SideBar)}>
                 <ContentWrapper>
                     <MainPanel onClick={onDown}>
-                        <ButtonWrapper $isUp={isUp}>
+                        <ButtonWrapper $isBottomBarUp={isBottomBarUp}>
                             <DownArrow onClick={()=> toggleComponent(PlayerPage)}/>
-                            <SelectButton/>
-                            <AlbumImage/>
+                            <MainSelectButton/>
+                            <MainAlbumImage/>
                         </ButtonWrapper>
                     </MainPanel>
 
-                    <PlayerBar isUp={isUp} onClick={onDown}/>
+                    <PlayerBar $isBottomBarUp={isBottomBarUp} onClick={onDown}/>
                     
                     <PlayerControl/>
 
-                    <SidePanel $isUp={isUp}>
+                    <SidePanel $isBottomBarUp={isBottomBarUp}>
                         <SidePanelWrapper onClick={onUp}>
-                            <SidePanelHeader isUp={isUp} selectType={selectType} setSelectType={setSelectType}/>
+                            <SideHeader $isBottomBarUp={isBottomBarUp} selectType={selectType} setSelectType={setSelectType}/>
                         </SidePanelWrapper>
-                        {selectType === 'NextTrack' && <NextTrack/> }
+                        {selectType === 'NextTrack' && <MusicListNextTrack/> }
                         {selectType === 'Lyrics' && <Lyrics/>}
                     </SidePanel>
                 </ContentWrapper>

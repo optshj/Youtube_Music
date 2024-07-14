@@ -67,6 +67,58 @@
                     "playTime":204
                 }
             ]
+        },
+        {
+            "listTitle":"인기 음악",
+            "songs":[
+                {
+                    "title":"Dolphin",
+                    "artist":"오마이걸",
+                    "album":"NONSTOP",
+                    "releaseDate":"2020",
+                    "playTime":165
+                },
+                {
+                    "title":"MORE & MORE",
+                    "artist":"TWICE",
+                    "album":"MORE & MORE",
+                    "releaseDate":"2020",
+                    "playTime":190
+                },
+                {
+                    "title":"사랑하게 될 줄 알았어",
+                    "artist":"전미도",
+                    "album":"슬기로운 의사생활 OST Part 11",
+                    "releaseDate":"2020",
+                    "playTime":204
+                }
+            ]
+        },
+        {
+            "listTitle":"인기 음악",
+            "songs":[
+                {
+                    "title":"Dolphin",
+                    "artist":"오마이걸",
+                    "album":"NONSTOP",
+                    "releaseDate":"2020",
+                    "playTime":165
+                },
+                {
+                    "title":"MORE & MORE",
+                    "artist":"TWICE",
+                    "album":"MORE & MORE",
+                    "releaseDate":"2020",
+                    "playTime":190
+                },
+                {
+                    "title":"사랑하게 될 줄 알았어",
+                    "artist":"전미도",
+                    "album":"슬기로운 의사생활 OST Part 11",
+                    "releaseDate":"2020",
+                    "playTime":204
+                }
+            ]
         }
     ]
 }

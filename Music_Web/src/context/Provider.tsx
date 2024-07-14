@@ -1,21 +1,21 @@
 import SelectPublicProvider from './SelecPublicContext';
-import PlayerProvider from './PlayerbarContext';
+import SongDataProvider from './SongDataConetext';
 import PlayStateProvider from './PlayStateContext';
 import ScrollProvider from './ScrollContext';
 import ToggleProvider from './ToggleContext';
 
 export default function Provider({children}: {children:React.ReactNode}) {
     return(
-      <PlayerProvider>
+      <SongDataProvider>
         <SelectPublicProvider>
           <PlayStateProvider>
             <ScrollProvider>
               <ToggleProvider>
-              {children}
+                {children}
               </ToggleProvider>
             </ScrollProvider>
           </PlayStateProvider>
         </SelectPublicProvider>
-      </PlayerProvider>
+      </SongDataProvider>
     )
 }
