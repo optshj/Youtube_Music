@@ -49,17 +49,18 @@ export default function Playerbar(){
     const { toggleComponent } = useToggle();
     const { songData } = useSongData();
 
-    const handleClick = (event:React.MouseEvent<HTMLDivElement>) => {
-        if (event.target === event.currentTarget) {
-            toggleComponent(PlayerPage);
-        }
+    const handleClick = () => {
+        toggleComponent(PlayerPage);
+    }
+    const handleBlockClick = (event: React.MouseEvent<HTMLDivElement>) => {
+        event.stopPropagation();
     }
 
     return(
         <>
         {songData &&
             <Wrapper onClick={handleClick}>
-                <LeftContent>
+                <LeftContent onClick={handleBlockClick}>
                     <LeftControl/>
                     <TimeInfo playTime={songData.playTime}/>
                 </LeftContent>
@@ -69,7 +70,7 @@ export default function Playerbar(){
                 </CenterContent>
 
                 <RightContent>
-                    <RightControl/>
+                    <RightControl onClick={handleBlockClick}/>
                 </RightContent>
             </Wrapper>
         }

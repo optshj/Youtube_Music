@@ -49,13 +49,14 @@ const PlayerPageButton = styled(IoMdArrowDropdown)<{$isOpen:boolean}>`
     transition:transform 0.3s ease-in-out;
 `
 
-export default function RightControl(){
+interface RightControlProps{
+    onClick:(e:React.MouseEvent<HTMLDivElement>)=>void;
+}
+export default function RightControl({onClick}:RightControlProps){
+
     const [repeatStatus,setRepeatStatus] = useState(1); // 0:한곡반복 1:반복안함 2:재생목록반복
     const { toggleComponent,isComponentsOpen } = useToggle();
 
-    const onToggle = () => {
-        toggleComponent(PlayerPage);
-    }
     const onRepeat = () => {
         if (repeatStatus === 2)
             setRepeatStatus(0);
@@ -66,13 +67,13 @@ export default function RightControl(){
     return(
         <Wrapper>
             <SoundSlide/>
-            <ButtonWrapper>
+            <ButtonWrapper onClick={onClick}>
                 <RepeatWrapper onClick={onRepeat}>
                     {repeatStatus? <RepeatButton $isRepeat={repeatStatus}/>:<RepeatButtonOne/>}
                 </RepeatWrapper>
                 <ShuffleButton/>
             </ButtonWrapper>
-            <PlayerPageButton onClick={onToggle} $isOpen={isComponentsOpen(PlayerPage)}/>
+            <PlayerPageButton onClick={() => toggleComponent(PlayerPage)} $isOpen={isComponentsOpen(PlayerPage)}/>
         </Wrapper>
     )
 }

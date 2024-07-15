@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { IconType } from "react-icons";
 
 import { SelectStatus } from "../../../../context/SelecPublicContext";
 
@@ -7,54 +8,54 @@ import { CiLock } from "react-icons/ci";
 import { GrConnect } from "react-icons/gr";
 
 
-const StateForm = styled.div`
-    position:relative;
-    left:10px;
-    top:4px;
-    width:100%;
-    color:#fff;
-    font-size:14px;
-`
+const Wrapper = styled.div`
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+`;
+
 const IconFont = styled.div`
-    color:#aaa;
-    font-size:24px;
-    padding-left:4px;
-`
+    color: #aaa;
+    font-size: 24px;
+    padding-left: 4px;
+`;
 
-export default function PublicStatus(){
+const StateForm = styled.div`
+    position: relative;
+    left: 10px;
+    top: 4px;
+`;
+
+type StatusConfig = {
+    [key: number]: { icon: IconType; text: string };
+};
+
+const statusConfig: StatusConfig = {
+    0: {
+        icon: IoEarthOutline,
+        text: "공개",
+    },
+    1: {
+        icon: GrConnect,
+        text: "일부공개",
+    },
+    2: {
+        icon: CiLock,
+        text: "비공개",
+    },
+};
+
+export default function PublicStatus() {
     const selectStatus = SelectStatus();
-    
-    switch(selectStatus){
-        case 0 :
-            return(
-                <>
-                    <IconFont>
-                        <IoEarthOutline />
-                    </IconFont>
-                    <StateForm>공개</StateForm>
-                </>
-            )
-        case 1 :
-            return(
-                <>
-                    <IconFont>
-                        <GrConnect/>
-                    </IconFont>
-                    <StateForm>일부공개</StateForm>
-                </>
-            )
-            
-        case 2 :
-            return(
-                <>
-                    <IconFont>
-                        <CiLock/>
-                    </IconFont>
-                        <StateForm>비공개</StateForm>
-                </>
-            )
-        default :
-            return <></>
-    }
+    const { icon: Icon, text } = statusConfig[selectStatus];
 
+    return (
+        <Wrapper>
+            <IconFont>
+                <Icon />
+            </IconFont>
+            <StateForm>{text}</StateForm>
+        </Wrapper>
+    );
 }

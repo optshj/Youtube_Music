@@ -30,16 +30,16 @@ const Button = styled.button<{$isSelect:boolean}>`
 `
 
 export default function MainSelectButton(){
-    const [selectType,setSelectType] = useState<String>('Music');
-    const handleClick = (type:String) => {
+    const [selectType,setSelectType] = useState(0);
+    const handleClick = (type:number) => {
         setSelectType(type);
     }
 
     return(
         <Wrapper>
             <ButtonWrapper>
-                <Button $isSelect={selectType === 'Music'} onClick={() => handleClick('Music')}> 노래 </Button>
-                <Button $isSelect={selectType === 'Video'} onClick={() => handleClick('Video')}> 동영상 </Button>
+                <Button $isSelect={selectType === 0} onClick={() => handleClick(0)}> 노래 </Button>
+                <Button $isSelect={selectType === 1} onClick={() => handleClick(1)}> 동영상 </Button>
             </ButtonWrapper>
         </Wrapper>
     )

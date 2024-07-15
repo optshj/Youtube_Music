@@ -84,8 +84,7 @@ export default function ModalSelectPublic(){
                 <UnderLine/>
                 <UnderLineActive/>
             </UnderLineWrapper>
-            {
-                openDropDown && 
+            {openDropDown && 
                 <div onClick={()=> setOpenDropDown(false)}>
                     <DropDownMenu/>
                 </div>

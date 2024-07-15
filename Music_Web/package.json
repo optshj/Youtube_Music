@@ -54,6 +54,5 @@
     "@types/lodash": "^4.17.0",
     "@types/react-modal": "^3.16.3",
     "@types/react-transition-group": "^4.4.10"
-  },
-  "proxy": "http://localhost:4000"
+  }
 }

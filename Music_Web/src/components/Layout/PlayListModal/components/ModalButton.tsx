@@ -34,14 +34,14 @@ const MakeButton = styled(Button)`
     }
 `
 
-export default function ModalButton({onSubmit}:{onSubmit:()=>void}){
+export default function ModalButton({onSubmit}:{onSubmit:(title:string)=>void}){
     const { closeComponent } = useToggle();
     const close = () => closeComponent(PlayLisModal);
 
     return(
         <Wrapper>
             <CancelButton onClick={close}>취소</CancelButton>
-            <MakeButton onClick={onSubmit}>만들기</MakeButton>
+            <MakeButton onClick={() => onSubmit}>만들기</MakeButton>
         </Wrapper>
     )   
 }

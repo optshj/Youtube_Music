@@ -55,7 +55,6 @@ interface ContentProps {
     listTitle: string;
     songs: SongType[];
 }
-
 export default function Content({musicListData}:{musicListData:ContentProps}) {
     const componentRef = useRef<HTMLUListElement>(null);
 
