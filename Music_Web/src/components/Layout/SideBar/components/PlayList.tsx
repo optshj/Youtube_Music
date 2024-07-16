@@ -29,7 +29,7 @@ const ListOwner = styled.div`
 `
 const PlayIcon = styled(IoPlayCircleSharp)`
     color:#fff;
-    font-size:24px;
+    font-size:32px;
     visibility: hidden;
     ${Wrapper}:hover &{
         visibility: visible;

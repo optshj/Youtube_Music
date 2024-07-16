@@ -1,48 +1,17 @@
 import { useState,useEffect,useRef } from 'react';
-import Modal from 'react-modal';
-import styled,{keyframes} from 'styled-components';
+import styled from 'styled-components';
 import axios from 'axios';
 
 import { useToggle } from '../../../context/ToggleContext';
+import { usePlayList } from '../../../context/PlayListContext';
 
-import ModalSelectPublic from './components/ModalSelectButton';
+import ModalSelectButton from './components/ModalSelectButton';
 import ModalButton from './components/ModalButton';
+import Modal from '../../Modal/Modal';
 
-
-const ModalStyles:ReactModal.Styles = {
-    overlay: {
-        width: "100%",
-        height: "100%",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        zIndex: 4,
-        backgroundColor:"rgba(0, 0, 0, 0.8)",
-    },
-    content: {
-        position: "fixed",
-        top:"50%",
-        left:"50%",
-        height:"400px",
-        border: "1px solid rgba(255,255,255,0.1)",
-        backgroundColor: "#212121",
-        borderRadius: 3,
-        zIndex: 3,
-        overflow:'visible',
-        transform:"translate(-50%,-50%)",
-    }
-};
-const FadeIn = keyframes`
-    0% {
-        opacity:0;
-    }
-    100% {
-        opacity:1;
-    }
-`
-const ResponsiveModal = styled(Modal)`
-    animation: ${FadeIn} .15s linear;
+const ModalWrapper = styled.div`
     width:640px;
+    height:400px;
     ${({theme}) => theme.large`
         width:560px;
     `}
@@ -63,17 +32,13 @@ const Title = styled.h2`
 const UnderLineActive = styled.div`
     position:absolute;
     border-bottom:2px solid #3ea6ff;
-    padding:0;
     width:100%;
     transform:scaleX(0);
-    height:1px;
     transition:all 0.25s ease-in-out;
 `
 const UnderLine = styled.div`
     position:absolute;
     border-bottom:1px solid #606060;
-    padding:0;
-    height:1px;
     width:100%;
 `
 const UnderLineWrapper = styled.div`
@@ -124,6 +89,7 @@ export default function PlayLisModal(){
     const [title,setTitle] = useState<string>('');
     const [explain,setExplain] = useState<string>('');
     
+    const { fetchPlayList } = usePlayList();
     const { closeComponent,isComponentsOpen } = useToggle();
     const isModalOpen = isComponentsOpen(PlayLisModal);
 
@@ -133,15 +99,20 @@ export default function PlayLisModal(){
         }
     },[isModalOpen])
 
-    const submitPlayList = (title:string) => {
+    const submitPlayList = () => {
         axios.post("http://localhost:4000/api/playlists",
         {
             title: title,
+            explain: explain,
             owner: "test",
-            url: "test"
+            url: "test",
         }).catch(e => {
             console.error(e)
         })
+        fetchPlayList();
+        closeComponent(PlayLisModal);
+        setTitle('');
+        setExplain('');
     }
 
     const onChangeTitle = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -152,32 +123,33 @@ export default function PlayLisModal(){
     }
 
     return(
-        <ResponsiveModal isOpen={isModalOpen} onRequestClose={() => closeComponent(PlayLisModal)} style={ModalStyles}>
-            <Title>새 재생목록</Title>
+        <Modal isOpen={isModalOpen}>
+            <ModalWrapper>
+                <Title>새 재생목록</Title>
 
-            <Wrapper>
-                <TilteForm>
-                    <Label htmlFor="input-title" $isWrite={!!title}>제목</Label>
-                    <Input type='text' id="input-title" value={title} onChange={onChangeTitle} ref={inputRef}/>
-                    <UnderLineWrapper> 
-                        <UnderLine/>
-                        <UnderLineActive/>
-                    </UnderLineWrapper>
-                </TilteForm>
-
-                <ExplainForm>
-                    <Label htmlFor="input-explain" $isWrite={!!explain}>설명</Label>
-                    <Input type='text' id="input-explain" value={explain} onChange={onChangeExplain}/>
-                    <UnderLineWrapper>
-                        <UnderLine/>
-                        <UnderLineActive/>
-                    </UnderLineWrapper>
-                </ExplainForm>
-
-                <ModalSelectPublic/>
-            </Wrapper>
-            
-            <ModalButton onSubmit={() => submitPlayList(title)}/>
-        </ResponsiveModal>
+                <Wrapper>
+                    <TilteForm>
+                        <Label htmlFor="input-title" $isWrite={!!title}>제목</Label>
+                        <Input type='text' id="input-title" value={title} onChange={onChangeTitle} ref={inputRef}/>
+                        <UnderLineWrapper> 
+                            <UnderLine/>
+                            <UnderLineActive/>
+                        </UnderLineWrapper>
+                    </TilteForm>
+                    
+                    <ExplainForm>
+                        <Label htmlFor="input-explain" $isWrite={!!explain}>설명</Label>
+                        <Input type='text' id="input-explain" value={explain} onChange={onChangeExplain}/>
+                        <UnderLineWrapper>
+                            <UnderLine/>
+                            <UnderLineActive/>
+                        </UnderLineWrapper>
+                    </ExplainForm>
+                    <ModalSelectButton/>
+                </Wrapper>
+                
+                <ModalButton onSubmit={submitPlayList}/>
+            </ModalWrapper>
+        </Modal>
     )
 }

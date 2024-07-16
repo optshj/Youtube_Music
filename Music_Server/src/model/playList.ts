@@ -17,6 +17,9 @@ const PlayListSchema = new Schema({
     url:{
         type: String,
         required:true
+    },
+    expain:{
+        type:String
     }
 });
 

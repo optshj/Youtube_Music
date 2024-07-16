@@ -1,6 +1,6 @@
-import {useState,useEffect} from "react";
 import styled from "styled-components";
-import axios from "axios";
+
+import { usePlayList } from "../../../../context/PlayListContext";
 
 import LargeMakeList from "./LargeMakeList";
 import PlayList from "./PlayList";
@@ -12,28 +12,8 @@ const Wrapper = styled.div`
 const ListWrapper = styled.div`
     padding:0 4px;
 `
-
-interface playList{
-    _id:string,
-    title:string,
-    owner:string,
-    url:string
-}
 export default function LargePlayListMenu(){
-    const [playList, setPlayList] = useState<playList[]>([])
-
-    useEffect(()=>{
-        const fetchPlayList = async () => {
-            axios.get("http://localhost:4000/api/playlists")
-            .then((res)=>{
-                setPlayList(res.data)
-            })
-            .catch((e)=>{
-                console.error(e)
-            })
-        }
-        fetchPlayList();
-    },[])
+    const { playList } = usePlayList();
 
     return(
         <Wrapper>

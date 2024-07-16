@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 import { IoChevronDownSharp } from "react-icons/io5";
@@ -9,17 +9,13 @@ import PublicStatus from "./PublicStatus";
 const UnderLine = styled.div`
     position:absolute;
     border-bottom:1px solid #606060;
-    padding:0;
-    height:1px;
     width:100%;
 `
 const UnderLineActive = styled.div`
     position:absolute;
     border-bottom:2px solid #3ea6ff;
-    padding:0;
     width:100%;
     transform:scaleX(0);
-    height:1px;
     transition:all 0.25s ease-in-out;
 `
 const UnderLineWrapper = styled.div`
@@ -48,13 +44,12 @@ const DropDownBox = styled.div`
         }
     }
 `
-const ArrowFont = styled.div`
+const ArrowFont = styled(IoChevronDownSharp)`
     color:#919191;
-    position:relative;
     top:6px;
 `
 
-export default function ModalSelectPublic(){
+export default function ModalSelectButton(){
     const [openDropDown,setOpenDropDown] = useState(false);
     const componentRef = useRef<HTMLDivElement>(null);
 
@@ -75,19 +70,16 @@ export default function ModalSelectPublic(){
             <Text>공개 범위 설정</Text>
             <DropDownBox onClick={() => setOpenDropDown(true)}>
                 <PublicStatus/>
-                <ArrowFont>
-                    <IoChevronDownSharp />
-                </ArrowFont>
+                <ArrowFont/>
             </DropDownBox>
             
             <UnderLineWrapper>
                 <UnderLine/>
                 <UnderLineActive/>
             </UnderLineWrapper>
+
             {openDropDown && 
-                <div onClick={()=> setOpenDropDown(false)}>
-                    <DropDownMenu/>
-                </div>
+                <DropDownMenu onClose={()=> setOpenDropDown(false)}/>
             }
         </Wrapper>
     )

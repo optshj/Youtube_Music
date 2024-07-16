@@ -10,7 +10,7 @@ import { GrConnect } from "react-icons/gr";
 
 const Wrapper = styled.div`
     display: flex;
-    align-items: center;
+    width:100%;
     color: #fff;
     font-size: 14px;
 `;

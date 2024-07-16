@@ -5,7 +5,7 @@ import { MdPlayArrow } from "react-icons/md";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
 import { useSongData } from "../../../context/SongDataConetext";
-import { SongType } from "../../../types/songType";
+import { SongType } from "../../../types/APItypes";
 import { useToggle } from "../../../context/ToggleContext";
 import PlayerBar from "../../Layout/PlayerBar/PlayerBar";
 

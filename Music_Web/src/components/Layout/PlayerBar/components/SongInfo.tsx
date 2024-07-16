@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import CenterButton from "./CenterButton";
-import { SongType } from "../../../../types/songType";
+import { SongType } from "../../../../types/APItypes";
 
 const ContentInfoWrapper = styled.div`
     display:flex;

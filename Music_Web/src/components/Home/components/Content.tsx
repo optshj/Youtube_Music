@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ContentButton from "./ContentButton";
 import Item from "./Item";
 
-import { SongType } from "../../../types/songType";
+import { SongType } from "../../../types/APItypes";
 
 const Wrapper = styled.div`
     margin-bottom:24px;

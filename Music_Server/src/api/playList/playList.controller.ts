@@ -5,7 +5,8 @@ interface PlayListRequestBody {
     title: string;
     owner: string;
     descript: string;
-    url:string
+    url:string;
+    explain:string;
 }
 
 export const create = async (ctx: Context): Promise<void> => {
@@ -13,14 +14,16 @@ export const create = async (ctx: Context): Promise<void> => {
         title,
         owner,
         descript,
-        url
+        url,
+        explain
     } = ctx.request.body as PlayListRequestBody;
 
     const playList = new PlayListSchema({
         title,
         owner,
         descript,
-        url
+        url,
+        explain
     });
 
     try {

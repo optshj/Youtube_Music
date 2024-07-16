@@ -1,5 +1,5 @@
 import React, { useState,createContext,useContext,useMemo} from "react";
-import { SongType } from "../types/songType";
+import { SongType } from "../types/APItypes";
 
 const SongDataValueContext = createContext<any>(null);
 const SongDataActionContext = createContext<any>(null);
