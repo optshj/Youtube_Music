@@ -20,7 +20,7 @@ const Wrapper = styled.div<{$isSideBarOpen:boolean}>`
     position:fixed;
     top:64px;
     height:calc(100vh - 136px);
-    ${(props) => props.$isSideBarOpen ? 
+    ${props => props.$isSideBarOpen ? 
         'left:240px;width:calc(100vw - 240px);'
         :'left:72px;width:calc(100vw - 72px);'
     } 
@@ -75,18 +75,15 @@ const MainPanel = styled.div`
         padding:0;
     `}
 `
-interface IsUpProps {
-    $isBottomBarUp:boolean
-}
-const ButtonWrapper = styled.div<IsUpProps>`
-    ${({theme}) => theme.small`
-        visibility: ${({$isBottomBarUp}:IsUpProps) => $isBottomBarUp ? 'hidden' : 'visible'};
+const ButtonWrapper = styled.div<{$isBottomBarUp:boolean}>`
+    ${({theme,$isBottomBarUp}) => theme.small`
+        visibility: ${$isBottomBarUp ? 'hidden' : 'visible'};
     `}
 `
 const SidePanelWrapper = styled.div`
     margin-top: 20px;
 `
-const SidePanel = styled.div<IsUpProps>`
+const SidePanel = styled.div<{$isBottomBarUp:boolean}>`
     display:flex;
     flex-direction:column;
     width:40%;
@@ -97,9 +94,9 @@ const SidePanel = styled.div<IsUpProps>`
         width:100%;
         margin:0;
     `}
-    ${({theme}) => theme.small`
-        transform:${(props:IsUpProps) => (props.$isBottomBarUp?'translate(0,64px)':'translate(0,calc(100% - 80px))')};
-        background-color:${(props:IsUpProps) => (props.$isBottomBarUp ? '#212121': theme.colors.backgroundColor)};
+    ${({theme,$isBottomBarUp}) => theme.small`
+        transform: ${$isBottomBarUp ?'translate(0,64px)' : 'translate(0,calc(100% - 80px))'};
+        background-color: ${$isBottomBarUp ? '#212121' : theme.colors.backgroundColor};
         transition:transform 0.2s cubic-bezier(.2,0,.6,1);
         border-radius:10px 10px 0 0;
         z-index:10;
@@ -127,7 +124,6 @@ export default function PlayerPage() {
     const onDown = () => {
         setIsBottomBarUp(false);
     }
-
     return( 
         <CSSTransition in={isComponentsOpen(PlayerPage)} timeout={500} classNames="playerpage" unmountOnExit>
             <Wrapper $isSideBarOpen={isComponentsOpen(SideBar)}>

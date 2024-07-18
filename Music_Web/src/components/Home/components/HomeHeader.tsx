@@ -24,15 +24,9 @@ const Wrapper = styled.div`
     overflow-x: auto;
     white-space:nowrap;
     max-width:${({theme}) => theme.widths.xlarge};
-    ${({theme}) => theme.large`
-        max-width:${theme.widths.large}
-    `}
-    ${({theme}) => theme.medium`
-        max-width:${theme.widths.medium}
-    `}
-    ${({theme}) => theme.small`
-        max-width:${theme.widths.small}
-    `}
+    ${({theme}) => theme.large` max-width:${theme.widths.large}`}
+    ${({theme}) => theme.medium` max-width:${theme.widths.medium}`}
+    ${({theme}) => theme.small` max-width:${theme.widths.small}`}
     &:hover{
         &::-webkit-scrollbar-thumb{
             background-color:#606060;

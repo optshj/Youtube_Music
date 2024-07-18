@@ -14,7 +14,7 @@ const SlideBackground = styled.div`
 `
 const SlideInner = styled.div<{$length:number}>`
     position:absolute;
-    width:${(props) => (props.$length/100*70)}px;
+    width:${props => props.$length/100*70}px;
     height:3px;
     background-color:#fff;
 `

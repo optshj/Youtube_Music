@@ -10,14 +10,13 @@ import UserIcon from './components/UserIcon';
 import PlayerPage from '../PlayerPage/PlayerPage';
 import SideBar from '../SideBar/SideBar';
 
-
 const Wrapper = styled.div<{$isBorder:boolean}>`
 	position:fixed;
 	display: flex;
 	width: 100%;
 	z-index:3;
-	background-color: ${(props)=> (props.$isBorder ?'#030303':'')};
-	border-bottom:${(props)=> (props.$isBorder?'1px solid rgba(255,255,255,.15)':'')};
+	background-color: ${props => props.$isBorder ?'#030303':''};
+	border-bottom:${props => props.$isBorder?'1px solid rgba(255,255,255,.15)':''};
 	transition: all 0.2s linear;
 `
 const LeftContent = styled.div`
@@ -31,7 +30,7 @@ const CenterContent = styled.div<{$isSideBarOpen:boolean}>`
 	display:flex;
 	align-items:center;
 	width:100%;
-	padding-left:${(props) => (props.$isSideBarOpen?'100px':'20px')};
+	padding-left:${(props) => props.$isSideBarOpen?'100px':'20px'};
 	${({theme}) => theme.large`
 		padding-left:56px;
 	`}

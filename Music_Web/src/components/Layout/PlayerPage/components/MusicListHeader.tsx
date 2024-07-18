@@ -51,7 +51,7 @@ export default function MusicListHeader(){
                 <SubTitle>My PlayList</SubTitle>
             </ExplainWrapper>
             <StoreButton>
-                <ButtonIcon></ButtonIcon>
+                <ButtonIcon/>
                 <ButtonFont>저장</ButtonFont>
             </StoreButton>
         </Wrapper>

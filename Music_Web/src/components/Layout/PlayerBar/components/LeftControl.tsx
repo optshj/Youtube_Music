@@ -8,34 +8,13 @@ const Wrapper = styled.div`
     display:flex;
     align-items:center;
 `
-const PlayButton = styled(IoMdPlay)`
-    color:#fff;
-    width:36px;
-    height:36px;
-    padding:8px;
-    cursor:pointer;
-    margin:0 0 0 12px;
-`
-const PauseButton = styled(IoMdPause)`
-    color:#fff;
-    width:36px;
-    height:36px;
-    padding:8px;
-    cursor:pointer;
-    margin:0 0 0 12px;
-`
-const NextButton = styled(IoMdSkipForward)`
-    color:#fff;
-    padding:8px;
-    cursor:pointer;
-    margin:0 0 0 12px;
-`
-const PrevButton = styled(IoMdSkipBackward)`
-    color:#fff;
-    padding:8px;
-    cursor:pointer;
-    margin:0 0 0 12px;
-`
+const IconButton = styled.div<{$isBig?: boolean}>`
+    color: #fff;
+    padding: 8px;
+    cursor: pointer;
+    margin: 0 0 0 12px;
+    ${props => props.$isBig ? 'width: 36px; height: 36px;' : ''}
+`;
 
 export default function LeftControl(){
     const isPlay = IsPlayState();
@@ -43,11 +22,13 @@ export default function LeftControl(){
 
     return(
         <Wrapper>
-            <PrevButton/>
+            <IconButton as={IoMdSkipBackward}/>
             <div onClick={togglePlayState}>
-                {isPlay?<PauseButton/>:<PlayButton/>}
+                {isPlay ? 
+                    <IconButton as={IoMdPause} $isBig={true}/>
+                    :<IconButton as={IoMdPlay} $isBig={true}/>}
             </div>
-            <NextButton/>
+            <IconButton as={IoMdSkipForward}/>
         </Wrapper>
     )
 }

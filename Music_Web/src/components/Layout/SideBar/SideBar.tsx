@@ -16,13 +16,23 @@ const Wrapper = styled.div`
 export default function SideBar(){
     const { fetchPlayList } = usePlayList();
     const { openComponent, closeComponent } = useToggle();
-    useEffect(() => {
-        fetchPlayList();
-        if (window.innerWidth > 936) {
+    
+    const handleResize = () => {
+        if (window.innerWidth > 937) {
             openComponent(SideBar);
         } else {
             closeComponent(SideBar);
         }
+    };
+
+    useEffect(() => {
+        fetchPlayList();
+        
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     },[]);
     
     return(

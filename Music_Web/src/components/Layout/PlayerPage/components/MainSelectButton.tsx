@@ -19,14 +19,14 @@ const ButtonWrapper = styled.div`
 const Button = styled.button<{$isSelect:boolean}>`
     padding:0 16px;
     font-size:14px;
-    color:${(props) => (props.$isSelect ? '#fff':'rgba(255,255,255,.3)')};
-    z-index:${(props) => (props.$isSelect ? '1':'0')};
-    background-color:${(props) => (props.$isSelect ? '#383838': '#212121')};
+    color:${props => props.$isSelect ? '#fff':'rgba(255,255,255,.3)'};
+    z-index:${props => props.$isSelect ? '1':'0'};
+    background-color:${props => props.$isSelect ? '#383838': '#212121'};
     border-radius:25% / 50%;
     line-height:1.3;
     border:transparent;
-    cursor:pointer;
     white-space:nowrap;
+    cursor:pointer;
 `
 
 export default function MainSelectButton(){

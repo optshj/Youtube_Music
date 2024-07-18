@@ -14,10 +14,10 @@ const Wrapper = styled.div<FocusedProps>`
 	border-radius:8px;
 	background-color: ${props => props.$isFocused ? 'transparent':'#292929'};
 	border:1px solid #4a5056;
-	${({theme}) => theme.medium`
+	${({theme,$isFocused}) => theme.medium`
 		background-color:transparent;
 		justify-content:flex-end;
-		border:${(props:FocusedProps) => (props.$isFocused?'':'none')};
+		border:${$isFocused ?'':'none'};
 	`}
 `
 const SearchBar = styled.input<FocusedProps>`
@@ -33,8 +33,8 @@ const SearchBar = styled.input<FocusedProps>`
 	&::placeholder{
 		color:#9a9e9b;
 	}
-	${({theme}) => theme.medium`
-		display:${(props:FocusedProps) => (props.$isFocused?'inline-block':'none')};
+	${({theme,$isFocused}) => theme.medium`
+		display:${$isFocused?'inline-block':'none'};
 	`}
 `
 const Icon = styled(GoSearch)<FocusedProps>`

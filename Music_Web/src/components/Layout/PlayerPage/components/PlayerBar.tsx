@@ -5,18 +5,14 @@ import { IoPlaySharp,IoPlaySkipForwardSharp,IoPauseSharp} from "react-icons/io5"
 import { IsPlayState,usePlayState } from '../../../../context/PlayStateContext';
 import { useSongData } from '../../../../context/SongDataConetext';
 
-interface WrapperProps {
-    $isBottomBarUp:boolean;
-}
-const Wrapper = styled.div<WrapperProps>`
-    display: flex;
-    flex-direction: row;
-    position:absolute;
-    width:100%;
-    visibility: hidden;
-    padding-top:8px;
-    ${({theme}) => theme.small`
-        visibility: ${({$isBottomBarUp}:WrapperProps) => $isBottomBarUp ? 'visible' : 'hidden'};
+const Wrapper = styled.div<{$isBottomBarUp:boolean;}>`
+    display:none;
+    ${({theme, $isBottomBarUp}) => theme.small`
+        display: ${$isBottomBarUp ? 'flex' : 'none'};
+        flex-direction: row;
+        position:absolute;
+        width:100%;
+        padding-top:8px;
     `}
 `
 const LeftContent = styled.div`
@@ -52,11 +48,6 @@ const PlayPauseWrapper = styled.div`
     color: #fff;
     align-items: center;
     margin: 0 16px;
-`
-const PlayIcon = styled(IoPlaySharp)`
-    cursor: pointer;
-`
-const PauseIcon = styled(IoPauseSharp)`
     cursor: pointer;
 `
 const NextIcon = styled(IoPlaySkipForwardSharp)`
@@ -71,7 +62,7 @@ interface PlayerBarProps {
 }
 export default function PlayerBar({$isBottomBarUp,onClick}:PlayerBarProps) {
     const isPlay = IsPlayState();
-    const {togglePlayState} = usePlayState();
+    const { togglePlayState } = usePlayState();
     const { songData } = useSongData();
     const handleClick = (event:React.MouseEvent<HTMLDivElement>) => {
         if (event.target === event.currentTarget) {
@@ -92,7 +83,7 @@ export default function PlayerBar({$isBottomBarUp,onClick}:PlayerBarProps) {
 
             <RightContent>
                 <PlayPauseWrapper onClick={togglePlayState}>
-                    {isPlay ? <PauseIcon/> : <PlayIcon/>}
+                    {isPlay ? <IoPlaySharp/> : <IoPauseSharp/>}
                 </PlayPauseWrapper>
                 <NextIcon/>
             </RightContent>

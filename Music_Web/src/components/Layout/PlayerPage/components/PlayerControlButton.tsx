@@ -12,6 +12,16 @@ const Wrapper = styled.div`
     display:flex;
     justify-content:space-between;
 `
+const IconButton = styled.div<{ active?: boolean }>`
+    width: 24px;
+    height: 24px;
+    color: ${({ active }) => (active ? "#fff" : "#7a7a7a")};
+    cursor: pointer;
+
+    &:active {
+        color: #fff;
+    }
+`;
 const ShuffleButton = styled(PiShuffleThin)`
     width:24px;
     height:24px;
@@ -59,7 +69,7 @@ const RepeatWrapper = styled.div`
 const RepeatButton = styled(PiRepeatThin)<{$isRepeat:number}>`
     width:24px;
     height:24px;
-    color: ${(props) => (props.$isRepeat===1 ? '#7a7a7a':'#fff')};
+    color: ${props => props.$isRepeat===1 ? '#7a7a7a':'#fff'};
     cursor: pointer;
 `
 const RepeatButtonOne = styled(PiRepeatOnceThin)`
@@ -72,30 +82,26 @@ const RepeatButtonOne = styled(PiRepeatOnceThin)`
 export default function PlayerControlButton(){
     const [repeatStatus,setRepeatStatus] = useState(1);
     const isPlay = IsPlayState();
-    const {togglePlayState} = usePlayState();
+    const { togglePlayState } = usePlayState();
 
     const onRepeat = () => {
-        if (repeatStatus === 2) {
-            setRepeatStatus(0);
-        }
-        else {
-            setRepeatStatus(repeatStatus+1);
-        }
+        setRepeatStatus((prev) => (prev === 2 ? 0 : prev + 1));
     }
 
     return(
         <Wrapper>
-            <ShuffleButton/>
-            <PrevButton/>
+            <IconButton as={PiShuffleThin} />
+            <IconButton as={IoMdSkipBackward} />
 
             <PlayPauseWrapper onClick={togglePlayState}>
                 {isPlay ? <PauseButton/>:<PlayButton/>}
             </PlayPauseWrapper>
 
-            <NextButton/>
-            <RepeatWrapper onClick={onRepeat}>
+            <IconButton as={IoMdSkipForward} />
+
+            <IconButton onClick={onRepeat}>
                 {repeatStatus? <RepeatButton $isRepeat={repeatStatus}/> : <RepeatButtonOne/>}
-            </RepeatWrapper>
+            </IconButton>
         </Wrapper>
     )
 }

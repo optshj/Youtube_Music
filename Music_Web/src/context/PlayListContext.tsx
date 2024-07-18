@@ -8,6 +8,7 @@ const PlayListActionContext = createContext<() => void>(() => {});
 
 export default function PlayListProvider({children}:{children:React.ReactNode}){
     const [playList, setPlayList] = useState<playListType[]>([])
+    
     const fetchPlayList = async () => {
         try {
             const response = await customAxios.get("/api/playlists");

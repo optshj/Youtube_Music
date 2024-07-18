@@ -1,4 +1,4 @@
-import { useRef} from "react"
+import { useRef } from "react"
 import styled from "styled-components";
 
 import useRipple from "../../../../hooks/useRipple"
@@ -19,10 +19,24 @@ const HeaderContentWrapper = styled.div<HeaderContentWrapperProps>`
     flex:1 1 auto;
     white-space: nowrap;
     overflow:hidden;
-    border-bottom:${(props) => (props.$isSelect ? '1px solid #fff':'none')};
-    ${({theme}) => theme.small`
-        border:${(props:HeaderContentWrapperProps) => (props.$isBottomBarUp ? '':'none')};
+    border-bottom:${props => props.$isSelect ? '1px solid #fff':'none'};
+    ${({theme,$isBottomBarUp}) => theme.small`
+        border:${$isBottomBarUp ? '':'none'};
     `}
+`
+const Wrapper = styled.div<{$isBottomBarUp:boolean}>`
+    display:flex;
+    height:48px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    font-size:14px;
+    ${({theme,$isBottomBarUp}) => theme.small`
+        border:${$isBottomBarUp ? '':'none'};
+    `}
+`
+const Contents = styled.div`
+    display:flex;
+    height:100%;
+    flex:1 1 auto;
 `
 
 interface HeaderContentProps {
@@ -31,7 +45,7 @@ interface HeaderContentProps {
     onClick:()=>void;
     title:string;
 }
-function HeaderContent({$isSelect,$isBottomBarUp,onClick,title}:HeaderContentProps){
+const HeaderContent = ({$isSelect,$isBottomBarUp,onClick,title}:HeaderContentProps) => {
     const contentRef = useRef<HTMLDivElement>(null);
     const ripples = useRipple(contentRef);
 
@@ -42,24 +56,6 @@ function HeaderContent({$isSelect,$isBottomBarUp,onClick,title}:HeaderContentPro
         </HeaderContentWrapper>
     )
 }
-
-interface WrapperProps {
-    $isBottomBarUp:boolean;
-}
-const Wrapper = styled.div<WrapperProps>`
-    display:flex;
-    height:48px;
-    border-bottom:1px solid rgba(255,255,255,0.1);
-    font-size:14px;
-    ${({theme}) => theme.small`
-        border:${(props:WrapperProps) => (props.$isBottomBarUp ? '':'none')};
-    `}
-`
-const TabContainer = styled.div`
-    display:flex;
-    height:100%;
-    flex:1 1 auto;
-`
 
 interface SideHeaderProps {
     $isBottomBarUp:boolean;
@@ -73,11 +69,11 @@ export default function SideHeader({ $isBottomBarUp,selectType,setSelectType }:S
     
     return(
         <Wrapper $isBottomBarUp={$isBottomBarUp}>
-            <TabContainer>
+            <Contents>
                 <HeaderContent $isSelect={selectType === 'NextTrack'} $isBottomBarUp={$isBottomBarUp} onClick={() => handleClick('NextTrack')} title={'다음 트랙'}></HeaderContent>
                 <HeaderContent $isSelect={selectType ==='Lyrics'} $isBottomBarUp={$isBottomBarUp} onClick={() => handleClick("Lyrics")} title={'가사'}></HeaderContent>
                 <HeaderContent $isSelect={selectType === 'Related'} $isBottomBarUp={$isBottomBarUp} onClick={() => handleClick("Related")} title={'관련 항목'}></HeaderContent>
-            </TabContainer>
+            </Contents>
         </Wrapper>
     )
 }

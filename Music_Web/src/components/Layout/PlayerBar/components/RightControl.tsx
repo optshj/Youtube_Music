@@ -35,7 +35,7 @@ const RepeatButtonOne = styled(PiRepeatOnceThin)`
     padding:8px;
 `
 const RepeatButton = styled(PiRepeatThin)<{$isRepeat:number}>`
-    color: ${(props) => (props.$isRepeat===1 ? '#7a7a7a':'#fff')};
+    color: ${props => props.$isRepeat===1 ? '#7a7a7a':'#fff'};
     font-size:28px;
     margin-right:8px;
     padding:8px;
@@ -45,7 +45,7 @@ const PlayerPageButton = styled(IoMdArrowDropdown)<{$isOpen:boolean}>`
     cursor:pointer;
     padding:8px;
     font-size:32px;
-    transform: ${(props) => (props.$isOpen ? 'rotate(0deg)':'rotate(180deg)')};
+    transform: ${props => props.$isOpen ? 'rotate(0deg)':'rotate(180deg)'};
     transition:transform 0.3s ease-in-out;
 `
 

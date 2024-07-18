@@ -12,7 +12,6 @@ const Wrapper = styled.div`
     ${({theme}) => theme.small`
         display:inline-block;
     `}
-
 `
 const ExplainWrapper = styled.div`
     margin-bottom:15px;
@@ -44,7 +43,7 @@ const SlidebarWrapper = styled.div`
 `
 const SlideInner = styled.div<{$length:number}>`
     position:absolute;
-    width:${(props) => (props.$length)}%;
+    width:${props => props.$length}%;
     height:3px;
     background-color:#fff;
 `
@@ -100,6 +99,7 @@ export default function PlayerControl(){
             <ExplainWrapper>
                 <Title>{songData.title}</Title>
                 <Artist>{songData.artist}</Artist>
+
                 <ProgressbarWrapper>
                     <SlidebarWrapper>
                         <SlideInner $length={playTimeRatio}/>
@@ -110,6 +110,7 @@ export default function PlayerControl(){
                         <TotalTime>{`${totalMinute}:${totalSecond}`}</TotalTime>
                     </TimeWrapper>
                 </ProgressbarWrapper>
+                
             </ExplainWrapper>
             <ControlButton/>
         </Wrapper>

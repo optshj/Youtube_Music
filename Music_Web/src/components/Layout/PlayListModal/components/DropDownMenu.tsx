@@ -18,9 +18,9 @@ const DropDownItemWrapper = styled.li<{$isSelect:boolean}>`
     display:flex;
     align-items:center;
     cursor:pointer;
-    background-color:${(props) => (props.$isSelect ? '#484848':'')};
+    background-color:${props => props.$isSelect ? '#484848':''};
     &:hover{
-        background-color: ${(props) => (props.$isSelect ? '#484848' : '#212121')};
+        background-color: ${props => props.$isSelect ? '#484848' : '#212121'};
     }
 `
 const Icon = styled.div`
@@ -41,6 +41,7 @@ const Desrcipt = styled.div`
     color:rgba(255,255,255,0.7);
     font-size:14px;
 `
+
 interface DropDownItemProps{
     onClick:()=>void;
     label:string;

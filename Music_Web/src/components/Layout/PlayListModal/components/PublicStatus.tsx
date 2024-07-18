@@ -13,24 +13,23 @@ const Wrapper = styled.div`
     width:100%;
     color: #fff;
     font-size: 14px;
-`;
+`
 
 const IconFont = styled.div`
     color: #aaa;
     font-size: 24px;
     padding-left: 4px;
-`;
+`
 
 const StateForm = styled.div`
     position: relative;
     left: 10px;
     top: 4px;
-`;
+`
 
 type StatusConfig = {
     [key: number]: { icon: IconType; text: string };
 };
-
 const statusConfig: StatusConfig = {
     0: {
         icon: IoEarthOutline,
