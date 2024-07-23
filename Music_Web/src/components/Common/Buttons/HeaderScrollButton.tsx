@@ -18,7 +18,7 @@ const ArrowIconForm = styled.div<{$isScroll:boolean}>`
     color: #fff;
     cursor: ${props => props.$isScroll ? 'default' : 'pointer'};
     &:hover {
-        background-color:${props => props.$isScroll?'#030303':'rgba(255,255,255,.1)'}
+        background-color:${props => props.$isScroll ? '#030303':'rgba(255,255,255,.1)'}
     }
 `
 const IconStyle = styled.div<{ $isDisabled: boolean }>`
@@ -27,10 +27,10 @@ const IconStyle = styled.div<{ $isDisabled: boolean }>`
     transition: color 0.2s linear;
 `;
 
-interface HeaderButtonProps{
-    scrollRef:HTMLUListElement | null;
+interface HeaderScrollButtonProps{
+    scrollRef:HTMLElement | null;
 }
-export default function ContentButton({scrollRef}:HeaderButtonProps){
+export default function HeaderScrollButton({scrollRef}:HeaderScrollButtonProps){
     const [hasScrollbar,setHasScollbar] = useState(false);
     const [isScrollLeft,setIsScrollLeft] = useState(false);
     const [isScrollRight,setIsScrollRight] = useState(false);
@@ -82,11 +82,11 @@ export default function ContentButton({scrollRef}:HeaderButtonProps){
     return(
         <Wrapper $hasScrollbar={hasScrollbar}>
             <ArrowIconForm  onClick={scrollToLeft} $isScroll={isScrollLeft}>
-                <IconStyle as={MdOutlineArrowBackIos} $isDisabled={isScrollLeft} />
+                <IconStyle as={MdOutlineArrowBackIos} $isDisabled={isScrollLeft}/>
             </ArrowIconForm>
 
             <ArrowIconForm onClick={scrollToRight} $isScroll={isScrollRight}>
-                <IconStyle as={MdOutlineArrowForwardIos} $isDisabled={isScrollRight} />
+                <IconStyle as={MdOutlineArrowForwardIos} $isDisabled={isScrollRight}/>
             </ArrowIconForm>
         </Wrapper>
     )

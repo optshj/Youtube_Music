@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import styled from "styled-components";
 
-import ContentButton from "./ContentButton";
 import Item from "./Item";
 
 import { SongType } from "../../../types/APItypes";
+import HeaderScrollButton from "../../Common/Buttons/HeaderScrollButton";
 
 const Wrapper = styled.div`
     margin-bottom:24px;
@@ -62,7 +62,7 @@ export default function Content({musicListData}:{musicListData:ContentProps}) {
         <Wrapper>
             <HeaderWrapper>
                 <HeaderTitle>{musicListData.listTitle}</HeaderTitle>
-                <ContentButton scrollRef={componentRef.current}/>
+                <HeaderScrollButton scrollRef={componentRef.current}/>
             </HeaderWrapper>
 
             <ItemsWrapper ref={componentRef}>

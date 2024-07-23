@@ -7,7 +7,7 @@ import { usePlayList } from '../../../context/PlayListContext';
 
 import ModalSelectButton from './components/ModalSelectButton';
 import ModalButton from './components/ModalButton';
-import Modal from '../../Modal/Modal';
+import Modal from '../../Common/Modal/Modal';
 
 const ModalWrapper = styled.div`
     width:640px;
