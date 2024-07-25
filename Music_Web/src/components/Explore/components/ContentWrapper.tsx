@@ -41,9 +41,6 @@ const MoreContentButton = styled.button`
     cursor:pointer;
 `
 const ItemWrapper = styled.div`
-    display:flex;
-    flex-direction:row;
-    gap:16px;
     overflow-x:auto;
     margin:0 auto;
     padding:16px 0 24px;
@@ -51,20 +48,13 @@ const ItemWrapper = styled.div`
     ${({theme}) => theme.large` max-width:${theme.widths.large}`}
     ${({theme}) => theme.medium`
         max-width:100%;
-        & > *:first-child { padding-left:56px;}
-        & > *:last-child { padding-right:56px;}
     `}
-    ${({theme}) => theme.small`
-        & > *:first-child { padding-left:16px;}
-        & > *:last-child { padding-right:16px;}
-    `}
-    
 `
+
 interface ContentWrapperProps{
     children:React.ReactNode;
     title:string;
 }
-
 export default function ContentWrapper({children,title}:ContentWrapperProps){
     const scrollRef = useRef<HTMLDivElement>(null);
     return(

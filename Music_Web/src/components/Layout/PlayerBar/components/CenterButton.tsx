@@ -9,6 +9,9 @@ const ButtonWrapper = styled.div`
     gap:8px;
 `
 const IconWrapper = styled.div`
+    display:flex;
+    justify-content: center;
+    align-items: center;
     color:#fff;
     border-radius:50%;
     width:36px;
@@ -25,12 +28,8 @@ const IconWrapper = styled.div`
         display:none;
     `}
 `
-const Icon = styled.div`
-    transform:translate(20%,20%);
-`
 const Menu = styled(PiDotsThreeVertical)`
     color:#909090;
-    transform:translate(25%,25%);
 `
 
 export default function CenterButton(){
@@ -38,16 +37,12 @@ export default function CenterButton(){
     const [isLike,setIsLike] = useState(false);
     return(
         <ButtonWrapper>
-            <IconWrapper>
-                <Icon onClick={() => setIsDislike(!isDislike)}>
-                    {isDislike ? <AiFillDislike/>: <AiOutlineDislike/>}
-                </Icon>
+            <IconWrapper onClick={() => setIsDislike(!isDislike)}>
+                {isDislike ? <AiFillDislike/>: <AiOutlineDislike/>}
             </IconWrapper>
 
-            <IconWrapper>
-                <Icon onClick={() => setIsLike(!isLike)}>
-                    {isLike ? <AiFillLike/> : <AiOutlineLike/>}
-                </Icon>
+            <IconWrapper onClick={() => setIsLike(!isLike)}>
+                {isLike ? <AiFillLike/> : <AiOutlineLike/>}
             </IconWrapper>
 
             <IconWrapper>

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { IoChevronDownSharp } from "react-icons/io5";
 
 import DropDownMenu from "./DropDownMenu";
-import PublicStatus from "./PublicStatus";
+import DropDownState from "./DropDownState";
 
 const UnderLine = styled.div`
     position:absolute;
@@ -51,6 +51,7 @@ const ArrowFont = styled(IoChevronDownSharp)`
 
 export default function ModalSelectButton(){
     const [openDropDown,setOpenDropDown] = useState(false);
+    const [state,setState] = useState('public');
     const componentRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -69,7 +70,7 @@ export default function ModalSelectButton(){
         <Wrapper ref={componentRef}>
             <Text>공개 범위 설정</Text>
             <DropDownBox onClick={() => setOpenDropDown(true)}>
-                <PublicStatus/>
+                <DropDownState state={state}/>
                 <ArrowFont/>
             </DropDownBox>
             
@@ -79,7 +80,11 @@ export default function ModalSelectButton(){
             </UnderLineWrapper>
 
             {openDropDown && 
-                <DropDownMenu onClose={()=> setOpenDropDown(false)}/>
+                <DropDownMenu 
+                    onClose={()=> setOpenDropDown(false)}
+                    state={state}
+                    setState={setState}
+                />
             }
         </Wrapper>
     )

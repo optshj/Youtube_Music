@@ -1,12 +1,9 @@
+import { ReactElement } from "react";
 import styled from "styled-components";
-import { IconType } from "react-icons";
-
-import { SelectStatus } from "../../../../context/SelecPublicContext";
 
 import { IoEarthOutline } from "react-icons/io5";
 import { CiLock } from "react-icons/ci";
 import { GrConnect } from "react-icons/gr";
-
 
 const Wrapper = styled.div`
     display: flex;
@@ -14,13 +11,11 @@ const Wrapper = styled.div`
     color: #fff;
     font-size: 14px;
 `
-
 const IconFont = styled.div`
     color: #aaa;
     font-size: 24px;
     padding-left: 4px;
 `
-
 const StateForm = styled.div`
     position: relative;
     left: 10px;
@@ -28,32 +23,29 @@ const StateForm = styled.div`
 `
 
 type StatusConfig = {
-    [key: number]: { icon: IconType; text: string };
+    [key: string]: { icon: ReactElement; text: string };
 };
 const statusConfig: StatusConfig = {
-    0: {
-        icon: IoEarthOutline,
-        text: "공개",
+    'public': {
+        icon: <IoEarthOutline/>,
+        text: "공개"
     },
-    1: {
-        icon: GrConnect,
-        text: "일부공개",
+    'pratial': {
+        icon: <GrConnect/>,
+        text: "일부공개"
     },
-    2: {
-        icon: CiLock,
-        text: "비공개",
+    'private': {
+        icon: <CiLock/>,
+        text: "비공개"
     },
 };
 
-export default function PublicStatus() {
-    const selectStatus = SelectStatus();
-    const { icon: Icon, text } = statusConfig[selectStatus];
+export default function PublicStatus({state}: { state: string }) {
+    const { icon, text } = statusConfig[state];
 
     return (
         <Wrapper>
-            <IconFont>
-                <Icon />
-            </IconFont>
+            <IconFont>{icon}</IconFont>
             <StateForm>{text}</StateForm>
         </Wrapper>
     );

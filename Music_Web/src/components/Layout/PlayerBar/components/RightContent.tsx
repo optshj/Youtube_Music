@@ -11,6 +11,8 @@ import PlayerPage from "../../PlayerPage/PlayerPage";
 
 const Wrapper = styled.div`
     display:flex;
+    align-items:center;
+    margin-right:4px;
 `
 const ButtonWrapper = styled.div`
     display:flex;
@@ -52,16 +54,12 @@ const PlayerPageButton = styled(IoMdArrowDropdown)<{$isOpen:boolean}>`
 interface RightControlProps{
     onClick:(e:React.MouseEvent<HTMLDivElement>)=>void;
 }
-export default function RightControl({onClick}:RightControlProps){
-
+export default function RightContent({onClick}:RightControlProps){
     const [repeatStatus,setRepeatStatus] = useState(1); // 0:한곡반복 1:반복안함 2:재생목록반복
     const { toggleComponent,isComponentsOpen } = useToggle();
 
     const onRepeat = () => {
-        if (repeatStatus === 2)
-            setRepeatStatus(0);
-        else
-            setRepeatStatus(repeatStatus+1);
+        setRepeatStatus((prev) => (prev === 2 ? 0 : prev + 1));
     }
 
     return(

@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
-import CenterButton from "./CenterButton";
 import { SongType } from "../../../../types/APItypes";
 
+import CenterButton from "./CenterButton";
+
+const Wrapper = styled.div`
+    display:flex;
+    align-items:center;
+    margin-left:8px;
+    overflow:hidden;
+`
 const ContentInfoWrapper = styled.div`
     display:flex;
     flex-direction:column;
@@ -31,9 +38,13 @@ const Dot = styled.span`
     margin: 0 4px;
 `
 
-export default function SongInfo({songData}:{songData:SongType}){
+interface CenterContentProps{
+    onClick:()=>void;
+    songData:SongType;
+}
+export default function CenterContent({onClick, songData}:CenterContentProps){
     return(
-        <>
+        <Wrapper onClick={onClick}>
             <img src="https://via.placeholder.com/40x40/666.png" alt="Placeholder"/>
             <ContentInfoWrapper>
                 <Title>{songData.title}</Title>
@@ -45,8 +56,7 @@ export default function SongInfo({songData}:{songData:SongType}){
                     <Explain>{songData.releaseDate}</Explain>
                 </ExplainWrapper>
             </ContentInfoWrapper>
-            
             <CenterButton/>
-        </>
+        </Wrapper>
     )
 }

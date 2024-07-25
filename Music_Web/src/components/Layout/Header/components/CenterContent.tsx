@@ -3,10 +3,22 @@ import styled from 'styled-components';
 
 import { GoSearch } from "react-icons/go";
 
+import { useToggle } from '../../../../context/ToggleContext';
+
+import SideBar from '../../SideBar/SideBar';
+
+const Wrapper = styled.div<{$isSideBarOpen:boolean}>`
+	display:flex;
+	align-items:center;
+	width:100%;
+	padding-left:${(props) => props.$isSideBarOpen?'100px':'20px'};
+	${({theme}) => theme.large` padding-left:56px`}
+	${({theme}) => theme.medium` justify-content:flex-end`}
+`
 interface FocusedProps {
 	$isFocused:boolean;
 }
-const Wrapper = styled.div<FocusedProps>`
+const SearchBarWrapper = styled.div<FocusedProps>`
 	display:flex;
 	height:40px;
 	width:100%;
@@ -48,6 +60,7 @@ const Icon = styled(GoSearch)<FocusedProps>`
 `
 
 export default function Search(){
+	const { isComponentsOpen } = useToggle();
 	const [isSearchFocused,setIsSearchFocused] = useState(false);
 	const handleFocus = () => {
 		setIsSearchFocused(true);
@@ -57,13 +70,14 @@ export default function Search(){
 	}
 	
 	return(
-		<Wrapper $isFocused={isSearchFocused}>
-			<Icon $isFocused={isSearchFocused} onClick={handleFocus}/>
-
-			<SearchBar type="text" placeholder="노래, 앨범, 아티스트, 팟캐스트 검색" 
-				onFocus={handleFocus} 
-				onBlur={handleBlur} 
-				$isFocused={isSearchFocused}/>
+		<Wrapper $isSideBarOpen={isComponentsOpen(SideBar)}>
+			<SearchBarWrapper $isFocused={isSearchFocused}>
+				<Icon $isFocused={isSearchFocused} onClick={handleFocus}/>
+				<SearchBar type="text" placeholder="노래, 앨범, 아티스트, 팟캐스트 검색" 
+					onFocus={handleFocus} 
+					onBlur={handleBlur} 
+					$isFocused={isSearchFocused}/>
+			</SearchBarWrapper>
 		</Wrapper>
 	)
 }

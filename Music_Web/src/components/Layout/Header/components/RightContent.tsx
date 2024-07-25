@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+	padding:20px;
+`
+const UserIcon = styled.div`
 	width:26px;
 	height:26px;
 	border-radius:50%;
@@ -13,8 +16,10 @@ const Wrapper = styled.div`
 	font-size:10px;
 `
 
-export default function UserIcon(){
+export default function RightContent(){
 	return(
-		<Wrapper>Me</Wrapper>
+		<Wrapper>
+			<UserIcon>Me</UserIcon>
+		</Wrapper>
 	)
 }

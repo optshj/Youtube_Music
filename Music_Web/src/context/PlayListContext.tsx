@@ -1,13 +1,13 @@
 import { useState, createContext, useContext } from "react";
 import { customAxios } from "../api/customAxios";
 
-import { playListType } from "../types/APItypes";
+import { PlayListType } from "../types/APItypes";
 
-const PlayListValueContext = createContext<playListType[]>([]);
+const PlayListValueContext = createContext<PlayListType[]>([]);
 const PlayListActionContext = createContext<() => void>(() => {});
 
 export default function PlayListProvider({children}:{children:React.ReactNode}){
-    const [playList, setPlayList] = useState<playListType[]>([])
+    const [playList, setPlayList] = useState<PlayListType[]>([])
     
     const fetchPlayList = async () => {
         try {

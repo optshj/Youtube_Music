@@ -3,10 +3,9 @@ import styled from "styled-components";
 import { useToggle } from "../../../context/ToggleContext";
 import { useSongData } from "../../../context/SongDataConetext";
 
-import LeftControl from "./components/LeftControl";
-import TimeInfo from "./components/TimeInfo";
-import SongInfo from "./components/SongInfo";
-import RightControl from "./components/RightControl";
+import LeftContent from "./components/LeftContent";
+import RightContent from "./components/RightContent";
+import CenterContent from "./components/CenterContent";
 import PlayerPage from "../PlayerPage/PlayerPage";
 
 const Wrapper = styled.div`
@@ -19,30 +18,6 @@ const Wrapper = styled.div`
     width:100%;
     height:72px;
     background-color:#212121;
-`
-const LeftContent = styled.div`
-    display:flex;
-    align-items:center;
-    ${({theme}) => theme.large`
-        width:241px;
-    `}
-    ${({theme}) => theme.medium`
-        width:144px;
-    `}
-    ${({theme}) => theme.small`
-        display:none;
-    `}
-`
-const CenterContent = styled.div`
-    display:flex;
-    align-items:center;
-    margin-left:8px;
-    overflow:hidden;
-`
-const RightContent = styled.div`
-    display:flex;
-    align-items:center;
-    margin-right:4px;
 `
 
 export default function Playerbar(){
@@ -60,18 +35,9 @@ export default function Playerbar(){
         <>
         {songData &&
             <Wrapper onClick={handleClick}>
-                <LeftContent onClick={handleBlockClick}>
-                    <LeftControl/>
-                    <TimeInfo playTime={songData.playTime}/>
-                </LeftContent>
-
-                <CenterContent onClick={handleClick}>
-                    <SongInfo songData={songData}/>
-                </CenterContent>
-
-                <RightContent>
-                    <RightControl onClick={handleBlockClick}/>
-                </RightContent>
+                <LeftContent onClick={handleBlockClick} playTime={songData.playTime}/>
+                <CenterContent onClick={handleClick} songData={songData}/>
+                <RightContent onClick={handleBlockClick}/>
             </Wrapper>
         }
         </>

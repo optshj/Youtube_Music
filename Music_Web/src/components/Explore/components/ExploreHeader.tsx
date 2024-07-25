@@ -18,7 +18,6 @@ const Wrapper = styled.div`
     `}
     ${({theme}) => theme.small` max-width:${theme.widths.small}`}
 `
-
 const ItemsWrapper = styled.button`
     display:flex;
     align-items: center;

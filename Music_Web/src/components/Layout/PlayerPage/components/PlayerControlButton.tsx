@@ -22,20 +22,6 @@ const IconButton = styled.div<{ active?: boolean }>`
         color: #fff;
     }
 `;
-const ShuffleButton = styled(PiShuffleThin)`
-    width:24px;
-    height:24px;
-    color:#7a7a7a;
-    cursor: pointer;
-    &:active{
-        color:#fff;
-    }
-`
-const PrevButton = styled(IoMdSkipBackward)`
-    width:24px;
-    height:24px;
-    cursor: pointer;
-`
 const PlayPauseWrapper = styled.div`
     width:72px;
     height:72px;
@@ -55,16 +41,6 @@ const PauseButton = styled(IoMdPause)`
     color:#000000;
     width:32px;
     height:32px;
-`
-const NextButton = styled(IoMdSkipForward)`
-    width:24px;
-    height:24px;
-    cursor: pointer;
-`
-const RepeatWrapper = styled.div`
-    width:24px;
-    height:24px;
-    cursor:pointer;
 `
 const RepeatButton = styled(PiRepeatThin)<{$isRepeat:number}>`
     width:24px;

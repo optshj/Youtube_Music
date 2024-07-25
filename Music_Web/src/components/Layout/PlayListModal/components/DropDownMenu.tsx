@@ -1,8 +1,6 @@
 import { ReactElement } from "react";
 import styled from "styled-components";
 
-import { SelectStatus, useDropdown } from "../../../../context/SelecPublicContext";
-
 import { IoEarthOutline } from "react-icons/io5";
 import { CiLock } from "react-icons/ci";
 import { GrConnect } from "react-icons/gr";
@@ -60,28 +58,29 @@ const DropDownItem = ({onClick,label,description,icon,$isSelect}:DropDownItemPro
         </DropDownItemWrapper>
     )
 }   
-
-export default function DropDownMenu({onClose}:{onClose:()=>void}){
-    const {selectPublic,selectPartial,selectPrivate} = useDropdown();
-    const selectStatus = SelectStatus();
-
+interface DropDownMenuProps{
+    onClose:()=>void;
+    state:string;
+    setState:React.Dispatch<React.SetStateAction<string>>;
+}
+export default function DropDownMenu({onClose,state,setState}:DropDownMenuProps){
     return(
         <Wrapper onClick={onClose}>
             <DropDownItem
-                onClick={selectPublic}
-                $isSelect={selectStatus === 0}
+                onClick={() => setState('public') }
+                $isSelect={state === 'public'}
                 icon={<IoEarthOutline />}
                 label="공개"
                 description="모든 사용자가 검색하고 볼 수 있음"/>
             <DropDownItem
-                onClick={selectPartial}
-                $isSelect={selectStatus === 1}
+                onClick={() => setState('pratial')}
+                $isSelect={state === 'pratial'}
                 icon={<GrConnect />}
                 label="일부 공개"
                 description="링크가 있는 모든 사용자가 볼 수 있음"/>
             <DropDownItem
-                onClick={selectPrivate}
-                $isSelect={selectStatus === 2}
+                onClick={() => setState('private')}
+                $isSelect={state === 'private'}
                 icon={<CiLock />}
                 label="비공개"
                 description="나만 볼 수 있음"/>

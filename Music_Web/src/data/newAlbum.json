@@ -1,0 +1,70 @@
+{
+    "albums":[
+        {
+            "title":"STELLA I",
+            "artist":"Stella Jang",
+            "type":"앨범",
+            "releaseDate":"2020"
+        },
+        {
+            "title":"Remeber Archive",
+            "artist":"CODE KUNST",
+            "type":"앨범",
+            "releaseDate":"2023"
+        },
+        {
+            "title":"PEOPLE",
+            "artist":"CODE KUNST",
+            "type":"앨범",
+            "releaseDate":"2020"
+        },
+        {
+            "title":"Wish You Hell: The 2nd Mini Album",
+            "artist":"웬디(WENDY)",
+            "type":"EP",
+            "releaseDate":"2024"
+        },
+        {
+            "title":"나의 아저씨 OST Part. 2",
+            "artist":"손디아",
+            "type":"싱글",
+            "releaseDate":"2018"
+        },
+        {
+            "title":"WE,VE DONE SOMETHING WONDERFUL",
+            "artist":"에픽하이",
+            "type":"앨범",
+            "releaseDate":"2017"
+        },
+        {
+            "title":"Fake Happy",
+            "artist":"Seori",
+            "type":"EP",
+            "releaseDate":"2024"
+        },
+        {
+            "title":"1st Mini Album 'MANITO'",
+            "artist":"QWER",
+            "type":"앨범",
+            "releaseDate":"2024"
+        },
+        {
+            "title":"너머 [1. Black Shimmer]",
+            "artist":"선우정아",
+            "type":"EP",
+            "releaseDate":"2024"
+        },
+        {
+            "title":"Knock",
+            "artist":"경서",
+            "type":"EP",
+            "releaseDate":"2024"
+        },
+        {
+            "title":"One and Only",
+            "artist":"PL(피엘)",
+            "type":"싱글",
+            "releaseDate":"2024"
+        }
+    ]
+}

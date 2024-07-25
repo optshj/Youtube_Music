@@ -6,9 +6,23 @@ export interface SongType{
     playTime:number;
 }
 
-export interface playListType{
+export interface PlayListType{
     _id:string,
     title:string,
     owner:string,
     url:string
+}
+
+export interface NewAlbumType{  
+    title: string;
+    artist: string;
+    type: string;
+    releaseDate: string;
+}
+
+export interface PopularSongType{
+    title: string;
+    artist: string;
+    album: string;
+    rank:number;
 }
