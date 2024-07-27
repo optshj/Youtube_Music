@@ -4,241 +4,281 @@
                 "artist": "BTS",
                 "title": "Dynamite",
                 "album": "BE",
-                "rank": 1
+                "rank": 1,
+                "fluctuation":0
             },
             {
                 "artist": "블랙핑크",
                 "title": "How You Like That",
                 "album": "How You Like That",
-                "rank": 2
+                "rank": 2,
+                "fluctuation":0
             },
             {
                 "artist": "아이유",
                 "title": "에잇",
                 "album": "에잇",
-                "rank": 3
+                "rank": 3,
+                "fluctuation":0
             },
             {
                 "artist": "태연",
                 "title": "What Do I Call You",
                 "album": "What Do I Call You",
-                "rank": 4
+                "rank": 4,
+                "fluctuation":0
             },
             {
                 "artist": "방탄소년단",
                 "title": "Life Goes On",
                 "album": "BE",
-                "rank": 5
+                "rank": 5,
+                "fluctuation":1
             },
             {
                 "artist": "아이유",
                 "title": "Blueming",
                 "album": "Love poem",
-                "rank": 6
+                "rank": 6,
+                "fluctuation":0
             },
             {
                 "artist": "블랙핑크",
                 "title": "Lovesick Girls",
                 "album": "THE ALBUM",
-                "rank": 7
+                "rank": 7,
+                "fluctuation":-1
             },
             {
                 "artist": "방탄소년단",
                 "title": "Boy With Luv",
                 "album": "MAP OF THE SOUL : PERSONA",
-                "rank": 8
+                "rank": 8,
+                "fluctuation":0
             },
             {
                 "artist": "아이유",
                 "title": "Love poem",
                 "album": "Love poem",
-                "rank": 9
+                "rank": 9,
+                "fluctuation":0
             },
             {
                 "artist": "방탄소년단",
                 "title": "Dope",
                 "album": "화양연화 pt.1",
-                "rank": 10
+                "rank": 10,
+                "fluctuation":1
             },
             {
                 "artist": "블랙핑크",
                 "title": "Kill This Love",
                 "album": "KILL THIS LOVE",
-                "rank": 11
+                "rank": 11,
+                "fluctuation":-1
             },
             {
                 "artist": "아이유",
                 "title": "Blueming",
                 "album": "Love poem",
-                "rank": 12
+                "rank": 12,
+                "fluctuation":0
             },
             {
                 "artist": "방탄소년단",
                 "title": "Fake Love",
                 "album": "LOVE YOURSELF 轉 'Tear'",
-                "rank": 13
+                "rank": 13,
+                "fluctuation":0
             },
             {
                 "artist": "아이유",
                 "title": "아이와 나의 바다",
                 "album": "Love poem",
-                "rank": 14
+                "rank": 14,
+                "fluctuation":0
             },
             {
                 "artist": "블랙핑크",
                 "title": "Ice Cream",
                 "album": "THE ALBUM",
-                "rank": 15
+                "rank": 15,
+                "fluctuation":1
             },
             {
                 "artist": "방탄소년단",
                 "title": "IDOL",
                 "album": "LOVE YOURSELF 結 'Answer'",
-                "rank": 16
+                "rank": 16,
+                "fluctuation":0
             },
             {
                 "artist": "아이유",
                 "title": "Blueming",
                 "album": "Love poem",
-                "rank": 17
+                "rank": 17,
+                "fluctuation":1
             },
             {
                 "artist": "블랙핑크",
                 "title": "How You Like That",
                 "album": "How You Like That",
-                "rank": 18
+                "rank": 18,
+                "fluctuation":0
             },
             {
                 "artist": "방탄소년단",
                 "title": "Blood Sweat & Tears",
                 "album": "WINGS",
-                "rank": 19
+                "rank": 19,
+                "fluctuation":1
             },
             {
                 "artist": "아이유",
                 "title": "에잇",
                 "album": "에잇",
-                "rank": 20
+                "rank": 20,
+                "fluctuation":-1
             },
             {
                 "artist": "블랙핑크",
                 "title": "Lovesick Girls",
                 "album": "THE ALBUM",
-                "rank": 21
+                "rank": 21,
+                "fluctuation":1
             },
             {
                 "artist": "방탄소년단",
                 "title": "Boy With Luv",
                 "album": "MAP OF THE SOUL : PERSONA",
-                "rank": 22
+                "rank": 22,
+                "fluctuation":0
             },
             {
                 "artist": "아이유",
                 "title": "Love poem",
                 "album": "Love poem",
-                "rank": 23
+                "rank": 23,
+                "fluctuation":0
             },
             {
                 "artist": "방탄소년단",
                 "title": "Dope",
                 "album": "화양연화 pt.1",
-                "rank": 24
+                "rank": 24,
+                "fluctuation":-1
             },
             {
                 "artist": "블랙핑크",
                 "title": "Kill This Love",
                 "album": "KILL THIS LOVE",
-                "rank": 25
+                "rank": 25,
+                "fluctuation":0
             },
             {
                 "artist": "아이유",
                 "title": "Blueming",
                 "album": "Love poem",
-                "rank": 26
+                "rank": 26,
+                "fluctuation":0
             },
             {
                 "artist": "방탄소년단",
                 "title": "Fake Love",
                 "album": "LOVE YOURSELF 轉 'Tear'",
-                "rank": 27
+                "rank": 27,
+                "fluctuation":0
             },
             {
                 "artist": "아이유",
                 "title": "아이와 나의 바다",
                 "album": "Love poem",
-                "rank": 28
+                "rank": 28,
+                "fluctuation":0
             },
             {
                 "artist": "블랙핑크",
                 "title": "Ice Cream",
                 "album": "THE ALBUM",
-                "rank": 29
+                "rank": 29,
+                "fluctuation":0
             },
             {
                 "artist": "방탄소년단",
                 "title": "IDOL",
                 "album": "LOVE YOURSELF 結 'Answer'",
-                "rank": 30
+                "rank": 30,
+                "fluctuation":0
             },
             {
                 "artist": "아이유",
                 "title": "Blueming",
                 "album": "Love poem",
-                "rank": 31
+                "rank": 31,
+                "fluctuation":1
             },
             {
                 "artist": "블랙핑크",
                 "title": "How You Like That",
                 "album": "How You Like That",
-                "rank": 32
+                "rank": 32,
+                "fluctuation":-1
             },
             {
                 "artist": "방탄소년단",
                 "title": "Blood Sweat & Tears",
                 "album": "WINGS",
-                "rank": 33
+                "rank": 33,
+                "fluctuation":0
             },
             {
                 "artist": "아이유",
                 "title": "에잇",
                 "album": "에잇",
-                "rank": 34
+                "rank": 34,
+                "fluctuation":0
             },
             {
                 "artist": "블랙핑크",
                 "title": "Lovesick Girls",
                 "album": "THE ALBUM",
-                "rank": 35
+                "rank": 35,
+                "fluctuation":0
             },
             {
                 "artist": "방탄소년단",
                 "title": "Boy With Luv",
                 "album": "MAP OF THE SOUL : PERSONA",
-                "rank": 36
+                "rank": 36,
+                "fluctuation":0
             },
             {
                 "artist": "아이유",
                 "title": "Love poem",
                 "album": "Love poem",
-                "rank": 37
+                "rank": 37,
+                "fluctuation":0
             },
             {
                 "artist": "방탄소년단",
                 "title": "Dope",
                 "album": "화양연화 pt.1",
-                "rank": 38
+                "rank": 38,
+                "fluctuation":1
             },
             {
                 "artist": "블랙핑크",
                 "title": "Kill This Love",
                 "album": "KILL THIS LOVE",
-                "rank": 39
+                "rank": 39,
+                "fluctuation":-1
             },
             {
                 "artist": "아이유",
                 "title": "Blueming",
                 "album": "Love poem",
-                "rank": 40
+                "rank": 40,
+                "fluctuation":0
             }
     ]
 }

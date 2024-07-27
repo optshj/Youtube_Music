@@ -1,5 +1,8 @@
-import React from "react";
+import React,{ReactElement} from "react";
 import styled from "styled-components";
+
+import { MdArrowDropDown,MdArrowDropUp } from "react-icons/md";
+import { BsDot } from "react-icons/bs";
 
 import { PopularSongType } from "../../../types/APItypes";
 
@@ -7,29 +10,31 @@ import popularSong from "../../../data/popularSong.json";
 
 import ContentWrapper from "./ContentWrapper";
 
-
-const ItemWrapper = styled.div`
-    width:420px;
-    display:flex;
-    align-items: center;
-    height:56px;
-    padding:0 8px;
-`
-const ItemBackGround = styled.div`
+const ImageBackground = styled.div`
     position: absolute;
     width: 48px;
     height: 48px;
 `
-const ImageWrapper = styled.div`
-    position:relative;
+const ItemWrapper = styled.div`
+    width:420px;
+    display:flex;
+    align-items: center;
+    height:48px;
+    padding:0 8px;
     &:hover {
-        ${ItemWrapper}{
+        ${ImageBackground}{
             background: rgba(0,0,0,0.5);
         }
     }
 `
+const ImageWrapper = styled.div`
+    position:relative;
+    cursor:pointer;
+`
 const Fluctuation = styled.div`
-    width:24px;
+    font-size:32px;
+    display: flex;
+    align-items: center;
 `
 const Rank = styled.div`
     color:#fff;
@@ -54,7 +59,6 @@ const SubTitle = styled.div`
     font-size:14px;
     white-space:normal;
 `
-
 const Wrapper = styled.ul`
     padding:0;
     display:grid;
@@ -63,15 +67,35 @@ const Wrapper = styled.ul`
     grid-template-rows: repeat(4,min-content);
     gap:16px;
 `
+
+type StatusConfig = {
+    [key: string]: { icon: ReactElement; color: string };
+};
+const fluctuationIcon:StatusConfig = {
+    "-1":{
+        icon:<MdArrowDropDown/>,
+        color:"#ff0000"
+    },
+    "0":{
+        icon:<BsDot/>,
+        color:"#aaa"
+    },
+    "1":{
+        icon:<MdArrowDropUp/>,
+        color:"#00ff0091",
+    }
+}
 const Item = React.memo(({songData}:{songData:PopularSongType}) => {
+    const { icon, color} = fluctuationIcon[songData.fluctuation];
+
     return(
         <ItemWrapper>
             <ImageWrapper>
-                <ItemBackGround/>
+                <ImageBackground/>
                 <img src="https://via.placeholder.com/48x48/666.png" alt="Placeholder"/>
             </ImageWrapper>
-            <Fluctuation></Fluctuation>
-            <Rank>{songData.rank}</Rank>
+                <Fluctuation style={{color:color}}>{icon}</Fluctuation>
+                <Rank>{songData.rank}</Rank>
             <Details>
                 <Title>{songData.title}</Title>
                 <SubTitle>{songData.artist} • {songData.album}</SubTitle>

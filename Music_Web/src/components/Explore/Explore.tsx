@@ -1,6 +1,7 @@
 import ExploreHeader from "./components/ExploreHeader"
 import NewAlbum from "./components/NewAlbum"
 import PopularSong from "./components/PopularSong"
+import Genre from "./components/Genre"
 
 export default function Explore() {
     return (
@@ -8,6 +9,7 @@ export default function Explore() {
             <ExploreHeader/>
             <NewAlbum/>
             <PopularSong/>
+            <Genre/>
         </>
     )
 }

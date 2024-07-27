@@ -10,6 +10,9 @@ const Wrapper = styled.div<{$hasScrollbar:boolean}>`
     gap:16px;
 `
 const ArrowIconForm = styled.div<{$isScroll:boolean}>`
+    display:flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     width: 36px;
     height: 36px;
@@ -22,7 +25,6 @@ const ArrowIconForm = styled.div<{$isScroll:boolean}>`
     }
 `
 const IconStyle = styled.div<{ $isDisabled: boolean }>`
-    transform: translate(50%, 50%);
     color: ${props => props.$isDisabled ? '#333' : '#c0c0c0'};
     transition: color 0.2s linear;
 `;

@@ -25,4 +25,5 @@ export interface PopularSongType{
     artist: string;
     album: string;
     rank:number;
+    fluctuation:number;
 }
