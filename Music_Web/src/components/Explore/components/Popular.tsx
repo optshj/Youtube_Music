@@ -17,13 +17,13 @@ const Wrapper = styled.ul`
     }
 `
 
-export default function PopularSong({data}:{data:SongType[]}){
+export default function Popular({data}:{data:SongType[]}) {
     return(
-        <ContentWrapper title={"인기곡"}>
+        <ContentWrapper title={"인기"}>
             <Wrapper>
-                {
-                    data.map((song,idx) => <TransverseItem key={idx} songData={song}/>)
-                }
+                {data.map((song,idx) => (
+                    <TransverseItem key={idx} songData={song}/>
+                ))}
             </Wrapper>
         </ContentWrapper>
     )

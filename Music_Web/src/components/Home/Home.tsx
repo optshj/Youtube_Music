@@ -9,9 +9,9 @@ export default function Home(){
         <>
             <HomeHeader/>
             {
-                musicList.datas.map((musicListData,index) => {
+                musicList.map((musicListData,idx) => {
                     return(
-                        <Content key={index} musicListData={musicListData}/>
+                        <Content key={idx} musicListData={musicListData}/>
                     )
                 })
             }

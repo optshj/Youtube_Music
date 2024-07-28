@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 import { AiFillDislike,AiOutlineDislike,AiFillLike,AiOutlineLike } from "react-icons/ai";
@@ -7,6 +7,9 @@ import { PiDotsThreeVertical } from "react-icons/pi";
 const ButtonWrapper = styled.div`
     display:flex;
     gap:8px;
+    ${({theme}) => theme.medium`
+        display:none;
+    `}
 `
 const IconWrapper = styled.div`
     display:flex;
@@ -24,9 +27,6 @@ const IconWrapper = styled.div`
     &:active{
         background-color: rgba(255,255,255,0.3);
     }
-    ${({theme}) => theme.medium`
-        display:none;
-    `}
 `
 const Menu = styled(PiDotsThreeVertical)`
     color:#909090;

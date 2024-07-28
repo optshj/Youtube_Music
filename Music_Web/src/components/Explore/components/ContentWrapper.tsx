@@ -3,6 +3,8 @@ import styled from "styled-components"
 
 import HeaderScrollButton from "../../Common/Buttons/HeaderScrollButton"
 
+const Wrapper = styled.div`
+`
 const HeaderWrapper = styled.div`
     display:flex;
     gap:24px;
@@ -60,7 +62,7 @@ interface ContentWrapperProps{
 export default function ContentWrapper({children,title}:ContentWrapperProps){
     const scrollRef = useRef<HTMLDivElement>(null);
     return(
-        <>
+        <Wrapper>
             <HeaderWrapper>
                 <Header>
                     <Title>{title}</Title>
@@ -71,6 +73,6 @@ export default function ContentWrapper({children,title}:ContentWrapperProps){
             <ItemWrapper ref={scrollRef}>
                 {children}
             </ItemWrapper>
-        </>
+        </Wrapper>
     )
 }

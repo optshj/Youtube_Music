@@ -9,12 +9,10 @@ import { NewAlbumType } from "../../../types/APItypes";
 import { useSongData } from "../../../context/SongDataConetext";
 import { useToggle } from "../../../context/ToggleContext";
 
-import newAlbums from "../../../data/newAlbum.json";
-
 import ContentWrapper from "./ContentWrapper";
 import PlayerBar from "../../Layout/PlayerBar/PlayerBar";
 
-const Wrapper = styled.div`
+const ItemWrapper = styled.div`
     width:160px;
     cursor:pointer;
 `
@@ -90,8 +88,9 @@ const ImageWrapper = styled.div`
         }
     }
 `
-const ItemWrapper = styled.div`
-display:flex;
+const Wrapper = styled.ul`
+    padding:0;
+    display:flex;
     flex-direction:row;
     gap:16px;
     ${({theme}) => theme.medium`
@@ -114,30 +113,28 @@ const Item = React.memo(({albumData}:{albumData:NewAlbumType}) => {
     }
 
     return(
-        <Wrapper onClick={onClick}>
+        <ItemWrapper onClick={onClick}>
             <ImageWrapper>
                 <ItemBackGround/>
                 <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>
                 <PlayButton/>
                 <MeunButton/>
             </ImageWrapper>
-
             <Details>
                 <Title>{albumData.title}</Title>
                 <SubTitle>{albumData.type} • {albumData.artist}</SubTitle>
             </Details>
-        </Wrapper>
+        </ItemWrapper>
     )
 })
-export default function NewAlbum() {
-    const newAlbum = newAlbums.albums
+export default function NewAlbum({data}:{data:NewAlbumType[]}) {
     return(
         <ContentWrapper title="새 앨범 및 싱글">
-            <ItemWrapper>
+            <Wrapper>
                 {
-                    newAlbum.map((data,idx) => <Item key={idx} albumData={data}/>)
+                    data.map((album,idx) => <Item key={idx} albumData={album}/>)
                 }
-            </ItemWrapper>
+            </Wrapper>
         </ContentWrapper>
     )
 }

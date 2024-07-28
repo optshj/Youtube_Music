@@ -4,6 +4,9 @@ export interface SongType{
     album: string;
     releaseDate: string;
     playTime:number;
+    hit?:number;
+    rank?:number;
+    fluctuation?:number;
 }
 
 export interface PlayListType{
@@ -20,10 +23,7 @@ export interface NewAlbumType{
     releaseDate: string;
 }
 
-export interface PopularSongType{
+export interface GenreType{
     title: string;
-    artist: string;
-    album: string;
-    rank:number;
-    fluctuation:number;
+    color: string;
 }

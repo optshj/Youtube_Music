@@ -1,0 +1,173 @@
+[
+    {
+        "artist": "아이유",
+        "title": "Love poem",
+        "album": "Love poem",
+        "playTime": 200,
+        "releaseDate": "2019",
+        "rank":1,
+        "hit":48
+    },
+    {
+        "artist": "방탄소년단",
+        "title": "Dope",
+        "album": "화양연화 pt.1",
+        "playTime":250,
+        "releaseDate": "2015",
+        "rank":2,
+        "hit":200
+    },
+    {
+        "artist": "블랙핑크",
+        "title": "Kill This Love",
+        "album": "KILL THIS LOVE",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":3,
+        "hit":100
+    },
+    {
+        "artist": "아이유",
+        "title": "Blueming",
+        "album": "Love poem",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":4,
+        "hit":150
+    },
+    {
+        "artist": "방탄소년단",
+        "title": "Fake Love",
+        "album": "LOVE YOURSELF 轉 'Tear'",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":5,
+        "hit":300
+    },
+    {
+        "artist": "아이유",
+        "title": "아이와 나의 바다",
+        "album": "Love poem",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":6,
+        "hit":250
+    },
+    {
+        "artist": "블랙핑크",
+        "title": "Ice Cream",
+        "album": "THE ALBUM",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":7,
+        "hit":400
+    },
+    {
+        "artist": "방탄소년단",
+        "title": "IDOL",
+        "album": "LOVE YOURSELF 結 'Answer'",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":8,
+        "hit":350
+    },
+    {
+        "artist": "아이유",
+        "title": "Celebrity",
+        "album": "Celebrity",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":9,
+        "hit":500
+    },
+    {
+        "artist": "방탄소년단",
+        "title": "Butter",
+        "album": "Butter",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":10,
+        "hit":450
+    },
+    {
+        "artist": "블랙핑크",
+        "title": "How You Like That",
+        "album": "How You Like That",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":11,
+        "hit":600
+    },
+    {
+        "artist": "아이유",
+        "title": "에잇",
+        "album": "에잇",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":12,
+        "hit":550
+    },
+    {
+        "artist": "방탄소년단",
+        "title": "MIC Drop",
+        "album": "LOVE YOURSELF 承 'Her'",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":13,
+        "hit":700
+    },
+    {
+        "artist": "블랙핑크",
+        "title": "DDU-DU DDU-DU",
+        "album": "SQUARE UP",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":14,
+        "hit":650
+    },
+    {
+        "artist": "아이유",
+        "title": "Palette",
+        "album": "Palette",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":15,
+        "hit":800
+    },
+    {
+        "artist": "방탄소년단",
+        "title": "Blood Sweat & Tears",
+        "playTime":150,
+        "releaseDate": "2019",
+        "album": "WINGS",
+        "rank":16,
+        "hit":750
+    },
+    {
+        "artist": "블랙핑크",
+        "title": "As If It's Your Last",
+        "playTime":150,
+        "releaseDate": "2019",
+        "album": "마지막처럼",
+        "rank":17,
+        "hit":900
+    },
+    {
+        "artist": "아이유",
+        "title": "밤편지",
+        "album": "밤편지",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":18,
+        "hit":850
+    },
+    {
+        "artist": "방탄소년단",
+        "title": "Spring Day",
+        "album": "YOU NEVER WALK ALONE",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":19,
+        "hit":1000
+    }
+]

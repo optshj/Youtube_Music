@@ -8,3 +8,6 @@ body {
 a{
   text-decoration: none;
 }
+img{
+  cursor: pointer;
+}
