@@ -1,0 +1,58 @@
+[
+    {
+        "title":"Love Again",
+        "artist":"정준일",
+        "releaseDate":"2024",
+        "playTime":234,
+        "hit":29
+    },
+    {
+        "title":"Who",
+        "artist":"지민",
+        "releaseDate":"2024",
+        "playTime":199,
+        "hit":2526
+    },
+    {
+        "title":"KyoungSeo (キョンソ) 『First Kiss ~ 初キスでハートは120BPM～』 Official Music Video",
+        "artist":"경서",
+        "releaseDate":"2024",
+        "playTime":165,
+        "hit":13
+    },
+    {
+        "title":"Chk Chk Bomm",
+        "artist":"스트레이 키즈",
+        "releaseDate":"2024",
+        "playTime":185,
+        "hit":5916
+    },
+    {
+        "title":"삐그덕",
+        "artist":"NCT 127",
+        "releaseDate":"2024",
+        "playTime":185,
+        "hit":561
+    },
+    {
+        "title":"나비효과 (feat.윤현선)",
+        "artist":"타임피버",
+        "releaseDate":"2024",
+        "playTime":177,
+        "hit":9
+    },
+    {
+        "title":"Havin'a Good Time",
+        "artist":"카디",
+        "releaseDate":"2024",
+        "playTime":220,
+        "hit":3
+    },
+    {
+        "title":"[MV] Shin Ye Young(신예영)_With a smile(웃으며)",
+        "artist":"신예영",
+        "releaseDate":"2024",
+        "playTime":234,
+        "hit":10
+    }
+]

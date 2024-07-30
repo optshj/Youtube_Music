@@ -5,7 +5,8 @@ import { throttle } from "lodash";
 import { MdOutlineArrowForwardIos,MdOutlineArrowBackIos } from "react-icons/md";
 
 const Wrapper = styled.div<{$hasScrollbar:boolean}>`
-    display: ${props => props.$hasScrollbar ? 'flex' : 'none'};
+    visibility: ${props => props.$hasScrollbar ? 'visible' : 'hidden'};
+    display: flex;
     align-items:flex-end;
     gap:16px;
 `
@@ -30,55 +31,51 @@ const IconStyle = styled.div<{ $isDisabled: boolean }>`
 `;
 
 interface HeaderScrollButtonProps{
-    scrollRef:HTMLElement | null;
-}
+    scrollRef:React.RefObject<HTMLElement>;
+}   
 export default function HeaderScrollButton({scrollRef}:HeaderScrollButtonProps){
-    const [hasScrollbar,setHasScollbar] = useState(false);
+    const [hasScrollbar,setHasScrollbar] = useState(false);
     const [isScrollLeft,setIsScrollLeft] = useState(false);
     const [isScrollRight,setIsScrollRight] = useState(false);
 
     const checkScrollbar = useCallback(throttle(() => {
-        if (!scrollRef || scrollRef.scrollWidth <= scrollRef.clientWidth){
-            setHasScollbar(false);
-        }
-        else {
-            setHasScollbar(true);
-            const IsScrollLeft = scrollRef.scrollLeft === 0;
-            const IsScrollRight = (scrollRef.scrollLeft + scrollRef.clientWidth >= scrollRef.scrollWidth - 1) && (scrollRef.clientWidth < scrollRef.scrollWidth)
-            setIsScrollRight(IsScrollRight);
-            setIsScrollLeft(IsScrollLeft);
+        if (scrollRef.current && scrollRef.current.scrollWidth > scrollRef.current.clientWidth) {
+            const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+            setHasScrollbar(true);
+            setIsScrollLeft(scrollLeft === 0);
+            setIsScrollRight(scrollLeft + clientWidth >= scrollWidth);
+        } else {
+            setHasScrollbar(false);
         }
     },500),[scrollRef]);
 
     useEffect(()=> {
         checkScrollbar();
         
-        if (scrollRef)
-            scrollRef.addEventListener('scroll',checkScrollbar);
+        if (scrollRef.current)
+            scrollRef.current.addEventListener('scroll',checkScrollbar);
         window.addEventListener('resize',checkScrollbar);
 
         return () =>{
-            if (scrollRef)
-                scrollRef.removeEventListener('scroll',checkScrollbar);
+            if (scrollRef.current)
+                scrollRef.current.removeEventListener('scroll',checkScrollbar);
             window.removeEventListener('resize',checkScrollbar)
         };
     },[scrollRef,checkScrollbar]);
 
     const scrollToLeft = () => {
-        if (scrollRef){
-            scrollRef.scrollBy({
+        if (scrollRef.current){
+            scrollRef.current.scrollBy({
                 left:-352,
                 behavior:'smooth'
-            })
-        }
+        })}
     }
     const scrollToRight = () => {
-        if (scrollRef){
-            scrollRef.scrollBy({
+        if (scrollRef.current){
+            scrollRef.current.scrollBy({
                 left:+352,
                 behavior:'smooth'
-            })
-        }
+        })}
     }
 
     return(

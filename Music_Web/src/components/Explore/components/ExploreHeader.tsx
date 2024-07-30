@@ -1,4 +1,5 @@
 import styled from "styled-components"
+
 import { IconType } from "react-icons"
 
 import { BsGraphUpArrow,BsEmojiSmile,BsMusicNoteBeamed } from "react-icons/bs";
@@ -25,7 +26,7 @@ const ItemsWrapper = styled.button`
     width:100%;
     min-height:56px;
     font-size:18px;
-    padding:8px 16px;
+    padding:0 24px;
     border:none;
     white-space:normal;
     cursor:pointer;
@@ -49,6 +50,7 @@ const Descript = styled.div`
     ${({theme}) => theme.large` font-size:16px`}
     ${({theme}) => theme.medium` font-size:20px`}
 `
+
 interface ItemProps{
     Icon:IconType;
     descript:string;

@@ -8,13 +8,11 @@ export default function Home(){
     return(
         <>
             <HomeHeader/>
-            {
-                musicList.map((musicListData,idx) => {
-                    return(
-                        <Content key={idx} musicListData={musicListData}/>
-                    )
-                })
-            }
+            {musicList.map((musicListData,idx) => {
+                return(
+                    <Content key={idx} musicListData={musicListData}/>
+                )
+            })}
         </>
     )
 }

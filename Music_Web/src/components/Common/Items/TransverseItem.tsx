@@ -1,29 +1,21 @@
 import React,{ useState,ReactElement } from "react"
 import styled from "styled-components"
 
+import { SongType } from "../../../types/APItypes"
+import { useSongData } from "../../../context/SongDataConetext";
+import { useToggle } from "../../../context/ToggleContext";
+
 import { AiFillDislike,AiOutlineDislike,AiFillLike,AiOutlineLike } from "react-icons/ai";
 import { PiDotsThreeVertical } from "react-icons/pi";
 import { MdArrowDropDown,MdArrowDropUp } from "react-icons/md";
 import { BsDot } from "react-icons/bs";
 
-import { SongType } from "../../../types/APItypes"
+import PlayerBar from "../../Layout/PlayerBar/PlayerBar";
 
-const IconWrapper = styled.div`
+const ButtonWrapper = styled.div`
     display: none;
-    justify-content: center;
-    align-items: center;
-    color:#fff;
-    border-radius:50%;
-    width:36px;
-    height:36px;
-    font-size:24px;
-    cursor: pointer;
-    &:hover{
-        background-color:rgba(255,255,255,0.2);
-    }
-    &:active{
-        background-color: rgba(255,255,255,0.3);
-    }
+    gap:8px;
+    flex-basis: 0;
 `
 const ItemWrapper = styled.div`
     width:420px;
@@ -35,7 +27,7 @@ const ItemWrapper = styled.div`
         img{
             opacity: 0.5;
         }
-        ${IconWrapper}{
+        ${ButtonWrapper}{
             display:flex;
         }
     }
@@ -76,10 +68,22 @@ const SubTitle = styled.div`
         text-decoration:underline;
     }
 `
-const ButtonWrapper = styled.div`
+const IconWrapper = styled.div`
     display: flex;
-    gap:8px;
-    flex-basis: 0;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    border-radius:50%;
+    width:36px;
+    height:36px;
+    font-size:24px;
+    cursor: pointer;
+    &:hover{
+        background-color:rgba(255,255,255,0.2);
+    }
+    &:active{
+        background-color: rgba(255,255,255,0.3);
+    }
 `
 const Menu = styled(PiDotsThreeVertical)`
     color:#909090;
@@ -106,14 +110,22 @@ interface TransverseItemProps {
     songData:SongType;
 }
 export default React.memo(function TransverseItem({songData}:TransverseItemProps){
+    const  { setSongData } = useSongData();
+    const { openComponent, isComponentsOpen } = useToggle();
+
+    const onClick = () => {
+        setSongData(songData);
+        if (!isComponentsOpen(PlayerBar))
+            openComponent(PlayerBar)
+    }
     const [isDislike,setIsDislike] = useState(false);
     const [isLike,setIsLike] = useState(false);
 
-    const { icon, color} = songData.fluctuation !== undefined 
-        ? fluctuationIcon[songData.fluctuation] : { icon: null, color: "" };
+    const { icon, color } = songData.fluctuation !== undefined ?
+        fluctuationIcon[songData.fluctuation] : { icon: null, color: "" };
 
     return(
-        <ItemWrapper>
+        <ItemWrapper onClick={onClick}>
                 <img src="https://via.placeholder.com/48x48/666.png" alt="Placeholder"/>
             <Fluctuation style={{color:color}}>{icon}</Fluctuation>
             <Rank>{songData.rank}</Rank>
@@ -128,7 +140,7 @@ export default React.memo(function TransverseItem({songData}:TransverseItemProps
             </Details>
             <ButtonWrapper>
                 <IconWrapper onClick={() => setIsDislike(!isDislike)}>
-                    {isDislike ? <AiFillDislike/>: <AiOutlineDislike/>}
+                    {isDislike ? <AiFillDislike/> : <AiOutlineDislike/>}
                 </IconWrapper>
                 <IconWrapper onClick={() => setIsLike(!isLike)}>
                     {isLike ? <AiFillLike/> : <AiOutlineLike/>}

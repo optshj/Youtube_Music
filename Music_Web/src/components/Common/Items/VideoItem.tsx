@@ -4,14 +4,20 @@ import styled from "styled-components";
 import { MdPlayArrow } from "react-icons/md";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
-import { useSongData } from "../../../context/SongDataConetext";
-import { SongType } from "../../../types/APItypes";
 import { useToggle } from "../../../context/ToggleContext";
+import { useSongData } from "../../../context/SongDataConetext";
+import { VideoType } from "../../../types/APItypes";
+
 import PlayerBar from "../../Layout/PlayerBar/PlayerBar";
 
-const Wrapper = styled.div`
-    width:160px;
+const ItemWrapper = styled.div`
+    width:320px;
     cursor:pointer;
+    &:hover{
+        img{
+            opacity: 0.5;
+        }
+    }
 `
 const Details = styled.div`
     display:flex;
@@ -49,66 +55,43 @@ const MeunButton = styled(HiOutlineDotsVertical)`
 `
 const PlayButton = styled(MdPlayArrow)`
     position:absolute;
-    visibility:hidden;
-    right:20px;
-    bottom:20px;
-    width:32px;
-    height:32px;
-    background-color:#090909;
-    opacity:0.7;
-    border-radius:50%;
-    font-size:32px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size:40px;
     color:#fff;
-    &:hover{
-        transform:scale(1.3);
-        opacity:1;
-        transition:all 0.2s linear;
-    }
-`
-const ItemBackGround = styled.div`
-    position: absolute;
-    width: 160px;
-    height: 160px;
 `
 const ImageWrapper = styled.div`
     position:relative;
     top:0;
     &:hover {
-        ${PlayButton}{
-            visibility:visible;
-        }
         ${MeunButton}{
             visibility:visible;
-        }
-        ${ItemBackGround}{
-            background: linear-gradient(rgba(0, 0, 0, 0.502), rgba(0, 0, 0, 0.000), rgba(0, 0, 0, 0.000));
         }
     }
 `
 
-export default React.memo(function Item({songData}:{songData:SongType}) {
+export default React.memo(function VideoItem({videoData}:{videoData:VideoType}){
     const { setSongData } = useSongData();
     const { openComponent,isComponentsOpen } = useToggle();
 
     const onClick = () => {
-        setSongData(songData);
+        setSongData(videoData);
         if (!isComponentsOpen(PlayerBar))
             openComponent(PlayerBar)
     }
 
     return(
-        <Wrapper onClick={onClick}>
+        <ItemWrapper onClick={onClick}>
             <ImageWrapper>
-                <ItemBackGround/>
-                <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>
+                <img src="https://via.placeholder.com/320x180/666.png" alt="Placeholder"/>
                 <PlayButton/>
                 <MeunButton/>
             </ImageWrapper>
-
             <Details>
-                <Title>{songData.title}</Title>
-                <SubTitle>{songData.artist}</SubTitle>
+                <Title>{videoData.title}</Title>
+                <SubTitle>{videoData.artist} • 조회수 {videoData.hit}만회</SubTitle>
             </Details>
-        </Wrapper>
+        </ItemWrapper>
     )
 })

@@ -3,66 +3,88 @@
         "title":"STELLA I",
         "artist":"Stella Jang",
         "type":"앨범",
-        "releaseDate":"2020"
+        "album":"STELLA I",
+        "releaseDate":"2020",
+        "playTime":234
     },
     {
         "title":"Remeber Archive",
         "artist":"CODE KUNST",
         "type":"앨범",
-        "releaseDate":"2023"
+        "album":"Remember Archive",
+        "releaseDate":"2023",
+        "playTime":234
     },
     {
         "title":"PEOPLE",
         "artist":"CODE KUNST",
         "type":"앨범",
-        "releaseDate":"2020"
+        "album":"PEOPLE",
+        "releaseDate":"2020",
+        "playTime":234
     },
     {
         "title":"Wish You Hell: The 2nd Mini Album",
         "artist":"웬디(WENDY)",
         "type":"EP",
-        "releaseDate":"2024"
+        "album":"Wish You Hell: The 2nd Mini Album",
+        "releaseDate":"2024",
+        "playTime":234
     },
     {
         "title":"나의 아저씨 OST Part. 2",
         "artist":"손디아",
         "type":"싱글",
-        "releaseDate":"2018"
+        "album":"나의 아저씨 OST Part. 2",
+        "releaseDate":"2018",
+        "playTime":234
     },
     {
         "title":"WE,VE DONE SOMETHING WONDERFUL",
         "artist":"에픽하이",
         "type":"앨범",
-        "releaseDate":"2017"
+        "album":"WE,VE DONE SOMETHING WONDERFUL",
+        "releaseDate":"2017",
+        "playTime":234
     },
     {
         "title":"Fake Happy",
         "artist":"Seori",
         "type":"EP",
-        "releaseDate":"2024"
+        "album":"Fake Happy",
+        "releaseDate":"2024",
+        "playTime":234
     },
     {
         "title":"1st Mini Album 'MANITO'",
         "artist":"QWER",
         "type":"앨범",
-        "releaseDate":"2024"
+        "album":"1st Mini Album 'MANITO'",
+        "releaseDate":"2024",
+        "playTime":234
     },
     {
         "title":"너머 [1. Black Shimmer]",
         "artist":"선우정아",
         "type":"EP",
-        "releaseDate":"2024"
+        "album":"너머 [1. Black Shimmer]",
+        "releaseDate":"2024",
+        "playTime":234
     },
     {
         "title":"Knock",
         "artist":"경서",
         "type":"EP",
-        "releaseDate":"2024"
+        "album":"Knock",
+        "releaseDate":"2024",
+        "playTime":234
     },
     {
         "title":"One and Only",
         "artist":"PL(피엘)",
         "type":"싱글",
-        "releaseDate":"2024"
+        "album":"One and Only",
+        "releaseDate":"2024",
+        "playTime":234
     }
 ]

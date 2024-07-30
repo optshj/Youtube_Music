@@ -17,7 +17,6 @@ const IconButton = styled.div<{ active?: boolean }>`
     height: 24px;
     color: ${({ active }) => (active ? "#fff" : "#7a7a7a")};
     cursor: pointer;
-
     &:active {
         color: #fff;
     }

@@ -169,5 +169,14 @@
         "releaseDate": "2019",
         "rank":19,
         "hit":1000
+    },
+    {
+        "artist": "아이유",
+        "title": "Palette",
+        "album": "Palette",
+        "playTime":150,
+        "releaseDate": "2019",
+        "rank":15,
+        "hit":800
     }
 ]
