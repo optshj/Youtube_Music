@@ -5,10 +5,10 @@ import { IconType } from "react-icons"
 import { BsGraphUpArrow,BsEmojiSmile,BsMusicNoteBeamed } from "react-icons/bs";
 
 const Wrapper = styled.div`
+    display:flex;
     margin:0 auto;
     margin-top:32px;
     margin-bottom:56px;
-    display:flex;
     gap:24px;
     justify-content: space-between;
     max-width:${({theme}) => theme.widths.xlarge};
