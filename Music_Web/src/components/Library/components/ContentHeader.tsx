@@ -1,6 +1,10 @@
+import { useState } from "react";
 import styled from "styled-components"
 
+import { useToggle } from "../../../context/ToggleContext";
+
 import { MdArrowDropDown } from "react-icons/md";
+
 import DropDown from "./DropDown";
 
 const Wrapper = styled.div`
@@ -9,13 +13,18 @@ const Wrapper = styled.div`
     justify-content:space-between;
     max-width:${({theme}) => theme.widths.xlarge};  
     ${({theme}) => theme.large` max-width:${theme.widths.large}`}
-    ${({theme}) => theme.medium` max-width:${theme.widths.medium}`}
-    ${({theme}) => theme.small` max-width:${theme.widths.small}`}
+    ${({theme}) => theme.medium` 
+        max-width:${theme.widths.medium};
+        flex-direction:column;
+    `}
+    ${({theme}) => theme.small` max-width:${theme.widths.small};`}
 `
 const LeftWrapper = styled.div`
     display:flex;
     margin-right:24px;
-    gap:12px;
+    ${({theme}) => theme.medium`margin-bottom:20px;`}
+    & > *:first-child { margin-left:0;}
+    & > *:last-child { margin-right:0;}
 `
 const Item = styled.div`
     display: flex;
@@ -28,6 +37,7 @@ const Item = styled.div`
     padding:0 12px;
     height:32px;
     border-radius: 8px;
+    margin:6px;
     &:hover{
         background-color: rgba(255,255,255,.2);
     }
@@ -53,6 +63,10 @@ const Arrow = styled(MdArrowDropDown)`
     height:24px;
 `
 export default function ContentHeader(){
+    const [selected, setSelected] = useState('최근 활동');
+
+    const {toggleComponent} = useToggle();
+
     return(
         <Wrapper>
             <LeftWrapper>
@@ -62,12 +76,12 @@ export default function ContentHeader(){
                 <Item>아티스트</Item>
                 <Item>팟캐스트</Item>
             </LeftWrapper>
-            <RightWrapper>
+            <RightWrapper onClick={() => toggleComponent(DropDown)}>
                 <EndItem>
-                    최근에 저장됨 
+                    {selected} 
                     <Arrow/>
                 </EndItem>
-                <DropDown/>
+                <DropDown selected={selected} setSelected={setSelected}/>
             </RightWrapper>
         </Wrapper>
     )

@@ -9,7 +9,7 @@ import { useSongData } from "../../../context/SongDataConetext";
 import { AlbumType } from "../../../types/APItypes";
 import PlayerBar from "../../Layout/PlayerBar/PlayerBar";
 
-const ItemWrapper = styled.div`
+const Wrapper = styled.div`
     width:160px;
     cursor:pointer;
 `
@@ -97,10 +97,10 @@ export default React.memo(function AlbumItem({albumData}:{albumData:AlbumType}){
     }
 
     return(
-        <ItemWrapper onClick={onClick}>
+        <Wrapper onClick={onClick}>
             <ImageWrapper>
                 <ItemBackGround/>
-                <img src="https://via.placeholder.com/160x160/666.png" alt="Placeholder"/>
+                <img src="https://via.placeholder.com/160x160/666.png" alt="AlbumImage"/>
                 <PlayButton/>
                 <MeunButton/>
             </ImageWrapper>
@@ -108,6 +108,6 @@ export default React.memo(function AlbumItem({albumData}:{albumData:AlbumType}){
                 <Title>{albumData.title}</Title>
                 <SubTitle>{albumData.type} • {albumData.artist}</SubTitle>
             </Details>
-        </ItemWrapper>
+        </Wrapper>
     )
 })

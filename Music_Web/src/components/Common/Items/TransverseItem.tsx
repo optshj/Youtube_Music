@@ -126,7 +126,7 @@ export default React.memo(function TransverseItem({songData}:TransverseItemProps
 
     return(
         <ItemWrapper onClick={onClick}>
-                <img src="https://via.placeholder.com/48x48/666.png" alt="Placeholder"/>
+                <img src="https://via.placeholder.com/48x48/666.png" alt="MusicImage"/>
             <Fluctuation style={{color:color}}>{icon}</Fluctuation>
             <Rank>{songData.rank}</Rank>
             <Details>

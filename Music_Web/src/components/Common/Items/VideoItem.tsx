@@ -84,7 +84,7 @@ export default React.memo(function VideoItem({videoData}:{videoData:VideoType}){
     return(
         <ItemWrapper onClick={onClick}>
             <ImageWrapper>
-                <img src="https://via.placeholder.com/320x180/666.png" alt="Placeholder"/>
+                <img src="https://via.placeholder.com/320x180/666.png" alt="VideoImage"/>
                 <PlayButton/>
                 <MeunButton/>
             </ImageWrapper>

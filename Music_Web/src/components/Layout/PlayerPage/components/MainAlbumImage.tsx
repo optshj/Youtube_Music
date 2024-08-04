@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
     margin:auto 0;
-    flex:none;
     position:relative;
     padding-top:100%;
     height: calc(100% - 408px);
-    max-height:min(100vw - 64px);
+    max-width:600px;
     ${({theme}) => theme.small`
         top:72px;
-        margin:auto 25vw;
+        margin:auto 15vw;
+        min-width:250px;
     `}
 `
 const ImageWrapper = styled.div`

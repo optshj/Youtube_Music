@@ -11,3 +11,8 @@ a{
 img{
   cursor: pointer;
 }
+button{
+  background: none;
+  border:none;
+  cursor:pointer;
+}
