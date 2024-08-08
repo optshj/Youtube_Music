@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -25,10 +26,20 @@ const TabButton = styled.div<{$isActive:boolean}>`
 `
 
 export default function LibraryHeader(){
-    return(
+        const [view, setView] = useState('library');
+
+    const handleViewChange = (newView:string) => {
+        setView(newView);
+    };
+
+    return (
         <Wrapper>
-            <TabButton $isActive={true}>보관함</TabButton>
-            <TabButton $isActive={false}>오프라인 저장</TabButton>
+        <TabButton onClick={() => handleViewChange('library')} $isActive={view === 'library'}>
+            보관함
+        </TabButton>
+        <TabButton onClick={() => handleViewChange('offline')} $isActive={view === 'offline'}>
+            오프라인 저장
+        </TabButton>
         </Wrapper>
     )
 }

@@ -17,6 +17,10 @@ const ButtonWrapper = styled.div`
     gap:8px;
     flex-basis: 0;
 `
+const Img = styled.img`
+    border-radius: 2px;
+    object-fit: cover;
+`
 const ItemWrapper = styled.div`
     width:420px;
     display:flex;
@@ -126,7 +130,7 @@ export default React.memo(function TransverseItem({songData}:TransverseItemProps
 
     return(
         <ItemWrapper onClick={onClick}>
-                <img src="https://via.placeholder.com/48x48/666.png" alt="MusicImage"/>
+            <Img src="https://via.placeholder.com/48x48/666.png" alt="MusicImage" loading="eager"/>
             <Fluctuation style={{color:color}}>{icon}</Fluctuation>
             <Rank>{songData.rank}</Rank>
             <Details>

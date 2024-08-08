@@ -85,6 +85,10 @@ const ImageWrapper = styled.div`
         }
     }
 `
+const Img = styled.img`
+    border-radius: 4px;
+    object-fit: cover;
+`
 
 export default React.memo(function AlbumItem({albumData}:{albumData:AlbumType}){
     const { setSongData } = useSongData();
@@ -100,7 +104,7 @@ export default React.memo(function AlbumItem({albumData}:{albumData:AlbumType}){
         <Wrapper onClick={onClick}>
             <ImageWrapper>
                 <ItemBackGround/>
-                <img src="https://via.placeholder.com/160x160/666.png" alt="AlbumImage"/>
+                <Img src="https://via.placeholder.com/160x160/666.png" alt="AlbumImage"  loading="eager"/>
                 <PlayButton/>
                 <MeunButton/>
             </ImageWrapper>
