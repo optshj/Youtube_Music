@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import styled from "styled-components";
 
 import { useToggle } from '../../../context/ToggleContext';
-import { usePlayList } from '../../../context/PlayListContext';
 
 import SmallSideBar from "./components/SmallSideBar";
 import LargeSideBar from "./components/LargeSideBar";
@@ -14,7 +13,6 @@ const Wrapper = styled.div`
 `
 
 export default function SideBar(){
-    const { fetchPlayList } = usePlayList();
     const { openComponent, closeComponent } = useToggle();
     
     const handleResize = () => {
@@ -26,8 +24,6 @@ export default function SideBar(){
     };
 
     useEffect(() => {
-        fetchPlayList();
-        
         handleResize();
         window.addEventListener('resize', handleResize);
         return () => {

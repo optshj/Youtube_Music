@@ -7,15 +7,9 @@ import { IoMdPlay, IoMdPause, IoMdSkipForward, IoMdSkipBackward } from "react-ic
 const Wrapper = styled.div`
     display:flex;
     align-items:center;
-    ${({theme}) => theme.large`
-        width:241px;
-    `}
-    ${({theme}) => theme.medium`
-        width:144px;
-    `}
-    ${({theme}) => theme.small`
-        display:none;
-    `}
+    ${({theme}) => theme.large` width:241px`}
+    ${({theme}) => theme.medium` width:144px`}
+    ${({theme}) => theme.small` display:none`}
 `
 const IconWrapper = styled.div`
     display:flex;
@@ -30,16 +24,15 @@ const IconButton = styled.div<{$isBig?: boolean}>`
         'width: 36px; height: 36px;' 
         : ''
     }
-`;
+`
 const TimeInfo = styled.div`
     font-size:12px;
     color:#aaa;
     margin:0 16px 0 8px;
     white-space:nowrap;
-    ${({theme}) => theme.medium`
-        visibility:hidden;
-    `}
+    ${({theme}) => theme.medium` visibility:hidden`}
 `
+
 interface LeftContentProps{
     onClick:(event:React.MouseEvent<HTMLDivElement>)=>void;
     playTime: number;

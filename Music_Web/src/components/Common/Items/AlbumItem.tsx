@@ -74,12 +74,8 @@ const ImageWrapper = styled.div`
     position:relative;
     top:0;
     &:hover {
-        ${PlayButton}{
-            visibility:visible;
-        }
-        ${MeunButton}{
-            visibility:visible;
-        }
+        ${PlayButton}{ visibility:visible}
+        ${MeunButton}{ visibility:visible}
         ${ItemBackGround}{
             background: linear-gradient(rgba(0, 0, 0, 0.502), rgba(0, 0, 0, 0.000), rgba(0, 0, 0, 0.000));
         }

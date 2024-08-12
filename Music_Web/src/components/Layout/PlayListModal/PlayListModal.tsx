@@ -1,6 +1,6 @@
 import { useState,useEffect,useRef } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import { customAxios } from '../../../api/customAxios';
 
 import { useToggle } from '../../../context/ToggleContext';
 import { usePlayList } from '../../../context/PlayListContext';
@@ -12,15 +12,9 @@ import Modal from '../../Common/Modal/Modal';
 const ModalWrapper = styled.div`
     width:640px;
     height:400px;
-    ${({theme}) => theme.large`
-        width:560px;
-    `}
-    ${({theme}) => theme.medium`
-        width:480px;
-    `}
-    ${({theme}) => theme.small`
-        width:calc(100vw - 48px);
-    `}
+    ${({theme}) => theme.large` width:560px`}
+    ${({theme}) => theme.medium` width:480px`}
+    ${({theme}) => theme.small` width:calc(100vw - 48px)`}
 `
 const Title = styled.h2`
     padding:24px 24px 0;
@@ -44,13 +38,10 @@ const UnderLine = styled.div`
 const UnderLineWrapper = styled.div`
     position:relative;
 `
-const Input = styled.input`
+const Input = styled.input.attrs({type:'text',autoComplete:'off'})`
     margin:0;
-    outline:none;
-    background:transparent;
     width:100%;
     box-shadow:none;
-    border:none;
     padding:0;
     caret-color:#3ea6ff;
     color:white;
@@ -64,9 +55,9 @@ const Wrapper = styled.div`
     padding:32px 24px;
 `
 const Label = styled.label<{$isWrite:boolean}>`
-    font-size:14px;
+    font-size:16px;
     color:rgba(255,255,255,0.7);
-    line-height: 0.5;
+    line-height:1;
     position:absolute;
     width:100%;
     cursor:text;
@@ -75,6 +66,7 @@ const Label = styled.label<{$isWrite:boolean}>`
         transform:translateY(-20px);
         font-size:11px;
     `}
+    ${({theme}) => theme.large` font-size:14px;`}
 `
 const TilteForm = styled.div`
     position:relative;
@@ -84,14 +76,14 @@ const ExplainForm = styled.div`
     margin:52px 0 34px;
 `
 
-export default function PlayLisModal(){
+export default function PlayListModal(){
     const inputRef = useRef<HTMLInputElement>(null);
     const [title,setTitle] = useState<string>('');
     const [explain,setExplain] = useState<string>('');
     
     const { fetchPlayList } = usePlayList();
     const { closeComponent,isComponentsOpen } = useToggle();
-    const isModalOpen = isComponentsOpen(PlayLisModal);
+    const isModalOpen = isComponentsOpen(PlayListModal);
 
     useEffect (()=> {
         if (isModalOpen && inputRef.current){
@@ -99,18 +91,19 @@ export default function PlayLisModal(){
         }
     },[isModalOpen])
 
-    const submitPlayList = () => {
-        axios.post("http://localhost:4000/api/playlists",
-        {
-            title: title,
-            explain: explain,
-            owner: "test",
-            url: "test",
-        }).catch(e => {
-            console.error(e)
-        })
+    const submitPlayList = async () => {
+        try {
+            await customAxios.post('/api/playlists',{
+                title:title,
+                explain:explain,
+                owner:'Me',
+                url:'test'
+            })
+        } catch (e) {
+            console.log(e);
+        }
         fetchPlayList();
-        closeComponent(PlayLisModal);
+        closeComponent(PlayListModal);
         setTitle('');
         setExplain('');
     }
@@ -130,19 +123,16 @@ export default function PlayLisModal(){
                 <Wrapper>
                     <TilteForm>
                         <Label htmlFor="input-title" $isWrite={!!title}>제목</Label>
-                        <Input type='text' id="input-title" value={title} onChange={onChangeTitle} ref={inputRef}/>
+                        <Input id="input-title" value={title} onChange={onChangeTitle} ref={inputRef}/>
                         <UnderLineWrapper> 
-                            <UnderLine/>
-                            <UnderLineActive/>
+                            <UnderLine/> <UnderLineActive/>
                         </UnderLineWrapper>
                     </TilteForm>
-                    
                     <ExplainForm>
                         <Label htmlFor="input-explain" $isWrite={!!explain}>설명</Label>
-                        <Input type='text' id="input-explain" value={explain} onChange={onChangeExplain}/>
+                        <Input id="input-explain" value={explain} onChange={onChangeExplain}/>
                         <UnderLineWrapper>
-                            <UnderLine/>
-                            <UnderLineActive/>
+                            <UnderLine/> <UnderLineActive/>
                         </UnderLineWrapper>
                     </ExplainForm>
                     <ModalSelectButton/>

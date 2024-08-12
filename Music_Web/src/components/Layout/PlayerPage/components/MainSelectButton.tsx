@@ -24,9 +24,7 @@ const Button = styled.button<{$isSelect:boolean}>`
     background-color:${props => props.$isSelect ? '#383838': '#212121'};
     border-radius:25% / 50%;
     line-height:1.3;
-    border:transparent;
     white-space:nowrap;
-    cursor:pointer;
 `
 
 export default function MainSelectButton(){

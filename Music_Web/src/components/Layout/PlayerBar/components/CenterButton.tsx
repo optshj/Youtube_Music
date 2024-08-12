@@ -7,9 +7,7 @@ import { PiDotsThreeVertical } from "react-icons/pi";
 const ButtonWrapper = styled.div`
     display:flex;
     gap:8px;
-    ${({theme}) => theme.medium`
-        display:none;
-    `}
+    ${({theme}) => theme.medium` display:none`}
 `
 const IconWrapper = styled.div`
     display:flex;

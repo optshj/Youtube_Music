@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
+
 import ControlButton from "./PlayerControlButton";
+
 import { useSongData } from "../../../../context/SongDataConetext";
 
 const Wrapper = styled.div`
@@ -27,8 +29,6 @@ const Artist = styled.div`
     font-weight:400;
     font-size:16px;
     color:rgba(255,255,255,0.7);
-`
-const ProgressbarWrapper = styled.div`
 `
 const SlidebarWrapper = styled.div`
     position:relative;
@@ -100,7 +100,7 @@ export default function PlayerControl(){
                 <Title>{songData.title}</Title>
                 <Artist>{songData.artist}</Artist>
 
-                <ProgressbarWrapper>
+                <div>
                     <SlidebarWrapper>
                         <SlideInner $length={playTimeRatio}/>
                         <Sliderbar type="range" max={100} min={0} value={playTimeRatio} onChange={onChangePlayTime}/>
@@ -109,7 +109,7 @@ export default function PlayerControl(){
                         <CurrentTime>{`${playTimeMinute}:${playTimeSecond}`}</CurrentTime>
                         <TotalTime>{`${totalMinute}:${totalSecond}`}</TotalTime>
                     </TimeWrapper>
-                </ProgressbarWrapper>
+                </div>
                 
             </ExplainWrapper>
             <ControlButton/>

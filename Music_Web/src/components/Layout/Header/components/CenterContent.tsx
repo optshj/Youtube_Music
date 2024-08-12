@@ -45,18 +45,14 @@ const SearchBar = styled.input<FocusedProps>`
 	&::placeholder{
 		color:#9a9e9b;
 	}
-	${({theme,$isFocused}) => theme.medium`
-		display:${$isFocused?'inline-block':'none'};
-	`}
+	${({theme,$isFocused}) => theme.medium` display:${$isFocused?'inline-block':'none'}`}
 `
 const Icon = styled(GoSearch)<FocusedProps>`
 	font-size:20px;
 	padding:8px 16px;
 	color:${props => props.$isFocused ? '#fff' : '#9a9e9b'};
 	cursor:pointer;
-	${({theme}) => theme.medium`
-		color:#fff;
-	`}
+	${({theme}) => theme.medium` color:#fff`}
 `
 
 export default function Search(){

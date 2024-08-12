@@ -7,8 +7,6 @@ const Wrapper = styled.div`
     margin:16px 0;
     justify-content:space-between;
 `
-const ExplainWrapper = styled.div`
-`
 const Title = styled.div`
     font-size:12px;
     color:rgba(255,255,255,0.7);
@@ -46,10 +44,10 @@ const ButtonIcon = styled(RiPlayListAddLine)`
 export default function MusicListHeader(){
     return(
         <Wrapper>
-            <ExplainWrapper>
+            <div>
                 <Title>재생 중인 트랙 출처</Title>
                 <SubTitle>My PlayList</SubTitle>
-            </ExplainWrapper>
+            </div>
             <StoreButton>
                 <ButtonIcon/>
                 <ButtonFont>저장</ButtonFont>

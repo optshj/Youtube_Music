@@ -12,7 +12,7 @@ const Wrapper = styled.div`
         min-width:250px;
     `}
 `
-const ImageWrapper = styled.div`
+const Img = styled.img`
     position:absolute;
     top:0;
     left:0;
@@ -22,9 +22,7 @@ const ImageWrapper = styled.div`
 export default function MainAlbumImage(){
     return(
         <Wrapper>
-            <ImageWrapper>
-                <img src="https://via.placeholder.com/1048x1048/666.png" alt="Placeholder" style={{'width':'100%','height':'100%'}}/>
-            </ImageWrapper>
+            <Img src="https://via.placeholder.com/1048x1048/666.png" alt="Placeholder"/>
         </Wrapper>
     )
 }

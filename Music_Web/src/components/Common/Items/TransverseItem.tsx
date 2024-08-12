@@ -31,9 +31,7 @@ const ItemWrapper = styled.div`
         img{
             opacity: 0.5;
         }
-        ${ButtonWrapper}{
-            display:flex;
-        }
+        ${ButtonWrapper}{display:flex}
     }
 `
 const Fluctuation = styled.div`
@@ -110,10 +108,7 @@ const fluctuationIcon:StatusConfig = {
         color:"#00ff0091",
     }
 }
-interface TransverseItemProps {
-    songData:SongType;
-}
-export default React.memo(function TransverseItem({songData}:TransverseItemProps){
+export default React.memo(function TransverseItem({songData}:{songData:SongType}){
     const  { setSongData } = useSongData();
     const { openComponent, isComponentsOpen } = useToggle();
 

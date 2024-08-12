@@ -78,15 +78,9 @@ const ItemWrapper = styled.div`
         border:none;
     `}
     &:hover{
-        ${PlayTime}{
-            display:none;
-        }
-        ${MenuButton}{
-            display:flex;
-        }
-        ${PlayButton}{
-            display:inline-block;
-        }
+        ${PlayTime}{display:none}
+        ${MenuButton}{display:flex}
+        ${PlayButton}{display:inline-block}
     }
 `
 

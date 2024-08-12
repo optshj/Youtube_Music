@@ -55,12 +55,8 @@ const ContentWrapper = styled.div`
     padding:24px 48px 0;
     box-sizing:border-box;
     height:100%;
-    ${({theme}) => theme.medium`
-        flex-direction:column;
-    `}
-    ${({theme}) => theme.small`
-        padding:0;
-    `}
+    ${({theme}) => theme.medium` flex-direction:column`}
+    ${({theme}) => theme.small` padding:0`}
 `
 const MainPanel = styled.div`
     display:flex;
@@ -109,9 +105,7 @@ const DownArrow = styled(SlArrowDown)`
     font-size: 16px;
     display: none;
     cursor: pointer;
-    ${({theme}) => theme.small`
-        display:inline-block;
-    `}
+    ${({theme}) => theme.small` display:inline-block`}
 `
 
 export default function PlayerPage() {

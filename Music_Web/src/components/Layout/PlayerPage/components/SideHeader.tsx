@@ -20,18 +20,14 @@ const HeaderContentWrapper = styled.div<HeaderContentWrapperProps>`
     white-space: nowrap;
     overflow:hidden;
     border-bottom:${props => props.$isSelect ? '1px solid #fff':'none'};
-    ${({theme,$isBottomBarUp}) => theme.small`
-        border:${$isBottomBarUp ? '':'none'};
-    `}
+    ${({theme,$isBottomBarUp}) => theme.small` border:${$isBottomBarUp ? '':'none'}`}
 `
 const Wrapper = styled.div<{$isBottomBarUp:boolean}>`
     display:flex;
     height:48px;
     border-bottom:1px solid rgba(255,255,255,0.1);
     font-size:14px;
-    ${({theme,$isBottomBarUp}) => theme.small`
-        border:${$isBottomBarUp ? '':'none'};
-    `}
+    ${({theme,$isBottomBarUp}) => theme.small` border:${$isBottomBarUp ? '':'none'}`}
 `
 const Contents = styled.div`
     display:flex;

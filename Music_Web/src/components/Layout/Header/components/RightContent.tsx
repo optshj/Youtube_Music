@@ -11,9 +11,9 @@ const UserIcon = styled.div`
 	align-items: center;
 	justify-content: center;
 	background-color:#5c6bc0;
-	cursor:pointer;
 	color: #fff;
 	font-size:10px;
+	cursor:pointer;
 `
 
 export default function RightContent(){

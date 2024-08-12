@@ -83,8 +83,7 @@ export default function ModalSelectButton(){
                 <DropDownMenu 
                     onClose={()=> setOpenDropDown(false)}
                     state={state}
-                    setState={setState}
-                />
+                    setState={setState}/>
             }
         </Wrapper>
     )

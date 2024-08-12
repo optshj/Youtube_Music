@@ -65,9 +65,7 @@ const ImageWrapper = styled.div`
     position:relative;
     top:0;
     &:hover {
-        ${MeunButton}{
-            visibility:visible;
-        }
+        ${MeunButton}{visibility:visible}
     }
 `
 

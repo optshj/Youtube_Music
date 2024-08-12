@@ -15,8 +15,6 @@ const Button = styled.button<{$isBlack?:boolean}>`
     font-size:14px;
     line-height:36px;
     border-radius:18px;
-    cursor:pointer;
-    border:none;
     white-space:nowrap;
     ${({$isBlack}) => $isBlack ? 
         `color:#f1f1f1;
