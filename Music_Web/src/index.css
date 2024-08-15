@@ -1,23 +1,23 @@
 body {
-  margin: 0;
-  font-family: 'Roboto', 'Oxygen', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color:#030303;
+    margin: 0;
+    font-family: "Roboto", "Oxygen", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #030303;
 }
-a{
-  text-decoration: none;
+a {
+    text-decoration: none;
 }
-img{
-  cursor: pointer;
+img {
+    cursor: pointer;
 }
-button{
-  background: none;
-  border:none;
-  cursor:pointer;
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
-input{
-  background: none;
-  border:none;
-  outline: none;
+input {
+    background: none;
+    border: none;
+    outline: none;
 }
