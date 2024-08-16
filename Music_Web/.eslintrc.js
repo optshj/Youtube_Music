@@ -1,7 +1,7 @@
 module.exports = {
     env: {
         browser: true,
-        es2021: true,
+        es2021: true
     },
     parser: "@typescript-eslint/parser",
     plugins: ["@typescript-eslint", "prettier"],
@@ -14,7 +14,7 @@ module.exports = {
         "plugin:import/warnings",
         "plugin:prettier/recommended",
         "plugin:@typescript-eslint/recommended",
-        "prettier",
+        "prettier"
     ],
     rules: {
         // var 금지
@@ -36,7 +36,7 @@ module.exports = {
         // export문이 하나일 때 default export 사용 권장 경고 비활성화
         "import/prefer-default-export": ["off"],
         // react hooks의 의존성배열이 충분하지 않을 때 경고 표시
-        "react-hooks/exhaustive-deps": ["warn"],
+        "react-hooks/exhaustive-deps": ["off"],
         // 컴포넌트 이름은 PascalCase로
         "react/jsx-pascal-case": "warn",
         // 반복문으로 생성하는 요소에 key없어도 됨
@@ -46,10 +46,7 @@ module.exports = {
         // [error] Delete `␍` prettier/prettier
         "prettier/prettier": ["error", { endOfLine: "auto" }],
         // [error] Function component is not a function declaration
-        "react/function-component-definition": [
-            2,
-            { namedComponents: ["arrow-function", "function-declaration"] },
-        ],
+        "react/function-component-definition": [2, { namedComponents: ["arrow-function", "function-declaration"] }],
         "react/react-in-jsx-scope": 0,
         "react/prefer-stateless-function": 0,
         "react/jsx-one-expression-per-line": 0,
@@ -67,12 +64,15 @@ module.exports = {
         "import/no-extraneous-dependencies": 0,
         "no-shadow": 0,
         "jsx-a11y/no-noninteractive-element-interactions": 0,
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/no-static-element-interactions": 0,
+        "react/require-default-props": 0
     },
     settings: {
         "import/resolver": {
             node: {
-                extensions: [".js", ".jsx", ".ts", ".tsx"],
-            },
-        },
-    },
+                extensions: [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    }
 }

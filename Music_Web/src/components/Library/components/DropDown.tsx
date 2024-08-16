@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
-import { PiCheck } from 'react-icons/pi'
+import { PiCheck } from "react-icons/pi"
 
-import { useToggle } from '../../../context/ToggleContext'
+import { useToggle } from "../../../context/ToggleContext"
 
 const Wrapper = styled.div<{ $isOpen: boolean }>`
-    visibility: ${(props) => (props.$isOpen ? 'visible' : 'hidden')};
+    visibility: ${props => (props.$isOpen ? "visible" : "hidden")};
     width: 307px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 2px;
@@ -88,22 +88,22 @@ export default function DropDown({ selected, setSelected }: DropDownProps) {
 
     return (
         <Wrapper $isOpen={isComponentsOpen(DropDown)}>
-            <Title>{'정렬 기준'}</Title>
+            <Title>{"정렬 기준"}</Title>
             <Items>
                 <Item
-                    title={'최근 활동'}
-                    isSelected={selected === '최근 활동'}
-                    onClick={() => setSelected('최근 활동')}
+                    title={"최근 활동"}
+                    isSelected={selected === "최근 활동"}
+                    onClick={() => setSelected("최근 활동")}
                 />
                 <Item
-                    title={'최근에 저장됨'}
-                    isSelected={selected === '최근에 저장됨'}
-                    onClick={() => setSelected('최근에 저장됨')}
+                    title={"최근에 저장됨"}
+                    isSelected={selected === "최근에 저장됨"}
+                    onClick={() => setSelected("최근에 저장됨")}
                 />
                 <Item
-                    title={'최근 재생한 음악'}
-                    isSelected={selected === '최근 재생한 음악'}
-                    onClick={() => setSelected('최근 재생한 음악')}
+                    title={"최근 재생한 음악"}
+                    isSelected={selected === "최근 재생한 음악"}
+                    onClick={() => setSelected("최근 재생한 음악")}
                 />
             </Items>
         </Wrapper>

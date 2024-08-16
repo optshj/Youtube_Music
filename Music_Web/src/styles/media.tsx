@@ -4,13 +4,11 @@ const sizes: { [key: string]: number } = {
     small: 616,
     medium: 936,
     large: 1149,
-    xlarge: 1578,
+    xlarge: 1578
 }
 
 type MediaQueries = {
-    [key in keyof typeof sizes]: (
-        ...args: [TemplateStringsArray, ...CSSObject[]]
-    ) => ReturnType<typeof css>
+    [key in keyof typeof sizes]: (...args: [TemplateStringsArray, ...CSSObject[]]) => ReturnType<typeof css>
 }
 
 export const media: MediaQueries = Object.keys(sizes).reduce((acc, label) => {

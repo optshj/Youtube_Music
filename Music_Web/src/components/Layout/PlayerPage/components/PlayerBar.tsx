@@ -1,14 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
-import { IoPlaySharp,IoPlaySkipForwardSharp,IoPauseSharp} from "react-icons/io5";
+import { IoPlaySharp, IoPlaySkipForwardSharp, IoPauseSharp } from "react-icons/io5"
 
-import { IsPlayState,usePlayState } from '../../../../context/PlayStateContext';
-import { useSongData } from '../../../../context/SongDataConetext';
+import { IsPlayState, usePlayState } from "../../../../context/PlayStateContext"
+import { useSongData } from "../../../../context/SongDataConetext"
 
-const Wrapper = styled.div<{$isBottomBarUp:boolean;}>`
-    display:none;
-    ${({theme, $isBottomBarUp}) => theme.small`
-        display: ${$isBottomBarUp ? 'flex' : 'none'};
+const Wrapper = styled.div<{ $isBottomBarUp: boolean }>`
+    display: none;
+    ${({ theme, $isBottomBarUp }) => theme.small`
+        display: ${$isBottomBarUp ? "flex" : "none"};
         flex-direction: row;
         position:absolute;
         width:100%;
@@ -16,12 +16,12 @@ const Wrapper = styled.div<{$isBottomBarUp:boolean;}>`
     `}
 `
 const LeftContent = styled.div`
-    margin-left:16px;
+    margin-left: 16px;
 `
 const CenterContent = styled.div`
-    margin-left:16px;
+    margin-left: 16px;
     justify-content: flex-start;
-    display:flex;
+    display: flex;
     flex-direction: column;
 `
 const Title = styled.div`
@@ -33,15 +33,15 @@ const Title = styled.div`
 const Artist = styled.div`
     font-size: 14px;
     font-weight: 400;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
 `
 const RightContent = styled.div`
     display: flex;
     margin: 0 16px;
     align-items: center;
     flex-direction: row;
-    font-size:24px;
-    margin-left:auto;
+    font-size: 24px;
+    margin-left: auto;
 `
 const PlayPauseWrapper = styled.div`
     display: flex;
@@ -57,23 +57,23 @@ const NextIcon = styled(IoPlaySkipForwardSharp)`
 `
 
 interface PlayerBarProps {
-    $isBottomBarUp:boolean;
-    onClick:() => void;
+    $isBottomBarUp: boolean
+    onClick: () => void
 }
-export default function PlayerBar({$isBottomBarUp,onClick}:PlayerBarProps) {
-    const isPlay = IsPlayState();
-    const { togglePlayState } = usePlayState();
-    const { songData } = useSongData();
-    const handleClick = (event:React.MouseEvent<HTMLDivElement>) => {
+export default function PlayerBar({ $isBottomBarUp, onClick }: PlayerBarProps) {
+    const isPlay = IsPlayState()
+    const { togglePlayState } = usePlayState()
+    const { songData } = useSongData()
+    const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
         if (event.target === event.currentTarget) {
-            onClick();
+            onClick()
         }
     }
 
     return (
         <Wrapper $isBottomBarUp={$isBottomBarUp} onClick={handleClick}>
             <LeftContent>
-                <img src="https://via.placeholder.com/40x40/666.png" alt="Placeholder" onClick={handleClick}/>
+                <img src={"https://via.placeholder.com/40x40/666.png"} alt={"Placeholder"} onClick={handleClick} />
             </LeftContent>
 
             <CenterContent>
@@ -83,10 +83,10 @@ export default function PlayerBar({$isBottomBarUp,onClick}:PlayerBarProps) {
 
             <RightContent>
                 <PlayPauseWrapper onClick={togglePlayState}>
-                    {isPlay ? <IoPlaySharp/> : <IoPauseSharp/>}
+                    {isPlay ? <IoPlaySharp /> : <IoPauseSharp />}
                 </PlayPauseWrapper>
-                <NextIcon/>
+                <NextIcon />
             </RightContent>
         </Wrapper>
-    );
-};
+    )
+}

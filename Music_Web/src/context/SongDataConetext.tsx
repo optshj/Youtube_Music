@@ -11,16 +11,14 @@ export default function SongDataProvider({ children }: { children: React.ReactNo
         () => ({
             setSongData(data: SongType) {
                 setSongData(data)
-            },
+            }
         }),
-        [],
+        []
     )
 
     return (
         <SongDataValueContext.Provider value={songData}>
-            <SongDataActionContext.Provider value={actions}>
-                {children}
-            </SongDataActionContext.Provider>
+            <SongDataActionContext.Provider value={actions}>{children}</SongDataActionContext.Provider>
         </SongDataValueContext.Provider>
     )
 }

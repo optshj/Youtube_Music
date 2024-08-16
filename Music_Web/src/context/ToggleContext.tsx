@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, ComponentType } from "react"
+import { useState, createContext, useContext, useCallback, useMemo, ComponentType } from "react"
 
 interface OpenComponent {
     Component: ComponentType<any>
@@ -14,33 +14,40 @@ const ToggleStateContext = createContext<OpenComponent[]>([])
 const ToggleDispatchContext = createContext<Dispatch>({
     open: () => {},
     close: () => {},
-    isOpen: () => false,
+    isOpen: () => false
 })
 
 export default function ToggleProvider({ children }: { children: React.ReactNode }) {
     const [openComponent, setOpenComponent] = useState<OpenComponent[]>([])
 
-    const open = (Component: ComponentType<any>) => {
-        setOpenComponent(elements => {
-            return [...elements, { Component }]
-        })
-    }
-    const close = (Component: ComponentType<any>) => {
-        setOpenComponent(elements => {
-            return elements.filter(element => element.Component !== Component)
-        })
-    }
-    const isOpen = (Component: ComponentType<any>) => {
-        return openComponent.some(element => element.Component === Component)
-    }
+    const open = useCallback(
+        (Component: ComponentType<any>) => {
+            setOpenComponent(elements => {
+                return [...elements, { Component }]
+            })
+        },
+        [setOpenComponent]
+    )
+    const close = useCallback(
+        (Component: ComponentType<any>) => {
+            setOpenComponent(elements => {
+                return elements.filter(element => element.Component !== Component)
+            })
+        },
+        [setOpenComponent]
+    )
+    const isOpen = useCallback(
+        (Component: ComponentType<any>) => {
+            return openComponent.some(element => element.Component === Component)
+        },
+        [openComponent]
+    )
 
-    const dispatch = { open, close, isOpen }
+    const dispatch = useMemo(() => ({ open, close, isOpen }), [open, close, isOpen])
 
     return (
         <ToggleStateContext.Provider value={openComponent}>
-            <ToggleDispatchContext.Provider value={dispatch}>
-                {children}
-            </ToggleDispatchContext.Provider>
+            <ToggleDispatchContext.Provider value={dispatch}>{children}</ToggleDispatchContext.Provider>
         </ToggleStateContext.Provider>
     )
 }

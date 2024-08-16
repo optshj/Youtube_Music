@@ -1,18 +1,19 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const Wrapper = styled.div`
-    margin-top:16px;
-    font-size:14px;
-    color:#fff;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #fff;
     line-height: 1.6;
-    font-weight:400;
+    font-weight: 400;
 `
 
 export default function Lyrics() {
-    return(
+    return (
         <Wrapper>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia animi laudantium nesciunt accusamus voluptates voluptatem dolorem libero beatae, ducimus modi similique facere harum, error odio quasi, veniam autem ut blanditiis.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta iste, quaerat minima voluptatibus veritatis sequi molestias officia vitae aliquid voluptas deserunt? Fugit culpa consequatur inventore voluptatum nostrum excepturi exercitationem distinctio?
+            {
+                "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia animi laudantium nesciunt accusamus voluptates voluptatem dolorem libero beatae, ducimus modi similique facere harum, error odio quasi, veniam autem ut blanditiis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta iste, quaerat minima voluptatibus veritatis sequi molestias officia vitae aliquid voluptas deserunt? Fugit culpa consequatur inventore voluptatum nostrum excepturi exercitationem distinctio?"
+            }
         </Wrapper>
     )
 }

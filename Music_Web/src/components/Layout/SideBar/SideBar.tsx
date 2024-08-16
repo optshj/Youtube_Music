@@ -1,40 +1,40 @@
-import { useEffect } from 'react';
-import styled from "styled-components";
+import { useEffect } from "react"
+import styled from "styled-components"
 
-import { useToggle } from '../../../context/ToggleContext';
+import { useToggle } from "../../../context/ToggleContext"
 
-import SmallSideBar from "./components/SmallSideBar";
-import LargeSideBar from "./components/LargeSideBar";
+import SmallSideBar from "./components/SmallSideBar"
+import LargeSideBar from "./components/LargeSideBar"
 
 const Wrapper = styled.div`
-    position:fixed;
-    height:100%;
-    z-index:1;
+    position: fixed;
+    height: 100%;
+    z-index: 1;
 `
 
-export default function SideBar(){
-    const { openComponent, closeComponent } = useToggle();
-    
+export default function SideBar() {
+    const { openComponent, closeComponent } = useToggle()
+
     const handleResize = () => {
         if (window.innerWidth > 937) {
-            openComponent(SideBar);
+            openComponent(SideBar)
         } else {
-            closeComponent(SideBar);
+            closeComponent(SideBar)
         }
-    };
+    }
 
     useEffect(() => {
-        handleResize();
-        window.addEventListener('resize', handleResize);
+        handleResize()
+        window.addEventListener("resize", handleResize)
         return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    },[]);
-    
-    return(
+            window.removeEventListener("resize", handleResize)
+        }
+    }, [])
+
+    return (
         <Wrapper>
-            <LargeSideBar/>
-            <SmallSideBar/>
+            <LargeSideBar />
+            <SmallSideBar />
         </Wrapper>
     )
 }

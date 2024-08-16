@@ -1,18 +1,16 @@
 module.exports = {
-    // 개행문자 설정
-    endOfLine: "lf",
-    // 홑따옴표 사용
+    printWidth: 120,
+    trailingComma: "all", // 기본값
+    tabWidth: 4, // 기본값
+    semi: false, // 일부 코드에서 라인의 시작 부분에 세미 콜론 추가
     singleQuote: false,
-    // 세미콜론 사용 여부
-    semi: false,
-    // 탭의 사용을 금하고 스페이스바 사용으로 대체
-    useTabs: false,
-    // 탭의 넓이 2칸
-    tabWidth: 4,
-    // key: value 뒤에 항상 콤마 붙이기
-    trailingComma: "all",
-    // 코드 한 줄의 max lnegth 120
-    printWidth: 100,
-    // 화살표 함수의 매개변수가 하나일 때 괄호 생략 여부 (생략할 경우 avoid)
-    arrowParens: "avoid",
+    bracketSpacing: true, // 기본값. true인 경우 {foo:bar}는 { foo: bar }로 변환됨
+    arrowParens: "avoid", // 기본값
+    useTabs: false, // 기본값
+    jsxBracketSameLine: true,
+    bracketSameLine: true,
+    parser: "typescript",
+    singleAttributePerLine: false,
+    trailingComma: "none",
+    endOfLine: "crlf"
 }

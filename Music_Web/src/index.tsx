@@ -17,7 +17,7 @@ root.render(
                 <App />
             </Provider>
         </ThemeProvider>
-    </React.StrictMode>,
+    </React.StrictMode>
 )
 
 reportWebVitals()

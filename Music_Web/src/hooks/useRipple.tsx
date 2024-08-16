@@ -16,8 +16,8 @@ export default function useRipple<T extends HTMLElement>(ref: React.RefObject<T>
                     ...ripples,
                     {
                         left,
-                        top,
-                    },
+                        top
+                    }
                 ])
             }
             element.addEventListener("click", handleClick)

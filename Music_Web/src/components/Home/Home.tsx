@@ -1,17 +1,14 @@
-import HomeHeader from "./components/HomeHeader";
-import Content from "./components/Content";
+import HomeHeader from "./components/HomeHeader"
+import Content from "./components/Content"
 
-import musicList from "../../data/musicList.json";
+import musicList from "../../data/musicList.json"
 
-export default function Home(){
-
-    return(
+export default function Home() {
+    return (
         <>
-            <HomeHeader/>
-            {musicList.map((musicListData,idx) => {
-                return(
-                    <Content key={idx} musicListData={musicListData}/>
-                )
+            <HomeHeader />
+            {musicList.map(musicListData => {
+                return <Content musicListData={musicListData} />
             })}
         </>
     )
