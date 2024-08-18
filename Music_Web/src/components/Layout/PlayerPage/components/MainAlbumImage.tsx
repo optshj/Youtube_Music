@@ -17,6 +17,7 @@ const Img = styled.img`
     top: 0;
     left: 0;
     width: 100%;
+    height: auto;
 `
 
 export default function MainAlbumImage() {

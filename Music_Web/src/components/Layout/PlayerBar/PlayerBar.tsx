@@ -7,6 +7,7 @@ import LeftContent from "./components/LeftContent"
 import RightContent from "./components/RightContent"
 import CenterContent from "./components/CenterContent"
 import PlayerPage from "../PlayerPage/PlayerPage"
+import Progressbar from "./components/Progressbar"
 
 const Wrapper = styled.div`
     display: flex;
@@ -34,6 +35,7 @@ export default function Playerbar() {
     return (
         songData && (
             <Wrapper onClick={handleClick}>
+                <Progressbar onClick={handleBlockClick} />
                 <LeftContent onClick={handleBlockClick} playTime={songData.playTime} />
                 <CenterContent onClick={handleClick} songData={songData} />
                 <RightContent onClick={handleBlockClick} />

@@ -1,11 +1,11 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom"
 
 import { RxHamburgerMenu } from "react-icons/rx"
 
 import { useToggle } from "../../../../context/ToggleContext"
 
 import SideBar from "../../SideBar/SideBar"
+import LinkButton from "../../../Common/Buttons/LinkButton"
 
 const Wrapper = styled.div`
     display: flex;
@@ -38,9 +38,9 @@ export default function LeftContent() {
     return (
         <Wrapper>
             <Menu onClick={() => toggleComponent(SideBar)} />
-            <Link to={"/"}>
+            <LinkButton to={"/"}>
                 <Logo>{"Music"}</Logo>
-            </Link>
+            </LinkButton>
         </Wrapper>
     )
 }

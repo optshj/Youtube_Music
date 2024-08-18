@@ -11,6 +11,5 @@ module.exports = {
     bracketSameLine: true,
     parser: "typescript",
     singleAttributePerLine: false,
-    trailingComma: "none",
-    endOfLine: "crlf"
+    trailingComma: "none"
 }

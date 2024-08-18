@@ -1,6 +1,6 @@
 import { ReactElement } from "react"
 import styled, { keyframes } from "styled-components"
-import { useLocation, Link } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 import { GoHome, GoHomeFill } from "react-icons/go"
 import { FaRegCompass, FaCompass } from "react-icons/fa"
@@ -10,6 +10,7 @@ import { useToggle } from "../../../../context/ToggleContext"
 
 import SideBar from "../SideBar"
 import LargePlayListMenu from "./LargePlayListMenu"
+import LinkButton from "../../../Common/Buttons/LinkButton"
 
 const IconWrapper = styled.div<{ $selectState?: boolean }>`
     display: flex;
@@ -71,12 +72,12 @@ const MenuIcon = ({ emptyIcon, fillIcon, descript, link }: MenuIcoProps) => {
     const location = useLocation()
     const isLocation = location.pathname === link
     return (
-        <Link to={link}>
+        <LinkButton to={link}>
             <IconWrapper $selectState={isLocation}>
                 {isLocation ? fillIcon : emptyIcon}
                 <IconFont>{descript}</IconFont>
             </IconWrapper>
-        </Link>
+        </LinkButton>
     )
 }
 export default function LargeSideBar() {
