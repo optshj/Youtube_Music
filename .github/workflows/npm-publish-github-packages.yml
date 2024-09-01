@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,9 +19,13 @@ jobs:
         node-version: '20'
 
     - name: Install dependencies
-      working-directory: ./Music_Web
       run: npm install
 
-    - name: Build React app
-      working-directory: ./Music_Web
+    - name: Build
       run: npm run build
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
