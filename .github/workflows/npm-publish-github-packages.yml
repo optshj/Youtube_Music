@@ -25,7 +25,3 @@ jobs:
     - name: Build React app
       working-directory: ./Music_Web
       run: npm run build
-
-    - name: Deploy to GitHub Pages
-      working-directory: ./Music_Web
-      run: npm run deploy
