@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@context/*": ["context/*"]
+    },
     "target": "es5",
     "lib": [
       "dom",
@@ -18,9 +23,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["jest", "node"]
   },
-  "include": [
-    "src"
-, "src/components/Layout/PlayListModal/components/DropDownState.tsx"  ]
+  "include": ["src", "tests", "tests"]
 }
