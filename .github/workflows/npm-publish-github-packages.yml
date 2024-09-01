@@ -30,4 +30,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.ACTION_SECRET }}
-        publish_dir: ./Music_Web/build
+        publish_dir: ./build
