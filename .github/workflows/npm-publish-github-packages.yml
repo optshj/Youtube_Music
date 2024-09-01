@@ -3,7 +3,7 @@ name: Deploy React App
 on:
   push:
     branches:
-      - main  # 또는 기본 브랜치 이름
+      - master  # 또는 기본 브랜치 이름
 
 jobs:
   deploy:
