@@ -6,7 +6,8 @@ on:
       - master  # 또는 기본 브랜치 이름
 
 jobs:
-  deploy:
+  build-and-deploy:
+    
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -28,7 +29,4 @@ jobs:
         npm run build
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.ACTION_SECRET }}
-        publish_dir: ./Music_Web/build
+      run: npm run deploy -- -d build/Music_Web
