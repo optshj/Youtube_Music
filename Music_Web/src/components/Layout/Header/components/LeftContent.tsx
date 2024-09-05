@@ -38,7 +38,7 @@ export default function LeftContent() {
     return (
         <Wrapper>
             <Menu onClick={() => toggleComponent(SideBar)} />
-            <LinkButton to={"/"}>
+            <LinkButton to={"/Youtube_Music_Web/"}>
                 <Logo>{"Music"}</Logo>
             </LinkButton>
         </Wrapper>

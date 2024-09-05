@@ -3,7 +3,7 @@ name: Deploy React App
 on:
   push:
     branches:
-      - master  # 또는 기본 브랜치 이름
+      - main
 
 jobs:
   build-and-deploy:
@@ -16,19 +16,16 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20'  # 또는 필요한 Node.js 버전
+        node-version: '20'
 
     - name: Install dependencies
-      run: |
-        cd Music_Web
-        npm install
+      run: npm install
 
     - name: Build
-      run: |
-        cd Music_Web
-        npm run build
-
+      run: npm run build
+      
     - name: Deploy
-      run: |
-        cd Music_Web
-        npm run deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.ACTIONS_DEPLOY_KEY}}
+        publish_dir: ./build

@@ -74,18 +74,23 @@ export default function SmallSideBar() {
     return (
         <Wrapper $isBorder={isBorder}>
             <MenuWrapper>
-                <MenuIcon emptyIcon={<GoHome />} fillIcon={<GoHomeFill />} descript={"홈"} link={"/"} />
+                <MenuIcon
+                    emptyIcon={<GoHome />}
+                    fillIcon={<GoHomeFill />}
+                    descript={"홈"}
+                    link={"/Youtube_Music_Web/"}
+                />
                 <MenuIcon
                     emptyIcon={<FaRegCompass />}
                     fillIcon={<FaCompass />}
                     descript={"둘러보기"}
-                    link={"/explore"}
+                    link={"/Youtube_Music_Web/explore"}
                 />
                 <MenuIcon
                     emptyIcon={<BsFileEarmarkMusic />}
                     fillIcon={<BsFileEarmarkMusicFill />}
                     descript={"보관함"}
-                    link={"/library"}
+                    link={"/Youtube_Music_Web/library"}
                 />
             </MenuWrapper>
         </Wrapper>
