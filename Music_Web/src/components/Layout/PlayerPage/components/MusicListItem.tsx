@@ -95,7 +95,11 @@ const Item = () => {
         <ItemWrapper>
             <LeftItem>
                 <PlayButton />
-                <img src={"https://via.placeholder.com/60x60/666.png"} alt={"Placeholder"} style={{ width: "100%" }} />
+                <img
+                    src={"https://via.placeholder.com/160x160/666.png"}
+                    alt={"Placeholder"}
+                    style={{ width: "32px", height: "32px" }}
+                />
             </LeftItem>
             <SongInfo>
                 <SongTitle>{"Lorem ipsum"}</SongTitle>
@@ -108,7 +112,7 @@ const Item = () => {
         </ItemWrapper>
     )
 }
-export default function MusicListNextTrack() {
+export default function MusicListItem() {
     const ItemArray = Array.from({ length: 20 }, () => <Item />)
 
     return (

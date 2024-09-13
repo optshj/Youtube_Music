@@ -49,8 +49,10 @@ const ProgressSlide = styled.input`
         }
     }
 `
-const PlayTime = styled.span`
+const PlayTime = styled.span<{ position: number; visible: boolean }>`
     position: absolute;
+    top: -35px;
+    left: ${props => props.position}px;
     color: #fff;
     font-size: 12px;
     line-height: 1.3;
@@ -59,27 +61,49 @@ const PlayTime = styled.span`
     background-color: #212121;
     pointer-events: none;
     white-space: nowrap;
+    transform: translateX(-50%);
+    display: ${props => (props.visible ? "block" : "none")};
 `
+
 export default function Progressbar({ onClick }: { onClick: (event: React.MouseEvent<HTMLDivElement>) => void }) {
+    const { songData, setCurrentTime } = useSongData()
+
     const [playTimeRatio, setPlayTimeRatio] = useState(0)
-    const [playTime, setPlayTime] = useState(0)
-    const { songData } = useSongData()
-    const playTimeMinute = Math.floor(playTime / 60)
+    const [hoverTime, setHoverTime] = useState<number>(0)
+    const [hoverPosition, setHoverPosition] = useState<number>(0)
+    const [isTooltipVisible, setIsTooltipVisible] = useState<boolean>(false)
+
+    const playTimeMinute = Math.floor(hoverTime / 60)
         .toString()
         .padStart(1, "0")
-    const playTimeSecond = (playTime % 60).toString().padStart(2, "0")
+    const playTimeSecond = (hoverTime % 60).toString().padStart(2, "0")
 
     const onChangePlayTime = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPlayTimeRatio(parseInt(e.target.value, 10))
-        setPlayTime(Math.floor(songData.playTime * (parseInt(e.target.value, 10) / 100)))
+        setCurrentTime((songData.playTime * parseInt(e.target.value, 10)) / 100)
+    }
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect()
+        const mouseX = e.clientX - rect.left
+        const ratio = (mouseX / rect.width) * 100
+        const time = Math.floor((songData.playTime * ratio) / 100)
+
+        setHoverTime(time)
+        setHoverPosition(mouseX)
+        setIsTooltipVisible(true)
+    }
+    const handleMouseLeave = () => {
+        setIsTooltipVisible(false)
     }
 
     return (
         <Wrapper onClick={onClick}>
-            <SlideBackground>
+            <SlideBackground onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
                 <ProgressInner $length={playTimeRatio} />
                 <ProgressSlide type={"range"} max={100} min={0} value={playTimeRatio} onChange={onChangePlayTime} />
-                <PlayTime>{`${playTimeMinute}:${playTimeSecond}`}</PlayTime>
+                <PlayTime
+                    visible={isTooltipVisible}
+                    position={hoverPosition}>{`${playTimeMinute}:${playTimeSecond}`}</PlayTime>
             </SlideBackground>
         </Wrapper>
     )

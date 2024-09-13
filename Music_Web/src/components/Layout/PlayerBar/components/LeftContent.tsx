@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 import { IoMdPlay, IoMdPause, IoMdSkipForward, IoMdSkipBackward } from "react-icons/io"
 
+import { useSongData } from "../../../../context/SongDataConetext"
 import { IsPlayState, usePlayState } from "../../../../context/PlayStateContext"
 
 const Wrapper = styled.div`
@@ -37,11 +38,12 @@ interface LeftContentProps {
 export default function LeftContent({ onClick, playTime }: LeftContentProps) {
     const isPlay = IsPlayState()
     const { togglePlayState } = usePlayState()
+    const { currentMinute, currentSecond } = useSongData()
 
-    const minute = Math.floor(playTime / 60)
+    const totalMinute = Math.floor(playTime / 60)
         .toString()
         .padStart(2, "0")
-    const second = (playTime % 60).toString().padStart(2, "0")
+    const totalSecond = (playTime % 60).toString().padStart(2, "0")
 
     return (
         <Wrapper onClick={onClick}>
@@ -52,7 +54,7 @@ export default function LeftContent({ onClick, playTime }: LeftContentProps) {
                 </div>
                 <IconButton as={IoMdSkipForward} />
             </IconWrapper>
-            <TimeInfo>{`00:00/${minute}:${second}`}</TimeInfo>
+            <TimeInfo>{`${currentMinute}:${currentSecond}/${totalMinute}:${totalSecond}`}</TimeInfo>
         </Wrapper>
     )
 }

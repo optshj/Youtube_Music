@@ -30,7 +30,7 @@ module.exports = {
         // 화살표 함수의 파라미터가 하나일때 괄호 생략
         "arrow-parens": ["warn", "as-needed"],
         // 사용하지 않는 변수가 있을 때 발생하는 경고 활성화
-        "no-unused-vars": ["off"],
+        "no-unused-vars": 0,
         // 콘솔 사용 시 발생하는 경고 비활성화
         "no-console": ["off"],
         // export문이 하나일 때 default export 사용 권장 경고 비활성화
@@ -66,7 +66,8 @@ module.exports = {
         "jsx-a11y/no-noninteractive-element-interactions": 0,
         "jsx-a11y/click-events-have-key-events": 0,
         "jsx-a11y/no-static-element-interactions": 0,
-        "react/require-default-props": 0
+        "react/require-default-props": 0,
+        "react/jsx-no-constructed-context-values": 0
     },
     settings: {
         "import/resolver": {

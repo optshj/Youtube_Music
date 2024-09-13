@@ -80,22 +80,16 @@ const TotalTime = styled.div`
 
 export default function PlayerControl() {
     const [playTimeRatio, setPlayTimeRatio] = useState(0)
-    const [playTime, setPlayTime] = useState(0)
-    const { songData } = useSongData()
+    const { songData, setCurrentTime, currentMinute, currentSecond } = useSongData()
 
     const totalMinute = Math.floor(songData.playTime / 60)
         .toString()
         .padStart(2, "0")
     const totalSecond = (songData.playTime % 60).toString().padStart(2, "0")
 
-    const playTimeMinute = Math.floor(playTime / 60)
-        .toString()
-        .padStart(2, "0")
-    const playTimeSecond = (playTime % 60).toString().padStart(2, "0")
-
     const onChangePlayTime = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPlayTimeRatio(parseInt(e.target.value, 10))
-        setPlayTime(Math.floor(songData.playTime * (parseInt(e.target.value, 10) / 100)))
+        setCurrentTime((songData.playTime * parseInt(e.target.value, 10)) / 100)
     }
     return (
         <Wrapper>
@@ -109,7 +103,7 @@ export default function PlayerControl() {
                         <Sliderbar type={"range"} max={100} min={0} value={playTimeRatio} onChange={onChangePlayTime} />
                     </SlidebarWrapper>
                     <TimeWrapper>
-                        <CurrentTime>{`${playTimeMinute}:${playTimeSecond}`}</CurrentTime>
+                        <CurrentTime>{`${currentMinute}:${currentSecond}`}</CurrentTime>
                         <TotalTime>{`${totalMinute}:${totalSecond}`}</TotalTime>
                     </TimeWrapper>
                 </div>

@@ -45,7 +45,11 @@ interface CenterContentProps {
 export default function CenterContent({ onClick, songData }: CenterContentProps) {
     return (
         <Wrapper onClick={onClick}>
-            <img src={"https://via.placeholder.com/40x40/666.png"} alt={"Placeholder"} />
+            <img
+                src={"https://via.placeholder.com/160x160/666.png"}
+                alt={"Placeholder"}
+                style={{ width: "40px", height: "40px" }}
+            />
             <ContentInfoWrapper>
                 <Title>{songData.title}</Title>
                 <ExplainWrapper>

@@ -126,7 +126,12 @@ export default React.memo(function TransverseItem({ songData }: { songData: Song
 
     return (
         <ItemWrapper onClick={onClick}>
-            <Img src={"https://via.placeholder.com/48x48/666.png"} alt={"MusicImage"} loading={"eager"} />
+            <Img
+                src={"https://via.placeholder.com/160x160/666.png"}
+                alt={"MusicImage"}
+                loading={"eager"}
+                style={{ width: "48px", height: "48px" }}
+            />
             <Fluctuation style={{ color }}>{icon}</Fluctuation>
             <Rank>{songData.rank}</Rank>
             <Details>
